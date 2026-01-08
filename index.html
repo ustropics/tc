@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tropical Cyclone RI Case Studies</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+
+        <!-- Navbar -->
+        <header id="navbar">
+            <div id="controls">
+                <!-- Player controls (hidden by default) -->
+                <div id="player-controls" style="display:none;">
+                    <button id="play-pause"></button>
+                    <button id="prev">Prev</button>
+                    <button id="next">Next</button>
+
+                    <label class="speed-control">
+                        Speed:
+                        <input type="range" id="speed" min="0.1" max="20" step="0.1" value="1">
+                        <span id="speed-value">1x</span>
+                    </label>
+                    <label class="loop-control">
+                        Loop <input type="checkbox" id="loop" checked>
+                    </label>
+
+                    <div id="counter">
+                        <span id="current-num">0</span> / <span id="image-count">0</span>
+                    </div>
+                </div>
+
+                <!-- Right side dropdowns (always visible) -->
+                <div id="right-controls">
+                    <select id="year-filter">
+                        <option value="">Select Year</option>
+                    </select>
+                    <select id="product-filter" disabled>
+                        <option value="">Select Product</option>
+                    </select>
+                    <select id="product-filter-2" disabled>
+                        <option value="">Select 2nd Product</option>
+                    </select>
+                    <button id="about-btn" title="About">i</button>
+                </div>
+            </div>
+
+            <!-- Progress bar (hidden by default) -->
+            <div id="progress-wrapper" style="display:none;">
+                <input type="range" id="progress-slider" min="0" max="0" value="0" step="1">
+                <div id="progress-track">
+                    <div id="progress-fill"></div>
+                    <div id="progress-thumb"></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Image Container -->
+        <main id="main-container">
+            <!-- 2-Column Placeholder -->
+            <div id="placeholder" class="placeholder-grid">
+                <div class="col-left">
+                    <img src="images/gulf_bathymetry.webp" alt="Gulf Bathymetry" class="bathymetry-img">
+                </div>
+                <div class="col-right">
+                    <div class="example-grid">
+                        <div class="example-card">
+                            <img src="images/ssh_example.webp" alt="SSH" class="example-img">
+                            <p><strong>Sea Surface Height</strong><br>Eddies & ocean currents</p>
+                        </div>
+                        <div class="example-card">
+                            <img src="images/salinity_example.webp" alt="Salinity" class="example-img">
+                            <p><strong>Depth-Averaged Salinity</strong><br>Freshwater plumes & mixing</p>
+                        </div>
+                        <div class="example-card">
+                            <img src="images/temperature_example.webp" alt="Temperature" class="example-img">
+                            <p><strong>Depth-Averaged SST</strong><br>Thermal fronts & upwelling</p>
+                        </div>
+                        <div class="example-card">
+                            <img src="images/cross_section_example.webp" alt="Cross-Section" class="example-img">
+                            <p><strong>Depth Cross-Section</strong><br>Vertical structure & gradients</p>
+                        </div>
+                        <div class="example-card">
+                            <img src="images/mixed_layer_example.webp" alt="Overlay" class="example-img">
+                            <p><strong>Mixed Layer Depth</strong><br>Surface mixing & stratification</p>
+                        </div>
+                        <div class="example-card">
+                            <img src="images/line_plot_example.webp" alt="Line Plots" class="example-img">
+                            <p><strong>Depth-Transposed Lines</strong><br>Temporal trends & variability</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DUAL VIEW (side-by-side images) -->
+            <div id="dual-view" style="display:none;">
+                <img id="current-slide-1" src="" alt="Slide 1" class="dual-img">
+                <img id="current-slide-2" src="" alt="Slide 2" class="dual-img">
+            </div>
+
+            <!-- SINGLE IMAGE (fallback) -->
+            <img id="current-slide" src="" alt="Current slide" style="display:none;">
+        </main>
+    </div>
+
+    <!-- About Panel -->
+    <div id="about-panel">
+        <button id="close-about">X</button>
+        <h2>About This Viewer</h2>
+        <p><strong>Gulf of Mexico Ocean Dynamics</strong></p>
+        <p>Interactive time-series viewer for HYCOM model output including salinity, SSH, temperature, currents, and more.</p>
+        <p><strong>Controls:</strong></p>
+        <ul>
+            <li>Right Arrow Next | Left Arrow Prev</li>
+            <li>Space Play / Pause</li>
+            <li>Drag slider to scrub</li>
+        </ul>
+        <p>Data: US Tropics Consortium</p>
+    </div>
+
+    <div class="status" id="status">Loading catalog...</div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
