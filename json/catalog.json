@@ -1,0 +1,8 @@
+{
+  "Ian": {
+    "Enthalpy Fluxes - Surface (minimum)": "ian_eflx_sfc_min_images.json",
+    "Enthalpy Fluxes - Surface (full)": "ian_eflx_sfc_full_images.json",
+    "Enthalpy Fluxes - Horizontal (minimum)": "ian_eflx_hor_min_images.json"
+    
+  }
+}
