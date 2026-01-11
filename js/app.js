@@ -39,6 +39,7 @@ const els = {
 
     // Player controls
     playerControls: document.getElementById('player-controls'),
+    siteTitle:      document.getElementById('site-title'),
     playPause:      document.getElementById('play-pause'),
     prevBtn:        document.getElementById('prev'),
     nextBtn:        document.getElementById('next'),
@@ -68,10 +69,7 @@ const els = {
     viewer3dIframe:    document.getElementById('viewer-3d-iframe'),
     viewer3dLabel:     document.getElementById('viewer-3d-label'),
     viewer3dFrameNum:  document.getElementById('viewer-3d-frame-num'),
-    close3dViewer:     document.getElementById('close-3d-viewer'),
-
-    // Time display
-    liveTime: document.getElementById('live-time')
+    close3dViewer:     document.getElementById('close-3d-viewer')
 };
 
 // === UTILITIES ===
@@ -99,24 +97,15 @@ function updateStatus(message, type = 'info') {
     }
 }
 
-function updateLiveTime() {
-    const now = new Date();
-    const timeStr = now.toLocaleTimeString('en-US', { 
-        hour12: false, 
-        hour: '2-digit', 
-        minute: '2-digit', 
-        second: '2-digit' 
-    });
-    els.liveTime.textContent = timeStr;
-}
-
 // === SHOW/HIDE PLAYER CONTROLS ===
 function showPlayerControls() {
+    els.siteTitle.style.display = 'none';
     els.playerControls.style.display = 'flex';
     els.progressWrapper.style.display = 'block';
 }
 
 function hidePlayerControls() {
+    els.siteTitle.style.display = 'flex';
     els.playerControls.style.display = 'none';
     els.progressWrapper.style.display = 'none';
 }
@@ -149,9 +138,13 @@ async function loadCatalog() {
 els.year.onchange = () => {
     const year = els.year.value;
     [els.prod1, els.prod2, els.view3d].forEach(sel => {
-        sel.innerHTML = sel === els.view3d 
-            ? '<option value="">Select 3D View</option>'
-            : '<option value="">Select Product</option>';
+        if (sel === els.view3d) {
+            sel.innerHTML = '<option value="">Select 3D View</option>';
+        } else if (sel === els.prod2) {
+            sel.innerHTML = '<option value="">Select 2nd Product</option><option value="none">None</option>';
+        } else {
+            sel.innerHTML = '<option value="">Select Product</option>';
+        }
         sel.disabled = !year;
     });
 
@@ -190,6 +183,17 @@ els.prod1.onchange = async () => {
 
 // === PRODUCT 2 CHANGE ===
 els.prod2.onchange = async () => {
+    const value = els.prod2.value;
+    
+    // Handle "None" selection - clear second image
+    if (value === 'none' || value === '') {
+        images2 = [];
+        els.slide2.src = '';
+        if (els.frameTitle2) els.frameTitle2.textContent = '--';
+        updateViewMode();
+        return;
+    }
+    
     await loadProduct(2);
     updateViewMode();
 };
@@ -326,7 +330,12 @@ function syncProduct2Options() {
     const selected1 = els.prod1.value;
     const options2 = els.prod2.options;
     for (let opt of options2) {
-        opt.disabled = opt.value === selected1;
+        // Don't disable "None" or the placeholder
+        if (opt.value === 'none' || opt.value === '') {
+            opt.disabled = false;
+        } else {
+            opt.disabled = opt.value === selected1;
+        }
     }
     if (els.prod2.value === selected1) {
         els.prod2.value = '';
@@ -569,10 +578,6 @@ loadProduct = async function(which) {
 window.onload = () => {
     loadCatalog();
     resetPlayer();
-    
-    // Start live time updates
-    updateLiveTime();
-    setInterval(updateLiveTime, 1000);
     
     // Add entrance animations
     document.querySelectorAll('.example-card').forEach((card, i) => {

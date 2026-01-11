@@ -23,139 +23,108 @@
     <div class="scanlines"></div>
     
     <div id="app">
-        <!-- Top Bar - System Status -->
-        <div class="top-bar">
-            <div class="top-bar-left">
-                <div class="system-status">
-                    <span class="status-dot"></span>
-                    <span class="status-text">SYSTEM ACTIVE</span>
-                </div>
-                <div class="coordinates" id="timestamp">
-                    <i class="fas fa-clock"></i>
-                    <span id="live-time">--:--:--</span>
-                </div>
-            </div>
-            <div class="top-bar-center">
-                <h1 class="site-title">
-                    <span class="title-icon"><i class="fas fa-hurricane"></i></span>
-                    <span class="title-text">TROPICAL CYCLONE</span>
-                    <span class="title-accent">RI CASE STUDIES</span>
-                </h1>
-            </div>
-            <div class="top-bar-right">
-                <div class="data-badge">
-                    <span class="badge-label">DATA SOURCE</span>
-                    <span class="badge-value">HYCOM</span>
-                </div>
-                <button id="about-btn" class="icon-btn" title="About">
-                    <i class="fas fa-info-circle"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Main Navigation / Controls -->
+        <!-- Single Navbar -->
         <header id="navbar">
             <div id="controls">
-                <!-- Selection Panel -->
-                <div class="selection-panel">
-                    <div class="select-group">
-                        <label class="select-label">
-                            <i class="fas fa-hurricane"></i>
-                            <span>CYCLONE</span>
-                        </label>
-                        <div class="select-wrapper">
-                            <select id="year-filter">
-                                <option value="">Select Cyclone</option>
-                            </select>
-                            <span class="select-arrow"><i class="fas fa-chevron-down"></i></span>
-                        </div>
-                    </div>
+                <!-- Left side: Title OR Player controls -->
+                <div class="navbar-left">
+                    <h1 class="site-title" id="site-title">
+                        <span class="title-icon"><i class="fas fa-hurricane"></i></span>
+                        <span class="title-text">TROPICAL CYCLONE</span>
+                        <span class="title-accent">RI CASE STUDIES</span>
+                    </h1>
                     
-                    <div class="select-group">
-                        <label class="select-label">
-                            <i class="fas fa-layer-group"></i>
-                            <span>PRIMARY LAYER</span>
-                        </label>
-                        <div class="select-wrapper">
-                            <select id="product-filter" disabled>
-                                <option value="">Select Product</option>
-                            </select>
-                            <span class="select-arrow"><i class="fas fa-chevron-down"></i></span>
+                    <!-- Player controls (hidden by default, replaces title) -->
+                    <div id="player-controls" class="player-panel" style="display:none;">
+                        <div class="playback-controls">
+                            <button id="prev" class="control-btn" title="Previous Frame">
+                                <i class="fas fa-step-backward"></i>
+                            </button>
+                            <button id="play-pause" class="control-btn play-btn" title="Play/Pause">
+                                <i class="fas fa-play"></i>
+                                <i class="fas fa-pause"></i>
+                            </button>
+                            <button id="next" class="control-btn" title="Next Frame">
+                                <i class="fas fa-step-forward"></i>
+                            </button>
                         </div>
-                    </div>
-                    
-                    <div class="select-group">
-                        <label class="select-label">
-                            <i class="fas fa-clone"></i>
-                            <span>COMPARE LAYER</span>
-                        </label>
-                        <div class="select-wrapper">
-                            <select id="product-filter-2" disabled>
-                                <option value="">Select 2nd Product</option>
-                            </select>
-                            <span class="select-arrow"><i class="fas fa-chevron-down"></i></span>
+                        
+                        <div class="speed-control">
+                            <label class="control-label">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>SPEED</span>
+                            </label>
+                            <input type="range" id="speed" min="0.1" max="20" step="0.1" value="1">
+                            <span id="speed-value" class="speed-display">1.0x</span>
                         </div>
-                    </div>
-                    
-                    <div class="select-group">
-                        <label class="select-label">
-                            <i class="fas fa-cube"></i>
-                            <span>3D VIEW</span>
-                        </label>
-                        <div class="select-wrapper">
-                            <select id="view-3d-filter" disabled>
-                                <option value="">Select 3D View</option>
-                            </select>
-                            <span class="select-arrow"><i class="fas fa-chevron-down"></i></span>
+                        
+                        <div class="loop-control">
+                            <label class="toggle-label">
+                                <input type="checkbox" id="loop" checked>
+                                <span class="toggle-track">
+                                    <span class="toggle-thumb"></span>
+                                </span>
+                                <span class="toggle-text">
+                                    <i class="fas fa-repeat"></i>
+                                    LOOP
+                                </span>
+                            </label>
+                        </div>
+                        
+                        <div id="counter" class="frame-counter">
+                            <span class="counter-label">FRAME</span>
+                            <span class="counter-value">
+                                <span id="current-num">0</span>
+                                <span class="counter-divider">/</span>
+                                <span id="image-count">0</span>
+                            </span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Player controls (hidden by default) -->
-                <div id="player-controls" class="player-panel" style="display:none;">
-                    <div class="playback-controls">
-                        <button id="prev" class="control-btn" title="Previous Frame">
-                            <i class="fas fa-step-backward"></i>
-                        </button>
-                        <button id="play-pause" class="control-btn play-btn" title="Play/Pause">
-                            <i class="fas fa-play"></i>
-                            <i class="fas fa-pause"></i>
-                        </button>
-                        <button id="next" class="control-btn" title="Next Frame">
-                            <i class="fas fa-step-forward"></i>
-                        </button>
+                <!-- Right side: Dropdowns + About -->
+                <div class="navbar-right">
+                    <div class="selection-panel">
+                        <div class="select-group">
+                            <div class="select-wrapper">
+                                <select id="year-filter">
+                                    <option value="">Select Cyclone</option>
+                                </select>
+                                <span class="select-arrow"><i class="fas fa-chevron-down"></i></span>
+                            </div>
+                        </div>
+                        
+                        <div class="select-group">
+                            <div class="select-wrapper">
+                                <select id="product-filter" disabled>
+                                    <option value="">Select Product</option>
+                                </select>
+                                <span class="select-arrow"><i class="fas fa-chevron-down"></i></span>
+                            </div>
+                        </div>
+                        
+                        <div class="select-group">
+                            <div class="select-wrapper">
+                                <select id="product-filter-2" disabled>
+                                    <option value="">Select 2nd Product</option>
+                                </select>
+                                <span class="select-arrow"><i class="fas fa-chevron-down"></i></span>
+                            </div>
+                        </div>
+                        
+                        <div class="select-group">
+                            <div class="select-wrapper">
+                                <select id="view-3d-filter" disabled>
+                                    <option value="">Select 3D View</option>
+                                </select>
+                                <span class="select-arrow"><i class="fas fa-chevron-down"></i></span>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="speed-control">
-                        <label class="control-label">
-                            <i class="fas fa-tachometer-alt"></i>
-                            <span>SPEED</span>
-                        </label>
-                        <input type="range" id="speed" min="0.1" max="20" step="0.1" value="1">
-                        <span id="speed-value" class="speed-display">1.0x</span>
-                    </div>
-                    
-                    <div class="loop-control">
-                        <label class="toggle-label">
-                            <input type="checkbox" id="loop" checked>
-                            <span class="toggle-track">
-                                <span class="toggle-thumb"></span>
-                            </span>
-                            <span class="toggle-text">
-                                <i class="fas fa-repeat"></i>
-                                LOOP
-                            </span>
-                        </label>
-                    </div>
-                    
-                    <div id="counter" class="frame-counter">
-                        <span class="counter-label">FRAME</span>
-                        <span class="counter-value">
-                            <span id="current-num">0</span>
-                            <span class="counter-divider">/</span>
-                            <span id="image-count">0</span>
-                        </span>
-                    </div>
+                    <button id="about-btn" class="icon-btn" title="About">
+                        <i class="fas fa-info-circle"></i>
+                    </button>
                 </div>
             </div>
 
