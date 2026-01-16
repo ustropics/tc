@@ -3,6 +3,7 @@
     "Enthalpy Fluxes - Surface (minimum)": "{storm}_eflx_sfc_min_images.json",
     "Enthalpy Fluxes - Surface (full)": "{storm}_eflx_sfc_full_images.json",
     "Enthalpy Fluxes - Horizontal (minimum)": "{storm}_eflx_hor_min_images.json",
+    "Simulated Radar - Reflectivity (minimum)": "{storm}_radar_reflect_images.json",
     "3d_Enthalpy Flux Isosurface": "images/eflx_3d/{storm}_eflx_3d_isosurface_{frame}.html",
     "3d_Divergence": "images/div_3d/{storm}_divergence_3d_{frame}.html",
     "3d_Windspeed": "images/ws_3d/{storm}_windspeed_3d_{frame}.html"
