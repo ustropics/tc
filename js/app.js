@@ -69,7 +69,8 @@ const els = {
     viewer3dIframe:    document.getElementById('viewer-3d-iframe'),
     viewer3dLabel:     document.getElementById('viewer-3d-label'),
     viewer3dFrameNum:  document.getElementById('viewer-3d-frame-num'),
-    close3dViewer:     document.getElementById('close-3d-viewer')
+    close3dViewer:     document.getElementById('close-3d-viewer'),
+    viewer3dLoader:    document.getElementById('viewer-3d-loader')
 };
 
 // === UTILITIES ===
@@ -220,6 +221,18 @@ els.view3d.onchange = () => {
 };
 
 // === 3D VIEWER FUNCTIONS ===
+function showLoader3d() {
+    if (els.viewer3dLoader) {
+        els.viewer3dLoader.classList.add('visible');
+    }
+}
+
+function hideLoader3d() {
+    if (els.viewer3dLoader) {
+        els.viewer3dLoader.classList.remove('visible');
+    }
+}
+
 function open3dViewer() {
     if (!current3dView || !view3dBaseUrl) return;
     
@@ -233,13 +246,23 @@ function open3dViewer() {
         }
     }
     
-    // Build the iframe URL
-    // view3dBaseUrl should be a pattern like "3d/ian_eflx_3d_isosurface_{frame}.html"
-    const iframeUrl = view3dBaseUrl.replace('{frame}', frameNum);
+    // Build the iframe URL - replace {frame} and {storm} placeholders
+    const stormLower = els.year.value.toLowerCase();
+    let iframeUrl = view3dBaseUrl.replace('{frame}', frameNum);
+    iframeUrl = iframeUrl.replace(/{storm}/g, stormLower);
     
     // Update UI
     els.viewer3dLabel.textContent = current3dView.replace('3d_', '').replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
     els.viewer3dFrameNum.textContent = frameNum;
+    
+    // Show loading animation before loading iframe
+    showLoader3d();
+    
+    // Set up load event listener for iframe
+    els.viewer3dIframe.onload = function() {
+        hideLoader3d();
+    };
+    
     els.viewer3dIframe.src = iframeUrl;
     
     // Show overlay
@@ -250,6 +273,7 @@ function open3dViewer() {
 }
 
 function close3dViewer() {
+    hideLoader3d();
     els.viewer3dOverlay.classList.remove('open');
     els.viewer3dIframe.src = '';
     els.view3d.value = '';
@@ -269,8 +293,19 @@ function update3dViewerFrame() {
         }
     }
     
-    const iframeUrl = view3dBaseUrl.replace('{frame}', frameNum);
+    // Replace both {frame} and {storm} placeholders
+    const stormLower = els.year.value.toLowerCase();
+    let iframeUrl = view3dBaseUrl.replace('{frame}', frameNum);
+    iframeUrl = iframeUrl.replace(/{storm}/g, stormLower);
+    
     els.viewer3dFrameNum.textContent = frameNum;
+    
+    // Show loading while frame loads
+    showLoader3d();
+    els.viewer3dIframe.onload = function() {
+        hideLoader3d();
+    };
+    
     els.viewer3dIframe.src = iframeUrl;
 }
 
@@ -283,7 +318,11 @@ async function loadProduct(which) {
 
     if (!year || !product) return;
 
-    const filename = catalog[year][product];
+    // Get filename and replace {storm} placeholder with lowercase storm name
+    let filename = catalog[year][product];
+    const stormLower = year.toLowerCase();
+    filename = filename.replace(/{storm}/g, stormLower);
+    
     const url = `${IMAGES_BASE}/${filename}`;
 
     try {
