@@ -1,11 +1,51 @@
 {
   "Ian": {
-    "Enthalpy Fluxes - Surface (minimum)": "{storm}_eflx_sfc_min_images.json",
-    "Enthalpy Fluxes - Surface (full)": "{storm}_eflx_sfc_full_images.json",
-    "Enthalpy Fluxes - Horizontal (minimum)": "{storm}_eflx_hor_min_images.json",
-    "Simulated Radar - Reflectivity (minimum)": "{storm}_radar_reflect_images.json",
-    "3d_Enthalpy Flux Isosurface": "images/eflx_3d/{storm}_eflx_3d_isosurface_{frame}.html",
-    "3d_Divergence": "images/div_3d/{storm}_divergence_3d_{frame}.html",
-    "3d_Windspeed": "images/ws_3d/{storm}_windspeed_3d_{frame}.html"
+    "Enthalpy Fluxes - Surface": {
+      "type": "2d",
+      "hasOverlays": true,
+      "patterns": {
+        "base": "images/{storm}/eflx_sfc_min/{storm}_eflx_sfc_min_{frame}.png",
+        "wind": "images/{storm}/eflx_sfc_wind/{storm}_eflx_sfc_wind_{frame}.png",
+        "rings": "images/{storm}/eflx_sfc_rings/{storm}_eflx_sfc_rings_{frame}.png",
+        "full": "images/{storm}/eflx_sfc_full/{storm}_eflx_sfc_full_{frame}.png"
+      },
+      "frameStart": 50,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Enthalpy Fluxes (Surface) Frame {frame}"
+    },
+    "Enthalpy Fluxes - Horizontal": {
+      "type": "2d",
+      "hasOverlays": true,
+      "patterns": {
+        "base": "images/{storm}/eflx_hor_min/{storm}_eflx_hor_min_{frame}.png",
+        "wind": "images/{storm}/eflx_hor_wind/{storm}_eflx_hor_wind_{frame}.png",
+        "rings": "images/{storm}/eflx_hor_rings/{storm}_eflx_hor_rings_{frame}.png",
+        "full": "images/{storm}/eflx_hor_full/{storm}_eflx_hor_full_{frame}.png"
+      },
+      "frameStart": 50,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Enthalpy Fluxes (Horizontal) Frame {frame}"
+    },
+    "Simulated Radar - Reflectivity": {
+      "type": "2d",
+      "hasOverlays": true,
+      "patterns": {
+        "base": "images/{storm}/radar_min/{storm}_radar_min_{frame}.png",
+        "wind": "images/{storm}/radar_wind/{storm}_radar_wind_{frame}.png",
+        "rings": "images/{storm}/radar_rings/{storm}_radar_rings_{frame}.png",
+        "full": "images/{storm}/radar_full/{storm}_radar_full_{frame}.png"
+      },
+      "frameStart": 50,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Simulated Radar Reflectivity Frame {frame}"
+    },
+    "3d_Enthalpy Flux Isosurface": {
+      "type": "3d",
+      "pattern": "images/{storm}/eflx_3d/{storm}_eflx_3d_isosurface_{frame}.html"
+    },
+    "3d_Windspeed": {
+      "type": "3d",
+      "pattern": "images/{storm}/ws_3d/{storm}_windspeed_3d_{frame}.html"
+    }
   }
 }
