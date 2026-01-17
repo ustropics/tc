@@ -5,7 +5,7 @@
       "hasOverlays": true,
       "patterns": {
         "base": "images/{storm}/eflx_sfc_min/{storm}_eflx_sfc_min_{frame}.png",
-        "wind": "images/{storm}/eflx_sfc_wind/{storm}_eflx_sfc_wind_{frame}.png",
+        "wind": "images/{storm}/eflx_sfc_winds/{storm}_eflx_sfc_winds_{frame}.png",
         "rings": "images/{storm}/eflx_sfc_rings/{storm}_eflx_sfc_rings_{frame}.png",
         "full": "images/{storm}/eflx_sfc_full/{storm}_eflx_sfc_full_{frame}.png"
       },
