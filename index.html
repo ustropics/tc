@@ -13,14 +13,16 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/layout.css">
 </head>
 <body>
     <!-- Animated Background -->
     <div class="bg-grid"></div>
     <div class="bg-glow bg-glow-1"></div>
     <div class="bg-glow bg-glow-2"></div>
-    <div class="scanlines"></div>
+
     
     <div id="app">
         <!-- Single Navbar -->
@@ -82,163 +84,208 @@
                     </div>
                 </div>
 
-                <!-- Right side: Dropdowns + About -->
+                <!-- Right side: Navigation Buttons + About -->
                 <div class="navbar-right">
-                    <div class="selection-panel">
-                        <div class="select-group">
-                            <div class="select-wrapper">
-                                <select id="year-filter">
-                                    <option value="">Select Cyclone</option>
-                                </select>
-                                <span class="select-arrow"><i class="fas fa-chevron-down"></i></span>
+                    <nav class="nav-buttons">
+                        <!-- Storm Button -->
+                        <div class="nav-btn-wrapper">
+                            <button class="nav-btn" id="storm-btn" data-menu="storm-menu">
+                                <i class="fas fa-hurricane"></i>
+                                <span class="nav-btn-text">Storm</span>
+                                <span class="nav-btn-value" id="storm-value">Select</span>
+                                <i class="fas fa-chevron-down nav-btn-arrow"></i>
+                            </button>
+                            <div class="nav-dropdown" id="storm-menu">
+                                <div class="dropdown-header">
+                                    <i class="fas fa-hurricane"></i>
+                                    <span>Select Storm</span>
+                                </div>
+                                <div class="dropdown-content" id="storm-options">
+                                    <!-- Populated by JS -->
+                                </div>
                             </div>
                         </div>
-                        
-                        <div class="select-group">
-                            <div class="select-wrapper">
-                                <select id="product-filter" disabled>
-                                    <option value="">Select Product</option>
-                                </select>
-                                <span class="select-arrow"><i class="fas fa-chevron-down"></i></span>
+
+                        <!-- Primary Product Button -->
+                        <div class="nav-btn-wrapper">
+                            <button class="nav-btn" id="product1-btn" data-menu="product1-menu" disabled>
+                                <i class="fas fa-layer-group"></i>
+                                <span class="nav-btn-text">Primary</span>
+                                <span class="nav-btn-value" id="product1-value">Select</span>
+                                <i class="fas fa-chevron-down nav-btn-arrow"></i>
+                            </button>
+                            <div class="nav-dropdown" id="product1-menu">
+                                <div class="dropdown-header">
+                                    <i class="fas fa-layer-group"></i>
+                                    <span>Primary Product</span>
+                                </div>
+                                <div class="dropdown-content" id="product1-options">
+                                    <!-- Populated by JS -->
+                                </div>
                             </div>
                         </div>
-                        
-                        <div class="select-group">
-                            <div class="select-wrapper">
-                                <select id="product-filter-2" disabled>
-                                    <option value="">Select 2nd Product</option>
-                                </select>
-                                <span class="select-arrow"><i class="fas fa-chevron-down"></i></span>
+
+                        <!-- Secondary Product Button -->
+                        <div class="nav-btn-wrapper">
+                            <button class="nav-btn" id="product2-btn" data-menu="product2-menu" disabled>
+                                <i class="fas fa-clone"></i>
+                                <span class="nav-btn-text">Compare</span>
+                                <span class="nav-btn-value" id="product2-value">None</span>
+                                <i class="fas fa-chevron-down nav-btn-arrow"></i>
+                            </button>
+                            <div class="nav-dropdown" id="product2-menu">
+                                <div class="dropdown-header">
+                                    <i class="fas fa-clone"></i>
+                                    <span>Compare With</span>
+                                </div>
+                                <div class="dropdown-content" id="product2-options">
+                                    <!-- Populated by JS -->
+                                </div>
                             </div>
                         </div>
-                        
-                        <div class="select-group">
-                            <div class="select-wrapper">
-                                <select id="view-3d-filter" disabled>
-                                    <option value="">Select 3D View</option>
-                                </select>
-                                <span class="select-arrow"><i class="fas fa-chevron-down"></i></span>
+
+                        <!-- 3D View Button -->
+                        <div class="nav-btn-wrapper">
+                            <button class="nav-btn" id="view3d-btn" data-menu="view3d-menu" disabled>
+                                <i class="fas fa-cube"></i>
+                                <span class="nav-btn-text">3D View</span>
+                                <span class="nav-btn-value" id="view3d-value">Select</span>
+                                <i class="fas fa-chevron-down nav-btn-arrow"></i>
+                            </button>
+                            <div class="nav-dropdown" id="view3d-menu">
+                                <div class="dropdown-header">
+                                    <i class="fas fa-cube"></i>
+                                    <span>3D Visualization</span>
+                                </div>
+                                <div class="dropdown-content" id="view3d-options">
+                                    <!-- Populated by JS -->
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </nav>
                     
-                    <button id="about-btn" class="icon-btn" title="About">
-                        <i class="fas fa-info-circle"></i>
+                    <!-- About Button -->
+                    <button class="icon-btn" id="about-btn" title="About">
+                        <i class="fas fa-info"></i>
                     </button>
                 </div>
             </div>
 
-            <!-- Progress bar (hidden by default) -->
+            <!-- Progress Bar (unified) -->
             <div id="progress-wrapper" style="display:none;">
-                <input type="range" id="progress-slider" min="0" max="0" value="0" step="1">
+                <input type="range" id="progress-slider" min="0" max="0" value="0">
                 <div id="progress-track">
                     <div id="progress-fill"></div>
-                    <div id="progress-markers"></div>
                 </div>
                 <div id="progress-thumb">
-                    <span class="thumb-glow"></span>
+                    <div class="thumb-glow"></div>
                 </div>
             </div>
         </header>
 
-        <!-- Main Image Container -->
+        <!-- Main Content -->
         <main id="main-container">
-            <!-- Placeholder Landing -->
-            <div id="placeholder" class="placeholder-grid">
-                <div class="col-left">
-                    <div class="hero-card">
-                        <div class="hero-badge">
-                            <i class="fas fa-satellite"></i>
-                            <span>OCEAN DYNAMICS VIEWER</span>
-                        </div>
-                        <img src="images/static/flux_hurricane_3d.png" alt="Gulf Bathymetry" class="bathymetry-img">
-                        <div class="hero-overlay">
-                            <div class="hero-stats">
-                                <div class="stat-item">
-                                    <span class="stat-value">HYCOM</span>
-                                    <span class="stat-label">Model Output</span>
-                                </div>
-                                <div class="stat-item">
-                                    <span class="stat-value">Gulf of Mexico</span>
-                                    <span class="stat-label">Region</span>
+            <!-- PLACEHOLDER (landing) -->
+            <div id="placeholder">
+                <div class="placeholder-grid">
+                    <div class="col-left">
+                        <div class="hero-card">
+                            <div class="hero-badge">
+                                <i class="fas fa-database"></i>
+                                <span>HYCOM OUTPUT</span>
+                            </div>
+                            <div class="hero-overlay">
+                                <div class="hero-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-value">2024</span>
+                                        <span class="stat-label">Season</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-value">CAT 5</span>
+                                        <span class="stat-label">Peak Intensity</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-value">RI</span>
+                                        <span class="stat-label">Event Type</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-right">
-                    <div class="products-header">
-                        <h2>
-                            <span class="header-icon"><i class="fas fa-database"></i></span>
-                            Available Products
-                        </h2>
-                        <p class="header-subtitle">Select a cyclone to begin visualization</p>
-                    </div>
-                    <div class="example-grid">
-                        <div class="example-card" data-category="physical">
-                            <div class="card-glow"></div>
-                            <div class="card-image">
-                                <img src="images/ssh_example.webp" alt="SSH" class="example-img">
-                                <div class="card-badge">SSH</div>
-                            </div>
-                            <div class="card-content">
-                                <h3>Sea Surface Height</h3>
-                                <p>Eddies & ocean currents</p>
-                            </div>
+                    <div class="col-right">
+                        <div class="products-header">
+                            <h2>
+                                <i class="fas fa-th-large header-icon"></i>
+                                Available Products
+                            </h2>
+                            <p class="header-subtitle">Select storm to begin analysis</p>
                         </div>
-                        <div class="example-card" data-category="chemical">
-                            <div class="card-glow"></div>
-                            <div class="card-image">
-                                <img src="images/salinity_example.webp" alt="Salinity" class="example-img">
-                                <div class="card-badge">SAL</div>
+                        <div class="example-grid">
+                            <div class="example-card" data-category="fluxes">
+                                <div class="card-glow"></div>
+                                <div class="card-image">
+                                    <img src="images/enthalpy_example.webp" alt="Enthalpy" class="example-img">
+                                    <div class="card-badge">FLUX</div>
+                                </div>
+                                <div class="card-content">
+                                    <h3>Enthalpy Fluxes</h3>
+                                    <p>Ocean-atmosphere energy exchange</p>
+                                </div>
                             </div>
-                            <div class="card-content">
-                                <h3>Depth-Averaged Salinity</h3>
-                                <p>Freshwater plumes & mixing</p>
+                            <div class="example-card" data-category="thermal">
+                                <div class="card-glow"></div>
+                                <div class="card-image">
+                                    <img src="images/temperature_example.webp" alt="Temperature" class="example-img">
+                                    <div class="card-badge">TEMP</div>
+                                </div>
+                                <div class="card-content">
+                                    <h3>Depth-Averaged SST</h3>
+                                    <p>Thermal fronts & upwelling</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="example-card" data-category="thermal">
-                            <div class="card-glow"></div>
-                            <div class="card-image">
-                                <img src="images/temperature_example.webp" alt="Temperature" class="example-img">
-                                <div class="card-badge">TEMP</div>
+                            <div class="example-card" data-category="structure">
+                                <div class="card-glow"></div>
+                                <div class="card-image">
+                                    <img src="images/cross_section_example.webp" alt="Cross-Section" class="example-img">
+                                    <div class="card-badge">XSEC</div>
+                                </div>
+                                <div class="card-content">
+                                    <h3>Depth Cross-Section</h3>
+                                    <p>Vertical structure & gradients</p>
+                                </div>
                             </div>
-                            <div class="card-content">
-                                <h3>Depth-Averaged SST</h3>
-                                <p>Thermal fronts & upwelling</p>
+                            <div class="example-card" data-category="mixing">
+                                <div class="card-glow"></div>
+                                <div class="card-image">
+                                    <img src="images/mixed_layer_example.webp" alt="Overlay" class="example-img">
+                                    <div class="card-badge">MLD</div>
+                                </div>
+                                <div class="card-content">
+                                    <h3>Mixed Layer Depth</h3>
+                                    <p>Surface mixing & stratification</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="example-card" data-category="structure">
-                            <div class="card-glow"></div>
-                            <div class="card-image">
-                                <img src="images/cross_section_example.webp" alt="Cross-Section" class="example-img">
-                                <div class="card-badge">XSEC</div>
+                            <div class="example-card" data-category="temporal">
+                                <div class="card-glow"></div>
+                                <div class="card-image">
+                                    <img src="images/line_plot_example.webp" alt="Line Plots" class="example-img">
+                                    <div class="card-badge">TIME</div>
+                                </div>
+                                <div class="card-content">
+                                    <h3>Depth-Transposed Lines</h3>
+                                    <p>Temporal trends & variability</p>
+                                </div>
                             </div>
-                            <div class="card-content">
-                                <h3>Depth Cross-Section</h3>
-                                <p>Vertical structure & gradients</p>
-                            </div>
-                        </div>
-                        <div class="example-card" data-category="mixing">
-                            <div class="card-glow"></div>
-                            <div class="card-image">
-                                <img src="images/mixed_layer_example.webp" alt="Overlay" class="example-img">
-                                <div class="card-badge">MLD</div>
-                            </div>
-                            <div class="card-content">
-                                <h3>Mixed Layer Depth</h3>
-                                <p>Surface mixing & stratification</p>
-                            </div>
-                        </div>
-                        <div class="example-card" data-category="temporal">
-                            <div class="card-glow"></div>
-                            <div class="card-image">
-                                <img src="images/line_plot_example.webp" alt="Line Plots" class="example-img">
-                                <div class="card-badge">TIME</div>
-                            </div>
-                            <div class="card-content">
-                                <h3>Depth-Transposed Lines</h3>
-                                <p>Temporal trends & variability</p>
+                            <div class="example-card" data-category="salinity">
+                                <div class="card-glow"></div>
+                                <div class="card-image">
+                                    <img src="images/salinity_example.webp" alt="Salinity" class="example-img">
+                                    <div class="card-badge">SAL</div>
+                                </div>
+                                <div class="card-content">
+                                    <h3>Depth-Averaged Salinity</h3>
+                                    <p>Freshwater plumes & mixing</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -251,6 +298,18 @@
                     <div class="frame-header">
                         <span class="frame-label">PRIMARY</span>
                         <span id="frame-title-1" class="frame-title">--</span>
+                        <div class="overlay-controls" id="overlay-controls-1">
+                            <label class="overlay-checkbox">
+                                <input type="checkbox" id="wind-vectors-1" class="overlay-input">
+                                <span class="overlay-check"></span>
+                                <span class="overlay-label">Wind Vectors</span>
+                            </label>
+                            <label class="overlay-checkbox">
+                                <input type="checkbox" id="radial-rings-1" class="overlay-input">
+                                <span class="overlay-check"></span>
+                                <span class="overlay-label">Radial Rings</span>
+                            </label>
+                        </div>
                     </div>
                     <img id="current-slide-1" src="" alt="Slide 1" class="dual-img">
                 </div>
@@ -258,6 +317,18 @@
                     <div class="frame-header">
                         <span class="frame-label">COMPARE</span>
                         <span id="frame-title-2" class="frame-title">--</span>
+                        <div class="overlay-controls" id="overlay-controls-2">
+                            <label class="overlay-checkbox">
+                                <input type="checkbox" id="wind-vectors-2" class="overlay-input">
+                                <span class="overlay-check"></span>
+                                <span class="overlay-label">Wind Vectors</span>
+                            </label>
+                            <label class="overlay-checkbox">
+                                <input type="checkbox" id="radial-rings-2" class="overlay-input">
+                                <span class="overlay-check"></span>
+                                <span class="overlay-label">Radial Rings</span>
+                            </label>
+                        </div>
                     </div>
                     <img id="current-slide-2" src="" alt="Slide 2" class="dual-img">
                 </div>
@@ -266,6 +337,22 @@
             <!-- SINGLE IMAGE (fallback) -->
             <div id="single-view" style="display:none;">
                 <div class="image-frame single-frame">
+                    <div class="frame-header">
+                        <span class="frame-label">VIEW</span>
+                        <span id="frame-title-single" class="frame-title">--</span>
+                        <div class="overlay-controls" id="overlay-controls-single">
+                            <label class="overlay-checkbox">
+                                <input type="checkbox" id="wind-vectors-single" class="overlay-input">
+                                <span class="overlay-check"></span>
+                                <span class="overlay-label">Wind Vectors</span>
+                            </label>
+                            <label class="overlay-checkbox">
+                                <input type="checkbox" id="radial-rings-single" class="overlay-input">
+                                <span class="overlay-check"></span>
+                                <span class="overlay-label">Radial Rings</span>
+                            </label>
+                        </div>
+                    </div>
                     <img id="current-slide" src="" alt="Current slide">
                 </div>
             </div>
