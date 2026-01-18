@@ -18,7 +18,7 @@
       "hasOverlays": true,
       "patterns": {
         "base": "images/{storm}/eflx_hor_min/{storm}_eflx_hor_min_{frame}.png",
-        "wind": "images/{storm}/eflx_hor_wind/{storm}_eflx_hor_wind_{frame}.png",
+        "wind": "images/{storm}/eflx_hor_winds/{storm}_eflx_hor_winds_{frame}.png",
         "rings": "images/{storm}/eflx_hor_rings/{storm}_eflx_hor_rings_{frame}.png",
         "full": "images/{storm}/eflx_hor_full/{storm}_eflx_hor_full_{frame}.png"
       },
@@ -31,7 +31,7 @@
       "hasOverlays": true,
       "patterns": {
         "base": "images/{storm}/radar_min/{storm}_radar_min_{frame}.png",
-        "wind": "images/{storm}/radar_wind/{storm}_radar_wind_{frame}.png",
+        "wind": "images/{storm}/radar_winds/{storm}_radar_winds_{frame}.png",
         "rings": "images/{storm}/radar_rings/{storm}_radar_rings_{frame}.png",
         "full": "images/{storm}/radar_full/{storm}_radar_full_{frame}.png"
       },
@@ -46,6 +46,10 @@
     "3d_Windspeed": {
       "type": "3d",
       "pattern": "images/{storm}/ws_3d/{storm}_windspeed_3d_{frame}.html"
+    },
+    "3d_Radar": {
+      "type": "3d",
+      "pattern": "images/{storm}/radar_3d/{storm}_radar_3d_{frame}.html"
     }
   }
 }
