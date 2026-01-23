@@ -26,6 +26,26 @@
       "frameEnd": 72,
       "titlePattern": "{storm} Enthalpy Fluxes (Horizontal) Frame {frame}"
     },
+    "Enthalpy Fluxes - Lat xsec": {
+      "type": "2d",
+      "hasOverlays": true,
+      "patterns": {
+        "base": "images/{storm}/eflx_xsec_lat/{storm}_eflx_xsec_lat_{frame}.png"
+      },
+      "frameStart": 50,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Enthalpy Fluxes (Cross-section) Latitude Frame {frame}"
+    },
+    "Enthalpy Fluxes - Lon xsec": {
+      "type": "2d",
+      "hasOverlays": true,
+      "patterns": {
+        "base": "images/{storm}/eflx_xsec_lon/{storm}_eflx_xsec_lon_{frame}.png"
+      },
+      "frameStart": 50,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Enthalpy Fluxes (Cross-section) Longitude Frame {frame}"
+    },
     "Simulated Radar - Reflectivity": {
       "type": "2d",
       "hasOverlays": true,
