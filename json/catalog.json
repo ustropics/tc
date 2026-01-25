@@ -46,6 +46,32 @@
       "frameEnd": 72,
       "titlePattern": "{storm} Enthalpy Fluxes (Cross-section) Longitude Frame {frame}"
     },
+    "Enthalpy Fluxes - Radial": {
+      "type": "2d",
+      "hasOverlays": true,
+      "patterns": {
+        "base": "images/{storm}/eflx_radial_min/{storm}_eflx_radial_min_{frame}.png",
+        "wind": "images/{storm}/eflx_radial_winds/{storm}_eflx_radial_winds_{frame}.png",
+        "rings": "images/{storm}/eflx_radial_rings/{storm}_eflx_radial_rings_{frame}.png",
+        "full": "images/{storm}/eflx_radial_full/{storm}_eflx_radial_full_{frame}.png"
+      },
+      "frameStart": 50,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Enthalpy Fluxes (Radial) Frame {frame}"
+    },
+    "Enthalpy Fluxes - Tangential": {
+      "type": "2d",
+      "hasOverlays": true,
+      "patterns": {
+        "base": "images/{storm}/eflx_tan_min/{storm}_eflx_tan_min_{frame}.png",
+        "wind": "images/{storm}/eflx_tan_winds/{storm}_eflx_tan_winds_{frame}.png",
+        "rings": "images/{storm}/eflx_tan_rings/{storm}_eflx_tan_rings_{frame}.png",
+        "full": "images/{storm}/eflx_tan_full/{storm}_eflx_tan_full_{frame}.png"
+      },
+      "frameStart": 50,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Enthalpy Fluxes (Tangential) Frame {frame}"
+    },
     "Simulated Radar - Reflectivity": {
       "type": "2d",
       "hasOverlays": true,
