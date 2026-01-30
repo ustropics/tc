@@ -46,6 +46,16 @@
       "frameEnd": 72,
       "titlePattern": "{storm} Enthalpy Fluxes (Cross-section) Longitude Frame {frame}"
     },
+    "Radial Profile": {
+      "type": "2d",
+      "hasOverlays": true,
+      "patterns": {
+        "base": "images/{storm}/inflow_profile/{storm}_inflow_profile_{frame}.png"
+      },
+      "frameStart": 50,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Enthalpy Fluxes (Cross-section) Longitude Frame {frame}"
+    },
     "Enthalpy Fluxes - Radial": {
       "type": "2d",
       "hasOverlays": true,
@@ -80,6 +90,19 @@
         "wind": "images/{storm}/radar_winds/{storm}_radar_winds_{frame}.png",
         "rings": "images/{storm}/radar_rings/{storm}_radar_rings_{frame}.png",
         "full": "images/{storm}/radar_full/{storm}_radar_full_{frame}.png"
+      },
+      "frameStart": 50,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Simulated Radar Reflectivity Frame {frame}"
+    },
+    "Wind Speed (10m)": {
+      "type": "2d",
+      "hasOverlays": true,
+      "patterns": {
+        "base": "images/{storm}/wind_min/{storm}_wind_sfc_min_0{frame}.png",
+        "wind": "images/{storm}/wind_winds/{storm}_wind_winds_0{frame}.png",
+        "rings": "images/{storm}/wind_rings/{storm}_wind_rings_0{frame}.png",
+        "full": "images/{storm}/wind_full/{storm}_wind_full_0{frame}.png"
       },
       "frameStart": 50,
       "frameEnd": 72,
