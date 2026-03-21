@@ -119,6 +119,11 @@
     "3d_Radar": {
       "type": "3d",
       "pattern": "images/{storm}/radar_3d/{storm}_radar_3d_{frame}.html"
+    },
+    "3d_Thetae": {
+      "type": "3d",
+      "pattern": "images/{storm}/thetae_3d/{storm}_thetae_3d_{frame}.html"
     }
+
   }
 }

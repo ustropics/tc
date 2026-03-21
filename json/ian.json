@@ -1,0 +1,462 @@
+[
+  {
+    "timestep": 50,
+    "datetime": "2022-09-28T02:00:00",
+    "datetime_str": "2022-09-28_02:00:00",
+    "pressure_min_center": {
+      "lat": 24.433605194091797,
+      "lon": -84.06452178955078
+    },
+    "eyewall_refined_center": {
+      "lat": 24.39161491394043,
+      "lon": -84.00167846679688
+    },
+    "offset_km": 7.890384390898162,
+    "diagnostics": {
+      "max_lh_wm2": 1654.57080078125,
+      "max_hfx_wm2": 381.627197265625,
+      "max_enthalpy_wm2": 1967.323486328125,
+      "min_pressure_hpa": 964.41046875
+    }
+  },
+  {
+    "timestep": 51,
+    "datetime": "2022-09-28T03:00:00",
+    "datetime_str": "2022-09-28_03:00:00",
+    "pressure_min_center": {
+      "lat": 24.39824676513672,
+      "lon": -83.88214874267578
+    },
+    "eyewall_refined_center": {
+      "lat": 24.473817825317383,
+      "lon": -83.99723815917969
+    },
+    "offset_km": 14.362221631309827,
+    "diagnostics": {
+      "max_lh_wm2": 1729.832763671875,
+      "max_hfx_wm2": 323.7857971191406,
+      "max_enthalpy_wm2": 2012.6378173828125,
+      "min_pressure_hpa": 963.805
+    }
+  },
+  {
+    "timestep": 52,
+    "datetime": "2022-09-28T04:00:00",
+    "datetime_str": "2022-09-28_04:00:00",
+    "pressure_min_center": {
+      "lat": 24.68878746032715,
+      "lon": -84.0619125366211
+    },
+    "eyewall_refined_center": {
+      "lat": 24.647884368896484,
+      "lon": -83.97894287109375
+    },
+    "offset_km": 9.542350519288265,
+    "diagnostics": {
+      "max_lh_wm2": 1178.817626953125,
+      "max_hfx_wm2": 246.25621032714844,
+      "max_enthalpy_wm2": 1421.0196533203125,
+      "min_pressure_hpa": 964.841171875
+    }
+  },
+  {
+    "timestep": 53,
+    "datetime": "2022-09-28T05:00:00",
+    "datetime_str": "2022-09-28_05:00:00",
+    "pressure_min_center": {
+      "lat": 24.7930908203125,
+      "lon": -83.98876190185547
+    },
+    "eyewall_refined_center": {
+      "lat": 24.818099975585938,
+      "lon": -84.03059387207031
+    },
+    "offset_km": 5.056041320436709,
+    "diagnostics": {
+      "max_lh_wm2": 1353.827392578125,
+      "max_hfx_wm2": 288.80389404296875,
+      "max_enthalpy_wm2": 1637.224365234375,
+      "min_pressure_hpa": 963.573671875
+    }
+  },
+  {
+    "timestep": 54,
+    "datetime": "2022-09-28T06:00:00",
+    "datetime_str": "2022-09-28_06:00:00",
+    "pressure_min_center": {
+      "lat": 24.950225830078125,
+      "lon": -84.27081298828125
+    },
+    "eyewall_refined_center": {
+      "lat": 24.961654663085938,
+      "lon": -84.0705337524414
+    },
+    "offset_km": 20.264992550937315,
+    "diagnostics": {
+      "max_lh_wm2": 1442.9093017578125,
+      "max_hfx_wm2": 316.3308410644531,
+      "max_enthalpy_wm2": 1679.5791015625,
+      "min_pressure_hpa": 960.6459375
+    }
+  },
+  {
+    "timestep": 55,
+    "datetime": "2022-09-28T07:00:00",
+    "datetime_str": "2022-09-28_07:00:00",
+    "pressure_min_center": {
+      "lat": 25.247661590576172,
+      "lon": -84.00952911376953
+    },
+    "eyewall_refined_center": {
+      "lat": 25.109182357788086,
+      "lon": -84.0403823852539
+    },
+    "offset_km": 15.652218959952851,
+    "diagnostics": {
+      "max_lh_wm2": 1378.789794921875,
+      "max_hfx_wm2": 301.5653381347656,
+      "max_enthalpy_wm2": 1651.644775390625,
+      "min_pressure_hpa": 959.7946875
+    }
+  },
+  {
+    "timestep": 56,
+    "datetime": "2022-09-28T08:00:00",
+    "datetime_str": "2022-09-28_08:00:00",
+    "pressure_min_center": {
+      "lat": 25.053016662597656,
+      "lon": -84.06674194335938
+    },
+    "eyewall_refined_center": {
+      "lat": 25.199447631835938,
+      "lon": -84.05662536621094
+    },
+    "offset_km": 16.25290905367639,
+    "diagnostics": {
+      "max_lh_wm2": 1377.317138671875,
+      "max_hfx_wm2": 310.1430969238281,
+      "max_enthalpy_wm2": 1647.25537109375,
+      "min_pressure_hpa": 960.293828125
+    }
+  },
+  {
+    "timestep": 57,
+    "datetime": "2022-09-28T09:00:00",
+    "datetime_str": "2022-09-28_09:00:00",
+    "pressure_min_center": {
+      "lat": 25.384517669677734,
+      "lon": -84.17027282714844
+    },
+    "eyewall_refined_center": {
+      "lat": 25.29083251953125,
+      "lon": -84.05281066894531
+    },
+    "offset_km": 15.733510920456597,
+    "diagnostics": {
+      "max_lh_wm2": 1342.5247802734375,
+      "max_hfx_wm2": 311.3800048828125,
+      "max_enthalpy_wm2": 1556.190185546875,
+      "min_pressure_hpa": 961.434375
+    }
+  },
+  {
+    "timestep": 58,
+    "datetime": "2022-09-28T10:00:00",
+    "datetime_str": "2022-09-28_10:00:00",
+    "pressure_min_center": {
+      "lat": 25.379287719726562,
+      "lon": -83.937744140625
+    },
+    "eyewall_refined_center": {
+      "lat": 25.410621643066406,
+      "lon": -84.0307388305664
+    },
+    "offset_km": 9.980644221516105,
+    "diagnostics": {
+      "max_lh_wm2": 1212.3544921875,
+      "max_hfx_wm2": 269.4078063964844,
+      "max_enthalpy_wm2": 1469.8145751953125,
+      "min_pressure_hpa": 962.18015625
+    }
+  },
+  {
+    "timestep": 59,
+    "datetime": "2022-09-28T11:00:00",
+    "datetime_str": "2022-09-28_11:00:00",
+    "pressure_min_center": {
+      "lat": 25.571922302246094,
+      "lon": -84.08221435546875
+    },
+    "eyewall_refined_center": {
+      "lat": 25.592914581298828,
+      "lon": -84.03308868408203
+    },
+    "offset_km": 5.45604698630403,
+    "diagnostics": {
+      "max_lh_wm2": 1577.4095458984375,
+      "max_hfx_wm2": 291.70452880859375,
+      "max_enthalpy_wm2": 1807.855224609375,
+      "min_pressure_hpa": 960.630390625
+    }
+  },
+  {
+    "timestep": 60,
+    "datetime": "2022-09-28T12:00:00",
+    "datetime_str": "2022-09-28_12:00:00",
+    "pressure_min_center": {
+      "lat": 25.61621856689453,
+      "lon": -84.10550689697266
+    },
+    "eyewall_refined_center": {
+      "lat": 25.694557189941406,
+      "lon": -84.00969696044922
+    },
+    "offset_km": 12.956216300572578,
+    "diagnostics": {
+      "max_lh_wm2": 1312.850830078125,
+      "max_hfx_wm2": 276.2199401855469,
+      "max_enthalpy_wm2": 1517.082763671875,
+      "min_pressure_hpa": 960.255859375
+    }
+  },
+  {
+    "timestep": 61,
+    "datetime": "2022-09-28T13:00:00",
+    "datetime_str": "2022-09-28_13:00:00",
+    "pressure_min_center": {
+      "lat": 25.921253204345703,
+      "lon": -84.03535461425781
+    },
+    "eyewall_refined_center": {
+      "lat": 25.798446655273438,
+      "lon": -83.94586944580078
+    },
+    "offset_km": 16.295915750393913,
+    "diagnostics": {
+      "max_lh_wm2": 1349.452880859375,
+      "max_hfx_wm2": 282.56976318359375,
+      "max_enthalpy_wm2": 1542.1854248046875,
+      "min_pressure_hpa": 961.1328125
+    }
+  },
+  {
+    "timestep": 62,
+    "datetime": "2022-09-28T14:00:00",
+    "datetime_str": "2022-09-28_14:00:00",
+    "pressure_min_center": {
+      "lat": 26.011425018310547,
+      "lon": -83.88922119140625
+    },
+    "eyewall_refined_center": {
+      "lat": 26.025188446044922,
+      "lon": -83.97140502929688
+    },
+    "offset_km": 8.366901466938394,
+    "diagnostics": {
+      "max_lh_wm2": 1285.3607177734375,
+      "max_hfx_wm2": 312.9980163574219,
+      "max_enthalpy_wm2": 1524.758056640625,
+      "min_pressure_hpa": 959.43671875
+    }
+  },
+  {
+    "timestep": 63,
+    "datetime": "2022-09-28T15:00:00",
+    "datetime_str": "2022-09-28_15:00:00",
+    "pressure_min_center": {
+      "lat": 26.058767318725586,
+      "lon": -84.02449798583984
+    },
+    "eyewall_refined_center": {
+      "lat": 26.124652862548828,
+      "lon": -83.98835754394531
+    },
+    "offset_km": 8.145750701381173,
+    "diagnostics": {
+      "max_lh_wm2": 1618.5478515625,
+      "max_hfx_wm2": 447.3606262207031,
+      "max_enthalpy_wm2": 1817.3648681640625,
+      "min_pressure_hpa": 959.384296875
+    }
+  },
+  {
+    "timestep": 64,
+    "datetime": "2022-09-28T16:00:00",
+    "datetime_str": "2022-09-28_16:00:00",
+    "pressure_min_center": {
+      "lat": 26.275897979736328,
+      "lon": -84.059814453125
+    },
+    "eyewall_refined_center": {
+      "lat": 26.198518753051758,
+      "lon": -83.97306060791016
+    },
+    "offset_km": 12.191448205041704,
+    "diagnostics": {
+      "max_lh_wm2": 1440.414306640625,
+      "max_hfx_wm2": 502.7933654785156,
+      "max_enthalpy_wm2": 1674.3349609375,
+      "min_pressure_hpa": 959.52578125
+    }
+  },
+  {
+    "timestep": 65,
+    "datetime": "2022-09-28T17:00:00",
+    "datetime_str": "2022-09-28_17:00:00",
+    "pressure_min_center": {
+      "lat": 26.353416442871094,
+      "lon": -83.81044006347656
+    },
+    "eyewall_refined_center": {
+      "lat": 26.292816162109375,
+      "lon": -83.91841125488281
+    },
+    "offset_km": 12.699966698076334,
+    "diagnostics": {
+      "max_lh_wm2": 1759.8299560546875,
+      "max_hfx_wm2": 568.5517578125,
+      "max_enthalpy_wm2": 1946.2066650390625,
+      "min_pressure_hpa": 959.42984375
+    }
+  },
+  {
+    "timestep": 66,
+    "datetime": "2022-09-28T18:00:00",
+    "datetime_str": "2022-09-28_18:00:00",
+    "pressure_min_center": {
+      "lat": 26.454334259033203,
+      "lon": -83.97016906738281
+    },
+    "eyewall_refined_center": {
+      "lat": 26.434207916259766,
+      "lon": -83.83621215820312
+    },
+    "offset_km": 13.545418341249151,
+    "diagnostics": {
+      "max_lh_wm2": 1565.91162109375,
+      "max_hfx_wm2": 554.5296020507812,
+      "max_enthalpy_wm2": 1851.041259765625,
+      "min_pressure_hpa": 959.06125
+    }
+  },
+  {
+    "timestep": 67,
+    "datetime": "2022-09-28T19:00:00",
+    "datetime_str": "2022-09-28_19:00:00",
+    "pressure_min_center": {
+      "lat": 26.676227569580078,
+      "lon": -83.75025939941406
+    },
+    "eyewall_refined_center": {
+      "lat": 26.545570373535156,
+      "lon": -83.80286407470703
+    },
+    "offset_km": 15.395352882713206,
+    "diagnostics": {
+      "max_lh_wm2": 1829.3011474609375,
+      "max_hfx_wm2": 473.661376953125,
+      "max_enthalpy_wm2": 2060.63232421875,
+      "min_pressure_hpa": 958.808515625
+    }
+  },
+  {
+    "timestep": 68,
+    "datetime": "2022-09-28T20:00:00",
+    "datetime_str": "2022-09-28_20:00:00",
+    "pressure_min_center": {
+      "lat": 26.760814666748047,
+      "lon": -83.70475006103516
+    },
+    "eyewall_refined_center": {
+      "lat": 26.713167190551758,
+      "lon": -83.74249267578125
+    },
+    "offset_km": 6.478407554751643,
+    "diagnostics": {
+      "max_lh_wm2": 2033.9073486328125,
+      "max_hfx_wm2": 493.3958740234375,
+      "max_enthalpy_wm2": 2527.30322265625,
+      "min_pressure_hpa": 957.3303125
+    }
+  },
+  {
+    "timestep": 69,
+    "datetime": "2022-09-28T21:00:00",
+    "datetime_str": "2022-09-28_21:00:00",
+    "pressure_min_center": {
+      "lat": 26.712623596191406,
+      "lon": -83.752685546875
+    },
+    "eyewall_refined_center": {
+      "lat": 26.8223876953125,
+      "lon": -83.74976348876953
+    },
+    "offset_km": 12.1653202241362,
+    "diagnostics": {
+      "max_lh_wm2": 2141.460205078125,
+      "max_hfx_wm2": 548.6338500976562,
+      "max_enthalpy_wm2": 2690.093994140625,
+      "min_pressure_hpa": 955.44578125
+    }
+  },
+  {
+    "timestep": 70,
+    "datetime": "2022-09-28T22:00:00",
+    "datetime_str": "2022-09-28_22:00:00",
+    "pressure_min_center": {
+      "lat": 26.950355529785156,
+      "lon": -83.74800109863281
+    },
+    "eyewall_refined_center": {
+      "lat": 26.86041259765625,
+      "lon": -83.72157287597656
+    },
+    "offset_km": 10.305856360920618,
+    "diagnostics": {
+      "max_lh_wm2": 1925.222900390625,
+      "max_hfx_wm2": 472.8843688964844,
+      "max_enthalpy_wm2": 2262.857177734375,
+      "min_pressure_hpa": 957.095234375
+    }
+  },
+  {
+    "timestep": 71,
+    "datetime": "2022-09-28T23:00:00",
+    "datetime_str": "2022-09-28_23:00:00",
+    "pressure_min_center": {
+      "lat": 27.032657623291016,
+      "lon": -83.91761016845703
+    },
+    "eyewall_refined_center": {
+      "lat": 26.888790130615234,
+      "lon": -83.70295715332031
+    },
+    "offset_km": 26.614781068172043,
+    "diagnostics": {
+      "max_lh_wm2": 1638.9537353515625,
+      "max_hfx_wm2": 400.8923034667969,
+      "max_enthalpy_wm2": 2021.09423828125,
+      "min_pressure_hpa": 958.815859375
+    }
+  },
+  {
+    "timestep": 72,
+    "datetime": "2022-09-29T00:00:00",
+    "datetime_str": "2022-09-29_00:00:00",
+    "pressure_min_center": {
+      "lat": 26.906461715698242,
+      "lon": -83.71436309814453
+    },
+    "eyewall_refined_center": {
+      "lat": 26.913898468017578,
+      "lon": -83.5714340209961
+    },
+    "offset_km": 14.221554786829914,
+    "diagnostics": {
+      "max_lh_wm2": 1601.054443359375,
+      "max_hfx_wm2": 401.26116943359375,
+      "max_enthalpy_wm2": 1931.57080078125,
+      "min_pressure_hpa": 958.812734375
+    }
+  }
+]

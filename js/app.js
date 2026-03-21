@@ -665,6 +665,11 @@ function resetPlayer() {
     if (els.overlayControls1) els.overlayControls1.style.display = 'none';
     if (els.overlayControls2) els.overlayControls2.style.display = 'none';
     if (els.overlayControlsSingle) els.overlayControlsSingle.style.display = 'none';
+    
+    // Refresh map size when returning to placeholder
+    if (typeof trackMap !== 'undefined' && trackMap) {
+        setTimeout(() => trackMap.invalidateSize(), 100);
+    }
 }
 
 function show(idx) {
@@ -900,6 +905,11 @@ function preloadImages(imageArray) {
 window.onload = () => {
     loadCatalog();
     resetPlayer();
+    
+    // Initialize track map on homepage
+    if (typeof initTrackMap === 'function') {
+        initTrackMap();
+    }
     
     // Add entrance animations
     document.querySelectorAll('.example-card').forEach((card, i) => {

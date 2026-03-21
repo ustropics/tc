@@ -12,10 +12,14 @@
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     
-    <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/map.css">
 </head>
 <body>
     <!-- Animated Background -->
@@ -185,109 +189,69 @@
 
         <!-- Main Content -->
         <main id="main-container">
-            <!-- PLACEHOLDER (landing) -->
+            <!-- PLACEHOLDER (landing) — Interactive Track Map -->
             <div id="placeholder">
-                <div class="placeholder-grid">
-                    <div class="col-left">
-                        <div class="hero-card">
-                            <div class="hero-badge">
-                                <i class="fas fa-database"></i>
-                                <span>WRF OUTPUT</span>
+                <div class="placeholder-map-wrapper">
+                    <!-- Leaflet Map Container -->
+                    <div id="track-map"></div>
+
+                    <!-- Map Header Overlay -->
+                    <div class="map-header-overlay">
+                        <div class="map-header-left">
+                            <div class="map-badge">
+                                <i class="fas fa-satellite"></i>
+                                <span>TRACK ANALYSIS</span>
                             </div>
-                            <div class="hero-overlay">
-                                <div class="hero-stats">
-                                    <!-- <div class="stat-item">
-                                        <span class="stat-value">2024</span>
-                                        <span class="stat-label">Season</span>
-                                    </div>
-                                    <div class="stat-item">
-                                        <span class="stat-value">CAT 5</span>
-                                        <span class="stat-label">Peak Intensity</span>
-                                    </div>
-                                    <div class="stat-item">
-                                        <span class="stat-value">RI</span>
-                                        <span class="stat-label">Event Type</span>
-                                    </div> -->
-                                </div>
+                            <h2 class="map-title">Hurricane Ian</h2>
+                            <p class="map-subtitle">WRF Simulation &bull; Eyewall Refined Center &bull; 2022-09-28 02Z &ndash; 2022-09-29 00Z</p>
+                        </div>
+                        <div class="map-header-right">
+                            <div class="map-stat">
+                                <span class="map-stat-value" id="map-stat-frames">23</span>
+                                <span class="map-stat-label">Timesteps</span>
+                            </div>
+                            <div class="map-stat">
+                                <span class="map-stat-value" id="map-stat-minp">955.4</span>
+                                <span class="map-stat-label">Min P (hPa)</span>
+                            </div>
+                            <div class="map-stat">
+                                <span class="map-stat-value" id="map-stat-maxflux">2690</span>
+                                <span class="map-stat-label">Peak Enthalpy (W/m²)</span>
                             </div>
                         </div>
                     </div>
-                    <div class="col-right">
-                        <div class="products-header">
-                            <h2>
-                                <i class="fas fa-th-large header-icon"></i>
-                                Available Products
-                            </h2>
-                            <p class="header-subtitle">Select storm to begin analysis</p>
+
+                    <!-- Filter Bar Overlay -->
+                    <div class="map-filter-overlay">
+                        <div class="filter-label"><i class="fas fa-palette"></i> COLOR BY</div>
+                        <div class="map-filter-bar" id="map-filter-bar">
+                            <!-- Populated by JS -->
                         </div>
-                        <div class="example-grid">
-                            <div class="example-card" data-category="fluxes">
-                                <div class="card-glow"></div>
-                                <div class="card-image">
-                                    <img src="images/static/sfc_flux.png" alt="Enthalpy" class="example-img">
-                                    <div class="card-badge">FLUX</div>
-                                </div>
-                                <div class="card-content">
-                                    <h3>Enthalpy Fluxes</h3>
-                                    <p>Ocean-atmosphere energy exchange</p>
-                                </div>
-                            </div>
-                            <div class="example-card" data-category="thermal">
-                                <div class="card-glow"></div>
-                                <div class="card-image">
-                                    <img src="images/static/xsec.png" alt="Temperature" class="example-img">
-                                    <div class="card-badge">XSEC</div>
-                                </div>
-                                <div class="card-content">
-                                    <h3>Enthalpy Cross-Section</h3>
-                                    <p>Vertical structure & gradients</p>
-                                </div>
-                            </div>
-                            <div class="example-card" data-category="structure">
-                                <div class="card-glow"></div>
-                                <div class="card-image">
-                                    <img src="images/static/winds.png" alt="Cross-Section" class="example-img">
-                                    <div class="card-badge">WINDS</div>
-                                </div>
-                                <div class="card-content">
-                                    <h3>10-m Winds</h3>
-                                    <p>Wind Speed Barbs</p>
-                                </div>
-                            </div>
-                            <div class="example-card" data-category="mixing">
-                                <div class="card-glow"></div>
-                                <div class="card-image">
-                                    <img src="images/static/rings.png" alt="Overlay" class="example-img">
-                                    <div class="card-badge">RINGS</div>
-                                </div>
-                                <div class="card-content">
-                                    <h3>Radial Rings</h3>
-                                    <p>Symmetric Radial Analysis</p>
-                                </div>
-                            </div>
-                            <div class="example-card" data-category="temporal">
-                                <div class="card-glow"></div>
-                                <div class="card-image">
-                                    <img src="images/static/3d.png" alt="Line Plots" class="example-img">
-                                    <div class="card-badge">3D</div>
-                                </div>
-                                <div class="card-content">
-                                    <h3>Interative 3D Plots</h3>
-                                    <p>Evaluate 3D structure for Variables</p>
-                                </div>
-                            </div>
-                            <div class="example-card" data-category="salinity">
-                                <div class="card-glow"></div>
-                                <div class="card-image">
-                                    <img src="images/static/inflow.png" alt="Salinity" class="example-img">
-                                    <div class="card-badge">INFLOW</div>
-                                </div>
-                                <div class="card-content">
-                                    <h3>Inflow/Outflow Layers</h3>
-                                    <p>Determine Radial Inflow & Outflow</p>
-                                </div>
+                    </div>
+
+                    <!-- Map Legend Overlay -->
+                    <div class="map-legend-overlay">
+                        <div class="legend-title"><i class="fas fa-compress-arrows-alt"></i> Min Pressure (hPa)</div>
+                        <div class="legend-gradient">
+                            <div class="legend-bar"></div>
+                            <div class="legend-labels">
+                                <span>955</span>
+                                <span>960</span>
+                                <span>965</span>
                             </div>
                         </div>
+                        <div class="legend-items">
+                            <div class="legend-item">
+                                <span class="legend-dot eyewall-center"></span>
+                                <span>Eyewall Refined Center</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Instruction Overlay -->
+                    <div class="map-instruction" id="map-instruction">
+                        <i class="fas fa-mouse-pointer"></i>
+                        <span>Click markers for timestep diagnostics</span>
                     </div>
                 </div>
             </div>
@@ -356,6 +320,105 @@
         </main>
     </div>
 
+    <!-- Track Detail Sidebar -->
+    <div id="track-sidebar-overlay"></div>
+    <div id="track-sidebar">
+        <button id="close-track-sidebar" class="close-btn">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="track-sidebar-content">
+            <!-- Header -->
+            <div class="ts-header">
+                <div class="ts-badge">
+                    <i class="fas fa-crosshairs"></i>
+                    <span>EYEWALL CENTER</span>
+                </div>
+                <div class="ts-title-row">
+                    <h2 id="ts-storm-name">IAN</h2>
+                    <span class="ts-timestep" id="ts-timestep">T50</span>
+                </div>
+                <p class="ts-datetime" id="ts-datetime">2022-09-28 02:00 UTC</p>
+            </div>
+
+            <!-- Product Comparison Images -->
+            <div class="ts-images">
+                <div class="ts-image-frame">
+                    <div class="ts-image-header">
+                        <span class="ts-image-label" id="ts-img1-label">Radial</span>
+                        <span class="ts-image-badge">A</span>
+                    </div>
+                    <div class="ts-image-container">
+                        <img id="ts-img1" src="" alt="Product A">
+                    </div>
+                </div>
+                <div class="ts-image-frame">
+                    <div class="ts-image-header">
+                        <span class="ts-image-label" id="ts-img2-label">Tangential</span>
+                        <span class="ts-image-badge">B</span>
+                    </div>
+                    <div class="ts-image-container">
+                        <img id="ts-img2" src="" alt="Product B">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Selectors -->
+            <div class="ts-product-selectors">
+                <div class="ts-selector">
+                    <label class="ts-selector-label">Product A</label>
+                    <select id="ts-product-a" class="ts-select">
+                        <!-- Populated by JS -->
+                    </select>
+                </div>
+                <div class="ts-selector">
+                    <label class="ts-selector-label">Product B</label>
+                    <select id="ts-product-b" class="ts-select">
+                        <!-- Populated by JS -->
+                    </select>
+                </div>
+            </div>
+
+            <!-- Diagnostics -->
+            <div class="ts-diagnostics">
+                <div class="ts-section-title"><i class="fas fa-map-marker-alt"></i> Position</div>
+                <div class="ts-data-grid">
+                    <div class="ts-data-item">
+                        <span class="ts-data-label">Lat</span>
+                        <span class="ts-data-value accent" id="ts-lat">--</span>
+                    </div>
+                    <div class="ts-data-item">
+                        <span class="ts-data-label">Lon</span>
+                        <span class="ts-data-value accent" id="ts-lon">--</span>
+                    </div>
+                </div>
+
+                <div class="ts-section-title"><i class="fas fa-chart-bar"></i> Diagnostics</div>
+                <div class="ts-data-grid">
+                    <div class="ts-data-item">
+                        <span class="ts-data-label">Min Pressure</span>
+                        <span class="ts-data-value danger" id="ts-pressure">--</span>
+                    </div>
+                    <div class="ts-data-item">
+                        <span class="ts-data-label">Max Enthalpy</span>
+                        <span class="ts-data-value success" id="ts-enthalpy">--</span>
+                    </div>
+                    <div class="ts-data-item">
+                        <span class="ts-data-label">Max LH Flux</span>
+                        <span class="ts-data-value" id="ts-lh">--</span>
+                    </div>
+                    <div class="ts-data-item">
+                        <span class="ts-data-label">Max HFX</span>
+                        <span class="ts-data-value" id="ts-hfx">--</span>
+                    </div>
+                    <div class="ts-data-item full-width">
+                        <span class="ts-data-label">Center Offset</span>
+                        <span class="ts-data-value warm" id="ts-offset">--</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- About Panel -->
     <div id="about-overlay"></div>
     <div id="about-panel">
@@ -400,7 +463,7 @@
             </div>
             
             <div class="about-footer">
-                <span class="version">v3.1</span>
+                <span class="version">v3.2</span>
             </div>
         </div>
     </div>
@@ -440,6 +503,11 @@
         <iframe id="viewer-3d-iframe" src="" frameborder="0"></iframe>
     </div>
 
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- App Scripts -->
+    <script src="js/trackmap.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>
