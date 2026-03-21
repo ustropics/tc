@@ -1,5 +1,18 @@
 /* === Track Map Styles === */
 
+/* Override main-container to row layout so sidebar sits beside the map */
+#main-container {
+    flex-direction: row;
+    align-items: stretch;
+}
+
+/* Placeholder (map) takes all remaining space */
+#placeholder {
+    flex: 1;
+    min-width: 0;
+    transition: flex var(--transition-slow);
+}
+
 .placeholder-map-wrapper {
     position: relative;
     width: 100%;
@@ -580,48 +593,40 @@
 }
 
 /* ===================================================
-   TRACK DETAIL SIDEBAR
+   TRACK DETAIL SIDEBAR — inline flex child of #main-container
    =================================================== */
 
 #track-sidebar-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(3px);
-    opacity: 0;
-    visibility: hidden;
-    transition: all var(--transition-normal);
-    z-index: 99;
-}
-
-#track-sidebar-overlay.open {
-    opacity: 1;
-    visibility: visible;
+    display: none;
 }
 
 #track-sidebar {
-    position: fixed;
-    top: 0;
-    right: -520px;
-    width: 490px;
+    width: 0;
+    min-width: 0;
     height: 100%;
     background: var(--bg-primary);
-    border-left: 1px solid var(--border-subtle);
-    box-shadow: -8px 0 40px rgba(0, 0, 0, 0.5);
-    transition: right var(--transition-slow);
-    z-index: 100;
+    border-left: 1px solid transparent;
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: width var(--transition-slow), min-width var(--transition-slow),
+                border-color var(--transition-slow);
+    z-index: 10;
+    position: relative;
+}
+
+#track-sidebar.open {
+    width: 585px;
+    min-width: 585px;
+    border-left-color: var(--border-subtle);
     overflow-y: auto;
     overflow-x: hidden;
 }
 
-#track-sidebar.open {
-    right: 0;
-}
-
 #track-sidebar .close-btn {
-    position: absolute;
-    top: var(--space-md);
-    right: var(--space-md);
+    position: sticky;
+    top: var(--space-sm);
+    float: right;
+    margin: var(--space-sm) var(--space-sm) 0 0;
     z-index: 10;
 }
 
@@ -689,8 +694,8 @@
 
 /* --- Images --- */
 .ts-images {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: var(--space-sm);
 }
 
@@ -885,10 +890,18 @@
 }
 
 /* --- Responsive --- */
-@media (max-width: 600px) {
-    #track-sidebar {
+@media (max-width: 900px) {
+    #track-sidebar.open {
         width: 100%;
-        right: -100%;
+        min-width: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    .ts-images {
+        grid-template-columns: 1fr;
     }
 
     .ts-product-selectors {

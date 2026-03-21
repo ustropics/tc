@@ -126,8 +126,7 @@ function buildImageUrl(productName, stormName, frame) {
 function openSidebar(point) {
     activePoint = point;
     const sb = document.getElementById('track-sidebar');
-    const overlay = document.getElementById('track-sidebar-overlay');
-    if (!sb || !overlay) return;
+    if (!sb) return;
 
     // Populate header
     document.getElementById('ts-storm-name').textContent = 'IAN';
@@ -151,15 +150,22 @@ function openSidebar(point) {
 
     // Show
     sb.classList.add('open');
-    overlay.classList.add('open');
+
+    // Let Leaflet recalculate into the smaller space
+    if (trackMap) {
+        setTimeout(() => trackMap.invalidateSize({ animate: true }), 420);
+    }
 }
 
 function closeSidebar() {
     const sb = document.getElementById('track-sidebar');
-    const overlay = document.getElementById('track-sidebar-overlay');
     if (sb) sb.classList.remove('open');
-    if (overlay) overlay.classList.remove('open');
     activePoint = null;
+
+    // Let Leaflet reclaim the space
+    if (trackMap) {
+        setTimeout(() => trackMap.invalidateSize({ animate: true }), 420);
+    }
 }
 
 function updateSidebarImages(point) {
@@ -181,10 +187,6 @@ function initSidebarControls() {
     // Close button
     const closeBtn = document.getElementById('close-track-sidebar');
     if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
-
-    // Overlay click to close
-    const overlay = document.getElementById('track-sidebar-overlay');
-    if (overlay) overlay.addEventListener('click', closeSidebar);
 
     // Escape key
     document.addEventListener('keydown', (e) => {

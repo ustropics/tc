@@ -317,106 +317,105 @@
                     <img id="current-slide" src="" alt="Current slide">
                 </div>
             </div>
+
+            <!-- Track Detail Sidebar (inside main-container for flex layout) -->
+            <div id="track-sidebar">
+                <button id="close-track-sidebar" class="close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="track-sidebar-content">
+                    <!-- Header -->
+                    <div class="ts-header">
+                        <div class="ts-badge">
+                            <i class="fas fa-crosshairs"></i>
+                            <span>EYEWALL CENTER</span>
+                        </div>
+                        <div class="ts-title-row">
+                            <h2 id="ts-storm-name">IAN</h2>
+                            <span class="ts-timestep" id="ts-timestep">T50</span>
+                        </div>
+                        <p class="ts-datetime" id="ts-datetime">2022-09-28 02:00 UTC</p>
+                    </div>
+
+                    <!-- Product Comparison Images -->
+                    <div class="ts-images">
+                        <div class="ts-image-frame">
+                            <div class="ts-image-header">
+                                <span class="ts-image-label" id="ts-img1-label">Radial</span>
+                                <span class="ts-image-badge">A</span>
+                            </div>
+                            <div class="ts-image-container">
+                                <img id="ts-img1" src="" alt="Product A">
+                            </div>
+                        </div>
+                        <div class="ts-image-frame">
+                            <div class="ts-image-header">
+                                <span class="ts-image-label" id="ts-img2-label">Tangential</span>
+                                <span class="ts-image-badge">B</span>
+                            </div>
+                            <div class="ts-image-container">
+                                <img id="ts-img2" src="" alt="Product B">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Selectors -->
+                    <div class="ts-product-selectors">
+                        <div class="ts-selector">
+                            <label class="ts-selector-label">Product A</label>
+                            <select id="ts-product-a" class="ts-select">
+                                <!-- Populated by JS -->
+                            </select>
+                        </div>
+                        <div class="ts-selector">
+                            <label class="ts-selector-label">Product B</label>
+                            <select id="ts-product-b" class="ts-select">
+                                <!-- Populated by JS -->
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Diagnostics -->
+                    <div class="ts-diagnostics">
+                        <div class="ts-section-title"><i class="fas fa-map-marker-alt"></i> Position</div>
+                        <div class="ts-data-grid">
+                            <div class="ts-data-item">
+                                <span class="ts-data-label">Lat</span>
+                                <span class="ts-data-value accent" id="ts-lat">--</span>
+                            </div>
+                            <div class="ts-data-item">
+                                <span class="ts-data-label">Lon</span>
+                                <span class="ts-data-value accent" id="ts-lon">--</span>
+                            </div>
+                        </div>
+
+                        <div class="ts-section-title"><i class="fas fa-chart-bar"></i> Diagnostics</div>
+                        <div class="ts-data-grid">
+                            <div class="ts-data-item">
+                                <span class="ts-data-label">Min Pressure</span>
+                                <span class="ts-data-value danger" id="ts-pressure">--</span>
+                            </div>
+                            <div class="ts-data-item">
+                                <span class="ts-data-label">Max Enthalpy</span>
+                                <span class="ts-data-value success" id="ts-enthalpy">--</span>
+                            </div>
+                            <div class="ts-data-item">
+                                <span class="ts-data-label">Max LH Flux</span>
+                                <span class="ts-data-value" id="ts-lh">--</span>
+                            </div>
+                            <div class="ts-data-item">
+                                <span class="ts-data-label">Max HFX</span>
+                                <span class="ts-data-value" id="ts-hfx">--</span>
+                            </div>
+                            <div class="ts-data-item full-width">
+                                <span class="ts-data-label">Center Offset</span>
+                                <span class="ts-data-value warm" id="ts-offset">--</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
-    </div>
-
-    <!-- Track Detail Sidebar -->
-    <div id="track-sidebar-overlay"></div>
-    <div id="track-sidebar">
-        <button id="close-track-sidebar" class="close-btn">
-            <i class="fas fa-times"></i>
-        </button>
-        <div class="track-sidebar-content">
-            <!-- Header -->
-            <div class="ts-header">
-                <div class="ts-badge">
-                    <i class="fas fa-crosshairs"></i>
-                    <span>EYEWALL CENTER</span>
-                </div>
-                <div class="ts-title-row">
-                    <h2 id="ts-storm-name">IAN</h2>
-                    <span class="ts-timestep" id="ts-timestep">T50</span>
-                </div>
-                <p class="ts-datetime" id="ts-datetime">2022-09-28 02:00 UTC</p>
-            </div>
-
-            <!-- Product Comparison Images -->
-            <div class="ts-images">
-                <div class="ts-image-frame">
-                    <div class="ts-image-header">
-                        <span class="ts-image-label" id="ts-img1-label">Radial</span>
-                        <span class="ts-image-badge">A</span>
-                    </div>
-                    <div class="ts-image-container">
-                        <img id="ts-img1" src="" alt="Product A">
-                    </div>
-                </div>
-                <div class="ts-image-frame">
-                    <div class="ts-image-header">
-                        <span class="ts-image-label" id="ts-img2-label">Tangential</span>
-                        <span class="ts-image-badge">B</span>
-                    </div>
-                    <div class="ts-image-container">
-                        <img id="ts-img2" src="" alt="Product B">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product Selectors -->
-            <div class="ts-product-selectors">
-                <div class="ts-selector">
-                    <label class="ts-selector-label">Product A</label>
-                    <select id="ts-product-a" class="ts-select">
-                        <!-- Populated by JS -->
-                    </select>
-                </div>
-                <div class="ts-selector">
-                    <label class="ts-selector-label">Product B</label>
-                    <select id="ts-product-b" class="ts-select">
-                        <!-- Populated by JS -->
-                    </select>
-                </div>
-            </div>
-
-            <!-- Diagnostics -->
-            <div class="ts-diagnostics">
-                <div class="ts-section-title"><i class="fas fa-map-marker-alt"></i> Position</div>
-                <div class="ts-data-grid">
-                    <div class="ts-data-item">
-                        <span class="ts-data-label">Lat</span>
-                        <span class="ts-data-value accent" id="ts-lat">--</span>
-                    </div>
-                    <div class="ts-data-item">
-                        <span class="ts-data-label">Lon</span>
-                        <span class="ts-data-value accent" id="ts-lon">--</span>
-                    </div>
-                </div>
-
-                <div class="ts-section-title"><i class="fas fa-chart-bar"></i> Diagnostics</div>
-                <div class="ts-data-grid">
-                    <div class="ts-data-item">
-                        <span class="ts-data-label">Min Pressure</span>
-                        <span class="ts-data-value danger" id="ts-pressure">--</span>
-                    </div>
-                    <div class="ts-data-item">
-                        <span class="ts-data-label">Max Enthalpy</span>
-                        <span class="ts-data-value success" id="ts-enthalpy">--</span>
-                    </div>
-                    <div class="ts-data-item">
-                        <span class="ts-data-label">Max LH Flux</span>
-                        <span class="ts-data-value" id="ts-lh">--</span>
-                    </div>
-                    <div class="ts-data-item">
-                        <span class="ts-data-label">Max HFX</span>
-                        <span class="ts-data-value" id="ts-hfx">--</span>
-                    </div>
-                    <div class="ts-data-item full-width">
-                        <span class="ts-data-label">Center Offset</span>
-                        <span class="ts-data-value warm" id="ts-offset">--</span>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <!-- About Panel -->
