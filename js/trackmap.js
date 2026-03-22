@@ -203,6 +203,28 @@ function initSidebarControls() {
         }
     });
 
+    // Click handlers for sidebar images to open player
+    const img1 = document.getElementById('ts-img1');
+    const img2 = document.getElementById('ts-img2');
+    
+    if (img1) {
+        img1.addEventListener('click', () => {
+            if (activePoint && window.selectProductAndJumpToFrame) {
+                window.selectProductAndJumpToFrame(sidebarProductA, activePoint.timestep);
+            }
+        });
+        img1.style.cursor = 'pointer'; // Make it clear it's clickable
+    }
+    
+    if (img2) {
+        img2.addEventListener('click', () => {
+            if (activePoint && window.selectProductAndJumpToFrame) {
+                window.selectProductAndJumpToFrame(sidebarProductB, activePoint.timestep);
+            }
+        });
+        img2.style.cursor = 'pointer'; // Make it clear it's clickable
+    }
+
     // Populate product selectors
     const selA = document.getElementById('ts-product-a');
     const selB = document.getElementById('ts-product-b');

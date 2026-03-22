@@ -901,6 +901,32 @@ function preloadImages(imageArray) {
     });
 }
 
+// === GLOBAL FUNCTIONS FOR EXTERNAL MODULES ===
+window.selectProductAndJumpToFrame = function(productName, frameNumber) {
+    if (!selectedStorm || !catalog[selectedStorm] || !catalog[selectedStorm][productName]) {
+        console.warn(`Product ${productName} not found for storm ${selectedStorm}`);
+        return;
+    }
+    
+    const productConfig = catalog[selectedStorm][productName];
+    if (productConfig.type !== '2d') {
+        console.warn(`Product ${productName} is not a 2D product`);
+        return;
+    }
+    
+    // Select the product as primary
+    selectProduct1(productName);
+    
+    // Calculate frame index: frameNumber - frameStart
+    const frameIndex = frameNumber - productConfig.frameStart;
+    
+    // Clamp to valid range
+    const clampedIndex = Math.max(0, Math.min(frameIndex, images1.length - 1));
+    
+    // Jump to the frame
+    show(clampedIndex);
+};
+
 // === INITIALIZATION ===
 window.onload = () => {
     loadCatalog();
