@@ -17,6 +17,9 @@ let selectedStorm = '';
 let selectedProduct1 = '';
 let selectedProduct2 = '';
 
+// Make catalog globally accessible for trackmap.js
+window.catalog = catalog;
+
 // Overlay states for each viewer
 let overlayState = {
     primary: { wind: false, rings: false },
@@ -119,6 +122,7 @@ async function loadCatalog() {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         catalog = await response.json();
+        window.catalog = catalog; // Make it globally accessible
         updateStatus('Catalog loaded', 'success');
         populateStormMenu();
     } catch (error) {
@@ -902,7 +906,7 @@ function preloadImages(imageArray) {
 }
 
 // === GLOBAL FUNCTIONS FOR EXTERNAL MODULES ===
-window.selectProductAndJumpToFrame = function(productName, frameNumber) {
+window.selectProductAndJumpToFrame = async function(productName, frameNumber) {
     if (!selectedStorm || !catalog[selectedStorm] || !catalog[selectedStorm][productName]) {
         console.warn(`Product ${productName} not found for storm ${selectedStorm}`);
         return;
@@ -914,17 +918,25 @@ window.selectProductAndJumpToFrame = function(productName, frameNumber) {
         return;
     }
     
-    // Select the product as primary
+    // If this product is already selected, just jump to the frame
+    if (selectedProduct1 === productName && images1.length > 0) {
+        const frameIndex = frameNumber - productConfig.frameStart;
+        const clampedIndex = Math.max(0, Math.min(frameIndex, images1.length - 1));
+        show(clampedIndex);
+        return;
+    }
+    
+    // Select the product as primary (this will load the images)
     selectProduct1(productName);
     
-    // Calculate frame index: frameNumber - frameStart
-    const frameIndex = frameNumber - productConfig.frameStart;
-    
-    // Clamp to valid range
-    const clampedIndex = Math.max(0, Math.min(frameIndex, images1.length - 1));
-    
-    // Jump to the frame
-    show(clampedIndex);
+    // Wait a bit for the images to load, then jump to the frame
+    setTimeout(() => {
+        if (images1.length > 0) {
+            const frameIndex = frameNumber - productConfig.frameStart;
+            const clampedIndex = Math.max(0, Math.min(frameIndex, images1.length - 1));
+            show(clampedIndex);
+        }
+    }, 100);
 };
 
 // === INITIALIZATION ===

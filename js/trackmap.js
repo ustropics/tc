@@ -474,3 +474,32 @@ async function initTrackMap() {
     `;
     document.head.appendChild(style);
 })();
+
+// === UTILITY FUNCTIONS ===
+function buildImageUrl(productName, stormName, frame) {
+    // Access the catalog from the global scope (loaded by app.js)
+    if (!window.catalog || !window.catalog[stormName] || !window.catalog[stormName][productName]) {
+        console.warn(`Product ${productName} not found in catalog`);
+        return `images/${stormName.toLowerCase()}/placeholder_${frame}.png`;
+    }
+    
+    const productConfig = window.catalog[stormName][productName];
+    const stormLower = stormName.toLowerCase();
+    
+    // Use the same logic as generateImageArray in app.js
+    let pattern;
+    if (productConfig.hasOverlays && productConfig.patterns) {
+        pattern = productConfig.patterns.base; // Use base pattern for sidebar previews
+    } else if (productConfig.pattern) {
+        pattern = productConfig.pattern;
+    } else {
+        console.warn('No pattern found for product');
+        return `images/${stormLower}/placeholder_${frame}.png`;
+    }
+    
+    const src = pattern
+        .replace(/{storm}/g, stormLower)
+        .replace(/{frame}/g, frame);
+    
+    return src;
+}
