@@ -626,6 +626,16 @@
     visibility: visible;
 }
 
+#main-container.sidebar-open #placeholder {
+    margin-right: 585px;
+    transition: margin var(--transition-slow);
+}
+
+#main-container:not(.sidebar-open) #placeholder {
+    margin-right: 0;
+    transition: margin var(--transition-slow);
+}
+
 #track-sidebar:not(.open) {
     visibility: hidden;
 }

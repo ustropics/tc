@@ -150,6 +150,8 @@ function openSidebar(point) {
 
     // Show
     sb.classList.add('open');
+    const main = document.getElementById('main-container');
+    if (main) main.classList.add('sidebar-open');
 
     // Let Leaflet recalculate into the smaller space
     if (trackMap) {
@@ -160,6 +162,8 @@ function openSidebar(point) {
 function closeSidebar() {
     const sb = document.getElementById('track-sidebar');
     if (sb) sb.classList.remove('open');
+    const main = document.getElementById('main-container');
+    if (main) main.classList.remove('sidebar-open');
     activePoint = null;
 
     // Let Leaflet reclaim the space
