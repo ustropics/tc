@@ -115,6 +115,7 @@ const els = {
 
 // === LOAD CATALOG ===
 async function loadCatalog() {
+    console.log('loadCatalog called');
     try {
         updateStatus('Loading catalog...', 'loading');
         const response = await fetch('json/catalog.json');
@@ -123,6 +124,8 @@ async function loadCatalog() {
         }
         catalog = await response.json();
         window.catalog = catalog; // Make it globally accessible
+        console.log('Catalog loaded:', catalog);
+        console.log('Catalog loaded:', Object.keys(catalog));
         updateStatus('Catalog loaded', 'success');
         populateStormMenu();
     } catch (error) {
@@ -907,6 +910,8 @@ function preloadImages(imageArray) {
 
 // === GLOBAL FUNCTIONS FOR EXTERNAL MODULES ===
 window.selectProductAndJumpToFrame = async function(productName, frameNumber) {
+    console.log('selectProductAndJumpToFrame called:', { productName, frameNumber, selectedStorm, catalog: !!window.catalog });
+    
     if (!selectedStorm || !catalog[selectedStorm] || !catalog[selectedStorm][productName]) {
         console.warn(`Product ${productName} not found for storm ${selectedStorm}`);
         return;
@@ -922,11 +927,13 @@ window.selectProductAndJumpToFrame = async function(productName, frameNumber) {
     if (selectedProduct1 === productName && images1.length > 0) {
         const frameIndex = frameNumber - productConfig.frameStart;
         const clampedIndex = Math.max(0, Math.min(frameIndex, images1.length - 1));
+        console.log('Jumping to frame:', { frameNumber, frameIndex, clampedIndex });
         show(clampedIndex);
         return;
     }
     
     // Select the product as primary (this will load the images)
+    console.log('Selecting product:', productName);
     selectProduct1(productName);
     
     // Wait a bit for the images to load, then jump to the frame
@@ -934,15 +941,17 @@ window.selectProductAndJumpToFrame = async function(productName, frameNumber) {
         if (images1.length > 0) {
             const frameIndex = frameNumber - productConfig.frameStart;
             const clampedIndex = Math.max(0, Math.min(frameIndex, images1.length - 1));
+            console.log('Jumping to frame after load:', { frameNumber, frameIndex, clampedIndex });
             show(clampedIndex);
+        } else {
+            console.warn('No images loaded after selecting product');
         }
     }, 100);
 };
 
 // === INITIALIZATION ===
-window.onload = () => {
-    loadCatalog();
-    resetPlayer();
+window.onload = async () => {
+    await loadCatalog();
     
     // Initialize track map on homepage
     if (typeof initTrackMap === 'function') {

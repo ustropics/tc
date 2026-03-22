@@ -103,7 +103,27 @@ function formatDatetime(dtStr) {
 
 // === IMAGE URL BUILDER ===
 function buildImageUrl(productName, stormName, frame) {
-    // Look up from catalog (loaded separately by app.js), or use hardcoded patterns
+    // Try to use catalog first, fallback to hardcoded patterns
+    if (window.catalog && window.catalog[stormName] && window.catalog[stormName][productName]) {
+        const productConfig = window.catalog[stormName][productName];
+        const stormLower = stormName.toLowerCase();
+        
+        let pattern;
+        if (productConfig.hasOverlays && productConfig.patterns) {
+            pattern = productConfig.patterns.base;
+        } else if (productConfig.pattern) {
+            pattern = productConfig.pattern;
+        } else {
+            console.warn('No pattern found for product in catalog');
+            return '';
+        }
+        
+        return pattern
+            .replace(/{storm}/g, stormLower)
+            .replace(/{frame}/g, frame);
+    }
+    
+    // Fallback to hardcoded patterns
     const storm = stormName.toLowerCase();
     const patterns = {
         'Enthalpy Fluxes - Surface':        `images/${storm}/eflx_sfc_min/${storm}_eflx_sfc_min_${frame}.png`,
@@ -124,8 +144,10 @@ function buildImageUrl(productName, stormName, frame) {
 // ===========================
 
 function openSidebar(point) {
+    console.log('openSidebar called with point:', point);
     activePoint = point;
     const sb = document.getElementById('track-sidebar');
+    console.log('sidebar element:', sb);
     if (!sb) return;
 
     // Populate header
@@ -173,21 +195,37 @@ function closeSidebar() {
 }
 
 function updateSidebarImages(point) {
+    console.log('updateSidebarImages called with point:', point);
     if (!point) return;
     const frame = point.timestep;
+    console.log('frame:', frame);
 
     const img1 = document.getElementById('ts-img1');
     const img2 = document.getElementById('ts-img2');
     const label1 = document.getElementById('ts-img1-label');
     const label2 = document.getElementById('ts-img2-label');
 
-    if (img1) img1.src = buildImageUrl(sidebarProductA, 'Ian', frame);
-    if (img2) img2.src = buildImageUrl(sidebarProductB, 'Ian', frame);
+    const url1 = buildImageUrl(sidebarProductA, 'Ian', frame);
+    const url2 = buildImageUrl(sidebarProductB, 'Ian', frame);
+    
+    console.log('Sidebar images:', { sidebarProductA, sidebarProductB, frame, url1, url2, catalogLoaded: !!window.catalog });
+
+    if (img1) {
+        console.log('Setting img1 src to:', url1);
+        img1.src = url1;
+        img1.onerror = () => console.error('Failed to load image 1:', url1);
+    }
+    if (img2) {
+        console.log('Setting img2 src to:', url2);
+        img2.src = url2;
+        img2.onerror = () => console.error('Failed to load image 2:', url2);
+    }
     if (label1) label1.textContent = sidebarProductA.replace('Enthalpy Fluxes - ', '');
     if (label2) label2.textContent = sidebarProductB.replace('Enthalpy Fluxes - ', '');
 }
 
 function initSidebarControls() {
+    console.log('initSidebarControls called');
     // Close button
     const closeBtn = document.getElementById('close-track-sidebar');
     if (closeBtn) closeBtn.addEventListener('click', closeSidebar);
@@ -209,6 +247,7 @@ function initSidebarControls() {
     
     if (img1) {
         img1.addEventListener('click', () => {
+            console.log('Image 1 clicked:', sidebarProductA, activePoint?.timestep);
             if (activePoint && window.selectProductAndJumpToFrame) {
                 window.selectProductAndJumpToFrame(sidebarProductA, activePoint.timestep);
             }
@@ -218,6 +257,7 @@ function initSidebarControls() {
     
     if (img2) {
         img2.addEventListener('click', () => {
+            console.log('Image 2 clicked:', sidebarProductB, activePoint?.timestep);
             if (activePoint && window.selectProductAndJumpToFrame) {
                 window.selectProductAndJumpToFrame(sidebarProductB, activePoint.timestep);
             }
@@ -332,6 +372,7 @@ function buildFilterControls() {
 // ===========================
 
 async function initTrackMap() {
+    console.log('initTrackMap called');
     const mapContainer = document.getElementById('track-map');
     if (!mapContainer || typeof L === 'undefined') return;
 
@@ -424,7 +465,10 @@ async function initTrackMap() {
         );
 
         // Click → open sidebar (not popup)
-        marker.on('click', () => openSidebar(point));
+        marker.on('click', () => {
+            console.log('Marker clicked for point:', point);
+            openSidebar(point);
+        });
 
         marker.bindTooltip(`T${point.timestep}`, {
             permanent: false,
