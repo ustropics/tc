@@ -909,18 +909,23 @@ function preloadImages(imageArray) {
 }
 
 // === GLOBAL FUNCTIONS FOR EXTERNAL MODULES ===
-window.selectProductAndJumpToFrame = async function(productName, frameNumber) {
-    console.log('selectProductAndJumpToFrame called:', { productName, frameNumber, selectedStorm, catalog: !!window.catalog });
+window.selectProductAndJumpToFrame = async function(stormName, productName, frameNumber) {
+    console.log('selectProductAndJumpToFrame called:', { stormName, productName, frameNumber, catalog: !!window.catalog });
     
-    if (!selectedStorm || !catalog[selectedStorm] || !catalog[selectedStorm][productName]) {
-        console.warn(`Product ${productName} not found for storm ${selectedStorm}`);
+    if (!stormName || !catalog[stormName] || !catalog[stormName][productName]) {
+        console.warn(`Product ${productName} not found for storm ${stormName}`);
         return;
     }
     
-    const productConfig = catalog[selectedStorm][productName];
+    const productConfig = catalog[stormName][productName];
     if (productConfig.type !== '2d') {
         console.warn(`Product ${productName} is not a 2D product`);
         return;
+    }
+    
+    // Set the storm if not already set
+    if (selectedStorm !== stormName) {
+        selectStorm(stormName);
     }
     
     // If this product is already selected, just jump to the frame

@@ -249,7 +249,7 @@ function initSidebarControls() {
         img1.addEventListener('click', () => {
             console.log('Image 1 clicked:', sidebarProductA, activePoint?.timestep);
             if (activePoint && window.selectProductAndJumpToFrame) {
-                window.selectProductAndJumpToFrame(sidebarProductA, activePoint.timestep);
+                window.selectProductAndJumpToFrame('Ian', sidebarProductA, activePoint.timestep);
             }
         });
         img1.style.cursor = 'pointer'; // Make it clear it's clickable
@@ -259,7 +259,7 @@ function initSidebarControls() {
         img2.addEventListener('click', () => {
             console.log('Image 2 clicked:', sidebarProductB, activePoint?.timestep);
             if (activePoint && window.selectProductAndJumpToFrame) {
-                window.selectProductAndJumpToFrame(sidebarProductB, activePoint.timestep);
+                window.selectProductAndJumpToFrame('Ian', sidebarProductB, activePoint.timestep);
             }
         });
         img2.style.cursor = 'pointer'; // Make it clear it's clickable
@@ -372,9 +372,12 @@ function buildFilterControls() {
 // ===========================
 
 async function initTrackMap() {
-    console.log('initTrackMap called');
+    console.log('initTrackMap called, L defined:', typeof L);
     const mapContainer = document.getElementById('track-map');
-    if (!mapContainer || typeof L === 'undefined') return;
+    if (!mapContainer || typeof L === 'undefined') {
+        console.log('Map container or L not found:', { mapContainer, L: typeof L });
+        return;
+    }
 
     // Load track data
     try {
