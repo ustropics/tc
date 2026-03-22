@@ -829,6 +829,23 @@ input[type="range"]::-webkit-slider-thumb:hover {
   border-bottom: 1px solid var(--border-subtle);
 }
 
+.frame-header .close-btn {
+  position: static;
+  width: 24px;
+  height: 24px;
+  margin-left: 8px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+.frame-header .close-btn:hover {
+  background: var(--accent-danger);
+  border-color: var(--accent-danger);
+  color: white;
+}
+
 .frame-label {
   font-family: var(--font-mono);
   font-size: 0.55rem;

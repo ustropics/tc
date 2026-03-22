@@ -37,6 +37,10 @@ const els = {
     singleView:  document.getElementById('single-view'),
     placeholder: document.getElementById('placeholder'),
 
+    // Close buttons
+    closePlayer: document.getElementById('close-player'),
+    closePlayerSingle: document.getElementById('close-player-single'),
+
     // Frame titles
     frameTitle1: document.getElementById('frame-title-1'),
     frameTitle2: document.getElementById('frame-title-2'),
@@ -961,6 +965,14 @@ window.onload = async () => {
     // Initialize track map on homepage
     if (typeof initTrackMap === 'function') {
         initTrackMap();
+    }
+    
+    // Add event listeners for close buttons
+    if (els.closePlayer) {
+        els.closePlayer.addEventListener('click', resetPlayer);
+    }
+    if (els.closePlayerSingle) {
+        els.closePlayerSingle.addEventListener('click', resetPlayer);
     }
     
     // Add entrance animations
