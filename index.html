@@ -320,21 +320,23 @@
 
             <!-- Track Detail Sidebar (inside main-container for flex layout) -->
             <div id="track-sidebar">
-                <button id="close-track-sidebar" class="close-btn">
-                    <i class="fas fa-times"></i>
-                </button>
                 <div class="track-sidebar-content">
                     <!-- Header -->
                     <div class="ts-header">
-                        <div class="ts-badge">
-                            <i class="fas fa-crosshairs"></i>
-                            <span>EYEWALL CENTER</span>
+                        <div class="ts-header-left">
+                            <div class="ts-badge">
+                                <i class="fas fa-crosshairs"></i>
+                                <span>EYEWALL CENTER</span>
+                            </div>
+                            <div class="ts-title-row">
+                                <h2 id="ts-storm-name">IAN</h2>
+                                <span class="ts-timestep" id="ts-timestep">T50</span>
+                            </div>
+                            <p class="ts-datetime" id="ts-datetime">2022-09-28 02:00 UTC</p>
                         </div>
-                        <div class="ts-title-row">
-                            <h2 id="ts-storm-name">IAN</h2>
-                            <span class="ts-timestep" id="ts-timestep">T50</span>
-                        </div>
-                        <p class="ts-datetime" id="ts-datetime">2022-09-28 02:00 UTC</p>
+                        <button id="close-track-sidebar" class="close-btn">
+                            <i class="fas fa-times"></i>
+                        </button>
                     </div>
 
                     <!-- Product Comparison Images -->
