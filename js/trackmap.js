@@ -247,9 +247,11 @@ function initSidebarControls() {
     
     if (img1) {
         img1.addEventListener('click', () => {
-            console.log('Image 1 clicked:', sidebarProductA, activePoint?.timestep);
-            if (activePoint && window.selectProductAndJumpToFrame) {
-                window.selectProductAndJumpToFrame('Ian', sidebarProductA, activePoint.timestep);
+            console.log('Sidebar image clicked - opening both products:', sidebarProductA, sidebarProductB, activePoint?.timestep);
+            if (activePoint && window.selectBothProductsAndJumpToFrame) {
+                window.selectBothProductsAndJumpToFrame('Ian', sidebarProductA, sidebarProductB, activePoint.timestep);
+                // Close the sidebar
+                closeSidebar();
             }
         });
         img1.style.cursor = 'pointer'; // Make it clear it's clickable
@@ -257,9 +259,11 @@ function initSidebarControls() {
     
     if (img2) {
         img2.addEventListener('click', () => {
-            console.log('Image 2 clicked:', sidebarProductB, activePoint?.timestep);
-            if (activePoint && window.selectProductAndJumpToFrame) {
-                window.selectProductAndJumpToFrame('Ian', sidebarProductB, activePoint.timestep);
+            console.log('Sidebar image clicked - opening both products:', sidebarProductA, sidebarProductB, activePoint?.timestep);
+            if (activePoint && window.selectBothProductsAndJumpToFrame) {
+                window.selectBothProductsAndJumpToFrame('Ian', sidebarProductA, sidebarProductB, activePoint.timestep);
+                // Close the sidebar
+                closeSidebar();
             }
         });
         img2.style.cursor = 'pointer'; // Make it clear it's clickable

@@ -958,6 +958,37 @@ window.selectProductAndJumpToFrame = async function(stormName, productName, fram
     }, 100);
 };
 
+window.selectBothProductsAndJumpToFrame = async function(stormName, productA, productB, frameNumber) {
+    console.log('selectBothProductsAndJumpToFrame called:', { stormName, productA, productB, frameNumber, catalog: !!window.catalog });
+    
+    if (!stormName || !catalog[stormName] || !catalog[stormName][productA] || !catalog[stormName][productB]) {
+        console.warn(`Products not found for storm ${stormName}`);
+        return;
+    }
+    
+    // Set the storm if not already set
+    if (selectedStorm !== stormName) {
+        selectStorm(stormName);
+    }
+    
+    // Select both products
+    console.log('Selecting products:', productA, 'and', productB);
+    selectProduct1(productA);
+    selectProduct2(productB);
+    
+    // Wait for both products to load, then jump to the frame
+    setTimeout(() => {
+        if (images1.length > 0 && images2.length > 0) {
+            const frameIndex = frameNumber - catalog[stormName][productA].frameStart;
+            const clampedIndex = Math.max(0, Math.min(frameIndex, Math.min(images1.length, images2.length) - 1));
+            console.log('Jumping to frame after loading both products:', { frameNumber, frameIndex, clampedIndex });
+            show(clampedIndex);
+        } else {
+            console.warn('Not all images loaded after selecting products');
+        }
+    }, 200); // Slightly longer wait for both products
+};
+
 // === INITIALIZATION ===
 window.onload = async () => {
     await loadCatalog();
