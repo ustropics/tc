@@ -611,8 +611,11 @@
     transform: translateX(100%);
     transition: transform var(--transition-slow), border-color var(--transition-slow);
     will-change: transform;
-    z-index: 10;
-    position: relative;
+    z-index: 20;
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-shadow: -8px 0 24px rgba(0,0,0,0.35);
 }
 
 #track-sidebar.open {
@@ -620,6 +623,11 @@
     border-left-color: var(--border-subtle);
     overflow-y: auto;
     overflow-x: hidden;
+    visibility: visible;
+}
+
+#track-sidebar:not(.open) {
+    visibility: hidden;
 }
 
 #track-sidebar .close-btn {

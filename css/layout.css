@@ -19,6 +19,17 @@
   z-index: 1;
 }
 
+/* Keep map full width while sidebar is hidden */
+#main-container.fullwidth #track-sidebar {
+  visibility: hidden;
+}
+
+#main-container.fullwidth #placeholder,
+#main-container.fullwidth #dual-view,
+#main-container.fullwidth #single-view {
+  width: 100%;
+}
+
 /* === Placeholder (Landing Page) === */
 #placeholder {
   width: 100%;
