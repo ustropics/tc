@@ -608,8 +608,8 @@
     border-left: 1px solid transparent;
     overflow: hidden;
     flex-shrink: 0;
-    transition: width var(--transition-slow), min-width var(--transition-slow),
-                border-color var(--transition-slow);
+    transition: width var(--transition-normal), min-width var(--transition-normal),
+                border-color var(--transition-normal);
     z-index: 10;
     position: relative;
 }
@@ -631,7 +631,7 @@
 }
 
 .track-sidebar-content {
-    padding: var(--space-lg);
+    padding: var(--space-lg) 0 var(--space-lg) var(--space-lg);
     display: flex;
     flex-direction: column;
     gap: var(--space-lg);
