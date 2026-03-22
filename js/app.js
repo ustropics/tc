@@ -1033,3 +1033,20 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Sidebar toggle functionality
+const sidebarToggle = document.getElementById('sidebar-toggle');
+const sidebar = document.getElementById('sidebar');
+
+sidebarToggle.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+});
+
+// Close buttons for comparison modal
+const closeButtons = document.querySelectorAll('.comparison-close');
+closeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const frame = button.closest('.comparison-frame');
+        frame.style.display = 'none';
+    });
+});
