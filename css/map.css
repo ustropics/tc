@@ -601,23 +601,22 @@
 }
 
 #track-sidebar {
-    width: 0;
-    min-width: 0;
+    width: 585px;
+    min-width: 585px;
     height: 100%;
     background: var(--bg-primary);
     border-left: 1px solid transparent;
     overflow: hidden;
     flex-shrink: 0;
-    transition: width var(--transition-slow), min-width var(--transition-slow),
-                border-color var(--transition-slow);
-    will-change: width;
+    transform: translateX(100%);
+    transition: transform var(--transition-slow), border-color var(--transition-slow);
+    will-change: transform;
     z-index: 10;
     position: relative;
 }
 
 #track-sidebar.open {
-    width: 585px;
-    min-width: 585px;
+    transform: translateX(0);
     border-left-color: var(--border-subtle);
     overflow-y: auto;
     overflow-x: hidden;
