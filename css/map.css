@@ -119,9 +119,11 @@
 
 .map-header-right {
     display: flex;
-    gap: var(--space-lg);
+    gap: var(--space-md);
     align-items: flex-start;
     margin-top: var(--space-xs);
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }
 
 .map-stat {
@@ -133,10 +135,20 @@
 
 .map-stat-value {
     font-family: var(--font-display);
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 700;
     color: var(--text-primary);
     text-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+}
+
+.map-stat-value.danger {
+    color: var(--accent-danger);
+    text-shadow: 0 0 15px rgba(239, 68, 68, 0.3);
+}
+
+.map-stat-value.success {
+    color: var(--accent-success);
+    text-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
 }
 
 .map-stat-label {
@@ -703,6 +715,70 @@
     gap: var(--space-lg);
 }
 
+/* --- Mode Bar --- */
+.ts-mode-bar {
+    padding: 0 var(--space-lg);
+}
+
+.ts-mode-label {
+    font-family: var(--font-mono);
+    font-size: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-bottom: var(--space-sm);
+}
+
+.ts-mode-buttons {
+    display: flex;
+    gap: var(--space-sm);
+}
+
+.ts-mode-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 8px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-medium);
+    border-radius: 10px;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    white-space: nowrap;
+}
+
+.ts-mode-btn i {
+    font-size: 0.8rem;
+    transition: color var(--transition-normal);
+}
+
+.ts-mode-btn:hover {
+    color: var(--text-secondary);
+    border-color: var(--border-medium);
+    background: var(--bg-tertiary);
+}
+
+.ts-mode-btn:hover i {
+    color: var(--accent-primary);
+}
+
+.ts-mode-btn.active {
+    background: rgba(0, 212, 255, 0.08);
+    border-color: var(--accent-primary);
+    color: var(--text-primary);
+    box-shadow: 0 0 12px rgba(0, 212, 255, 0.15), inset 0 0 12px rgba(0, 212, 255, 0.05);
+}
+
+.ts-mode-btn.active i {
+    color: var(--accent-primary);
+}
+
 /* --- Header --- */
 .ts-header {
     padding-bottom: var(--space-md);
@@ -817,6 +893,18 @@
     display: block;
     object-fit: contain;
     cursor: pointer;
+}
+
+.ts-image-selector {
+    padding: 6px;
+    background: var(--bg-tertiary);
+    border-top: 1px solid var(--border-subtle);
+}
+
+.ts-image-selector .ts-select {
+    width: 100%;
+    font-size: 0.7rem;
+    padding: 5px 24px 5px 8px;
 }
 
 /* --- Product Selectors --- */

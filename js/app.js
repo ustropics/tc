@@ -39,6 +39,7 @@ const els = {
 
     // Close buttons
     closePlayer: document.getElementById('close-player'),
+    closePlayer2: document.getElementById('close-player-2'),
     closePlayerSingle: document.getElementById('close-player-single'),
 
     // Frame titles
@@ -140,27 +141,8 @@ async function loadCatalog() {
 
 // === UTILITIES ===
 function updateStatus(message, type = 'info') {
-    const statusEl = els.status;
-    const icon = statusEl.querySelector('i');
-    const text = statusEl.querySelector('span');
-    
-    text.textContent = message;
-    
-    // Update icon based on type
-    icon.className = 'fas';
-    switch(type) {
-        case 'loading':
-            icon.classList.add('fa-spinner', 'fa-spin');
-            break;
-        case 'success':
-            icon.classList.add('fa-check-circle');
-            break;
-        case 'error':
-            icon.classList.add('fa-exclamation-circle');
-            break;
-        default:
-            icon.classList.add('fa-info-circle');
-    }
+    // Status toast removed — log to console instead
+    console.log(`[${type}] ${message}`);
 }
 
 // Determine which pattern to use based on overlay state
@@ -656,6 +638,13 @@ function updateViewMode() {
 
 // === PLAYER ===
 function resetPlayer() {
+    // Capture the current frame's timestep before clearing state
+    let restoreTimestep = null;
+    if (selectedProduct1 && selectedStorm && catalog[selectedStorm] && catalog[selectedStorm][selectedProduct1]) {
+        const frameStart = catalog[selectedStorm][selectedProduct1].frameStart || 0;
+        restoreTimestep = frameStart + preservedIndex;
+    }
+
     images1 = [];
     images2 = [];
     current = 0;
@@ -680,6 +669,14 @@ function resetPlayer() {
     // Refresh map size when returning to placeholder
     if (typeof trackMap !== 'undefined' && trackMap) {
         setTimeout(() => trackMap.invalidateSize(), 100);
+    }
+
+    // Re-open sidebar with the timestep that was being viewed
+    if (restoreTimestep !== null && typeof trackData !== 'undefined' && typeof openSidebar === 'function') {
+        const matchingPoint = trackData.find(p => p.timestep === restoreTimestep);
+        if (matchingPoint) {
+            setTimeout(() => openSidebar(matchingPoint), 150);
+        }
     }
 }
 
@@ -1002,6 +999,9 @@ window.onload = async () => {
     if (els.closePlayer) {
         els.closePlayer.addEventListener('click', resetPlayer);
     }
+    if (els.closePlayer2) {
+        els.closePlayer2.addEventListener('click', resetPlayer);
+    }
     if (els.closePlayerSingle) {
         els.closePlayerSingle.addEventListener('click', resetPlayer);
     }
@@ -1036,10 +1036,32 @@ document.head.appendChild(style);
 
 // Sidebar toggle functionality
 const sidebarToggle = document.getElementById('sidebar-toggle');
-const sidebar = document.getElementById('sidebar');
+const trackSidebarEl = document.getElementById('track-sidebar');
 
 sidebarToggle.addEventListener('click', () => {
-    sidebar.classList.toggle('open');
+    const isOpen = trackSidebarEl.classList.contains('open');
+    if (isOpen) {
+        // Use the trackmap closeSidebar if available
+        if (typeof closeSidebar === 'function') {
+            closeSidebar();
+        } else {
+            trackSidebarEl.classList.remove('open');
+            const main = document.getElementById('main-container');
+            if (main) main.classList.remove('sidebar-open');
+        }
+    } else {
+        // Open sidebar — show last active point or just open empty
+        if (typeof openSidebar === 'function' && activePoint) {
+            openSidebar(activePoint);
+        } else {
+            trackSidebarEl.classList.add('open');
+            const main = document.getElementById('main-container');
+            if (main) main.classList.add('sidebar-open');
+            if (typeof trackMap !== 'undefined' && trackMap) {
+                setTimeout(() => trackMap.invalidateSize({ animate: true }), 420);
+            }
+        }
+    }
 });
 
 // Close buttons for comparison modal

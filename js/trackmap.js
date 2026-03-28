@@ -143,6 +143,64 @@ function buildImageUrl(productName, stormName, frame) {
 //  SIDEBAR PANEL LOGIC
 // ===========================
 
+// Track the currently highlighted marker
+let activeMarkerRef = null;
+let activeMarkerOriginalStyle = null;
+
+function highlightActiveMarker(point) {
+    // Reset previous highlight
+    clearActiveMarkerHighlight();
+
+    // Find the marker for this point
+    const ref = trackMarkerRefs.find(r => r.point.timestep === point.timestep);
+    if (!ref) return;
+
+    activeMarkerRef = ref.marker;
+    // Save original style
+    activeMarkerOriginalStyle = {
+        color: ref.marker.options.color,
+        weight: ref.marker.options.weight,
+        fillOpacity: ref.marker.options.fillOpacity,
+        radius: ref.marker.options.radius
+    };
+    // Apply highlight
+    ref.marker.setStyle({
+        color: '#00d4ff',
+        weight: 3,
+        fillOpacity: 1
+    });
+    ref.marker.setRadius(activeMarkerOriginalStyle.radius + 3);
+    ref.marker.bringToFront();
+}
+
+function clearActiveMarkerHighlight() {
+    if (activeMarkerRef && activeMarkerOriginalStyle) {
+        activeMarkerRef.setStyle({
+            color: activeMarkerOriginalStyle.color,
+            weight: activeMarkerOriginalStyle.weight,
+            fillOpacity: activeMarkerOriginalStyle.fillOpacity
+        });
+        activeMarkerRef.setRadius(activeMarkerOriginalStyle.radius);
+        activeMarkerRef = null;
+        activeMarkerOriginalStyle = null;
+    }
+}
+
+function updateSidebarToggleIcon(isOpen) {
+    const toggle = document.getElementById('sidebar-toggle');
+    if (!toggle) return;
+    const icon = toggle.querySelector('i');
+    if (!icon) return;
+
+    if (isOpen) {
+        icon.className = 'fas fa-chevron-right';
+        toggle.classList.add('active');
+    } else {
+        icon.className = 'fas fa-bars';
+        toggle.classList.remove('active');
+    }
+}
+
 function openSidebar(point) {
     console.log('openSidebar called with point:', point);
     activePoint = point;
@@ -150,25 +208,37 @@ function openSidebar(point) {
     console.log('sidebar element:', sb);
     if (!sb) return;
 
-    // Populate header
-    document.getElementById('ts-storm-name').textContent = 'IAN';
-    document.getElementById('ts-timestep').textContent = `T${point.timestep}`;
-    document.getElementById('ts-datetime').textContent = formatDatetime(point.datetime);
+    // Update map header subtitle with timestep + datetime
+    const subtitleEl = document.getElementById('map-subtitle');
+    if (subtitleEl) {
+        subtitleEl.innerHTML = `T${point.timestep} &bull; ${formatDatetime(point.datetime)} &bull; Eyewall Refined Center`;
+    }
 
-    // Populate position
-    document.getElementById('ts-lat').textContent = `${point.eyewall_refined_center.lat.toFixed(3)}°N`;
-    document.getElementById('ts-lon').textContent = `${Math.abs(point.eyewall_refined_center.lon).toFixed(3)}°W`;
+    // Populate map header stats
+    const latEl = document.getElementById('map-stat-lat');
+    const lonEl = document.getElementById('map-stat-lon');
+    const pressureEl = document.getElementById('map-stat-pressure');
+    const enthalpyEl = document.getElementById('map-stat-enthalpy');
+    const lhEl = document.getElementById('map-stat-lh');
+    const hfxEl = document.getElementById('map-stat-hfx');
 
-    // Populate diagnostics
+    if (latEl) latEl.textContent = `${point.eyewall_refined_center.lat.toFixed(3)}\u00B0N`;
+    if (lonEl) lonEl.textContent = `${Math.abs(point.eyewall_refined_center.lon).toFixed(3)}\u00B0W`;
+
     const d = point.diagnostics;
-    document.getElementById('ts-pressure').textContent = `${d.min_pressure_hpa.toFixed(1)} hPa`;
-    document.getElementById('ts-enthalpy').textContent = `${d.max_enthalpy_wm2.toFixed(0)} W/m²`;
-    document.getElementById('ts-lh').textContent = `${d.max_lh_wm2.toFixed(0)} W/m²`;
-    document.getElementById('ts-hfx').textContent = `${d.max_hfx_wm2.toFixed(0)} W/m²`;
-    document.getElementById('ts-offset').textContent = `${point.offset_km.toFixed(1)} km`;
+    if (pressureEl) pressureEl.textContent = d.min_pressure_hpa.toFixed(1);
+    if (enthalpyEl) enthalpyEl.textContent = d.max_enthalpy_wm2.toFixed(0);
+    if (lhEl) lhEl.textContent = d.max_lh_wm2.toFixed(0);
+    if (hfxEl) hfxEl.textContent = d.max_hfx_wm2.toFixed(0);
 
     // Update images
     updateSidebarImages(point);
+
+    // Highlight active marker on map
+    highlightActiveMarker(point);
+
+    // Update toggle icon
+    updateSidebarToggleIcon(true);
 
     // Show
     sb.classList.add('open');
@@ -187,6 +257,25 @@ function closeSidebar() {
     const main = document.getElementById('main-container');
     if (main) main.classList.remove('sidebar-open');
     activePoint = null;
+
+    // Clear marker highlight
+    clearActiveMarkerHighlight();
+
+    // Update toggle icon
+    updateSidebarToggleIcon(false);
+
+    // Reset map header to default
+    const subtitleEl = document.getElementById('map-subtitle');
+    if (subtitleEl) {
+        subtitleEl.innerHTML = 'WRF Simulation &bull; Eyewall Refined Center &bull; 2022-09-28 02Z &ndash; 2022-09-29 00Z';
+    }
+
+    const dash = '\u2013';
+    const statIds = ['map-stat-lat', 'map-stat-lon', 'map-stat-pressure', 'map-stat-enthalpy', 'map-stat-lh', 'map-stat-hfx'];
+    statIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = dash;
+    });
 
     // Let Leaflet reclaim the space
     if (trackMap) {
@@ -298,6 +387,16 @@ function initSidebarControls() {
             if (activePoint) updateSidebarImages(activePoint);
         });
     }
+
+    // Mode buttons toggle
+    const modeButtons = document.querySelectorAll('.ts-mode-btn');
+    modeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            modeButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            // Future: switch sidebar content panels based on btn.dataset.mode
+        });
+    });
 }
 
 // ===========================
