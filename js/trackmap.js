@@ -469,6 +469,9 @@ function initSidebarControls() {
         img1.addEventListener('click', () => {
             if (currentSidebarMode === '3d') {
                 console.log('Sidebar 3D image clicked, opening 3D viewer:', sidebar3DProduct, 'frame', sidebar3DFrame);
+                if (typeof selectStorm === 'function') {
+                    selectStorm('Ian');
+                }
                 if (typeof open3dViewer === 'function') {
                     open3dViewer(sidebar3DProduct, sidebar3DFrame);
                 }

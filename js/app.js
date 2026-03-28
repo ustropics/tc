@@ -471,10 +471,23 @@ function hideLoader3d() {
 }
 
 function open3dViewer(view, frameOverride = null) {
-    if (!selectedStorm || !catalog[selectedStorm] || !catalog[selectedStorm][view]) return;
+    let stormName = selectedStorm || 'Ian';
+    if (!catalog[stormName] || !catalog[stormName][view]) {
+        console.warn('3D view not found:', { stormName, view });
+        return;
+    }
+
+    if (selectedStorm !== stormName) {
+        // Keep global selected storm in sync for player state and product menus
+        if (typeof selectStorm === 'function') {
+            selectStorm(stormName);
+        } else {
+            selectedStorm = stormName;
+        }
+    }
 
     current3dView = view;
-    const productConfig = catalog[selectedStorm][view];
+    const productConfig = catalog[stormName][view];
     view3dBaseUrl = productConfig.pattern;
 
     // Determine frame to use (explicit override > player frame) from current context
