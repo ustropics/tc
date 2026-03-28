@@ -395,6 +395,11 @@ function populateSidebarSelectors() {
         if (frame2) frame2.style.display = 'none';
         const frame1 = document.querySelector('.ts-image-frame:nth-child(1)');
         if (frame1) frame1.style.display = 'block';
+
+        // Show first selector, hide second
+        const selectors = document.querySelectorAll('.ts-image-selector');
+        if (selectors[0]) selectors[0].style.display = 'block';
+        if (selectors[1]) selectors[1].style.display = 'none';
         return;
     }
 
@@ -417,6 +422,11 @@ function populateSidebarSelectors() {
     if (frame2) frame2.style.display = 'block';
     const frame1 = document.querySelector('.ts-image-frame:nth-child(1)');
     if (frame1) frame1.style.display = 'block';
+
+    // Show both selectors
+    const selectors = document.querySelectorAll('.ts-image-selector');
+    if (selectors[0]) selectors[0].style.display = 'block';
+    if (selectors[1]) selectors[1].style.display = 'block';
 }
 
 function refreshSidebarMode() {

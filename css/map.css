@@ -896,10 +896,6 @@
     max-height: 320px;
 }
 
-.ts-images.mode-3d .ts-image-frame {
-    max-height: 360px;
-}
-
 .ts-image-selector {
     padding: 6px;
     background: var(--bg-tertiary);
