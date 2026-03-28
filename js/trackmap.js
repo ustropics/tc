@@ -80,6 +80,7 @@ const SIDEBAR_3D_PRODUCTS = [
 
 let currentSidebarMode = '2d';
 let sidebar3DProduct = SIDEBAR_3D_PRODUCTS[0];
+let sidebar3DFrame = 50; // current frame for 3D panel
 
 // === COLOR RAMP ===
 function intensityColor(t) {
@@ -332,6 +333,7 @@ function updateSidebarImages(point) {
     const label2 = document.getElementById('ts-img2-label');
 
     if (currentSidebarMode === '3d') {
+        sidebar3DFrame = frame;
         const url = buildSidebar3DImageUrl(sidebar3DProduct, frame);
 
         console.log('Sidebar 3D image:', { sidebar3DProduct, frame, url, catalogLoaded: !!window.catalog });
@@ -427,6 +429,11 @@ function refreshSidebarMode() {
         }
     });
 
+    const tsImages = document.querySelector('.ts-images');
+    if (tsImages) {
+        tsImages.classList.toggle('mode-3d', currentSidebarMode === '3d');
+    }
+
     if (currentSidebarMode === '3d') {
         sidebar3DProduct = sidebar3DProduct || SIDEBAR_3D_PRODUCTS[0];
         populateSidebarSelectors();
@@ -461,9 +468,9 @@ function initSidebarControls() {
     if (img1) {
         img1.addEventListener('click', () => {
             if (currentSidebarMode === '3d') {
-                console.log('Sidebar 3D image clicked, opening 3D viewer:', sidebar3DProduct);
+                console.log('Sidebar 3D image clicked, opening 3D viewer:', sidebar3DProduct, 'frame', sidebar3DFrame);
                 if (typeof open3dViewer === 'function') {
-                    open3dViewer(sidebar3DProduct);
+                    open3dViewer(sidebar3DProduct, sidebar3DFrame);
                 }
                 closeSidebar();
                 return;

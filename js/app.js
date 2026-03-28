@@ -470,46 +470,48 @@ function hideLoader3d() {
     }
 }
 
-function open3dViewer(view) {
+function open3dViewer(view, frameOverride = null) {
     if (!selectedStorm || !catalog[selectedStorm] || !catalog[selectedStorm][view]) return;
-    
+
     current3dView = view;
     const productConfig = catalog[selectedStorm][view];
     view3dBaseUrl = productConfig.pattern;
-    
-    // Get current frame number from images
-    let frameNum = 50; // default
-    if (images1.length > 0 && images1[current]) {
-        // Extract frame number from image src
+
+    // Determine frame to use (explicit override > player frame) from current context
+    let frameNum = 50; // fallback
+
+    if (frameOverride !== null && frameOverride !== undefined) {
+        frameNum = Number(frameOverride);
+    } else if (images1.length > 0 && images1[current]) {
         const match = images1[current].src.match(/_(\d+)\.(png|jpg|webp)$/i);
         if (match) {
             frameNum = parseInt(match[1], 10);
         }
     }
-    
+
     // Build the iframe URL - replace {frame} and {storm} placeholders
     const stormLower = selectedStorm.toLowerCase();
     let iframeUrl = view3dBaseUrl.replace(/{frame}/g, frameNum);
     iframeUrl = iframeUrl.replace(/{storm}/g, stormLower);
-    
+
     // Update UI
     els.viewer3dLabel.textContent = view.replace('3d_', '').replace(/_/g, ' ');
     els.viewer3dFrameNum.textContent = frameNum;
     els.view3dValue.textContent = truncateText(view.replace('3d_', '').replace(/_/g, ' '), 10);
-    
+
     // Show loading animation before loading iframe
     showLoader3d();
-    
+
     // Set up load event listener for iframe
     els.viewer3dIframe.onload = function() {
         hideLoader3d();
     };
-    
+
     els.viewer3dIframe.src = iframeUrl;
-    
+
     // Show overlay
     els.viewer3dOverlay.classList.add('open');
-    
+
     // Pause playback while 3D view is open
     if (playing) pause();
 }
@@ -525,29 +527,29 @@ function close3dViewer() {
 function update3dViewerFrame() {
     if (!els.viewer3dOverlay.classList.contains('open')) return;
     if (!current3dView || !view3dBaseUrl) return;
-    
-    // Get current frame number
-    let frameNum = 50;
+
+    // Determine frame from current 3D sidebar selection or 2D playback
+    let frameNum = sidebar3DFrame || 50;
     if (images1.length > 0 && images1[current]) {
         const match = images1[current].src.match(/_(\d+)\.(png|jpg|webp)$/i);
         if (match) {
             frameNum = parseInt(match[1], 10);
         }
     }
-    
+
     // Replace both {frame} and {storm} placeholders
     const stormLower = selectedStorm.toLowerCase();
     let iframeUrl = view3dBaseUrl.replace(/{frame}/g, frameNum);
     iframeUrl = iframeUrl.replace(/{storm}/g, stormLower);
-    
+
     els.viewer3dFrameNum.textContent = frameNum;
-    
+
     // Show loading while frame loads
     showLoader3d();
     els.viewer3dIframe.onload = function() {
         hideLoader3d();
     };
-    
+
     els.viewer3dIframe.src = iframeUrl;
 }
 

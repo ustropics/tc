@@ -1087,6 +1087,14 @@ input[type="range"]::-webkit-slider-thumb:hover {
     margin-bottom: var(--space-lg);
 }
 
+.ts-images.mode-3d {
+    grid-template-columns: 1fr;
+}
+
+.ts-images.mode-3d .ts-image-frame:nth-child(2) {
+    display: none;
+}
+
 .ts-image-frame {
     background: var(--bg-secondary);
     border: 1px solid var(--border-subtle);
