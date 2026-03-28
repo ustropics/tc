@@ -155,16 +155,19 @@ function buildSidebar3DImageUrl(productName, frame) {
     const stormName = 'Ian';
     const config = window.catalog?.[stormName]?.[productName];
     if (config) {
+        const stormLower = stormName.toLowerCase();
+        const f = frame || 50;
+
+        // Prefer per-frame thumbnail if available
+        if (config.thumbnailPattern) {
+            return config.thumbnailPattern
+                .replace(/{storm}/g, stormLower)
+                .replace(/{frame}/g, f);
+        }
+
+        // Fall back to single static image
         if (config.staticImage) {
             return config.staticImage;
-        }
-        if (config.pattern) {
-            const stormLower = stormName.toLowerCase();
-            let url = config.pattern.replace(/{storm}/g, stormLower);
-            if (/{frame}/.test(url)) {
-                url = url.replace(/{frame}/g, frame || 50);
-            }
-            return url;
         }
     }
 
@@ -479,13 +482,9 @@ function initSidebarControls() {
         img1.addEventListener('click', () => {
             if (currentSidebarMode === '3d') {
                 console.log('Sidebar 3D image clicked, opening 3D viewer:', sidebar3DProduct, 'frame', sidebar3DFrame);
-                if (typeof selectStorm === 'function') {
-                    selectStorm('Ian');
-                }
                 if (typeof open3dViewer === 'function') {
                     open3dViewer(sidebar3DProduct, sidebar3DFrame);
                 }
-                closeSidebar();
                 return;
             }
 
