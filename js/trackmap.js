@@ -394,9 +394,9 @@ function populateSidebarSelectors() {
         const frame2 = document.querySelector('.ts-image-frame:nth-child(2)');
         if (frame2) frame2.style.display = 'none';
         const frame1 = document.querySelector('.ts-image-frame:nth-child(1)');
-        if (frame1) frame1.style.display = 'block';
+        if (frame1) frame1.style.display = 'flex';
 
-        // Show first selector, hide second
+        // Show first selector (already inside frame1)
         const selectors = document.querySelectorAll('.ts-image-selector');
         if (selectors[0]) selectors[0].style.display = 'block';
         if (selectors[1]) selectors[1].style.display = 'none';
@@ -419,9 +419,9 @@ function populateSidebarSelectors() {
     });
     selB.style.display = 'block';
     const frame2 = document.querySelector('.ts-image-frame:nth-child(2)');
-    if (frame2) frame2.style.display = 'block';
+    if (frame2) frame2.style.display = 'flex';
     const frame1 = document.querySelector('.ts-image-frame:nth-child(1)');
-    if (frame1) frame1.style.display = 'block';
+    if (frame1) frame1.style.display = 'flex';
 
     // Show both selectors
     const selectors = document.querySelectorAll('.ts-image-selector');

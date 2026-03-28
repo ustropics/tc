@@ -841,6 +841,16 @@
     gap: var(--space-sm);
 }
 
+/* 3D mode: single column, full sidebar width */
+.ts-images.mode-3d {
+    grid-template-columns: 1fr;
+}
+
+.ts-images.mode-3d .ts-image-frame {
+    max-height: 420px;
+    min-height: 280px;
+}
+
 .ts-image-frame {
     background: var(--bg-secondary);
     border: 1px solid var(--border-subtle);
