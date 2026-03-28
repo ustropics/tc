@@ -1091,8 +1091,20 @@ input[type="range"]::-webkit-slider-thumb:hover {
     grid-template-columns: 1fr;
 }
 
-.ts-images.mode-3d .ts-image-frame:nth-child(2) {
+.ts-3d-selector {
+    margin-bottom: var(--space-md);
     display: none;
+}
+
+.ts-3d-selector.mode-3d {
+    display: block;
+}
+
+.ts-3d-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin-bottom: 4px;
 }
 
 .ts-image-frame {

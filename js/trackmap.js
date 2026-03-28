@@ -372,6 +372,7 @@ function updateSidebarImages(point) {
 function populateSidebarSelectors() {
     const selA = document.getElementById('ts-product-a');
     const selB = document.getElementById('ts-product-b');
+    const sel3d = document.getElementById('ts-3d-product');
 
     if (!selA || !selB) return;
 
@@ -379,15 +380,23 @@ function populateSidebarSelectors() {
     selB.innerHTML = '';
 
     if (currentSidebarMode === '3d') {
-        SIDEBAR_3D_PRODUCTS.forEach(product => {
-            const option = document.createElement('option');
-            option.value = product;
-            option.textContent = product.replace('3d_', '').replace(/_/g, ' ');
-            if (product === sidebar3DProduct) {
-                option.selected = true;
-            }
-            selA.appendChild(option);
-        });
+        // Populate 3D selector
+        if (sel3d) {
+            sel3d.innerHTML = '';
+            SIDEBAR_3D_PRODUCTS.forEach(product => {
+                const option = document.createElement('option');
+                option.value = product;
+                option.textContent = product.replace('3d_', '').replace(/_/g, ' ');
+                if (product === sidebar3DProduct) {
+                    option.selected = true;
+                }
+                sel3d.appendChild(option);
+            });
+        }
+
+        // Hide image selectors in 3D mode
+        const selectors = document.querySelectorAll('.ts-image-selector');
+        selectors.forEach(sel => sel.style.display = 'none');
 
         // Keep selB empty in 3D mode
         selB.style.display = 'none';
@@ -417,6 +426,10 @@ function populateSidebarSelectors() {
     if (frame2) frame2.style.display = 'block';
     const frame1 = document.querySelector('.ts-image-frame:nth-child(1)');
     if (frame1) frame1.style.display = 'block';
+
+    // Show image selectors in 2D mode
+    const selectors = document.querySelectorAll('.ts-image-selector');
+    selectors.forEach(sel => sel.style.display = 'block');
 }
 
 function refreshSidebarMode() {
@@ -432,6 +445,11 @@ function refreshSidebarMode() {
     const tsImages = document.querySelector('.ts-images');
     if (tsImages) {
         tsImages.classList.toggle('mode-3d', currentSidebarMode === '3d');
+    }
+
+    const ts3dSelector = document.querySelector('.ts-3d-selector');
+    if (ts3dSelector) {
+        ts3dSelector.classList.toggle('mode-3d', currentSidebarMode === '3d');
     }
 
     if (currentSidebarMode === '3d') {
@@ -460,6 +478,29 @@ function initSidebarControls() {
             }
         }
     });
+
+    // Add 3D product selector after mode bar
+    const tsModeBar = document.querySelector('.ts-mode-bar');
+    if (tsModeBar) {
+        const ts3dSelector = document.createElement('div');
+        ts3dSelector.className = 'ts-3d-selector';
+        ts3dSelector.innerHTML = `
+            <div class="ts-3d-label">3D Plot Type</div>
+            <select id="ts-3d-product" class="ts-select">
+                <!-- Populated by JS -->
+            </select>
+        `;
+        tsModeBar.insertAdjacentElement('afterend', ts3dSelector);
+
+        // Event listener for 3D product selector
+        const sel3d = document.getElementById('ts-3d-product');
+        if (sel3d) {
+            sel3d.addEventListener('change', (e) => {
+                sidebar3DProduct = e.target.value;
+                if (activePoint) updateSidebarImages(activePoint);
+            });
+        }
+    }
 
     // Click handlers for sidebar images to open player
     const img1 = document.getElementById('ts-img1');
@@ -522,11 +563,7 @@ function initSidebarControls() {
         });
 
         selA.addEventListener('change', (e) => {
-            if (currentSidebarMode === '3d') {
-                sidebar3DProduct = e.target.value;
-            } else {
-                sidebarProductA = e.target.value;
-            }
+            sidebarProductA = e.target.value;
             if (activePoint) updateSidebarImages(activePoint);
         });
 
