@@ -110,19 +110,23 @@
     },
     "3d_Enthalpy Flux Isosurface": {
       "type": "3d",
-      "pattern": "images/{storm}/eflx_3d/{storm}_eflx_3d_isosurface_{frame}.html"
+      "pattern": "images/{storm}/eflx_3d/{storm}_eflx_3d_isosurface_{frame}.html",
+      "staticImage": "images/static/3d/3d_enthalpy_flux.png"
     },
     "3d_Windspeed": {
       "type": "3d",
-      "pattern": "images/{storm}/ws_3d/{storm}_windspeed_3d_{frame}.html"
+      "pattern": "images/{storm}/ws_3d/{storm}_windspeed_3d_{frame}.html",
+      "staticImage": "images/static/3d/3d_wind.png"
     },
     "3d_Radar": {
       "type": "3d",
-      "pattern": "images/{storm}/radar_3d/{storm}_radar_3d_{frame}.html"
+      "pattern": "images/{storm}/radar_3d/{storm}_radar_3d_{frame}.html",
+      "staticImage": "images/static/3d/3d_radar.png"
     },
     "3d_Thetae": {
       "type": "3d",
-      "pattern": "images/{storm}/thetae_3d/{storm}_thetae_3d_{frame}.html"
+      "pattern": "images/{storm}/thetae_3d/{storm}_thetae_3d_{frame}.html",
+      "staticImage": "images/static/3d/3d_potential_temp.png"
     }
 
   }

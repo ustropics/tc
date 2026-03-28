@@ -70,6 +70,17 @@ const SIDEBAR_PRODUCTS = [
     'Wind Speed (10m)'
 ];
 
+// 3D sidebar product options (static preview images)
+const SIDEBAR_3D_PRODUCTS = [
+    '3d_Enthalpy Flux Isosurface',
+    '3d_Thetae',
+    '3d_Radar',
+    '3d_Windspeed'
+];
+
+let currentSidebarMode = '2d';
+let sidebar3DProduct = SIDEBAR_3D_PRODUCTS[0];
+
 // === COLOR RAMP ===
 function intensityColor(t) {
     t = Math.max(0, Math.min(1, t));
@@ -137,6 +148,32 @@ function buildImageUrl(productName, stormName, frame) {
         'Wind Speed (10m)':                 `images/${storm}/wind_min/${storm}_wind_sfc_min_0${frame}.png`
     };
     return patterns[productName] || '';
+}
+
+function buildSidebar3DImageUrl(productName, frame) {
+    const stormName = 'Ian';
+    const config = window.catalog?.[stormName]?.[productName];
+    if (config) {
+        if (config.staticImage) {
+            return config.staticImage;
+        }
+        if (config.pattern) {
+            const stormLower = stormName.toLowerCase();
+            let url = config.pattern.replace(/{storm}/g, stormLower);
+            if (/{frame}/.test(url)) {
+                url = url.replace(/{frame}/g, frame || 50);
+            }
+            return url;
+        }
+    }
+
+    const fallback = {
+        '3d_Enthalpy Flux Isosurface': 'images/static/3d/3d_enthalpy_flux.png',
+        '3d_Thetae': 'images/static/3d/3d_potential_temp.png',
+        '3d_Radar': 'images/static/3d/3d_radar.png',
+        '3d_Windspeed': 'images/static/3d/3d_wind.png'
+    };
+    return fallback[productName] || '';
 }
 
 // ===========================
@@ -294,9 +331,26 @@ function updateSidebarImages(point) {
     const label1 = document.getElementById('ts-img1-label');
     const label2 = document.getElementById('ts-img2-label');
 
+    if (currentSidebarMode === '3d') {
+        const url = buildSidebar3DImageUrl(sidebar3DProduct, frame);
+
+        console.log('Sidebar 3D image:', { sidebar3DProduct, frame, url, catalogLoaded: !!window.catalog });
+
+        if (img1) {
+            img1.src = url;
+            img1.onerror = () => console.error('Failed to load 3D image:', url);
+        }
+        if (img2) {
+            img2.src = '';
+        }
+        if (label1) label1.textContent = sidebar3DProduct.replace('3d_', '').replace(/_/g, ' ');
+        if (label2) label2.textContent = '';
+        return;
+    }
+
     const url1 = buildImageUrl(sidebarProductA, 'Ian', frame);
     const url2 = buildImageUrl(sidebarProductB, 'Ian', frame);
-    
+
     console.log('Sidebar images:', { sidebarProductA, sidebarProductB, frame, url1, url2, catalogLoaded: !!window.catalog });
 
     if (img1) {
@@ -311,6 +365,76 @@ function updateSidebarImages(point) {
     }
     if (label1) label1.textContent = sidebarProductA.replace('Enthalpy Fluxes - ', '');
     if (label2) label2.textContent = sidebarProductB.replace('Enthalpy Fluxes - ', '');
+}
+
+function populateSidebarSelectors() {
+    const selA = document.getElementById('ts-product-a');
+    const selB = document.getElementById('ts-product-b');
+
+    if (!selA || !selB) return;
+
+    selA.innerHTML = '';
+    selB.innerHTML = '';
+
+    if (currentSidebarMode === '3d') {
+        SIDEBAR_3D_PRODUCTS.forEach(product => {
+            const option = document.createElement('option');
+            option.value = product;
+            option.textContent = product.replace('3d_', '').replace(/_/g, ' ');
+            if (product === sidebar3DProduct) {
+                option.selected = true;
+            }
+            selA.appendChild(option);
+        });
+
+        // Keep selB empty in 3D mode
+        selB.style.display = 'none';
+        const frame2 = document.querySelector('.ts-image-frame:nth-child(2)');
+        if (frame2) frame2.style.display = 'none';
+        const frame1 = document.querySelector('.ts-image-frame:nth-child(1)');
+        if (frame1) frame1.style.display = 'block';
+        return;
+    }
+
+    // 2D mode
+    SIDEBAR_PRODUCTS.forEach(product => {
+        const optionA = document.createElement('option');
+        optionA.value = product;
+        optionA.textContent = product;
+        if (product === sidebarProductA) optionA.selected = true;
+        selA.appendChild(optionA);
+
+        const optionB = document.createElement('option');
+        optionB.value = product;
+        optionB.textContent = product;
+        if (product === sidebarProductB) optionB.selected = true;
+        selB.appendChild(optionB);
+    });
+    selB.style.display = 'block';
+    const frame2 = document.querySelector('.ts-image-frame:nth-child(2)');
+    if (frame2) frame2.style.display = 'block';
+    const frame1 = document.querySelector('.ts-image-frame:nth-child(1)');
+    if (frame1) frame1.style.display = 'block';
+}
+
+function refreshSidebarMode() {
+    const buttons = document.querySelectorAll('.ts-mode-btn');
+    buttons.forEach(btn => {
+        if (btn.dataset.mode === currentSidebarMode) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+
+    if (currentSidebarMode === '3d') {
+        sidebar3DProduct = sidebar3DProduct || SIDEBAR_3D_PRODUCTS[0];
+        populateSidebarSelectors();
+        if (activePoint) updateSidebarImages(activePoint);
+    } else {
+        populateSidebarSelectors();
+        if (activePoint) updateSidebarImages(activePoint);
+    }
 }
 
 function initSidebarControls() {
@@ -336,10 +460,18 @@ function initSidebarControls() {
     
     if (img1) {
         img1.addEventListener('click', () => {
+            if (currentSidebarMode === '3d') {
+                console.log('Sidebar 3D image clicked, opening 3D viewer:', sidebar3DProduct);
+                if (typeof open3dViewer === 'function') {
+                    open3dViewer(sidebar3DProduct);
+                }
+                closeSidebar();
+                return;
+            }
+
             console.log('Sidebar image clicked - opening both products:', sidebarProductA, sidebarProductB, activePoint?.timestep);
             if (activePoint && window.selectBothProductsAndJumpToFrame) {
                 window.selectBothProductsAndJumpToFrame('Ian', sidebarProductA, sidebarProductB, activePoint.timestep);
-                // Close the sidebar
                 closeSidebar();
             }
         });
@@ -348,10 +480,12 @@ function initSidebarControls() {
     
     if (img2) {
         img2.addEventListener('click', () => {
+            if (currentSidebarMode === '3d') {
+                return;
+            }
             console.log('Sidebar image clicked - opening both products:', sidebarProductA, sidebarProductB, activePoint?.timestep);
             if (activePoint && window.selectBothProductsAndJumpToFrame) {
                 window.selectBothProductsAndJumpToFrame('Ian', sidebarProductA, sidebarProductB, activePoint.timestep);
-                // Close the sidebar
                 closeSidebar();
             }
         });
@@ -378,7 +512,11 @@ function initSidebarControls() {
         });
 
         selA.addEventListener('change', (e) => {
-            sidebarProductA = e.target.value;
+            if (currentSidebarMode === '3d') {
+                sidebar3DProduct = e.target.value;
+            } else {
+                sidebarProductA = e.target.value;
+            }
             if (activePoint) updateSidebarImages(activePoint);
         });
 
@@ -392,11 +530,13 @@ function initSidebarControls() {
     const modeButtons = document.querySelectorAll('.ts-mode-btn');
     modeButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            modeButtons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            // Future: switch sidebar content panels based on btn.dataset.mode
+            currentSidebarMode = btn.dataset.mode || '2d';
+            refreshSidebarMode();
         });
     });
+
+    // Initialize selector contents and images
+    refreshSidebarMode();
 }
 
 // ===========================
