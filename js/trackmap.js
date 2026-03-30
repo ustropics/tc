@@ -227,6 +227,34 @@ function clearActiveMarkerHighlight() {
     }
 }
 
+function updateSidebarTimestepDetails(point) {
+    const setText = (id, text) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = text;
+    };
+
+    if (!point) {
+        setText('ts-timestep', '–');
+        setText('ts-datetime', '–');
+        setText('ts-lat', '–');
+        setText('ts-lon', '–');
+        setText('ts-pressure', '–');
+        setText('ts-enthalpy', '–');
+        return;
+    }
+
+    const lat = point.eyewall_refined_center.lat;
+    const lon = point.eyewall_refined_center.lon;
+    const d = point.diagnostics;
+
+    setText('ts-timestep', `T${point.timestep}`);
+    setText('ts-datetime', formatDatetime(point.datetime));
+    setText('ts-lat', `${lat.toFixed(3)}°N`);
+    setText('ts-lon', `${Math.abs(lon).toFixed(3)}°W`);
+    setText('ts-pressure', `${d.min_pressure_hpa.toFixed(1)} hPa`);
+    setText('ts-enthalpy', `${d.max_enthalpy_wm2.toFixed(0)} W/m²`);
+}
+
 function updateSidebarToggleIcon(isOpen) {
     const toggle = document.getElementById('sidebar-toggle');
     if (!toggle) return;
@@ -271,6 +299,9 @@ function openSidebar(point) {
     if (enthalpyEl) enthalpyEl.textContent = d.max_enthalpy_wm2.toFixed(0);
     if (lhEl) lhEl.textContent = d.max_lh_wm2.toFixed(0);
     if (hfxEl) hfxEl.textContent = d.max_hfx_wm2.toFixed(0);
+
+    // Update timestep detail card in sidebar
+    updateSidebarTimestepDetails(point);
 
     // Update images
     updateSidebarImages(point);
@@ -317,7 +348,7 @@ function closeSidebar() {
         const el = document.getElementById(id);
         if (el) el.textContent = dash;
     });
-
+    updateSidebarTimestepDetails(null);
     // Let Leaflet reclaim the space
     if (trackMap) {
         setTimeout(() => trackMap.invalidateSize({ animate: true }), 420);

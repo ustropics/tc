@@ -346,6 +346,40 @@
             <!-- Track Detail Sidebar (inside main-container for flex layout) -->
             <div id="track-sidebar">
                 <div class="track-sidebar-content">
+                    <!-- Timestep Summary Card -->
+                    <div class="ts-timestep-card" id="ts-timestep-card">
+                        <div class="ts-timestep-title">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Timestep Details</span>
+                        </div>
+                        <div class="ts-timestep-grid">
+                            <div class="ts-timestep-row">
+                                <span class="ts-timestep-label">Frame</span>
+                                <strong id="ts-timestep">&ndash;</strong>
+                            </div>
+                            <div class="ts-timestep-row">
+                                <span class="ts-timestep-label">Date &amp; Time</span>
+                                <strong id="ts-datetime">&ndash;</strong>
+                            </div>
+                            <div class="ts-timestep-row">
+                                <span class="ts-timestep-label">Latitude</span>
+                                <strong id="ts-lat">&ndash;</strong>
+                            </div>
+                            <div class="ts-timestep-row">
+                                <span class="ts-timestep-label">Longitude</span>
+                                <strong id="ts-lon">&ndash;</strong>
+                            </div>
+                            <div class="ts-timestep-row">
+                                <span class="ts-timestep-label">Min Pressure</span>
+                                <strong id="ts-pressure">&ndash;</strong>
+                            </div>
+                            <div class="ts-timestep-row">
+                                <span class="ts-timestep-label">Max Enthalpy</span>
+                                <strong id="ts-enthalpy">&ndash;</strong>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Sidebar Mode Buttons -->
                     <div class="ts-mode-bar">
                         <div class="ts-mode-label">ANALYSIS MODE</div>
