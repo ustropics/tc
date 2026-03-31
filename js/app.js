@@ -164,6 +164,9 @@ function generateImageArray(productConfig, stormName, viewerType = 'primary') {
     if (productConfig.hasOverlays && productConfig.patterns) {
         const patternKey = getPatternKey(viewerType);
         pattern = productConfig.patterns[patternKey];
+    } else if (productConfig.patterns && productConfig.patterns.base) {
+        // No overlays but uses patterns object (e.g. diagnostics with only a base pattern)
+        pattern = productConfig.patterns.base;
     } else if (productConfig.pattern) {
         pattern = productConfig.pattern;
     } else {
@@ -973,14 +976,38 @@ window.selectProductAndJumpToFrame = async function(stormName, productName, fram
 window.selectBothProductsAndJumpToFrame = async function(stormName, productA, productB, frameNumber) {
     console.log('selectBothProductsAndJumpToFrame called:', { stormName, productA, productB, frameNumber, catalog: !!window.catalog });
     
-    if (!stormName || !catalog[stormName] || !catalog[stormName][productA] || !catalog[stormName][productB]) {
-        console.warn(`Products not found for storm ${stormName}`);
+    if (!stormName || !catalog[stormName] || !catalog[stormName][productA]) {
+        console.warn(`Product ${productA} not found for storm ${stormName}`);
         return;
     }
     
     // Set the storm if not already set
     if (selectedStorm !== stormName) {
         selectStorm(stormName);
+    }
+    
+    // If productB is null/undefined/'none', use single-view mode
+    if (!productB || productB === 'none') {
+        console.log('Single-view mode for product:', productA);
+        selectProduct1(productA);
+        selectProduct2('none');
+        
+        setTimeout(() => {
+            if (images1.length > 0) {
+                const frameIndex = frameNumber - catalog[stormName][productA].frameStart;
+                const clampedIndex = Math.max(0, Math.min(frameIndex, images1.length - 1));
+                console.log('Jumping to frame (single):', { frameNumber, frameIndex, clampedIndex });
+                show(clampedIndex);
+            } else {
+                console.warn('No images loaded after selecting product');
+            }
+        }, 100);
+        return;
+    }
+    
+    if (!catalog[stormName][productB]) {
+        console.warn(`Product ${productB} not found for storm ${stormName}`);
+        return;
     }
     
     // Select both products

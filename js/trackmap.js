@@ -78,6 +78,11 @@ const SIDEBAR_3D_PRODUCTS = [
     '3d_Windspeed'
 ];
 
+// Diagnostics sidebar product options (single full-width image, opens in 2D player)
+const SIDEBAR_DIAGNOSTICS_PRODUCTS = [
+    'Azimuthal Profile'
+];
+
 let currentSidebarMode = '2d';
 let sidebar3DProduct = SIDEBAR_3D_PRODUCTS[0];
 let sidebar3DFrame = 50; // current frame for 3D panel
@@ -378,7 +383,7 @@ function updateSidebarImages(point) {
         if (img2) {
             img2.src = '';
         }
-        if (label1) label1.textContent = 'Azimuthal Profile';
+        if (label1) label1.textContent = sidebarDiagnosticsProduct;
         if (label2) label2.textContent = '';
         return;
     }
@@ -455,17 +460,30 @@ function populateSidebarSelectors() {
     }
 
     if (currentSidebarMode === 'diagnostics') {
-        // No selector for now
-        selA.style.display = 'none';
+        // Show selector for diagnostics products (like 3D mode: single image + dropdown)
+        SIDEBAR_DIAGNOSTICS_PRODUCTS.forEach(product => {
+            const option = document.createElement('option');
+            option.value = product;
+            option.textContent = product;
+            if (product === sidebarDiagnosticsProduct) {
+                option.selected = true;
+            }
+            selA.appendChild(option);
+        });
+
+        selA.style.display = 'block';
         selB.style.display = 'none';
         const frame2 = document.querySelector('.ts-image-frame:nth-child(2)');
         if (frame2) frame2.style.display = 'none';
         const frame1 = document.querySelector('.ts-image-frame:nth-child(1)');
         if (frame1) frame1.style.display = 'flex';
 
-        // Set label
+        const selectors = document.querySelectorAll('.ts-image-selector');
+        if (selectors[0]) selectors[0].style.display = 'block';
+        if (selectors[1]) selectors[1].style.display = 'none';
+
         const label1 = document.getElementById('ts-img1-label');
-        if (label1) label1.textContent = 'Azimuthal Profile';
+        if (label1) label1.textContent = sidebarDiagnosticsProduct;
         return;
     }
 
@@ -557,7 +575,8 @@ function initSidebarControls() {
             if (currentSidebarMode === 'diagnostics') {
                 console.log('Diagnostics image clicked, opening player:', sidebarDiagnosticsProduct, activePoint?.timestep);
                 if (activePoint && window.selectBothProductsAndJumpToFrame) {
-                    window.selectBothProductsAndJumpToFrame('Ian', sidebarDiagnosticsProduct, sidebarDiagnosticsProduct, activePoint.timestep);
+                    // Pass null as product2 to signal single-view mode in the player
+                    window.selectBothProductsAndJumpToFrame('Ian', sidebarDiagnosticsProduct, null, activePoint.timestep);
                     closeSidebar();
                 }
                 return;
@@ -608,6 +627,10 @@ function initSidebarControls() {
         selA.addEventListener('change', (e) => {
             if (currentSidebarMode === '3d') {
                 sidebar3DProduct = e.target.value;
+            } else if (currentSidebarMode === 'diagnostics') {
+                sidebarDiagnosticsProduct = e.target.value;
+                const label1 = document.getElementById('ts-img1-label');
+                if (label1) label1.textContent = sidebarDiagnosticsProduct;
             } else {
                 sidebarProductA = e.target.value;
             }
@@ -874,6 +897,9 @@ function buildImageUrl(productName, stormName, frame) {
     let pattern;
     if (productConfig.hasOverlays && productConfig.patterns) {
         pattern = productConfig.patterns.base; // Use base pattern for sidebar previews
+    } else if (productConfig.patterns && productConfig.patterns.base) {
+        // No overlays but uses patterns object (e.g. diagnostics with only a base pattern)
+        pattern = productConfig.patterns.base;
     } else if (productConfig.pattern) {
         pattern = productConfig.pattern;
     } else {
