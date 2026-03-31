@@ -122,7 +122,7 @@ function buildImageUrl(productName, stormName, frame) {
         const stormLower = stormName.toLowerCase();
         
         let pattern;
-        if (productConfig.hasOverlays && productConfig.patterns) {
+        if (productConfig.patterns) {
             pattern = productConfig.patterns.base;
         } else if (productConfig.pattern) {
             pattern = productConfig.pattern;

@@ -142,6 +142,7 @@
     },
     "Azimuthal Profile": {
       "type": "2d",
+      "hasOverlays": false,
       "patterns": {
         "base": "images/{storm}/eflx_azimuthal_profile/{storm}_eflx_azimuthal_profile_0{frame}.png"
       },
