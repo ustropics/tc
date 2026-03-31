@@ -368,7 +368,7 @@ function updateSidebarImages(point) {
     const label2 = document.getElementById('ts-img2-label');
 
     if (currentSidebarMode === 'diagnostics') {
-        const url = buildSidebarImageUrl(sidebarDiagnosticsProduct, frame);
+        const url = buildImageUrl(sidebarDiagnosticsProduct, 'Ian', frame);
         console.log('Sidebar diagnostics image:', { sidebarDiagnosticsProduct, frame, url, catalogLoaded: !!window.catalog });
         if (img1) {
             img1.src = url;
