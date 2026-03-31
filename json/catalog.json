@@ -139,6 +139,15 @@
       "staticImage": "images/static/3d/3d_potential_temp.png",
       "frameStart": 50,
       "frameEnd": 72
+    },
+    "Azimuthal Profile": {
+      "type": "2d",
+      "patterns": {
+        "base": "images/{storm}/eflx_azimuthal_profile/{storm}_eflx_azimuthal_profile_0{frame}.png"
+      },
+      "frameStart": 50,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Azimuthal Profile Frame {frame}"
     }
   }
 }

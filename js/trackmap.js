@@ -81,6 +81,7 @@ const SIDEBAR_3D_PRODUCTS = [
 let currentSidebarMode = '2d';
 let sidebar3DProduct = SIDEBAR_3D_PRODUCTS[0];
 let sidebar3DFrame = 50; // current frame for 3D panel
+let sidebarDiagnosticsProduct = 'Azimuthal Profile';
 
 // === COLOR RAMP ===
 function intensityColor(t) {
@@ -366,6 +367,22 @@ function updateSidebarImages(point) {
     const label1 = document.getElementById('ts-img1-label');
     const label2 = document.getElementById('ts-img2-label');
 
+    if (currentSidebarMode === 'diagnostics') {
+        const url = buildSidebarImageUrl(sidebarDiagnosticsProduct, frame);
+        console.log('Sidebar diagnostics image:', { sidebarDiagnosticsProduct, frame, url, catalogLoaded: !!window.catalog });
+        if (img1) {
+            img1.src = url;
+            img1.onload = () => console.log('Loaded diagnostics image:', url);
+            img1.onerror = () => console.error('Failed to load diagnostics image:', url);
+        }
+        if (img2) {
+            img2.src = '';
+        }
+        if (label1) label1.textContent = 'Azimuthal Profile';
+        if (label2) label2.textContent = '';
+        return;
+    }
+
     if (currentSidebarMode === '3d') {
         sidebar3DFrame = frame;
         const url = buildSidebar3DImageUrl(sidebar3DProduct, frame);
@@ -437,6 +454,21 @@ function populateSidebarSelectors() {
         return;
     }
 
+    if (currentSidebarMode === 'diagnostics') {
+        // No selector for now
+        selA.style.display = 'none';
+        selB.style.display = 'none';
+        const frame2 = document.querySelector('.ts-image-frame:nth-child(2)');
+        if (frame2) frame2.style.display = 'none';
+        const frame1 = document.querySelector('.ts-image-frame:nth-child(1)');
+        if (frame1) frame1.style.display = 'flex';
+
+        // Set label
+        const label1 = document.getElementById('ts-img1-label');
+        if (label1) label1.textContent = 'Azimuthal Profile';
+        return;
+    }
+
     // 2D mode
     SIDEBAR_PRODUCTS.forEach(product => {
         const optionA = document.createElement('option');
@@ -475,11 +507,14 @@ function refreshSidebarMode() {
 
     const tsImages = document.querySelector('.ts-images');
     if (tsImages) {
-        tsImages.classList.toggle('mode-3d', currentSidebarMode === '3d');
+        tsImages.classList.toggle('mode-3d', currentSidebarMode === '3d' || currentSidebarMode === 'diagnostics');
     }
 
     if (currentSidebarMode === '3d') {
         sidebar3DProduct = sidebar3DProduct || SIDEBAR_3D_PRODUCTS[0];
+        populateSidebarSelectors();
+        if (activePoint) updateSidebarImages(activePoint);
+    } else if (currentSidebarMode === 'diagnostics') {
         populateSidebarSelectors();
         if (activePoint) updateSidebarImages(activePoint);
     } else {
@@ -515,6 +550,15 @@ function initSidebarControls() {
                 console.log('Sidebar 3D image clicked, opening 3D viewer:', sidebar3DProduct, 'frame', sidebar3DFrame);
                 if (typeof open3dViewer === 'function') {
                     open3dViewer(sidebar3DProduct, sidebar3DFrame);
+                }
+                return;
+            }
+
+            if (currentSidebarMode === 'diagnostics') {
+                console.log('Diagnostics image clicked, opening player:', sidebarDiagnosticsProduct, activePoint?.timestep);
+                if (activePoint && window.selectBothProductsAndJumpToFrame) {
+                    window.selectBothProductsAndJumpToFrame('Ian', sidebarDiagnosticsProduct, sidebarDiagnosticsProduct, activePoint.timestep);
+                    closeSidebar();
                 }
                 return;
             }
