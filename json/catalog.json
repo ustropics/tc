@@ -140,7 +140,7 @@
       "frameStart": 50,
       "frameEnd": 72
     },
-    "Azimuthal Profile": {
+    "Enthalpy Inflow Profile (Azimuthal)": {
       "type": "2d",
       "hasOverlays": false,
       "patterns": {
@@ -148,7 +148,17 @@
       },
       "frameStart": 50,
       "frameEnd": 72,
-      "titlePattern": "{storm} Azimuthal Profile Frame {frame}"
+      "titlePattern": "{storm} Enthalpy Inflow Profile (Azimuthal) Frame {frame}"
+    },
+    "Enthalpy Radial Profile (Azimuthal)": {
+      "type": "2d",
+      "hasOverlays": false,
+      "patterns": {
+        "base": "images/{storm}/diagnostic/eflx_dist_profile_radial/{storm}_eflx_dist_azimuthal_{frame}.png"
+      },
+      "frameStart": 50,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Enthalpy Radial Profile (Azimuthal) Frame {frame}"
     }
   }
 }

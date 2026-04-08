@@ -80,13 +80,14 @@ const SIDEBAR_3D_PRODUCTS = [
 
 // Diagnostics sidebar product options (single full-width image, opens in 2D player)
 const SIDEBAR_DIAGNOSTICS_PRODUCTS = [
-    'Azimuthal Profile'
+    'Enthalpy Inflow Profile (Azimuthal)',
+    'Enthalpy Radial Profile (Azimuthal)'
 ];
 
 let currentSidebarMode = '2d';
 let sidebar3DProduct = SIDEBAR_3D_PRODUCTS[0];
 let sidebar3DFrame = 50; // current frame for 3D panel
-let sidebarDiagnosticsProduct = 'Azimuthal Profile';
+let sidebarDiagnosticsProduct = 'Enthalpy Inflow Profile (Azimuthal)';
 
 // === COLOR RAMP ===
 function intensityColor(t) {
