@@ -853,14 +853,14 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 6px 12px;
-    min-height: 32px;
+    padding: 4px 8px;
+    min-height: 24px;
     background: var(--bg-secondary);
     border: 1px solid var(--border-medium);
     border-radius: 999px;
     color: var(--text-muted);
     font-family: var(--font-mono);
-    font-size: 0.65rem;
+    font-size: 0.55rem;
     letter-spacing: 0.04em;
     cursor: pointer;
     transition: all var(--transition-normal);
