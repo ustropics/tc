@@ -491,7 +491,24 @@ function populateSidebarSelectors() {
     }
 
     // 2D mode
-    SIDEBAR_PRODUCTS.forEach(product => {
+    let filteredProducts = SIDEBAR_PRODUCTS;
+    if (window.sidebar2DFilters && window.sidebar2DFilters.size > 0 && window.catalog && window.catalog['Ian']) {
+        const catalog = window.catalog['Ian'];
+        filteredProducts = SIDEBAR_PRODUCTS.filter(product => {
+            const productConfig = catalog[product];
+            return productConfig && productConfig.filters && productConfig.filters.some(f => window.sidebar2DFilters.has(f));
+        });
+    }
+
+    // Check if current selections are still valid
+    if (sidebarProductA && !filteredProducts.includes(sidebarProductA)) {
+        sidebarProductA = filteredProducts[0] || SIDEBAR_PRODUCTS[0];
+    }
+    if (sidebarProductB && !filteredProducts.includes(sidebarProductB)) {
+        sidebarProductB = filteredProducts[1] || SIDEBAR_PRODUCTS[1];
+    }
+
+    filteredProducts.forEach(product => {
         const optionA = document.createElement('option');
         optionA.value = product;
         optionA.textContent = product;
@@ -515,6 +532,9 @@ function populateSidebarSelectors() {
     if (selectors[0]) selectors[0].style.display = 'block';
     if (selectors[1]) selectors[1].style.display = 'block';
 }
+
+// Make populateSidebarSelectors globally accessible
+window.populateSidebarSelectors = populateSidebarSelectors;
 
 function refreshSidebarMode() {
     const buttons = document.querySelectorAll('.ts-mode-btn');
@@ -618,20 +638,6 @@ function initSidebarControls() {
     const selB = document.getElementById('ts-product-b');
 
     if (selA && selB) {
-        SIDEBAR_PRODUCTS.forEach(name => {
-            const optA = document.createElement('option');
-            optA.value = name;
-            optA.textContent = name;
-            if (name === sidebarProductA) optA.selected = true;
-            selA.appendChild(optA);
-
-            const optB = document.createElement('option');
-            optB.value = name;
-            optB.textContent = name;
-            if (name === sidebarProductB) optB.selected = true;
-            selB.appendChild(optB);
-        });
-
         selA.addEventListener('change', (e) => {
             if (currentSidebarMode === '3d') {
                 sidebar3DProduct = e.target.value;
@@ -675,6 +681,7 @@ function initSidebarControls() {
             console.log('2D filter toggled:', filterKey, isActive);
             // Update product menus based on active filters
             if (window.populateProductMenus) window.populateProductMenus();
+            if (window.populateSidebarSelectors) window.populateSidebarSelectors();
         });
     });
 
