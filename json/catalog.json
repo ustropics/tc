@@ -2,8 +2,8 @@
   "Ian": {
     "Enthalpy Fluxes - Surface": {
       "type": "2d",
-      "hasOverlays": true
-      "filters": [],
+      "hasOverlays": true,
+      "filters": ["enthalpy", "2d map"],
       "patterns": {
         "base": "images/{storm}/eflx_sfc_min/{storm}_eflx_sfc_min_{frame}.png",
         "wind": "images/{storm}/eflx_sfc_winds/{storm}_eflx_sfc_winds_{frame}.png",
@@ -16,7 +16,7 @@
     },
     "Enthalpy Fluxes - Horizontal": {
       "type": "2d",
-      "hasOverlays": true
+      "hasOverlays": true,
       "filters": [],
       "patterns": {
         "base": "images/{storm}/eflx_hor_min/{storm}_eflx_hor_min_{frame}.png",
@@ -30,7 +30,7 @@
     },
     "Enthalpy Fluxes - Lat xsec": {
       "type": "2d",
-      "hasOverlays": false
+      "hasOverlays": false,
       "filters": [],
       "patterns": {
         "base": "images/{storm}/eflx_xsec_lat/{storm}_eflx_xsec_lat_{frame}.png"
@@ -41,7 +41,7 @@
     },
     "Enthalpy Fluxes - Lon xsec": {
       "type": "2d",
-      "hasOverlays": false
+      "hasOverlays": false,
       "filters": [],
       "patterns": {
         "base": "images/{storm}/eflx_xsec_lon/{storm}_eflx_xsec_lon_{frame}.png"
@@ -52,7 +52,7 @@
     },
     "Radial Profile": {
       "type": "2d",
-      "hasOverlays": true
+      "hasOverlays": true,
       "filters": [],
       "patterns": {
         "base": "images/{storm}/inflow_profile/{storm}_inflow_profile_{frame}.png"
@@ -63,7 +63,7 @@
     },
         "Streamlines with Radial and Tangent Winds": {
       "type": "2d",
-      "hasOverlays": false
+      "hasOverlays": false,
       "filters": [],
       "patterns": {
         "base": "images/{storm}/2d/streamlines_with_rad_and_tan/streamlines_{storm}_{frame}.png"
@@ -74,7 +74,7 @@
     },
     "Enthalpy Fluxes - Radial": {
       "type": "2d",
-      "hasOverlays": true
+      "hasOverlays": true,
       "filters": [],
       "patterns": {
         "base": "images/{storm}/eflx_radial_min/{storm}_eflx_radial_min_{frame}.png",
@@ -88,7 +88,7 @@
     },
     "Enthalpy Fluxes - Tangential": {
       "type": "2d",
-      "hasOverlays": true
+      "hasOverlays": true,
       "filters": [],
       "patterns": {
         "base": "images/{storm}/eflx_tan_min/{storm}_eflx_tan_min_{frame}.png",
@@ -102,7 +102,7 @@
     },
     "Simulated Radar - Reflectivity": {
       "type": "2d",
-      "hasOverlays": true
+      "hasOverlays": true,
       "filters": [],
       "patterns": {
         "base": "images/{storm}/radar_min/{storm}_radar_min_{frame}.png",
@@ -116,7 +116,7 @@
     },
     "Wind Speed (10m)": {
       "type": "2d",
-      "hasOverlays": true
+      "hasOverlays": true,
       "filters": [],
       "patterns": {
         "base": "images/{storm}/wind_min/{storm}_wind_sfc_min_0{frame}.png",
@@ -132,7 +132,7 @@
       "type": "3d",
       "pattern": "images/{storm}/eflx_3d/{storm}_eflx_3d_isosurface_{frame}.html",
       "thumbnailPattern": "images/{storm}/eflx_3d/thumbs/{storm}_eflx_3d_isosurface_{frame}.png",
-      "staticImage": "images/static/3d/3d_enthalpy_flux.png"
+      "staticImage": "images/static/3d/3d_enthalpy_flux.png",
       "filters": [],
       "frameStart": 50,
       "frameEnd": 72
@@ -141,7 +141,7 @@
       "type": "3d",
       "pattern": "images/{storm}/ws_3d/{storm}_windspeed_3d_{frame}.html",
       "thumbnailPattern": "images/{storm}/ws_3d/thumbs/{storm}_windspeed_3d_{frame}.png",
-      "staticImage": "images/static/3d/3d_wind.png"
+      "staticImage": "images/static/3d/3d_wind.png",
       "filters": [],
       "frameStart": 50,
       "frameEnd": 72
@@ -150,7 +150,7 @@
       "type": "3d",
       "pattern": "images/{storm}/radar_3d/{storm}_radar_3d_{frame}.html",
       "thumbnailPattern": "images/{storm}/radar_3d/thumbs/{storm}_radar_3d_{frame}.png",
-      "staticImage": "images/static/3d/3d_radar.png"
+      "staticImage": "images/static/3d/3d_radar.png",
       "filters": [],
       "frameStart": 50,
       "frameEnd": 72
@@ -159,14 +159,14 @@
       "type": "3d",
       "pattern": "images/{storm}/thetae_3d/{storm}_thetae_3d_{frame}.html",
       "thumbnailPattern": "images/{storm}/thetae_3d/thumbs/{storm}_thetae_3d_{frame}.png",
-      "staticImage": "images/static/3d/3d_potential_temp.png"
+      "staticImage": "images/static/3d/3d_potential_temp.png",
       "filters": [],
       "frameStart": 50,
       "frameEnd": 72
     },
     "Enthalpy Inflow Profile (Azimuthal)": {
       "type": "2d",
-      "hasOverlays": false
+      "hasOverlays": false,
       "filters": [],
       "patterns": {
         "base": "images/{storm}/eflx_azimuthal_profile/{storm}_eflx_azimuthal_profile_0{frame}.png"
@@ -177,7 +177,7 @@
     },
     "Enthalpy Radial Profile (Azimuthal)": {
       "type": "2d",
-      "hasOverlays": false
+      "hasOverlays": false,
       "filters": [],
       "patterns": {
         "base": "images/{storm}/diagnostic/eflx_dist_profile_radial/{storm}_eflx_dist_azimuthal_{frame}.png"
