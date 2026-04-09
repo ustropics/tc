@@ -783,7 +783,8 @@
     text-transform: uppercase;
     letter-spacing: 0.12em;
     color: var(--text-muted);
-    margin-bottom: var(--space-sm);
+    margin-bottom: 2px;
+    padding-top: 10px;
 }
 
 .ts-mode-buttons {
