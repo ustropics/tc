@@ -531,6 +531,9 @@ function populateSidebarSelectors() {
     const selectors = document.querySelectorAll('.ts-image-selector');
     if (selectors[0]) selectors[0].style.display = 'block';
     if (selectors[1]) selectors[1].style.display = 'block';
+
+    // Update images if active point
+    if (activePoint) updateSidebarImages(activePoint);
 }
 
 // Make populateSidebarSelectors globally accessible

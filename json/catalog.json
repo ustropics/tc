@@ -17,7 +17,7 @@
     "Enthalpy Fluxes - Horizontal": {
       "type": "2d",
       "hasOverlays": true,
-      "filters": [],
+      "filters": ["fluxes", "2d map"],
       "patterns": {
         "base": "images/{storm}/eflx_hor_min/{storm}_eflx_hor_min_{frame}.png",
         "wind": "images/{storm}/eflx_hor_winds/{storm}_eflx_hor_winds_{frame}.png",
