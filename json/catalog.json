@@ -31,7 +31,7 @@
     "Enthalpy Fluxes - Lat xsec": {
       "type": "2d",
       "hasOverlays": false,
-      "filters": [],
+      "filters": ["fluxes", "cross-section"],
       "patterns": {
         "base": "images/{storm}/eflx_xsec_lat/{storm}_eflx_xsec_lat_{frame}.png"
       },
@@ -42,7 +42,7 @@
     "Enthalpy Fluxes - Lon xsec": {
       "type": "2d",
       "hasOverlays": false,
-      "filters": [],
+      "filters": ["fluxes", "cross-section"],
       "patterns": {
         "base": "images/{storm}/eflx_xsec_lon/{storm}_eflx_xsec_lon_{frame}.png"
       },
