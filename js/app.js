@@ -290,8 +290,26 @@ function populateProductMenus() {
     const products = catalog[selectedStorm];
     
     // Separate 2D and 3D products
-    const products2d = Object.keys(products).filter(p => !p.startsWith('3d_')).sort();
+    let products2d = Object.keys(products).filter(p => !p.startsWith('3d_')).sort();
     const products3d = Object.keys(products).filter(p => p.startsWith('3d_')).sort();
+    
+    // Filter 2D products based on active sidebar filters
+    if (window.sidebar2DFilters && window.sidebar2DFilters.size > 0) {
+        products2d = products2d.filter(product => {
+            const productConfig = products[product];
+            return productConfig.filters && productConfig.filters.some(f => window.sidebar2DFilters.has(f));
+        });
+    }
+    
+    // Check if current selections are still valid
+    if (selectedProduct1 && !products2d.includes(selectedProduct1)) {
+        selectedProduct1 = '';
+        els.product1Value.textContent = 'Select';
+    }
+    if (selectedProduct2 && selectedProduct2 !== 'none' && !products2d.includes(selectedProduct2)) {
+        selectedProduct2 = '';
+        els.product2Value.textContent = 'None';
+    }
     
     // Populate primary product menu
     products2d.forEach(product => {
@@ -319,6 +337,9 @@ function populateProductMenus() {
         els.view3dOptions.appendChild(item);
     });
 }
+
+// Make populateProductMenus globally accessible
+window.populateProductMenus = populateProductMenus;
 
 // === SELECTION HANDLERS ===
 function selectStorm(storm) {

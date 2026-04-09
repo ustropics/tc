@@ -12,7 +12,7 @@ let activeFilter = 'min_pressure_hpa';
 let activePoint = null;             // currently selected track point
 let sidebarProductA = 'Enthalpy Fluxes - Radial';
 let sidebarProductB = 'Enthalpy Fluxes - Tangential';
-let sidebar2DFilters = new Set();
+window.sidebar2DFilters = new Set();
 
 // === FILTER DEFINITIONS ===
 const FILTERS = {
@@ -668,11 +668,13 @@ function initSidebarControls() {
             if (!filterKey) return;
             const isActive = btn.classList.toggle('active');
             if (isActive) {
-                sidebar2DFilters.add(filterKey);
+                window.sidebar2DFilters.add(filterKey);
             } else {
-                sidebar2DFilters.delete(filterKey);
+                window.sidebar2DFilters.delete(filterKey);
             }
             console.log('2D filter toggled:', filterKey, isActive);
+            // Update product menus based on active filters
+            if (window.populateProductMenus) window.populateProductMenus();
         });
     });
 
