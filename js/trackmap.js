@@ -88,7 +88,7 @@ const SIDEBAR_DIAGNOSTICS_PRODUCTS = [
 let currentSidebarMode = '2d';
 let sidebar3DProduct = SIDEBAR_3D_PRODUCTS[0];
 let sidebar3DFrame = 50; // current frame for 3D panel
-let sidebarDiagnosticsProduct = 'Enthalpy Inflow Profile (Azimuthal)';
+let sidebarDiagnosticsProduct = 'Azimuthal Profile';
 
 // === COLOR RAMP ===
 function intensityColor(t) {
@@ -530,6 +530,11 @@ function refreshSidebarMode() {
         tsImages.classList.toggle('mode-3d', currentSidebarMode === '3d' || currentSidebarMode === 'diagnostics');
     }
 
+    const filterBar = document.getElementById('ts-filter-bar');
+    if (filterBar) {
+        filterBar.style.display = currentSidebarMode === '2d' ? 'flex' : 'none';
+    }
+
     if (currentSidebarMode === '3d') {
         sidebar3DProduct = sidebar3DProduct || SIDEBAR_3D_PRODUCTS[0];
         populateSidebarSelectors();
@@ -651,6 +656,22 @@ function initSidebarControls() {
         btn.addEventListener('click', () => {
             currentSidebarMode = btn.dataset.mode || '2d';
             refreshSidebarMode();
+        });
+    });
+
+    // 2D filter pill toggles
+    const filterButtons = document.querySelectorAll('.ts-filter-btn');
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const filterKey = btn.dataset.filter;
+            if (!filterKey) return;
+            const isActive = btn.classList.toggle('active');
+            if (isActive) {
+                sidebar2DFilters.add(filterKey);
+            } else {
+                sidebar2DFilters.delete(filterKey);
+            }
+            console.log('2D filter toggled:', filterKey, isActive);
         });
     });
 
