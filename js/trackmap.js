@@ -12,6 +12,7 @@ let activeFilter = 'min_pressure_hpa';
 let activePoint = null;             // currently selected track point
 let sidebarProductA = 'Enthalpy Fluxes - Radial';
 let sidebarProductB = 'Enthalpy Fluxes - Tangential';
+let sidebar2DFilters = new Set();
 
 // === FILTER DEFINITIONS ===
 const FILTERS = {

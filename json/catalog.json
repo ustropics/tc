@@ -3,7 +3,7 @@
     "Enthalpy Fluxes - Surface": {
       "type": "2d",
       "hasOverlays": true,
-      "filters": ["enthalpy", "2d map"],
+      "filters": ["fluxes", "2d map"],
       "patterns": {
         "base": "images/{storm}/eflx_sfc_min/{storm}_eflx_sfc_min_{frame}.png",
         "wind": "images/{storm}/eflx_sfc_winds/{storm}_eflx_sfc_winds_{frame}.png",
@@ -50,7 +50,7 @@
       "frameEnd": 72,
       "titlePattern": "{storm} Enthalpy Fluxes (Cross-section) Longitude Frame {frame}"
     },
-    "Radial Profile": {
+    "Vertical Inflow Layer Profile (Radial)": {
       "type": "2d",
       "hasOverlays": true,
       "filters": [],
@@ -59,7 +59,7 @@
       },
       "frameStart": 50,
       "frameEnd": 72,
-      "titlePattern": "{storm} Enthalpy Fluxes (Cross-section) Longitude Frame {frame}"
+      "titlePattern": "{storm} Vertical Inflow Layer Profile {frame}"
     },
         "Streamlines with Radial and Tangent Winds": {
       "type": "2d",
