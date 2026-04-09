@@ -64,6 +64,7 @@ const SIDEBAR_PRODUCTS = [
     'Enthalpy Fluxes - Lat xsec',
     'Enthalpy Fluxes - Lon xsec',
     'Radial Profile',
+    'Streamlines with Radial and Tangent Winds',
     'Enthalpy Fluxes - Radial',
     'Enthalpy Fluxes - Tangential',
     'Simulated Radar - Reflectivity',

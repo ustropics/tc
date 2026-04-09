@@ -28,7 +28,7 @@
     },
     "Enthalpy Fluxes - Lat xsec": {
       "type": "2d",
-      "hasOverlays": true,
+      "hasOverlays": false,
       "patterns": {
         "base": "images/{storm}/eflx_xsec_lat/{storm}_eflx_xsec_lat_{frame}.png"
       },
@@ -38,7 +38,7 @@
     },
     "Enthalpy Fluxes - Lon xsec": {
       "type": "2d",
-      "hasOverlays": true,
+      "hasOverlays": false,
       "patterns": {
         "base": "images/{storm}/eflx_xsec_lon/{storm}_eflx_xsec_lon_{frame}.png"
       },
@@ -55,6 +55,16 @@
       "frameStart": 50,
       "frameEnd": 72,
       "titlePattern": "{storm} Enthalpy Fluxes (Cross-section) Longitude Frame {frame}"
+    },
+        "Streamlines with Radial and Tangent Winds": {
+      "type": "2d",
+      "hasOverlays": false,
+      "patterns": {
+        "base": "images/{storm}/2d/streamlines_with_rad_and_tan/streamlines_{storm}_{frame}.png"
+      },
+      "frameStart": 50,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Streamlines with Radial and Tangent Winds Frame {frame}"
     },
     "Enthalpy Fluxes - Radial": {
       "type": "2d",
