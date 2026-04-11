@@ -123,14 +123,35 @@ async function loadCatalog() {
     console.log('loadCatalog called');
     try {
         updateStatus('Loading catalog...', 'loading');
-        const response = await fetch('json/catalog.json');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+        const [res2d, res3d, resDiag] = await Promise.all([
+            fetch('json/catalog_2d.json'),
+            fetch('json/catalog_3d.json'),
+            fetch('json/catalog_diag.json')
+        ]);
+        if (!res2d.ok || !res3d.ok || !resDiag.ok) {
+            throw new Error('Failed to fetch one or more catalog files');
         }
-        catalog = await response.json();
-        window.catalog = catalog; // Make it globally accessible
-        console.log('Catalog loaded:', catalog);
-        console.log('Catalog loaded:', Object.keys(catalog));
+        const [cat2d, cat3d, catDiag] = await Promise.all([
+            res2d.json(), res3d.json(), resDiag.json()
+        ]);
+
+        // Expose each catalog separately for trackmap.js
+        window.catalog2d   = cat2d;
+        window.catalog3d   = cat3d;
+        window.catalogDiag = catDiag;
+
+        // Merge into a single catalog for backward-compatible lookups
+        catalog = {};
+        for (const storm of new Set([...Object.keys(cat2d), ...Object.keys(cat3d), ...Object.keys(catDiag)])) {
+            catalog[storm] = {
+                ...(cat2d[storm]   || {}),
+                ...(cat3d[storm]   || {}),
+                ...(catDiag[storm] || {})
+            };
+        }
+        window.catalog = catalog;
+
+        console.log('Catalogs loaded:', Object.keys(catalog));
         updateStatus('Catalog loaded', 'success');
         populateStormMenu();
     } catch (error) {
@@ -285,13 +306,13 @@ function populateProductMenus() {
     els.product2Options.innerHTML = '';
     els.view3dOptions.innerHTML = '';
     
-    if (!selectedStorm || !catalog[selectedStorm]) return;
-    
-    const products = catalog[selectedStorm];
-    
-    // Separate 2D and 3D products
-    let products2d = Object.keys(products).filter(p => !p.startsWith('3d_')).sort();
-    const products3d = Object.keys(products).filter(p => p.startsWith('3d_')).sort();
+    if (!selectedStorm) return;
+
+    // Pull products directly from the split catalogs
+    let products2d = (window.catalog2d && window.catalog2d[selectedStorm])
+        ? Object.keys(window.catalog2d[selectedStorm]).sort() : [];
+    const products3d = (window.catalog3d && window.catalog3d[selectedStorm])
+        ? Object.keys(window.catalog3d[selectedStorm]).sort() : [];
     
     // Filter 2D products based on active sidebar filters
     if (window.sidebar2DFilters && window.sidebar2DFilters.size > 0) {
@@ -1052,10 +1073,18 @@ window.selectBothProductsAndJumpToFrame = async function(stormName, productA, pr
 // === INITIALIZATION ===
 window.onload = async () => {
     await loadCatalog();
-    
-    // Initialize track map on homepage
+
+    // Auto-select Ian on load
+    if (catalog['Ian']) {
+        selectStorm('Ian');
+    }
+
+    // Initialize track map on homepage, then auto-select first timestep
     if (typeof initTrackMap === 'function') {
-        initTrackMap();
+        await initTrackMap();
+        if (window.trackData && window.trackData.length > 0 && window.openSidebar) {
+            window.openSidebar(window.trackData[0]);
+        }
     }
     
     // Add event listeners for close buttons

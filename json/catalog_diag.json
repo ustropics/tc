@@ -1,0 +1,26 @@
+{
+  "Ian": {
+    "Enthalpy Inflow Profile (Azimuthal)": {
+      "type": "diag",
+      "hasOverlays": false,
+      "filters": [],
+      "patterns": {
+        "base": "images/{storm}/eflx_azimuthal_profile/{storm}_eflx_azimuthal_profile_0{frame}.png"
+      },
+      "frameStart": 50,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Enthalpy Inflow Profile (Azimuthal) Frame {frame}"
+    },
+    "Enthalpy Radial Profile (Azimuthal)": {
+      "type": "diag",
+      "hasOverlays": false,
+      "filters": [],
+      "patterns": {
+        "base": "images/{storm}/diagnostic/eflx_dist_profile_radial/{storm}_eflx_dist_azimuthal_{frame}.png"
+      },
+      "frameStart": 50,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Enthalpy Radial Profile (Azimuthal) Frame {frame}"
+    }
+  }
+}

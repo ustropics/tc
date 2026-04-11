@@ -853,13 +853,14 @@
 .ts-filter-btn {
     display: inline-flex;
     align-items: center;
+    gap: 4px;
     justify-content: center;
     padding: 4px 8px;
     min-height: 24px;
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-medium);
+    background: rgba(32, 178, 170, 0.08);
+    border: 1px solid rgba(32, 178, 170, 0.35);
     border-radius: 999px;
-    color: var(--text-muted);
+    color: rgb(72, 209, 200);
     font-family: var(--font-mono);
     font-size: 0.55rem;
     letter-spacing: 0.04em;
@@ -869,14 +870,15 @@
 }
 
 .ts-filter-btn:hover {
-    background: var(--bg-tertiary);
-    color: var(--text-primary);
+    background: rgba(32, 178, 170, 0.18);
+    border-color: rgba(32, 178, 170, 0.6);
+    color: rgb(127, 232, 227);
 }
 
 .ts-filter-btn.active {
-    background: rgba(0, 212, 255, 0.12);
-    border-color: rgba(0, 212, 255, 0.4);
-    color: var(--accent-primary);
+    background: rgba(32, 178, 170, 0.22);
+    border-color: rgba(32, 178, 170, 0.8);
+    color: rgb(175, 245, 242);
 }
 
 /* --- Header --- */

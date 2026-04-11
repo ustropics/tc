@@ -58,38 +58,24 @@ const FILTERS = {
     }
 };
 
-// 2D products from catalog that sidebar can display
-const SIDEBAR_PRODUCTS = [
-    'Enthalpy Fluxes - Surface',
-    'Enthalpy Fluxes - Horizontal',
-    'Enthalpy Fluxes - Lat xsec',
-    'Enthalpy Fluxes - Lon xsec',
-    'Radial Profile',
-    'Streamlines with Radial and Tangent Winds',
-    'Enthalpy Fluxes - Radial',
-    'Enthalpy Fluxes - Tangential',
-    'Simulated Radar - Reflectivity',
-    'Wind Speed (10m)'
-];
-
-// 3D sidebar product options (static preview images)
-const SIDEBAR_3D_PRODUCTS = [
-    '3d_Enthalpy Flux Isosurface',
-    '3d_Thetae',
-    '3d_Radar',
-    '3d_Windspeed'
-];
-
-// Diagnostics sidebar product options (single full-width image, opens in 2D player)
-const SIDEBAR_DIAGNOSTICS_PRODUCTS = [
-    'Enthalpy Inflow Profile (Azimuthal)',
-    'Enthalpy Radial Profile (Azimuthal)'
-];
+// Derive sidebar product lists from the split catalogs loaded by app.js
+function getSidebar2DProducts() {
+    return (window.catalog2d && window.catalog2d['Ian'])
+        ? Object.keys(window.catalog2d['Ian']) : [];
+}
+function getSidebar3DProducts() {
+    return (window.catalog3d && window.catalog3d['Ian'])
+        ? Object.keys(window.catalog3d['Ian']) : [];
+}
+function getSidebarDiagProducts() {
+    return (window.catalogDiag && window.catalogDiag['Ian'])
+        ? Object.keys(window.catalogDiag['Ian']) : [];
+}
 
 let currentSidebarMode = '2d';
-let sidebar3DProduct = SIDEBAR_3D_PRODUCTS[0];
+let sidebar3DProduct = null; // set lazily from catalog
 let sidebar3DFrame = 50; // current frame for 3D panel
-let sidebarDiagnosticsProduct = 'Azimuthal Profile';
+let sidebarDiagnosticsProduct = 'Enthalpy Inflow Profile (Azimuthal)';
 
 // === COLOR RAMP ===
 function intensityColor(t) {
@@ -438,7 +424,9 @@ function populateSidebarSelectors() {
     selB.innerHTML = '';
 
     if (currentSidebarMode === '3d') {
-        SIDEBAR_3D_PRODUCTS.forEach(product => {
+        const products3d = getSidebar3DProducts();
+        if (!sidebar3DProduct) sidebar3DProduct = products3d[0] || null;
+        products3d.forEach(product => {
             const option = document.createElement('option');
             option.value = product;
             option.textContent = product.replace('3d_', '').replace(/_/g, ' ');
@@ -464,7 +452,11 @@ function populateSidebarSelectors() {
 
     if (currentSidebarMode === 'diagnostics') {
         // Show selector for diagnostics products (like 3D mode: single image + dropdown)
-        SIDEBAR_DIAGNOSTICS_PRODUCTS.forEach(product => {
+        const diagProducts = getSidebarDiagProducts();
+        if (!sidebarDiagnosticsProduct || !diagProducts.includes(sidebarDiagnosticsProduct)) {
+            sidebarDiagnosticsProduct = diagProducts[0] || null;
+        }
+        diagProducts.forEach(product => {
             const option = document.createElement('option');
             option.value = product;
             option.textContent = product;
@@ -491,21 +483,22 @@ function populateSidebarSelectors() {
     }
 
     // 2D mode
-    let filteredProducts = SIDEBAR_PRODUCTS;
-    if (window.sidebar2DFilters && window.sidebar2DFilters.size > 0 && window.catalog && window.catalog['Ian']) {
-        const catalog = window.catalog['Ian'];
-        filteredProducts = SIDEBAR_PRODUCTS.filter(product => {
-            const productConfig = catalog[product];
-            return productConfig && productConfig.filters && productConfig.filters.some(f => window.sidebar2DFilters.has(f));
+    const allProducts2d = getSidebar2DProducts();
+    let filteredProducts = allProducts2d;
+    if (window.sidebar2DFilters && window.sidebar2DFilters.size > 0) {
+        const stormCat = (window.catalog2d && window.catalog2d['Ian']) || {};
+        filteredProducts = allProducts2d.filter(product => {
+            const cfg = stormCat[product];
+            return cfg && cfg.filters && cfg.filters.some(f => window.sidebar2DFilters.has(f));
         });
     }
 
     // Check if current selections are still valid
-    if (sidebarProductA && !filteredProducts.includes(sidebarProductA)) {
-        sidebarProductA = filteredProducts[0] || SIDEBAR_PRODUCTS[0];
+    if (!sidebarProductA || !filteredProducts.includes(sidebarProductA)) {
+        sidebarProductA = filteredProducts[0] || allProducts2d[0] || null;
     }
-    if (sidebarProductB && !filteredProducts.includes(sidebarProductB)) {
-        sidebarProductB = filteredProducts[1] || SIDEBAR_PRODUCTS[1];
+    if (!sidebarProductB || !filteredProducts.includes(sidebarProductB)) {
+        sidebarProductB = filteredProducts[1] || allProducts2d[1] || null;
     }
 
     filteredProducts.forEach(product => {
@@ -560,7 +553,7 @@ function refreshSidebarMode() {
     }
 
     if (currentSidebarMode === '3d') {
-        sidebar3DProduct = sidebar3DProduct || SIDEBAR_3D_PRODUCTS[0];
+        sidebar3DProduct = sidebar3DProduct || getSidebar3DProducts()[0] || null;
         populateSidebarSelectors();
         if (activePoint) updateSidebarImages(activePoint);
     } else if (currentSidebarMode === 'diagnostics') {
@@ -892,6 +885,10 @@ async function initTrackMap() {
     const origOpen = openSidebar;
     let instructionDismissed = false;
     // (handled inline — instruction hides after first click via CSS transition)
+
+    // Expose for external auto-selection
+    window.openSidebar = openSidebar;
+    window.trackData = trackData;
 }
 
 // === TOOLTIP STYLES ===
