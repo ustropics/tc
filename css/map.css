@@ -35,6 +35,13 @@
     font-family: var(--font-body) !important;
 }
 
+/* Position zoom control next to the legend at bottom-left */
+.leaflet-bottom.leaflet-left {
+    bottom: var(--space-lg) !important;
+    left: calc(var(--space-lg) + 190px) !important;
+    margin: 0 !important;
+}
+
 .leaflet-control-zoom a {
     background: var(--bg-secondary) !important;
     color: var(--accent-primary) !important;

@@ -796,9 +796,10 @@ async function initTrackMap() {
     trackMap = L.map('track-map', {
         center: [centerLat, centerLon],
         zoom: 7,
-        zoomControl: true,
+        zoomControl: false,
         attributionControl: true
     });
+    L.control.zoom({ position: 'bottomleft' }).addTo(trackMap);
 
     // Dark tile layer
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
