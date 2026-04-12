@@ -235,6 +235,8 @@ function updateSidebarTimestepDetails(point) {
         setText('ts-lon', '–');
         setText('ts-pressure', '–');
         setText('ts-enthalpy', '–');
+        setText('ts-lhf', '–');
+        setText('ts-hfx', '–');
         return;
     }
 
@@ -248,6 +250,8 @@ function updateSidebarTimestepDetails(point) {
     setText('ts-lon', `${Math.abs(lon).toFixed(3)}°W`);
     setText('ts-pressure', `${d.min_pressure_hpa.toFixed(1)} hPa`);
     setText('ts-enthalpy', `${d.max_enthalpy_wm2.toFixed(0)} W/m²`);
+    setText('ts-lhf', `${d.max_lh_wm2.toFixed(0)} W/m²`);
+    setText('ts-hfx', `${d.max_hfx_wm2.toFixed(0)} W/m²`);
 }
 
 function updateSidebarToggleIcon(isOpen) {

@@ -1071,13 +1071,13 @@ input[type="range"]::-webkit-slider-thumb:hover {
 #ts-timestep {
     font-family: var(--font-mono);
     font-size: 0.8rem;
-    color: var(--accent-primary);
+    color: #ffffff;
     margin-left: var(--space-sm);
 }
 
 #ts-datetime {
     font-size: 0.85rem;
-    color: var(--text-muted);
+    color: #ffffff;
 }
 
 .ts-images {

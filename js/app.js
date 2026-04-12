@@ -316,9 +316,10 @@ function populateProductMenus() {
     
     // Filter 2D products based on active sidebar filters
     if (window.sidebar2DFilters && window.sidebar2DFilters.size > 0) {
+        const cat2d = (window.catalog2d && window.catalog2d[selectedStorm]) || {};
         products2d = products2d.filter(product => {
-            const productConfig = products[product];
-            return productConfig.filters && productConfig.filters.some(f => window.sidebar2DFilters.has(f));
+            const productConfig = cat2d[product];
+            return productConfig && productConfig.filters && productConfig.filters.some(f => window.sidebar2DFilters.has(f));
         });
     }
     
