@@ -1,0 +1,425 @@
+/* ============================================
+   MOBILE.CSS — Responsive Breakpoints
+   Tablet : max-width 1024px
+   Phone  : max-width 767px
+   ============================================ */
+
+
+/* ============================================================
+   TABLET  (≤ 1024px)
+   Targets iPads and landscape phones. Compresses nav and
+   sidebar but keeps the core two-panel layout intact.
+   ============================================================ */
+@media (max-width: 1024px) {
+
+    /* --- Navbar --- */
+    #navbar {
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    .nav-btn {
+        min-width: 100px;
+        padding: 6px 10px;
+    }
+
+    .nav-btn-text {
+        display: none;
+    }
+
+    .nav-btn-value {
+        max-width: 80px;
+        font-size: 0.65rem;
+    }
+
+    /* --- Sidebar: narrower on tablet (overrides 585px desktop) --- */
+    #track-sidebar {
+        width: 380px;
+        min-width: 380px;
+    }
+
+    #main-container.sidebar-open #placeholder {
+        margin-right: 380px;
+    }
+
+    /* --- Sidebar images: single column on tablet --- */
+    .ts-images {
+        grid-template-columns: 1fr;
+    }
+
+    .ts-product-selectors {
+        grid-template-columns: 1fr;
+    }
+
+    /* --- About panel --- */
+    #about-panel {
+        width: 360px;
+        right: -360px;
+    }
+
+    /* --- Map header stats: compact --- */
+    .map-stat-value {
+        font-size: 0.8rem;
+    }
+
+    .map-stat-label {
+        font-size: 0.45rem;
+    }
+
+    /* --- Map filter buttons --- */
+    .filter-btn {
+        padding: 6px 10px;
+        font-size: 0.6rem;
+    }
+
+    /* --- Image frame headers --- */
+    .frame-header {
+        padding: var(--space-xs) var(--space-sm);
+    }
+
+    /* --- Timestep card: slightly tighter --- */
+    .ts-timestep-grid {
+        gap: 4px 8px;
+    }
+}
+
+
+/* ============================================================
+   PHONE  (≤ 767px)
+   Targets portrait phones. Single-column layout, full-screen
+   sidebar drawer, icon-only nav, and touch-friendly targets.
+   ============================================================ */
+@media (max-width: 767px) {
+
+    /* --- Safe area insets (notched/dynamic-island phones) --- */
+    #app {
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    #navbar {
+        padding-top: calc(var(--space-xs) + env(safe-area-inset-top));
+        padding-left: calc(var(--space-sm) + env(safe-area-inset-left));
+        padding-right: calc(var(--space-sm) + env(safe-area-inset-right));
+        padding-bottom: var(--space-xs);
+    }
+
+    /* ---- Navbar layout ---- */
+    #controls {
+        gap: var(--space-xs);
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    .navbar-left {
+        flex: 0 0 auto;
+    }
+
+    .navbar-right {
+        flex: 1;
+        justify-content: flex-end;
+    }
+
+    /* ---- Site title: icon only ---- */
+    .title-text,
+    .title-accent {
+        display: none;
+    }
+
+    .title-icon {
+        font-size: 1.1rem;
+    }
+
+    /* ---- Nav buttons: value + icon, no label, no arrow ---- */
+    .nav-buttons {
+        gap: 4px;
+        flex-wrap: nowrap;
+    }
+
+    .nav-btn {
+        min-width: unset;
+        padding: 5px 7px;
+        gap: 4px;
+    }
+
+    .nav-btn-text {
+        display: none;
+    }
+
+    .nav-btn-arrow {
+        display: none;
+    }
+
+    .nav-btn-value {
+        max-width: 52px;
+        font-size: 0.58rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .nav-dropdown {
+        right: 0;
+        left: auto !important;
+        transform: translateY(-10px) !important;
+        max-width: calc(100vw - var(--space-md));
+        min-width: 220px;
+    }
+
+    .nav-dropdown.open {
+        transform: translateY(0) !important;
+    }
+
+    /* ---- Icon buttons (sidebar toggle, about) ---- */
+    .icon-btn {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+    }
+
+    /* ---- Player controls: compact, centered ---- */
+    .player-panel {
+        gap: var(--space-xs);
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .control-label span {
+        display: none;
+    }
+
+    .speed-control input[type="range"] {
+        width: 48px;
+    }
+
+    #speed-value {
+        font-size: 0.6rem;
+    }
+
+    .toggle-label > span:last-child {
+        display: none;
+    }
+
+    .frame-counter {
+        font-size: 0.6rem;
+        padding: 4px 8px;
+    }
+
+    /* ---- Progress bar ---- */
+    #progress-wrapper {
+        height: 20px;
+    }
+
+    /* ---- Main container ---- */
+    #main-container {
+        flex-direction: column;
+    }
+
+    /* ---- Sidebar: full-screen drawer ---- */
+    #track-sidebar {
+        width: 100% !important;
+        min-width: 100% !important;
+        position: fixed !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        height: 100% !important;
+        transform: translateX(100%);
+        z-index: 500;
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    #track-sidebar.open {
+        transform: translateX(0);
+    }
+
+    /* No layout margin shift when sidebar opens on phone */
+    #main-container.sidebar-open #placeholder {
+        margin-right: 0 !important;
+    }
+
+    /* Larger close button for thumb tap */
+    #track-sidebar .close-btn {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+    }
+
+    /* Sidebar images: single column */
+    .ts-images {
+        grid-template-columns: 1fr;
+    }
+
+    .ts-product-selectors {
+        grid-template-columns: 1fr;
+    }
+
+    /* ---- Sidebar: filter pills scroll horizontally ---- */
+    .ts-filter-buttons {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 2px;
+    }
+
+    .ts-filter-buttons::-webkit-scrollbar {
+        display: none;
+    }
+
+    .ts-filter-btn {
+        flex-shrink: 0;
+    }
+
+    /* ---- Sidebar mode buttons ---- */
+    .ts-mode-buttons {
+        gap: var(--space-xs);
+    }
+
+    .ts-mode-btn {
+        padding: 6px 10px;
+        font-size: 0.55rem;
+        flex: 1;
+        justify-content: center;
+    }
+
+    .ts-mode-btn span {
+        font-size: 0.5rem;
+    }
+
+    /* ---- Timestep card ---- */
+    .ts-timestep-card {
+        padding: 6px 8px;
+        margin-bottom: var(--space-sm);
+    }
+
+    .ts-timestep-grid {
+        gap: 4px 8px;
+    }
+
+    /* ---- Map header: title only, no stats bar ---- */
+    .map-header-overlay {
+        padding: var(--space-sm) var(--space-sm) 0;
+    }
+
+    .map-header-right {
+        display: none !important;
+    }
+
+    .map-title {
+        font-size: 0.9rem;
+    }
+
+    .map-subtitle {
+        display: none;
+    }
+
+    .map-badge {
+        font-size: 0.48rem;
+        padding: 2px 6px;
+    }
+
+    /* ---- Map legend: compact ---- */
+    .map-legend-overlay {
+        bottom: var(--space-sm) !important;
+        left: var(--space-sm) !important;
+        padding: 6px 8px;
+        min-width: unset;
+    }
+
+    .legend-title {
+        font-size: 0.48rem;
+        margin-bottom: 4px;
+    }
+
+    .legend-bar {
+        height: 5px;
+    }
+
+    .legend-labels {
+        font-size: 0.42rem;
+    }
+
+    .legend-items {
+        display: none;
+    }
+
+    /* Zoom control: re-align to compact legend on phone */
+    .leaflet-bottom.leaflet-left {
+        bottom: var(--space-sm) !important;
+        left: calc(var(--space-sm) + 120px) !important;
+    }
+
+    /* ---- Map filter overlay: icon-only pills ---- */
+    .filter-btn span {
+        display: none;
+    }
+
+    .filter-btn {
+        padding: 6px 8px;
+    }
+
+    /* ---- Map instruction: hide on phone ---- */
+    .map-instruction {
+        display: none;
+    }
+
+    /* ---- Dual-view: stack vertically ---- */
+    #dual-view {
+        flex-direction: column;
+    }
+
+    .image-frame {
+        max-width: 100%;
+    }
+
+    /* ---- Image frame headers ---- */
+    .frame-header {
+        padding: 5px var(--space-sm);
+        flex-wrap: wrap;
+        gap: var(--space-xs);
+    }
+
+    .frame-label {
+        font-size: 0.5rem;
+    }
+
+    .overlay-label {
+        font-size: 0.48rem;
+    }
+
+    .overlay-checkbox {
+        gap: 3px;
+    }
+
+    /* ---- About panel: full-screen on phone ---- */
+    #about-panel {
+        width: 100% !important;
+        right: -100% !important;
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    #about-panel.open {
+        right: 0 !important;
+    }
+
+    /* ---- 3D viewer header: compact ---- */
+    .viewer-3d-header {
+        padding: var(--space-sm) var(--space-md);
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+    }
+
+    .viewer-3d-title span {
+        font-size: 0.7rem;
+    }
+
+    .viewer-3d-controls {
+        gap: var(--space-sm);
+        flex-wrap: wrap;
+    }
+
+    .viewer-3d-frame {
+        font-size: 0.65rem;
+    }
+}

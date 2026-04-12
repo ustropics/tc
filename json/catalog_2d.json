@@ -64,9 +64,20 @@
     "Streamlines with Radial and Tangent Winds": {
       "type": "2d",
       "hasOverlays": false,
-      "filters": ["cross-sections", "radial", "tangential"],
+      "filters": ["cross-sections", "radial", "tangential", "winds"],
       "patterns": {
         "base": "images/{storm}/2d/streamlines_with_rad_and_tan/streamlines_{storm}_{frame}.png"
+      },
+      "frameStart": 50,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Streamlines with Radial and Tangent Winds Frame {frame}"
+    },
+    "Updrafts/Downdrafts with Radial and Tangent Winds": {
+      "type": "2d",
+      "hasOverlays": false,
+      "filters": ["cross-sections", "radial", "tangential"],
+      "patterns": {
+        "base": "images/{storm}/2d/updraft_downdrafts_with_rad_and_tan/vert_velocity_{storm}_{frame}.png"
       },
       "frameStart": 50,
       "frameEnd": 72,
@@ -75,7 +86,7 @@
     "Enthalpy Fluxes - Radial": {
       "type": "2d",
       "hasOverlays": true,
-      "filters": ["fluxes", "radial"],
+      "filters": ["fluxes", "radial", "2d map"],
       "patterns": {
         "base": "images/{storm}/eflx_radial_min/{storm}_eflx_radial_min_{frame}.png",
         "wind": "images/{storm}/eflx_radial_winds/{storm}_eflx_radial_winds_{frame}.png",
@@ -89,7 +100,7 @@
     "Enthalpy Fluxes - Tangential": {
       "type": "2d",
       "hasOverlays": true,
-      "filters": ["fluxes", "tangential"],
+      "filters": ["fluxes", "tangential", "2d map"],
       "patterns": {
         "base": "images/{storm}/eflx_tan_min/{storm}_eflx_tan_min_{frame}.png",
         "wind": "images/{storm}/eflx_tan_winds/{storm}_eflx_tan_winds_{frame}.png",

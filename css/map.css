@@ -625,7 +625,7 @@
     border: 1px solid var(--border-medium);
     border-radius: 8px;
     padding: 8px 10px;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
 }
 
@@ -775,7 +775,7 @@
 }
 
 .track-sidebar-content {
-    padding: var(--space-lg) 0 var(--space-lg) 0;
+    padding: var(--space-lg);
     margin: 0;
     width: calc(100% + 0px);
     display: flex;
@@ -785,17 +785,21 @@
 
 /* --- Mode Bar --- */
 .ts-mode-bar {
-    padding: 0 var(--space-lg);
+    padding: 0;
 }
 
+.ts-filter-label,
 .ts-mode-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
     font-family: var(--font-mono);
-    font-size: 0.5rem;
+    font-size: 0.58rem;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    color: var(--accent-primary);
     margin-bottom: 2px;
-    padding-top: 10px;
+    padding-top: 4px;
 }
 
 .ts-mode-buttons {
