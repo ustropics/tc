@@ -260,6 +260,24 @@
         flex: 1 !important;
     }
 
+    /* Dual-view active: hide sidebar, stack images, fill full height */
+    #main-container:has(#dual-view[style*="display: flex"]) #track-sidebar {
+        display: none !important;
+    }
+
+    #main-container:has(#dual-view[style*="display: flex"]) #dual-view {
+        flex: 1 1 100% !important;
+        height: 100% !important;
+        flex-direction: column !important;
+        gap: 2px !important;
+    }
+
+    #main-container:has(#dual-view[style*="display: flex"]) .image-frame {
+        max-width: 100% !important;
+        flex: 0 0 calc(50% - 1px) !important;
+        height: calc(50% - 1px) !important;
+    }
+
     /* Single view: fill top half */
     .single-frame img {
         max-height: 100% !important;
@@ -542,21 +560,37 @@
 
     /* ---- Image frame headers (dual/single view) ---- */
     .frame-header {
-        padding: 5px var(--space-sm);
-        flex-wrap: wrap;
-        gap: var(--space-xs);
+        padding: 4px var(--space-sm);
+        flex-wrap: nowrap !important;
+        gap: 4px;
+        align-items: center;
+        overflow: hidden;
     }
 
     .frame-label {
-        font-size: 0.5rem;
+        font-size: 0.46rem;
+        flex-shrink: 1;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .overlay-controls {
+        display: flex;
+        gap: 4px;
+        flex-shrink: 0;
+        flex-wrap: nowrap;
     }
 
     .overlay-label {
-        font-size: 0.48rem;
+        font-size: 0.42rem;
+        white-space: nowrap;
     }
 
     .overlay-checkbox {
-        gap: 3px;
+        gap: 2px;
+        flex-shrink: 0;
     }
 
     /* ---- About panel: full-screen ---- */
