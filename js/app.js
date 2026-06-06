@@ -16,6 +16,7 @@ let activeDropdown = null;
 let selectedStorm = '';
 let selectedProduct1 = '';
 let selectedProduct2 = '';
+let mobileShowingPlayer = false;
 
 // Make catalog globally accessible for trackmap.js
 window.catalog = catalog;
@@ -54,8 +55,10 @@ const els = {
     progressWrapper: document.getElementById('progress-wrapper'),
 
     // Player controls
-    playerControls: document.getElementById('player-controls'),
-    siteTitle:      document.getElementById('site-title'),
+    playerControls:   document.getElementById('player-controls'),
+    siteTitle:        document.getElementById('site-title'),
+    mobileNavToggle:  document.getElementById('mobile-nav-toggle'),
+    navButtons:       document.querySelector('.nav-buttons'),
     playPause:      document.getElementById('play-pause'),
     prevBtn:        document.getElementById('prev'),
     nextBtn:        document.getElementById('next'),
@@ -211,16 +214,33 @@ function generateImageArray(productConfig, stormName, viewerType = 'primary') {
 }
 
 // === SHOW/HIDE PLAYER CONTROLS ===
+function isMobile() {
+    return window.innerWidth <= 767;
+}
+
 function showPlayerControls() {
-    els.siteTitle.style.display = 'none';
-    els.playerControls.style.display = 'flex';
     els.progressWrapper.style.display = 'block';
+    if (isMobile()) {
+        // Mobile: default to player controls visible
+        els.siteTitle.style.display = 'none';
+        els.playerControls.style.display = 'flex';
+        els.navButtons.style.display = 'none';
+        els.mobileNavToggle.style.display = 'flex';
+        mobileShowingPlayer = true;
+        els.mobileNavToggle.querySelector('i').className = 'fas fa-chevron-left';
+    } else {
+        els.siteTitle.style.display = 'none';
+        els.playerControls.style.display = 'flex';
+    }
 }
 
 function hidePlayerControls() {
     els.siteTitle.style.display = 'flex';
     els.playerControls.style.display = 'none';
     els.progressWrapper.style.display = 'none';
+    els.mobileNavToggle.style.display = 'none';
+    els.navButtons.style.display = '';
+    mobileShowingPlayer = false;
 }
 
 // === OVERLAY CONTROLS VISIBILITY ===
@@ -1130,6 +1150,21 @@ document.head.appendChild(style);
 // Sidebar toggle functionality
 const sidebarToggle = document.getElementById('sidebar-toggle');
 const trackSidebarEl = document.getElementById('track-sidebar');
+
+els.mobileNavToggle.addEventListener('click', () => {
+    mobileShowingPlayer = !mobileShowingPlayer;
+    if (mobileShowingPlayer) {
+        els.playerControls.style.display = 'flex';
+        els.siteTitle.style.display = 'none';
+        els.navButtons.style.display = 'none';
+        els.mobileNavToggle.querySelector('i').className = 'fas fa-chevron-left';
+    } else {
+        els.playerControls.style.display = 'none';
+        els.siteTitle.style.display = 'flex';
+        els.navButtons.style.display = '';
+        els.mobileNavToggle.querySelector('i').className = 'fas fa-chevron-right';
+    }
+});
 
 sidebarToggle.addEventListener('click', () => {
     const isOpen = trackSidebarEl.classList.contains('open');

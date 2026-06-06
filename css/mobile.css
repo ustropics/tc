@@ -175,12 +175,29 @@
         display: none;
     }
 
+    /* Mobile nav toggle: visible when player active */
+    #mobile-nav-toggle {
+        order: -1;
+    }
+
     /* ---- Player controls: compact ---- */
     .player-panel {
         gap: var(--space-xs);
         flex-wrap: wrap;
         justify-content: center;
         width: 100%;
+    }
+
+    .control-btn {
+        width: 26px !important;
+        height: 26px !important;
+        font-size: 0.6rem !important;
+    }
+
+    .control-btn.play-btn {
+        width: 29px !important;
+        height: 29px !important;
+        font-size: 0.64rem !important;
     }
 
     .control-label span {
