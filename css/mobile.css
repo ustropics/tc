@@ -102,10 +102,12 @@
 
     .navbar-left {
         flex: 0 0 auto;
+        width: auto !important;
     }
 
     .navbar-right {
         flex: 1;
+        width: auto !important;
         justify-content: flex-end;
     }
 
@@ -148,11 +150,13 @@
     }
 
     .nav-dropdown {
-        right: 0;
-        left: auto !important;
+        position: fixed !important;
+        top: 56px !important;
+        left: var(--space-sm) !important;
+        right: var(--space-sm) !important;
+        min-width: unset !important;
+        max-width: none !important;
         transform: translateY(-10px) !important;
-        max-width: calc(100vw - var(--space-md));
-        min-width: 220px;
     }
 
     .nav-dropdown.open {
@@ -359,17 +363,57 @@
 
     /* ---- Timestep card ---- */
     .ts-timestep-card {
-        padding: 6px 8px;
-        margin-bottom: var(--space-sm);
+        padding: 4px 6px;
+        margin-bottom: 4px;
+    }
+
+    .ts-timestep-title {
+        font-size: 0.42rem;
+        margin-bottom: 4px;
+        gap: 4px;
+    }
+
+    .ts-timestep-title i {
+        font-size: 0.45rem;
     }
 
     .ts-timestep-grid {
-        gap: 4px 8px;
+        gap: 2px 6px;
+        grid-template-columns: 1fr 1fr 1fr !important;
     }
 
-    /* ---- Map header: title only ---- */
+    .ts-timestep-grid .ts-timestep-row:nth-child(1) {
+        grid-column: span 1;
+    }
+
+    .ts-timestep-grid .ts-timestep-row:nth-child(2) {
+        grid-column: span 2;
+    }
+
+    .ts-timestep-label {
+        font-size: 0.38rem;
+        letter-spacing: 0.04em;
+        color: #a0aec0 !important;
+    }
+
+    .ts-timestep-card strong {
+        font-size: 0.5rem;
+        line-height: 1.1;
+    }
+
+    #ts-timestep {
+        font-size: 0.5rem !important;
+        margin-left: 0 !important;
+    }
+
+    #ts-datetime {
+        font-size: 0.5rem !important;
+    }
+
+    /* ---- Map header: title only, flush below filter bar ---- */
     .map-header-overlay {
-        padding: var(--space-sm) var(--space-sm) 0;
+        padding: 4px var(--space-sm) 0;
+        top: 33px !important;
     }
 
     .map-header-right {
@@ -391,8 +435,8 @@
 
     /* ---- Map legend: compact ---- */
     .map-legend-overlay {
-        bottom: calc(var(--space-sm) + 30px) !important;
-        left: var(--space-sm) !important;
+        bottom: calc(var(--space-sm) - 10px) !important;
+        left: calc(var(--space-sm) - 7px) !important;
         padding: 6px 8px;
         min-width: unset;
     }
@@ -414,12 +458,71 @@
         display: none;
     }
 
-    /* Zoom control: top right on mobile */
+    /* Zoom control: top right */
     .leaflet-bottom.leaflet-left {
         bottom: auto !important;
         left: auto !important;
-        top: var(--space-sm) !important;
+        top: calc(var(--space-sm) + 50px) !important;
         right: var(--space-sm) !important;
+    }
+
+    .leaflet-control-zoom {
+        border-radius: 6px !important;
+        overflow: hidden;
+        border: 1px solid var(--border-medium) !important;
+        background: rgba(10, 22, 40, 0.9) !important;
+        backdrop-filter: blur(15px);
+    }
+
+    .leaflet-control-zoom a {
+        width: 18px !important;
+        height: 18px !important;
+        line-height: 18px !important;
+        font-size: 14px !important;
+        background: transparent !important;
+        color: var(--text-secondary) !important;
+        border-bottom: 1px solid var(--border-medium) !important;
+        display: block !important;
+    }
+
+    .leaflet-control-zoom-out {
+        border-bottom: none !important;
+    }
+
+    /* Map filter overlay: full-width strip at top of map */
+    .map-filter-overlay {
+        top: 0 !important;
+        right: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0 !important;
+        padding: 0 !important;
+        pointer-events: none !important;
+    }
+
+    .map-filter-bar {
+        width: 100% !important;
+        border-radius: 0 !important;
+        border-left: none !important;
+        border-right: none !important;
+        border-top: none !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        flex-wrap: nowrap !important;
+        gap: 2px !important;
+        padding: 4px !important;
+        pointer-events: auto !important;
+    }
+
+    .map-filter-bar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .filter-label {
+        display: none !important;
     }
 
     /* Map filter overlay: icon-only */
@@ -429,6 +532,7 @@
 
     .filter-btn {
         padding: 6px 8px;
+        flex-shrink: 0;
     }
 
     /* Map instruction: hide */
