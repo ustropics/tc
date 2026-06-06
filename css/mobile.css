@@ -7,12 +7,10 @@
 
 /* ============================================================
    TABLET  (≤ 1024px)
-   Targets iPads and landscape phones. Compresses nav and
-   sidebar but keeps the core two-panel layout intact.
+   Compresses nav and sidebar but keeps the core layout.
    ============================================================ */
 @media (max-width: 1024px) {
 
-    /* --- Navbar --- */
     #navbar {
         padding: var(--space-sm) var(--space-md);
     }
@@ -31,7 +29,6 @@
         font-size: 0.65rem;
     }
 
-    /* --- Sidebar: narrower on tablet (overrides 585px desktop) --- */
     #track-sidebar {
         width: 380px;
         min-width: 380px;
@@ -41,7 +38,6 @@
         margin-right: 380px;
     }
 
-    /* --- Sidebar images: single column on tablet --- */
     .ts-images {
         grid-template-columns: 1fr;
     }
@@ -50,13 +46,11 @@
         grid-template-columns: 1fr;
     }
 
-    /* --- About panel --- */
     #about-panel {
         width: 360px;
         right: -360px;
     }
 
-    /* --- Map header stats: compact --- */
     .map-stat-value {
         font-size: 0.8rem;
     }
@@ -65,18 +59,15 @@
         font-size: 0.45rem;
     }
 
-    /* --- Map filter buttons --- */
     .filter-btn {
         padding: 6px 10px;
         font-size: 0.6rem;
     }
 
-    /* --- Image frame headers --- */
     .frame-header {
         padding: var(--space-xs) var(--space-sm);
     }
 
-    /* --- Timestep card: slightly tighter --- */
     .ts-timestep-grid {
         gap: 4px 8px;
     }
@@ -85,12 +76,12 @@
 
 /* ============================================================
    PHONE  (≤ 767px)
-   Targets portrait phones. Single-column layout, full-screen
-   sidebar drawer, icon-only nav, and touch-friendly targets.
+   Map top 50%, sidebar bottom 50% (always visible, scrollable).
+   Images side by side inside sidebar.
    ============================================================ */
 @media (max-width: 767px) {
 
-    /* --- Safe area insets (notched/dynamic-island phones) --- */
+    /* --- Safe area insets --- */
     #app {
         padding-bottom: env(safe-area-inset-bottom);
     }
@@ -102,7 +93,7 @@
         padding-bottom: var(--space-xs);
     }
 
-    /* ---- Navbar layout ---- */
+    /* ---- Navbar: single-row compact ---- */
     #controls {
         gap: var(--space-xs);
         flex-wrap: nowrap;
@@ -118,7 +109,7 @@
         justify-content: flex-end;
     }
 
-    /* ---- Site title: icon only ---- */
+    /* Title: hurricane icon only */
     .title-text,
     .title-accent {
         display: none;
@@ -128,7 +119,7 @@
         font-size: 1.1rem;
     }
 
-    /* ---- Nav buttons: value + icon, no label, no arrow ---- */
+    /* Nav buttons: icon + value, no text/arrow */
     .nav-buttons {
         gap: 4px;
         flex-wrap: nowrap;
@@ -168,14 +159,19 @@
         transform: translateY(0) !important;
     }
 
-    /* ---- Icon buttons (sidebar toggle, about) ---- */
+    /* Icon buttons */
     .icon-btn {
         width: 36px;
         height: 36px;
         min-width: 36px;
     }
 
-    /* ---- Player controls: compact, centered ---- */
+    /* Hide sidebar toggle — sidebar is always visible at bottom */
+    #sidebar-toggle {
+        display: none;
+    }
+
+    /* ---- Player controls: compact ---- */
     .player-panel {
         gap: var(--space-xs);
         flex-wrap: wrap;
@@ -209,52 +205,126 @@
         height: 20px;
     }
 
-    /* ---- Main container ---- */
+    /* ============================================================
+     * CORE LAYOUT: map top 50%, sidebar bottom 50%
+     * ============================================================ */
+
     #main-container {
-        flex-direction: column;
+        flex-direction: column !important;
+        padding: 0 !important;
+        align-items: stretch !important;
+        overflow: hidden !important;
     }
 
-    /* ---- Sidebar: full-screen drawer ---- */
+    /* Map / placeholder: top half */
+    #placeholder {
+        flex: 0 0 50% !important;
+        height: 50% !important;
+        min-height: 0 !important;
+        width: 100% !important;
+        overflow: hidden;
+        padding: 0;
+    }
+
+    /* Animation views: also occupy top half when shown */
+    #dual-view,
+    #single-view {
+        flex: 0 0 50% !important;
+        height: 50% !important;
+        min-height: 0 !important;
+        width: 100% !important;
+        overflow: hidden;
+        padding: 0;
+    }
+
+    /* Map wrapper: flush edges on phone */
+    .placeholder-map-wrapper {
+        border-radius: 0 !important;
+        border-left: none !important;
+        border-right: none !important;
+        border-top: none !important;
+    }
+
+    /* Dual-view: keep side-by-side (limited vertical space in top half) */
+    #dual-view {
+        flex-direction: row !important;
+        gap: 2px !important;
+    }
+
+    .image-frame {
+        max-width: 50% !important;
+        flex: 1 !important;
+    }
+
+    /* Single view: fill top half */
+    .single-frame img {
+        max-height: 100% !important;
+    }
+
+    /* ---- Sidebar: bottom half, always visible, scrollable ---- */
     #track-sidebar {
+        position: relative !important;
         width: 100% !important;
         min-width: 100% !important;
-        position: fixed !important;
-        top: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        left: 0 !important;
-        height: 100% !important;
-        transform: translateX(100%);
-        z-index: 500;
+        flex: 0 0 50% !important;
+        height: 50% !important;
+        top: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        left: auto !important;
+        transform: none !important;
+        z-index: 1 !important;
+        border-left: none !important;
+        border-top: 1px solid var(--border-subtle);
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        visibility: visible !important;
+        box-shadow: none !important;
         padding-bottom: env(safe-area-inset-bottom);
     }
 
-    #track-sidebar.open {
-        transform: translateX(0);
+    /* Always visible regardless of .open class state */
+    #track-sidebar:not(.open) {
+        visibility: visible !important;
+        transform: none !important;
     }
 
-    /* No layout margin shift when sidebar opens on phone */
-    #main-container.sidebar-open #placeholder {
-        margin-right: 0 !important;
-    }
-
-    /* Larger close button for thumb tap */
+    /* Hide close button (sidebar is persistent, not a drawer) */
     #track-sidebar .close-btn {
-        width: 44px;
-        height: 44px;
-        min-width: 44px;
+        display: none !important;
     }
 
-    /* Sidebar images: single column */
+    /* Cancel desktop margin-shift trick */
+    #main-container.sidebar-open #placeholder,
+    #main-container:not(.sidebar-open) #placeholder {
+        margin-right: 0 !important;
+        transition: none !important;
+    }
+
+    /* Sidebar content: tighter padding */
+    .track-sidebar-content {
+        padding: var(--space-sm);
+        gap: var(--space-sm);
+    }
+
+    /* ---- Sidebar images: SIDE BY SIDE ---- */
     .ts-images {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr !important;
+        gap: var(--space-xs);
     }
 
     .ts-product-selectors {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr !important;
+        gap: var(--space-xs);
     }
 
-    /* ---- Sidebar: filter pills scroll horizontally ---- */
+    /* Image frames: reasonable height for side-by-side in sidebar */
+    .ts-image-frame {
+        min-height: 140px !important;
+        max-height: 220px !important;
+    }
+
+    /* ---- Filter pills: horizontal scroll ---- */
     .ts-filter-buttons {
         flex-wrap: nowrap;
         overflow-x: auto;
@@ -271,7 +341,7 @@
         flex-shrink: 0;
     }
 
-    /* ---- Sidebar mode buttons ---- */
+    /* ---- Mode buttons ---- */
     .ts-mode-buttons {
         gap: var(--space-xs);
     }
@@ -297,7 +367,7 @@
         gap: 4px 8px;
     }
 
-    /* ---- Map header: title only, no stats bar ---- */
+    /* ---- Map header: title only ---- */
     .map-header-overlay {
         padding: var(--space-sm) var(--space-sm) 0;
     }
@@ -321,7 +391,7 @@
 
     /* ---- Map legend: compact ---- */
     .map-legend-overlay {
-        bottom: var(--space-sm) !important;
+        bottom: calc(var(--space-sm) + 30px) !important;
         left: var(--space-sm) !important;
         padding: 6px 8px;
         min-width: unset;
@@ -344,13 +414,15 @@
         display: none;
     }
 
-    /* Zoom control: re-align to compact legend on phone */
+    /* Zoom control: top right on mobile */
     .leaflet-bottom.leaflet-left {
-        bottom: var(--space-sm) !important;
-        left: calc(var(--space-sm) + 120px) !important;
+        bottom: auto !important;
+        left: auto !important;
+        top: var(--space-sm) !important;
+        right: var(--space-sm) !important;
     }
 
-    /* ---- Map filter overlay: icon-only pills ---- */
+    /* Map filter overlay: icon-only */
     .filter-btn span {
         display: none;
     }
@@ -359,21 +431,12 @@
         padding: 6px 8px;
     }
 
-    /* ---- Map instruction: hide on phone ---- */
+    /* Map instruction: hide */
     .map-instruction {
         display: none;
     }
 
-    /* ---- Dual-view: stack vertically ---- */
-    #dual-view {
-        flex-direction: column;
-    }
-
-    .image-frame {
-        max-width: 100%;
-    }
-
-    /* ---- Image frame headers ---- */
+    /* ---- Image frame headers (dual/single view) ---- */
     .frame-header {
         padding: 5px var(--space-sm);
         flex-wrap: wrap;
@@ -392,7 +455,7 @@
         gap: 3px;
     }
 
-    /* ---- About panel: full-screen on phone ---- */
+    /* ---- About panel: full-screen ---- */
     #about-panel {
         width: 100% !important;
         right: -100% !important;
