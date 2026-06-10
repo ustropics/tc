@@ -138,6 +138,50 @@
       "frameStart": 50,
       "frameEnd": 72,
       "titlePattern": "{storm} Wind Speed (10m) Frame {frame}"
+    },
+    "Quadrant Radial Enthalpy Flux": {
+      "type": "2d",
+      "hasOverlays": false,
+      "filters": ["fluxes", "radial"],
+      "patterns": {
+        "base": "images/{storm}/eflx_rad_quad/{storm}_eflx_rad_quad_{frame}.png"
+      },
+      "frameStart": 50,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Quadrant Radial Enthalpy Flux Frame {frame}"
+    },
+    "Radial Correlation (Enthalpy Flux)": {
+      "type": "2d",
+      "hasOverlays": false,
+      "filters": ["fluxes", "radial"],
+      "patterns": {
+        "base": "images/{storm}/eflx_radial_corr/{storm}_eflx_radial_corr_{frame}.png"
+      },
+      "frameStart": 50,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Radial Correlation (Enthalpy Flux) Frame {frame}"
+    },
+    "Inflow Layer / Surface Comparison": {
+      "type": "2d",
+      "hasOverlays": false,
+      "filters": ["radial", "cross-sections"],
+      "patterns": {
+        "base": "images/{storm}/inflow_layer_surface_compare/{storm}_inflow_layer_xsection_sfc_compare_{frame}.png"
+      },
+      "frameStart": 50,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Inflow Layer / Surface Comparison Frame {frame}"
+    },
+    "Enthalpy Flux Diagnostic Panel": {
+      "type": "2d",
+      "hasOverlays": false,
+      "filters": ["fluxes"],
+      "patterns": {
+        "base": "images/{storm}/eflx_diagnostic/{storm}_eflx_diagnostic_{frame}.png"
+      },
+      "frameStart": 50,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Enthalpy Flux Diagnostic Panel Frame {frame}"
     }
   }
 }

@@ -21,6 +21,11 @@ let mobileShowingPlayer = false;
 // Make catalog globally accessible for trackmap.js
 window.catalog = catalog;
 
+// Analysis lightbox state
+let lightboxProduct = null;
+let lightboxIndex = 0;
+let lightboxStorm = '';
+
 // Overlay states for each viewer
 let overlayState = {
     primary: { wind: false, rings: false },
@@ -76,6 +81,7 @@ const els = {
     product1Btn: document.getElementById('product1-btn'),
     product2Btn: document.getElementById('product2-btn'),
     view3dBtn:   document.getElementById('view3d-btn'),
+    analysisBtn: document.getElementById('analysis-btn'),
 
     // Navigation values
     stormValue:    document.getElementById('storm-value'),
@@ -100,6 +106,20 @@ const els = {
     aboutOverlay: document.getElementById('about-overlay'),
     aboutBtn:     document.getElementById('about-btn'),
     closeAbout:   document.getElementById('close-about'),
+
+    // Analysis overlay
+    analysisOverlay:   document.getElementById('analysis-overlay'),
+    analysisGrid:      document.getElementById('analysis-grid'),
+    analysisTitle:     document.getElementById('analysis-title'),
+    closeAnalysis:     document.getElementById('close-analysis'),
+
+    // Lightbox
+    lightboxOverlay:   document.getElementById('lightbox-overlay'),
+    lightboxImage:     document.getElementById('lightbox-image'),
+    lightboxLabel:     document.getElementById('lightbox-label'),
+    lightboxPrevBtn:   document.getElementById('lightbox-prev'),
+    lightboxNextBtn:   document.getElementById('lightbox-next'),
+    closeLightbox:     document.getElementById('close-lightbox'),
 
     // 3D Viewer
     viewer3dOverlay:   document.getElementById('viewer-3d-overlay'),
@@ -126,30 +146,33 @@ async function loadCatalog() {
     console.log('loadCatalog called');
     try {
         updateStatus('Loading catalog...', 'loading');
-        const [res2d, res3d, resDiag] = await Promise.all([
+        const [res2d, res3d, resDiag, resAnalysis] = await Promise.all([
             fetch('json/catalog_2d.json'),
             fetch('json/catalog_3d.json'),
-            fetch('json/catalog_diag.json')
+            fetch('json/catalog_diag.json'),
+            fetch('json/catalog_analysis.json')
         ]);
-        if (!res2d.ok || !res3d.ok || !resDiag.ok) {
+        if (!res2d.ok || !res3d.ok || !resDiag.ok || !resAnalysis.ok) {
             throw new Error('Failed to fetch one or more catalog files');
         }
-        const [cat2d, cat3d, catDiag] = await Promise.all([
-            res2d.json(), res3d.json(), resDiag.json()
+        const [cat2d, cat3d, catDiag, catAnalysis] = await Promise.all([
+            res2d.json(), res3d.json(), resDiag.json(), resAnalysis.json()
         ]);
 
         // Expose each catalog separately for trackmap.js
-        window.catalog2d   = cat2d;
-        window.catalog3d   = cat3d;
-        window.catalogDiag = catDiag;
+        window.catalog2d       = cat2d;
+        window.catalog3d       = cat3d;
+        window.catalogDiag     = catDiag;
+        window.catalogAnalysis = catAnalysis;
 
         // Merge into a single catalog for backward-compatible lookups
         catalog = {};
-        for (const storm of new Set([...Object.keys(cat2d), ...Object.keys(cat3d), ...Object.keys(catDiag)])) {
+        for (const storm of new Set([...Object.keys(cat2d), ...Object.keys(cat3d), ...Object.keys(catDiag), ...Object.keys(catAnalysis)])) {
             catalog[storm] = {
-                ...(cat2d[storm]   || {}),
-                ...(cat3d[storm]   || {}),
-                ...(catDiag[storm] || {})
+                ...(cat2d[storm]       || {}),
+                ...(cat3d[storm]       || {}),
+                ...(catDiag[storm]     || {}),
+                ...(catAnalysis[storm] || {})
             };
         }
         window.catalog = catalog;
@@ -406,6 +429,7 @@ function selectStorm(storm) {
     els.product1Btn.disabled = false;
     els.product2Btn.disabled = false;
     els.view3dBtn.disabled = false;
+    if (els.analysisBtn) els.analysisBtn.disabled = false;
     
     populateProductMenus();
     closeAllDropdowns();
@@ -911,6 +935,25 @@ els.aboutOverlay.onclick = () => {
 // 3D Viewer close
 els.close3dViewer.onclick = close3dViewer;
 
+// Analysis overlay
+if (els.analysisBtn) els.analysisBtn.onclick = openAnalysisOverlay;
+if (els.closeAnalysis) els.closeAnalysis.onclick = closeAnalysisOverlay;
+if (els.analysisOverlay) {
+    els.analysisOverlay.addEventListener('click', (e) => {
+        if (e.target === els.analysisOverlay) closeAnalysisOverlay();
+    });
+}
+
+// Lightbox
+if (els.closeLightbox) els.closeLightbox.onclick = closeLightboxOverlay;
+if (els.lightboxPrevBtn) els.lightboxPrevBtn.onclick = lightboxPrev;
+if (els.lightboxNextBtn) els.lightboxNextBtn.onclick = lightboxNext;
+if (els.lightboxOverlay) {
+    els.lightboxOverlay.addEventListener('click', (e) => {
+        if (e.target === els.lightboxOverlay) closeLightboxOverlay();
+    });
+}
+
 // Overlay checkbox event listeners
 if (els.windVectors1) {
     els.windVectors1.addEventListener('change', (e) => {
@@ -950,6 +993,14 @@ document.addEventListener('keydown', (e) => {
     
     // Close dropdown on Escape
     if (e.key === 'Escape') {
+        if (els.lightboxOverlay && els.lightboxOverlay.classList.contains('open')) {
+            closeLightboxOverlay();
+            return;
+        }
+        if (els.analysisOverlay && els.analysisOverlay.classList.contains('open')) {
+            closeAnalysisOverlay();
+            return;
+        }
         if (activeDropdown) {
             closeAllDropdowns();
             return;
@@ -962,10 +1013,17 @@ document.addEventListener('keydown', (e) => {
         els.aboutOverlay.classList.remove('open');
         return;
     }
-    
+
+    // Lightbox arrow navigation
+    if (els.lightboxOverlay && els.lightboxOverlay.classList.contains('open')) {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); lightboxPrev(); return; }
+        if (e.key === 'ArrowRight') { e.preventDefault(); lightboxNext(); return; }
+        return;
+    }
+
     // Don't allow playback controls when 3D viewer is open
     if (els.viewer3dOverlay.classList.contains('open')) return;
-    
+
     switch(e.key) {
         case 'ArrowLeft':
             e.preventDefault();
@@ -1090,6 +1148,126 @@ window.selectBothProductsAndJumpToFrame = async function(stormName, productA, pr
         }
     }, 200); // Slightly longer wait for both products
 };
+
+// === ANALYSIS SECTION ===
+
+function openAnalysisOverlay() {
+    if (!selectedStorm || !window.catalogAnalysis || !window.catalogAnalysis[selectedStorm]) return;
+    renderAnalysisGrid(selectedStorm);
+    els.analysisOverlay.classList.add('open');
+}
+
+function closeAnalysisOverlay() {
+    els.analysisOverlay.classList.remove('open');
+}
+
+function resolveStaticPaths(productConfig, stormName) {
+    const stormLower = stormName.toLowerCase();
+    if (productConfig.type === 'static') {
+        return productConfig.images.map(img => ({
+            src: img.src.replace(/{storm}/g, stormLower),
+            label: img.label
+        }));
+    }
+    return [];
+}
+
+function renderAnalysisGrid(stormName) {
+    const stormLower = stormName.toLowerCase();
+    const products = window.catalogAnalysis[stormName];
+    if (!products) return;
+
+    if (els.analysisTitle) {
+        els.analysisTitle.textContent = stormName + ' — Analysis';
+    }
+
+    els.analysisGrid.innerHTML = '';
+
+    Object.entries(products).forEach(([name, config]) => {
+        const card = document.createElement('div');
+        card.className = 'analysis-card';
+
+        let thumbSrc = '';
+        let badgeText = '';
+
+        if (config.type === 'static') {
+            const images = resolveStaticPaths(config, stormName);
+            thumbSrc = images[0]?.src || '';
+            badgeText = images.length + ' chart' + (images.length !== 1 ? 's' : '');
+        } else if (config.type === 'static-3d') {
+            thumbSrc = config.staticImage || '';
+            badgeText = '3D interactive';
+        }
+
+        card.innerHTML = `
+            <div class="analysis-card-thumb">
+                <img src="${thumbSrc}" alt="${name}" loading="lazy" onerror="this.style.display='none';this.parentNode.classList.add('no-thumb')">
+            </div>
+            <div class="analysis-card-body">
+                <div class="analysis-card-title">${name}</div>
+                <div class="analysis-card-badge">${badgeText}</div>
+            </div>
+        `;
+
+        card.addEventListener('click', () => {
+            if (config.type === 'static-3d') {
+                closeAnalysisOverlay();
+                const url = config.pattern.replace(/{storm}/g, stormLower);
+                els.viewer3dLabel.textContent = name;
+                els.viewer3dFrameNum.textContent = '70';
+                showLoader3d();
+                els.viewer3dIframe.onload = hideLoader3d;
+                els.viewer3dIframe.src = url;
+                els.viewer3dOverlay.classList.add('open');
+            } else {
+                openLightbox(name, config, stormName, 0);
+            }
+        });
+
+        els.analysisGrid.appendChild(card);
+    });
+}
+
+function openLightbox(productName, productConfig, stormName, startIndex) {
+    lightboxProduct = productConfig;
+    lightboxIndex = startIndex;
+    lightboxStorm = stormName;
+
+    const images = resolveStaticPaths(productConfig, stormName);
+    if (!images.length) return;
+
+    els.lightboxOverlay.dataset.productName = productName;
+    showLightboxFrame(images, lightboxIndex);
+    els.lightboxOverlay.classList.add('open');
+}
+
+function showLightboxFrame(images, idx) {
+    if (!images || !images.length) return;
+    idx = ((idx % images.length) + images.length) % images.length;
+    lightboxIndex = idx;
+
+    els.lightboxImage.src = images[idx].src;
+    els.lightboxLabel.textContent = images[idx].label;
+
+    els.lightboxPrevBtn.style.display = images.length > 1 ? '' : 'none';
+    els.lightboxNextBtn.style.display = images.length > 1 ? '' : 'none';
+}
+
+function lightboxNext() {
+    const images = resolveStaticPaths(lightboxProduct, lightboxStorm);
+    showLightboxFrame(images, lightboxIndex + 1);
+}
+
+function lightboxPrev() {
+    const images = resolveStaticPaths(lightboxProduct, lightboxStorm);
+    showLightboxFrame(images, lightboxIndex - 1);
+}
+
+function closeLightboxOverlay() {
+    els.lightboxOverlay.classList.remove('open');
+    els.lightboxImage.src = '';
+    lightboxProduct = null;
+}
 
 // === INITIALIZATION ===
 window.onload = async () => {

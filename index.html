@@ -167,6 +167,12 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Analysis Button -->
+                        <button class="nav-btn nav-btn-flat" id="analysis-btn" disabled>
+                            <i class="fas fa-chart-bar"></i>
+                            <span class="nav-btn-text">Analysis</span>
+                        </button>
                     </nav>
                     
                     <!-- Mobile: toggle between nav buttons and player controls -->
@@ -506,6 +512,38 @@
                 <span class="version">v3.2</span>
             </div>
         </div>
+    </div>
+
+    <!-- Analysis Overlay -->
+    <div id="analysis-overlay">
+        <div class="analysis-header">
+            <div class="analysis-header-title">
+                <i class="fas fa-chart-bar"></i>
+                <span id="analysis-title">Analysis</span>
+            </div>
+            <button id="close-analysis" class="close-btn">
+                <i class="fas fa-times"></i>
+                <span>Close</span>
+            </button>
+        </div>
+        <div class="analysis-body">
+            <div id="analysis-grid" class="analysis-grid">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox Overlay -->
+    <div id="lightbox-overlay">
+        <button id="lightbox-prev" class="lightbox-nav lightbox-nav-prev"><i class="fas fa-chevron-left"></i></button>
+        <div class="lightbox-content">
+            <button id="close-lightbox" class="close-btn lightbox-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <img id="lightbox-image" src="" alt="">
+            <div id="lightbox-label" class="lightbox-label"></div>
+        </div>
+        <button id="lightbox-next" class="lightbox-nav lightbox-nav-next"><i class="fas fa-chevron-right"></i></button>
     </div>
 
     <!-- 3D Viewer Overlay -->

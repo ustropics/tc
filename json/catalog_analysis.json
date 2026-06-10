@@ -1,0 +1,88 @@
+{
+  "Ian": {
+    "Hovmöller Diagram (Track-Relative)": {
+      "type": "static",
+      "filters": ["fluxes", "diagnostics"],
+      "titlePattern": "{storm} Hovmöller Diagram (Track-Relative)",
+      "images": [
+        { "src": "images/{storm}/analysis/eflx_hovmoller_track_relative/{storm}_hovmoller_inward_flux_track_relative.png", "label": "Inward Flux" }
+      ]
+    },
+    "Quadrant Statistics": {
+      "type": "static",
+      "filters": ["fluxes", "quadrant"],
+      "titlePattern": "{storm} Quadrant Statistics",
+      "images": [
+        { "src": "images/{storm}/analysis/eflx_quad_stats/{storm}_eflx_quad_stats_bar.png", "label": "Bar Chart" },
+        { "src": "images/{storm}/analysis/eflx_quad_stats/{storm}_eflx_quad_stats_heatmap.png", "label": "Heatmap" },
+        { "src": "images/{storm}/analysis/eflx_quad_stats/{storm}_eflx_quad_stats_timeseries.png", "label": "Timeseries" }
+      ]
+    },
+    "Quadrant Stats — Radius Bins": {
+      "type": "static",
+      "filters": ["fluxes", "quadrant", "radial"],
+      "titlePattern": "{storm} Quadrant Stats — Radius Bins",
+      "images": [
+        { "src": "images/{storm}/analysis/eflx_quad_stats_bins/{storm}_eflx_quad_stats_bins_bar_0to50_km.png", "label": "Bar — 0–50 km" },
+        { "src": "images/{storm}/analysis/eflx_quad_stats_bins/{storm}_eflx_quad_stats_bins_bar_50to100_km.png", "label": "Bar — 50–100 km" },
+        { "src": "images/{storm}/analysis/eflx_quad_stats_bins/{storm}_eflx_quad_stats_bins_bar_100to150_km.png", "label": "Bar — 100–150 km" },
+        { "src": "images/{storm}/analysis/eflx_quad_stats_bins/{storm}_eflx_quad_stats_bins_bar_150to300_km.png", "label": "Bar — 150–300 km" },
+        { "src": "images/{storm}/analysis/eflx_quad_stats_bins/{storm}_eflx_quad_stats_bins_mean_heatmap_bins.png", "label": "Mean Heatmap" },
+        { "src": "images/{storm}/analysis/eflx_quad_stats_bins/{storm}_eflx_quad_stats_bins_timeseries_0to50_km.png", "label": "Timeseries — 0–50 km" },
+        { "src": "images/{storm}/analysis/eflx_quad_stats_bins/{storm}_eflx_quad_stats_bins_timeseries_50to100_km.png", "label": "Timeseries — 50–100 km" },
+        { "src": "images/{storm}/analysis/eflx_quad_stats_bins/{storm}_eflx_quad_stats_bins_timeseries_100to150_km.png", "label": "Timeseries — 100–150 km" },
+        { "src": "images/{storm}/analysis/eflx_quad_stats_bins/{storm}_eflx_quad_stats_bins_timeseries_150to300_km.png", "label": "Timeseries — 150–300 km" }
+      ]
+    },
+    "Quadrant Stats — RMW Bins": {
+      "type": "static",
+      "filters": ["fluxes", "quadrant", "radial"],
+      "titlePattern": "{storm} Quadrant Stats — RMW Bins",
+      "images": [
+        { "src": "images/{storm}/analysis/eflx_quad_stats_bins_rmw/{storm}_eflx_quad_stats_bins_rmw_bar_0to1_RMW.png", "label": "Bar — 0–1 RMW" },
+        { "src": "images/{storm}/analysis/eflx_quad_stats_bins_rmw/{storm}_eflx_quad_stats_bins_rmw_bar_1to2_RMW.png", "label": "Bar — 1–2 RMW" },
+        { "src": "images/{storm}/analysis/eflx_quad_stats_bins_rmw/{storm}_eflx_quad_stats_bins_rmw_bar_2to3_RMW.png", "label": "Bar — 2–3 RMW" },
+        { "src": "images/{storm}/analysis/eflx_quad_stats_bins_rmw/{storm}_eflx_quad_stats_bins_rmw_bar_3to6_RMW.png", "label": "Bar — 3–6 RMW" },
+        { "src": "images/{storm}/analysis/eflx_quad_stats_bins_rmw/{storm}_eflx_quad_stats_bins_rmw_mean_heatmap_bins.png", "label": "Mean Heatmap" },
+        { "src": "images/{storm}/analysis/eflx_quad_stats_bins_rmw/{storm}_eflx_quad_stats_bins_rmw_timeseries_0to1_RMW.png", "label": "Timeseries — 0–1 RMW" },
+        { "src": "images/{storm}/analysis/eflx_quad_stats_bins_rmw/{storm}_eflx_quad_stats_bins_rmw_timeseries_1to2_RMW.png", "label": "Timeseries — 1–2 RMW" },
+        { "src": "images/{storm}/analysis/eflx_quad_stats_bins_rmw/{storm}_eflx_quad_stats_bins_rmw_timeseries_2to3_RMW.png", "label": "Timeseries — 2–3 RMW" },
+        { "src": "images/{storm}/analysis/eflx_quad_stats_bins_rmw/{storm}_eflx_quad_stats_bins_rmw_timeseries_3to6_RMW.png", "label": "Timeseries — 3–6 RMW" }
+      ]
+    },
+    "Quadrant Compare — RMW Bins": {
+      "type": "static",
+      "filters": ["fluxes", "quadrant", "radial"],
+      "titlePattern": "{storm} Quadrant Compare — RMW Bins",
+      "images": [
+        { "src": "images/{storm}/analysis/eflx_quad_compare_bins_rmw/{storm}_eflx_quad_compare_bins_rmw_heatmap_compare_0to1_RMW.png", "label": "Heatmap Compare — 0–1 RMW" },
+        { "src": "images/{storm}/analysis/eflx_quad_compare_bins_rmw/{storm}_eflx_quad_compare_bins_rmw_heatmap_compare_1to2_RMW.png", "label": "Heatmap Compare — 1–2 RMW" },
+        { "src": "images/{storm}/analysis/eflx_quad_compare_bins_rmw/{storm}_eflx_quad_compare_bins_rmw_heatmap_compare_2to3_RMW.png", "label": "Heatmap Compare — 2–3 RMW" },
+        { "src": "images/{storm}/analysis/eflx_quad_compare_bins_rmw/{storm}_eflx_quad_compare_bins_rmw_heatmap_compare_3to6_RMW.png", "label": "Heatmap Compare — 3–6 RMW" },
+        { "src": "images/{storm}/analysis/eflx_quad_compare_bins_rmw/{storm}_eflx_quad_compare_bins_rmw_timeseries_compare_0to1_RMW.png", "label": "Timeseries Compare — 0–1 RMW" },
+        { "src": "images/{storm}/analysis/eflx_quad_compare_bins_rmw/{storm}_eflx_quad_compare_bins_rmw_timeseries_compare_1to2_RMW.png", "label": "Timeseries Compare — 1–2 RMW" },
+        { "src": "images/{storm}/analysis/eflx_quad_compare_bins_rmw/{storm}_eflx_quad_compare_bins_rmw_timeseries_compare_2to3_RMW.png", "label": "Timeseries Compare — 2–3 RMW" },
+        { "src": "images/{storm}/analysis/eflx_quad_compare_bins_rmw/{storm}_eflx_quad_compare_bins_rmw_timeseries_compare_3to6_RMW.png", "label": "Timeseries Compare — 3–6 RMW" }
+      ]
+    },
+    "Eyewall Budget (Motion-Relative)": {
+      "type": "static",
+      "filters": ["fluxes", "budget"],
+      "titlePattern": "{storm} Eyewall Budget (Motion-Relative)",
+      "images": [
+        { "src": "images/{storm}/analysis/eflx_budget_motion_quad/{storm}_eflx_budget_motion_quad_timeseries.png", "label": "Overall Timeseries" },
+        { "src": "images/{storm}/analysis/eflx_budget_motion_quad/{storm}_eflx_budget_motion_quad_timeseries_0to1_RMW.png", "label": "Timeseries — 0–1 RMW" },
+        { "src": "images/{storm}/analysis/eflx_budget_motion_quad/{storm}_eflx_budget_motion_quad_timeseries_1to2_RMW.png", "label": "Timeseries — 1–2 RMW" },
+        { "src": "images/{storm}/analysis/eflx_budget_motion_quad/{storm}_eflx_budget_motion_quad_timeseries_2to3_RMW.png", "label": "Timeseries — 2–3 RMW" },
+        { "src": "images/{storm}/analysis/eflx_budget_motion_quad/{storm}_eflx_budget_motion_quad_timeseries_3to6_RMW.png", "label": "Timeseries — 3–6 RMW" }
+      ]
+    },
+    "TKE Isosurface (3D)": {
+      "type": "static-3d",
+      "filters": [],
+      "titlePattern": "{storm} TKE Isosurface",
+      "pattern": "images/{storm}/analysis/tke_3d/{storm}_tke_3d_70.html",
+      "staticImage": "images/static/3d/3d_tke.png"
+    }
+  }
+}

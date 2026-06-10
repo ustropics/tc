@@ -6,7 +6,30 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8080/)",
       "Bash(python3 -c \"from playwright.sync_api import sync_playwright; print\\('playwright available'\\)\")",
       "Bash(pip install *)",
-      "Bash(playwright install *)"
+      "Bash(playwright install *)",
+      "Read(//Users/ustropics/Documents/research/figures/**)",
+      "Read(//Users/ustropics/Documents/research/scripts/**)",
+      "Read(//Users/ustropics/Documents/research/ms-proj/**)",
+      "Bash(python3 -c \"import json; d=json.load\\(open\\('/Users/ustropics/Documents/research/client/json/ian.json'\\)\\); print\\(list\\(d[0].keys\\(\\)\\) if isinstance\\(d,list\\) else list\\(d.keys\\(\\)\\)\\); print\\(d[0] if isinstance\\(d,list\\) else ''\\)\")",
+      "Read(//Users/ustropics/Documents/research/**)",
+      "Bash(bash /Users/ustropics/.claude/plugins/cache/superpowers-marketplace/superpowers/5.0.7/skills/brainstorming/scripts/start-server.sh --project-dir /Users/ustropics/Documents/research/client)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(bash /Users/ustropics/.claude/plugins/cache/superpowers-marketplace/superpowers/5.0.7/skills/brainstorming/scripts/stop-server.sh /Users/ustropics/Documents/research/client/.superpowers/brainstorm/72999-1780933803)",
+      "Bash(cp -r /Users/ustropics/Documents/research/ms-proj/figures/eflx_rad_quad /Users/ustropics/Documents/research/client/images/ian/eflx_rad_quad)",
+      "Bash(cp -r /Users/ustropics/Documents/research/ms-proj/figures/eflx_radial_corr /Users/ustropics/Documents/research/client/images/ian/eflx_radial_corr)",
+      "Bash(cp -r /Users/ustropics/Documents/research/ms-proj/figures/inflow_layer_surface_compare /Users/ustropics/Documents/research/client/images/ian/inflow_layer_surface_compare)",
+      "Bash(cp -r /Users/ustropics/Documents/research/ms-proj/figures/eflx_diagnostic /Users/ustropics/Documents/research/client/images/ian/eflx_diagnostic)",
+      "Bash(python3 -m http.server 8765)",
+      "Bash(curl -s http://localhost:8765/json/catalog_analysis.json)",
+      "Bash(python3 -m json.tool)",
+      "Bash(curl -s http://localhost:8765/json/catalog_2d.json)",
+      "Bash(curl -s http://localhost:8765/images/ian/eflx_rad_quad/ian_eflx_rad_quad_50.png)",
+      "Bash(curl -s http://localhost:8765/images/ian/inflow_layer_surface_compare/ian_inflow_layer_xsection_sfc_compare_50.png)",
+      "Bash(curl -s http://localhost:8765/images/ian/analysis/eflx_quad_stats/ian_eflx_quad_stats_bar.png)",
+      "Bash(curl -s http://localhost:8765/images/ian/analysis/tke_3d/ian_tke_3d_70.html)",
+      "Bash(node --check /Users/ustropics/Documents/research/client/js/app.js)",
+      "Bash(kill %1)"
     ]
   }
 }

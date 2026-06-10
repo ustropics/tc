@@ -1269,3 +1269,197 @@ input[type="range"]::-webkit-slider-thumb:hover {
 .ts-data-value.warm {
     color: var(--accent-warm);
 }
+
+/* === Analysis Overlay === */
+#analysis-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    background: var(--surface-base, #0d1117);
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+#analysis-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.analysis-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-md) var(--space-lg);
+    border-bottom: 1px solid var(--border-subtle);
+    background: var(--surface-glass);
+    backdrop-filter: blur(20px);
+    flex-shrink: 0;
+}
+
+.analysis-header-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-primary);
+}
+
+.analysis-header-title i {
+    color: var(--accent-primary);
+}
+
+.analysis-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--space-lg);
+}
+
+.analysis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--space-md);
+}
+
+.analysis-card {
+    background: var(--surface-glass);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md, 8px);
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.15s, transform 0.15s;
+}
+
+.analysis-card:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+}
+
+.analysis-card-thumb {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: var(--surface-overlay, #161b22);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.analysis-card-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.analysis-card-thumb.no-thumb::after {
+    content: '\f080';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 2rem;
+    color: var(--text-muted);
+}
+
+.analysis-card-body {
+    padding: var(--space-sm) var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.analysis-card-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.3;
+}
+
+.analysis-card-badge {
+    font-size: 0.65rem;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+}
+
+/* === Lightbox Overlay === */
+#lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 600;
+    background: rgba(0, 0, 0, 0.92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+#lightbox-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: calc(100vw - 120px);
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+#lightbox-image {
+    max-width: 100%;
+    max-height: calc(90vh - 60px);
+    object-fit: contain;
+    border-radius: var(--radius-sm, 4px);
+}
+
+.lightbox-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    text-align: center;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -2.5rem;
+    right: 0;
+}
+
+.lightbox-nav {
+    background: var(--surface-glass);
+    border: 1px solid var(--border-subtle);
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-primary);
+    flex-shrink: 0;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.lightbox-nav:hover {
+    background: var(--accent-primary);
+    border-color: var(--accent-primary);
+}
+
+/* flat nav-btn (no dropdown arrow, no dropdown menu) */
+.nav-btn.nav-btn-flat {
+    padding-right: var(--space-md);
+}
+
+.nav-btn.nav-btn-flat .nav-btn-arrow {
+    display: none;
+}
