@@ -480,15 +480,6 @@ function selectStorm(storm) {
 }
 
 function selectProduct1(product) {
-    if (product === selectedProduct2) {
-        // Swap - set product2 to none
-        selectedProduct2 = '';
-        els.product2Value.textContent = 'None';
-        images2 = [];
-        if (els.frameTitle2) els.frameTitle2.textContent = '--';
-        updateOverlayControlsVisibility('compare', null);
-    }
-    
     selectedProduct1 = product;
     els.product1Value.textContent = truncateText(product, 15);
     
@@ -510,12 +501,6 @@ function selectProduct2(product) {
         updateOverlayControlsVisibility('compare', null);
         closeAllDropdowns();
         updateViewMode();
-        return;
-    }
-    
-    if (product === selectedProduct1) {
-        // Can't select same as primary
-        closeAllDropdowns();
         return;
     }
     
