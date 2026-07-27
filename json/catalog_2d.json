@@ -70,7 +70,7 @@
         "cross-sections"
       ],
       "patterns": {
-        "base": "images/{storm}/uncpl/inflow_profile/{storm}_inflow_profile_{frame}.png"
+        "base": "images/{storm}/{model}/inflow_profile/{storm}_inflow_profile_{frame}.png"
       },
       "frameStart": 50,
       "frameEnd": 72,
