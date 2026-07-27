@@ -199,6 +199,45 @@
       "frameStart": 50,
       "frameEnd": 72,
       "titlePattern": "{storm} Enthalpy Flux Diagnostic Panel Frame {frame}"
+    },
+    "Quadrant Surface Enthalpy Flux": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "fluxes"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/eflx_sfc_quad/{storm}_eflx_sfc_quad_{frame}.png"
+      },
+      "frameStart": 50,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Quadrant Surface Enthalpy Flux Frame {frame}"
+    },
+    "Wind Speed (10m) - Zoomed": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "winds"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/wind_zoomed/{storm}_wind_zoomed_0{frame}.png"
+      },
+      "frameStart": 50,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Wind Speed (10m) Zoomed Frame {frame}"
+    },
+    "Enthalpy Fluxes - Zoomed": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "fluxes"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/eflx_zoom/{storm}_eflx_zoom_0{frame}.png"
+      },
+      "frameStart": 50,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Enthalpy Fluxes Zoomed Frame {frame}"
     }
   },
   "Harvey": {
@@ -286,218 +325,144 @@
       "frameEnd": 50,
       "titlePattern": "{storm} Simulated Radar Reflectivity Frame {frame}"
     },
-    "Wind Speed (10m) (Coupled)": {
+    "Wind Speed (10m)": {
       "type": "2d",
-      "hasOverlays": false,
+      "hasOverlays": true,
       "filters": [
-        "winds",
-        "coupled"
+        "winds"
       ],
       "patterns": {
-        "base": "images/{storm}/cpl/wind_sfc_min/{storm}_wind_sfc_min_0{frame}.png"
+        "base": "images/{storm}/{model}/wind_sfc_min/{storm}_wind_sfc_min_0{frame}.png"
       },
       "frameStart": 20,
       "frameEnd": 50,
-      "titlePattern": "{storm} Wind Speed (10m) \u2014 Coupled Frame {frame}"
+      "titlePattern": "{storm} Wind Speed (10m) Frame {frame}"
     },
-    "Wind Speed (10m) (Uncoupled)": {
+    "Quadrant Surface Enthalpy Flux": {
       "type": "2d",
-      "hasOverlays": false,
+      "hasOverlays": true,
       "filters": [
-        "winds",
-        "uncoupled"
+        "fluxes"
       ],
       "patterns": {
-        "base": "images/{storm}/uncpl/wind_sfc_min/{storm}_wind_sfc_min_0{frame}.png"
+        "base": "images/{storm}/{model}/eflx_sfc_quad/{storm}_eflx_sfc_quad_{frame}.png"
       },
       "frameStart": 20,
       "frameEnd": 50,
-      "titlePattern": "{storm} Wind Speed (10m) \u2014 Uncoupled Frame {frame}"
+      "titlePattern": "{storm} Quadrant Surface Enthalpy Flux Frame {frame}"
     },
-    "Quadrant Surface Enthalpy Flux (Coupled)": {
+    "Radial Correlation (Enthalpy Flux)": {
       "type": "2d",
-      "hasOverlays": false,
+      "hasOverlays": true,
       "filters": [
         "fluxes",
-        "coupled"
+        "radial"
       ],
       "patterns": {
-        "base": "images/{storm}/cpl/eflx_sfc_quad/{storm}_eflx_sfc_quad_{frame}.png"
+        "base": "images/{storm}/{model}/eflx_radial_corr/{storm}_eflx_radial_corr_{frame}.png"
       },
       "frameStart": 20,
       "frameEnd": 50,
-      "titlePattern": "{storm} Quadrant Surface Enthalpy Flux \u2014 Coupled Frame {frame}"
+      "titlePattern": "{storm} Radial Correlation (Enthalpy Flux) Frame {frame}"
     },
-    "Quadrant Surface Enthalpy Flux (Uncoupled)": {
+    "Wind Speed (10m) - Zoomed": {
       "type": "2d",
-      "hasOverlays": false,
+      "hasOverlays": true,
       "filters": [
-        "fluxes",
-        "uncoupled"
+        "winds"
       ],
       "patterns": {
-        "base": "images/{storm}/uncpl/eflx_sfc_quad/{storm}_eflx_sfc_quad_{frame}.png"
+        "base": "images/{storm}/{model}/wind_zoomed/{storm}_wind_zoomed_0{frame}.png"
       },
       "frameStart": 20,
       "frameEnd": 50,
-      "titlePattern": "{storm} Quadrant Surface Enthalpy Flux \u2014 Uncoupled Frame {frame}"
+      "titlePattern": "{storm} Wind Speed (10m) Zoomed Frame {frame}"
     },
-    "Radial Correlation (Enthalpy Flux) (Coupled)": {
+    "Enthalpy Fluxes - Zoomed": {
       "type": "2d",
-      "hasOverlays": false,
+      "hasOverlays": true,
+      "filters": [
+        "fluxes"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/eflx_zoom/{storm}_eflx_zoom_0{frame}.png"
+      },
+      "frameStart": 20,
+      "frameEnd": 50,
+      "titlePattern": "{storm} Enthalpy Fluxes Zoomed Frame {frame}"
+    },
+    "Enthalpy Fluxes - Lat xsec": {
+      "type": "2d",
+      "hasOverlays": true,
       "filters": [
         "fluxes",
+        "cross-sections"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/eflx_xsec_lat/{storm}_eflx_xsec_lat_{frame}.png"
+      },
+      "frameStart": 20,
+      "frameEnd": 50,
+      "titlePattern": "{storm} Enthalpy Fluxes (Cross-section) Latitude Frame {frame}"
+    },
+    "Enthalpy Fluxes - Lon xsec": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "fluxes",
+        "cross-sections"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/eflx_xsec_lon/{storm}_eflx_xsec_lon_{frame}.png"
+      },
+      "frameStart": 20,
+      "frameEnd": 50,
+      "titlePattern": "{storm} Enthalpy Fluxes (Cross-section) Longitude Frame {frame}"
+    },
+    "Vertical Inflow Layer Profile (Radial)": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
         "radial",
-        "coupled"
+        "cross-sections"
       ],
       "patterns": {
-        "base": "images/{storm}/cpl/eflx_radial_corr/{storm}_eflx_radial_corr_{frame}.png"
+        "base": "images/{storm}/{model}/inflow_profile/{storm}_inflow_profile_{frame}.png"
       },
       "frameStart": 20,
       "frameEnd": 50,
-      "titlePattern": "{storm} Radial Correlation (Enthalpy Flux) \u2014 Coupled Frame {frame}"
+      "titlePattern": "{storm} Vertical Inflow Layer Profile {frame}"
     },
-    "Radial Correlation (Enthalpy Flux) (Uncoupled)": {
+    "Streamlines with Radial and Tangent Winds": {
       "type": "2d",
-      "hasOverlays": false,
+      "hasOverlays": true,
       "filters": [
-        "fluxes",
+        "cross-sections",
         "radial",
-        "uncoupled"
+        "tangential",
+        "winds"
       ],
       "patterns": {
-        "base": "images/{storm}/uncpl/eflx_radial_corr/{storm}_eflx_radial_corr_{frame}.png"
+        "base": "images/{storm}/{model}/2d/streamlines_with_rad_and_tan/streamlines_{storm}_{frame}.png"
       },
       "frameStart": 20,
       "frameEnd": 50,
-      "titlePattern": "{storm} Radial Correlation (Enthalpy Flux) \u2014 Uncoupled Frame {frame}"
+      "titlePattern": "{storm} Streamlines with Radial and Tangent Winds Frame {frame}"
     },
-    "Wind Speed (10m) (Spray)": {
+    "Updrafts/Downdrafts with Radial and Tangent Winds": {
       "type": "2d",
-      "hasOverlays": false,
+      "hasOverlays": true,
       "filters": [
-        "winds",
-        "spray"
-      ],
-      "patterns": {
-        "base": "images/{storm}/spray/wind_sfc_min/{storm}_wind_sfc_min_0{frame}.png"
-      },
-      "frameStart": 20,
-      "frameEnd": 50,
-      "titlePattern": "{storm} Wind Speed (10m) \u2014 Spray Frame {frame}"
-    },
-    "Quadrant Surface Enthalpy Flux (Spray)": {
-      "type": "2d",
-      "hasOverlays": false,
-      "filters": [
-        "fluxes",
-        "spray"
-      ],
-      "patterns": {
-        "base": "images/{storm}/spray/eflx_sfc_quad/{storm}_eflx_sfc_quad_{frame}.png"
-      },
-      "frameStart": 20,
-      "frameEnd": 50,
-      "titlePattern": "{storm} Quadrant Surface Enthalpy Flux \u2014 Spray Frame {frame}"
-    },
-    "Radial Correlation (Enthalpy Flux) (Spray)": {
-      "type": "2d",
-      "hasOverlays": false,
-      "filters": [
-        "fluxes",
+        "cross-sections",
         "radial",
-        "spray"
+        "tangential"
       ],
       "patterns": {
-        "base": "images/{storm}/spray/eflx_radial_corr/{storm}_eflx_radial_corr_{frame}.png"
+        "base": "images/{storm}/{model}/2d/updraft_downdrafts_with_rad_and_tan/vert_velocity_{storm}_{frame}.png"
       },
       "frameStart": 20,
       "frameEnd": 50,
-      "titlePattern": "{storm} Radial Correlation (Enthalpy Flux) \u2014 Spray Frame {frame}"
-    },
-    "Wind Speed (10m) - Zoomed (Coupled)": {
-      "type": "2d",
-      "hasOverlays": false,
-      "filters": [
-        "winds",
-        "coupled"
-      ],
-      "patterns": {
-        "base": "images/{storm}/cpl/wind_zoomed/{storm}_wind_zoomed_0{frame}.png"
-      },
-      "frameStart": 20,
-      "frameEnd": 50,
-      "titlePattern": "{storm} Wind Speed (10m) Zoomed \u2014 Coupled Frame {frame}"
-    },
-    "Enthalpy Fluxes - Zoomed (Coupled)": {
-      "type": "2d",
-      "hasOverlays": false,
-      "filters": [
-        "fluxes",
-        "coupled"
-      ],
-      "patterns": {
-        "base": "images/{storm}/cpl/eflx_zoom/{storm}_eflx_zoom_0{frame}.png"
-      },
-      "frameStart": 20,
-      "frameEnd": 50,
-      "titlePattern": "{storm} Enthalpy Fluxes Zoomed \u2014 Coupled Frame {frame}"
-    },
-    "Wind Speed (10m) - Zoomed (Spray)": {
-      "type": "2d",
-      "hasOverlays": false,
-      "filters": [
-        "winds",
-        "spray"
-      ],
-      "patterns": {
-        "base": "images/{storm}/spray/wind_zoomed/{storm}_wind_zoomed_0{frame}.png"
-      },
-      "frameStart": 20,
-      "frameEnd": 50,
-      "titlePattern": "{storm} Wind Speed (10m) Zoomed \u2014 Spray Frame {frame}"
-    },
-    "Enthalpy Fluxes - Zoomed (Spray)": {
-      "type": "2d",
-      "hasOverlays": false,
-      "filters": [
-        "fluxes",
-        "spray"
-      ],
-      "patterns": {
-        "base": "images/{storm}/spray/eflx_zoom/{storm}_eflx_zoom_0{frame}.png"
-      },
-      "frameStart": 20,
-      "frameEnd": 50,
-      "titlePattern": "{storm} Enthalpy Fluxes Zoomed \u2014 Spray Frame {frame}"
-    },
-    "Wind Speed (10m) - Zoomed (Uncoupled)": {
-      "type": "2d",
-      "hasOverlays": false,
-      "filters": [
-        "winds",
-        "uncoupled"
-      ],
-      "patterns": {
-        "base": "images/{storm}/uncpl/wind_zoomed/{storm}_wind_zoomed_0{frame}.png"
-      },
-      "frameStart": 20,
-      "frameEnd": 50,
-      "titlePattern": "{storm} Wind Speed (10m) Zoomed \u2014 Uncoupled Frame {frame}"
-    },
-    "Enthalpy Fluxes - Zoomed (Uncoupled)": {
-      "type": "2d",
-      "hasOverlays": false,
-      "filters": [
-        "fluxes",
-        "uncoupled"
-      ],
-      "patterns": {
-        "base": "images/{storm}/uncpl/eflx_zoom/{storm}_eflx_zoom_0{frame}.png"
-      },
-      "frameStart": 20,
-      "frameEnd": 50,
-      "titlePattern": "{storm} Enthalpy Fluxes Zoomed \u2014 Uncoupled Frame {frame}"
+      "titlePattern": "{storm} Updrafts/Downdrafts with Radial and Tangent Winds Frame {frame}"
     }
   }
 }
