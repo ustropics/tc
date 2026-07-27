@@ -187,20 +187,6 @@
       "frameEnd": 72,
       "titlePattern": "{storm} Radial Correlation (Enthalpy Flux) Frame {frame}"
     },
-    "Inflow Layer / Surface Comparison": {
-      "type": "2d",
-      "hasOverlays": false,
-      "filters": [
-        "radial",
-        "cross-sections"
-      ],
-      "patterns": {
-        "base": "images/{storm}/uncpl/inflow_layer_surface_compare/{storm}_inflow_layer_xsection_sfc_compare_{frame}.png"
-      },
-      "frameStart": 50,
-      "frameEnd": 72,
-      "titlePattern": "{storm} Inflow Layer / Surface Comparison Frame {frame}"
-    },
     "Enthalpy Flux Diagnostic Panel": {
       "type": "2d",
       "hasOverlays": false,
