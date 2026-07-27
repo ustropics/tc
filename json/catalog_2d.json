@@ -230,185 +230,89 @@
     }
   },
   "Harvey": {
-    "Enthalpy Fluxes - Surface (Coupled)": {
+    "Enthalpy Fluxes - Surface": {
       "type": "2d",
       "hasOverlays": true,
       "filters": [
         "fluxes",
-        "2d map",
-        "coupled"
+        "2d map"
       ],
       "patterns": {
-        "base": "images/{storm}/cpl/eflx_sfc_min/{storm}_eflx_sfc_min_{frame}.png",
-        "wind": "images/{storm}/cpl/eflx_sfc_winds/{storm}_eflx_sfc_winds_{frame}.png",
-        "rings": "images/{storm}/cpl/eflx_sfc_rings/{storm}_eflx_sfc_rings_{frame}.png",
-        "full": "images/{storm}/cpl/eflx_sfc_full/{storm}_eflx_sfc_full_{frame}.png"
+        "base": "images/{storm}/{model}/eflx_sfc_min/{storm}_eflx_sfc_min_{frame}.png",
+        "wind": "images/{storm}/{model}/eflx_sfc_winds/{storm}_eflx_sfc_winds_{frame}.png",
+        "rings": "images/{storm}/{model}/eflx_sfc_rings/{storm}_eflx_sfc_rings_{frame}.png",
+        "full": "images/{storm}/{model}/eflx_sfc_full/{storm}_eflx_sfc_full_{frame}.png"
       },
       "frameStart": 20,
       "frameEnd": 50,
-      "titlePattern": "{storm} Enthalpy Fluxes (Surface) \u2014 Coupled Frame {frame}"
+      "titlePattern": "{storm} Enthalpy Fluxes (Surface) Frame {frame}"
     },
-    "Enthalpy Fluxes - Surface (Uncoupled)": {
+    "Enthalpy Fluxes - Horizontal": {
       "type": "2d",
       "hasOverlays": true,
       "filters": [
         "fluxes",
-        "2d map",
-        "uncoupled"
+        "2d map"
       ],
       "patterns": {
-        "base": "images/{storm}/uncpl/eflx_sfc_min/{storm}_eflx_sfc_min_{frame}.png",
-        "wind": "images/{storm}/uncpl/eflx_sfc_winds/{storm}_eflx_sfc_winds_{frame}.png",
-        "rings": "images/{storm}/uncpl/eflx_sfc_rings/{storm}_eflx_sfc_rings_{frame}.png",
-        "full": "images/{storm}/uncpl/eflx_sfc_full/{storm}_eflx_sfc_full_{frame}.png"
+        "base": "images/{storm}/{model}/eflx_hor_min/{storm}_eflx_hor_min_{frame}.png",
+        "wind": "images/{storm}/{model}/eflx_hor_winds/{storm}_eflx_hor_winds_{frame}.png",
+        "rings": "images/{storm}/{model}/eflx_hor_rings/{storm}_eflx_hor_rings_{frame}.png",
+        "full": "images/{storm}/{model}/eflx_hor_full/{storm}_eflx_hor_full_{frame}.png"
       },
       "frameStart": 20,
       "frameEnd": 50,
-      "titlePattern": "{storm} Enthalpy Fluxes (Surface) \u2014 Uncoupled Frame {frame}"
+      "titlePattern": "{storm} Enthalpy Fluxes (Horizontal) Frame {frame}"
     },
-    "Enthalpy Fluxes - Horizontal (Coupled)": {
-      "type": "2d",
-      "hasOverlays": true,
-      "filters": [
-        "fluxes",
-        "2d map",
-        "coupled"
-      ],
-      "patterns": {
-        "base": "images/{storm}/cpl/eflx_hor_min/{storm}_eflx_hor_min_{frame}.png",
-        "wind": "images/{storm}/cpl/eflx_hor_winds/{storm}_eflx_hor_winds_{frame}.png",
-        "rings": "images/{storm}/cpl/eflx_hor_rings/{storm}_eflx_hor_rings_{frame}.png",
-        "full": "images/{storm}/cpl/eflx_hor_full/{storm}_eflx_hor_full_{frame}.png"
-      },
-      "frameStart": 20,
-      "frameEnd": 50,
-      "titlePattern": "{storm} Enthalpy Fluxes (Horizontal) \u2014 Coupled Frame {frame}"
-    },
-    "Enthalpy Fluxes - Horizontal (Uncoupled)": {
-      "type": "2d",
-      "hasOverlays": true,
-      "filters": [
-        "fluxes",
-        "2d map",
-        "uncoupled"
-      ],
-      "patterns": {
-        "base": "images/{storm}/uncpl/eflx_hor_min/{storm}_eflx_hor_min_{frame}.png",
-        "wind": "images/{storm}/uncpl/eflx_hor_winds/{storm}_eflx_hor_winds_{frame}.png",
-        "rings": "images/{storm}/uncpl/eflx_hor_rings/{storm}_eflx_hor_rings_{frame}.png",
-        "full": "images/{storm}/uncpl/eflx_hor_full/{storm}_eflx_hor_full_{frame}.png"
-      },
-      "frameStart": 20,
-      "frameEnd": 50,
-      "titlePattern": "{storm} Enthalpy Fluxes (Horizontal) \u2014 Uncoupled Frame {frame}"
-    },
-    "Enthalpy Fluxes - Radial (Coupled)": {
+    "Enthalpy Fluxes - Radial": {
       "type": "2d",
       "hasOverlays": true,
       "filters": [
         "fluxes",
         "radial",
-        "2d map",
-        "coupled"
+        "2d map"
       ],
       "patterns": {
-        "base": "images/{storm}/cpl/eflx_radial_min/{storm}_eflx_radial_min_{frame}.png",
-        "wind": "images/{storm}/cpl/eflx_radial_winds/{storm}_eflx_radial_winds_{frame}.png",
-        "rings": "images/{storm}/cpl/eflx_radial_rings/{storm}_eflx_radial_rings_{frame}.png",
-        "full": "images/{storm}/cpl/eflx_radial_full/{storm}_eflx_radial_full_{frame}.png"
+        "base": "images/{storm}/{model}/eflx_radial_min/{storm}_eflx_radial_min_{frame}.png",
+        "wind": "images/{storm}/{model}/eflx_radial_winds/{storm}_eflx_radial_winds_{frame}.png",
+        "rings": "images/{storm}/{model}/eflx_radial_rings/{storm}_eflx_radial_rings_{frame}.png",
+        "full": "images/{storm}/{model}/eflx_radial_full/{storm}_eflx_radial_full_{frame}.png"
       },
       "frameStart": 20,
       "frameEnd": 50,
-      "titlePattern": "{storm} Enthalpy Fluxes (Radial) \u2014 Coupled Frame {frame}"
+      "titlePattern": "{storm} Enthalpy Fluxes (Radial) Frame {frame}"
     },
-    "Enthalpy Fluxes - Radial (Uncoupled)": {
-      "type": "2d",
-      "hasOverlays": true,
-      "filters": [
-        "fluxes",
-        "radial",
-        "2d map",
-        "uncoupled"
-      ],
-      "patterns": {
-        "base": "images/{storm}/uncpl/eflx_radial_min/{storm}_eflx_radial_min_{frame}.png",
-        "wind": "images/{storm}/uncpl/eflx_radial_winds/{storm}_eflx_radial_winds_{frame}.png",
-        "rings": "images/{storm}/uncpl/eflx_radial_rings/{storm}_eflx_radial_rings_{frame}.png",
-        "full": "images/{storm}/uncpl/eflx_radial_full/{storm}_eflx_radial_full_{frame}.png"
-      },
-      "frameStart": 20,
-      "frameEnd": 50,
-      "titlePattern": "{storm} Enthalpy Fluxes (Radial) \u2014 Uncoupled Frame {frame}"
-    },
-    "Enthalpy Fluxes - Tangential (Coupled)": {
+    "Enthalpy Fluxes - Tangential": {
       "type": "2d",
       "hasOverlays": true,
       "filters": [
         "fluxes",
         "tangential",
-        "2d map",
-        "coupled"
+        "2d map"
       ],
       "patterns": {
-        "base": "images/{storm}/cpl/eflx_tan_min/{storm}_eflx_tan_min_{frame}.png",
-        "wind": "images/{storm}/cpl/eflx_tan_winds/{storm}_eflx_tan_winds_{frame}.png",
-        "rings": "images/{storm}/cpl/eflx_tan_rings/{storm}_eflx_tan_rings_{frame}.png",
-        "full": "images/{storm}/cpl/eflx_tan_full/{storm}_eflx_tan_full_{frame}.png"
+        "base": "images/{storm}/{model}/eflx_tan_min/{storm}_eflx_tan_min_{frame}.png",
+        "wind": "images/{storm}/{model}/eflx_tan_winds/{storm}_eflx_tan_winds_{frame}.png",
+        "rings": "images/{storm}/{model}/eflx_tan_rings/{storm}_eflx_tan_rings_{frame}.png",
+        "full": "images/{storm}/{model}/eflx_tan_full/{storm}_eflx_tan_full_{frame}.png"
       },
       "frameStart": 20,
       "frameEnd": 50,
-      "titlePattern": "{storm} Enthalpy Fluxes (Tangential) \u2014 Coupled Frame {frame}"
+      "titlePattern": "{storm} Enthalpy Fluxes (Tangential) Frame {frame}"
     },
-    "Enthalpy Fluxes - Tangential (Uncoupled)": {
+    "Simulated Radar - Reflectivity": {
       "type": "2d",
       "hasOverlays": true,
-      "filters": [
-        "fluxes",
-        "tangential",
-        "2d map",
-        "uncoupled"
-      ],
+      "filters": [],
       "patterns": {
-        "base": "images/{storm}/uncpl/eflx_tan_min/{storm}_eflx_tan_min_{frame}.png",
-        "wind": "images/{storm}/uncpl/eflx_tan_winds/{storm}_eflx_tan_winds_{frame}.png",
-        "rings": "images/{storm}/uncpl/eflx_tan_rings/{storm}_eflx_tan_rings_{frame}.png",
-        "full": "images/{storm}/uncpl/eflx_tan_full/{storm}_eflx_tan_full_{frame}.png"
+        "base": "images/{storm}/{model}/radar_min/{storm}_radar_min_{frame}.png",
+        "wind": "images/{storm}/{model}/radar_winds/{storm}_radar_winds_{frame}.png",
+        "rings": "images/{storm}/{model}/radar_rings/{storm}_radar_rings_{frame}.png",
+        "full": "images/{storm}/{model}/radar_full/{storm}_radar_full_{frame}.png"
       },
       "frameStart": 20,
       "frameEnd": 50,
-      "titlePattern": "{storm} Enthalpy Fluxes (Tangential) \u2014 Uncoupled Frame {frame}"
-    },
-    "Simulated Radar - Reflectivity (Coupled)": {
-      "type": "2d",
-      "hasOverlays": true,
-      "filters": [
-        "coupled"
-      ],
-      "patterns": {
-        "base": "images/{storm}/cpl/radar_min/{storm}_radar_min_{frame}.png",
-        "wind": "images/{storm}/cpl/radar_winds/{storm}_radar_winds_{frame}.png",
-        "rings": "images/{storm}/cpl/radar_rings/{storm}_radar_rings_{frame}.png",
-        "full": "images/{storm}/cpl/radar_full/{storm}_radar_full_{frame}.png"
-      },
-      "frameStart": 20,
-      "frameEnd": 50,
-      "titlePattern": "{storm} Simulated Radar Reflectivity \u2014 Coupled Frame {frame}"
-    },
-    "Simulated Radar - Reflectivity (Uncoupled)": {
-      "type": "2d",
-      "hasOverlays": true,
-      "filters": [
-        "uncoupled"
-      ],
-      "patterns": {
-        "base": "images/{storm}/uncpl/radar_min/{storm}_radar_min_{frame}.png",
-        "wind": "images/{storm}/uncpl/radar_winds/{storm}_radar_winds_{frame}.png",
-        "rings": "images/{storm}/uncpl/radar_rings/{storm}_radar_rings_{frame}.png",
-        "full": "images/{storm}/uncpl/radar_full/{storm}_radar_full_{frame}.png"
-      },
-      "frameStart": 20,
-      "frameEnd": 50,
-      "titlePattern": "{storm} Simulated Radar Reflectivity \u2014 Uncoupled Frame {frame}"
+      "titlePattern": "{storm} Simulated Radar Reflectivity Frame {frame}"
     },
     "Wind Speed (10m) (Coupled)": {
       "type": "2d",
@@ -525,96 +429,6 @@
       "frameStart": 20,
       "frameEnd": 50,
       "titlePattern": "{storm} Radial Correlation (Enthalpy Flux) \u2014 Uncoupled Frame {frame}"
-    },
-    "Enthalpy Fluxes - Surface (Spray)": {
-      "type": "2d",
-      "hasOverlays": true,
-      "filters": [
-        "fluxes",
-        "2d map",
-        "spray"
-      ],
-      "patterns": {
-        "base": "images/{storm}/spray/eflx_sfc_min/{storm}_eflx_sfc_min_{frame}.png",
-        "wind": "images/{storm}/spray/eflx_sfc_winds/{storm}_eflx_sfc_winds_{frame}.png",
-        "rings": "images/{storm}/spray/eflx_sfc_rings/{storm}_eflx_sfc_rings_{frame}.png",
-        "full": "images/{storm}/spray/eflx_sfc_full/{storm}_eflx_sfc_full_{frame}.png"
-      },
-      "frameStart": 20,
-      "frameEnd": 50,
-      "titlePattern": "{storm} Enthalpy Fluxes (Surface) \u2014 Spray Frame {frame}"
-    },
-    "Enthalpy Fluxes - Horizontal (Spray)": {
-      "type": "2d",
-      "hasOverlays": true,
-      "filters": [
-        "fluxes",
-        "2d map",
-        "spray"
-      ],
-      "patterns": {
-        "base": "images/{storm}/spray/eflx_hor_min/{storm}_eflx_hor_min_{frame}.png",
-        "wind": "images/{storm}/spray/eflx_hor_winds/{storm}_eflx_hor_winds_{frame}.png",
-        "rings": "images/{storm}/spray/eflx_hor_rings/{storm}_eflx_hor_rings_{frame}.png",
-        "full": "images/{storm}/spray/eflx_hor_full/{storm}_eflx_hor_full_{frame}.png"
-      },
-      "frameStart": 20,
-      "frameEnd": 50,
-      "titlePattern": "{storm} Enthalpy Fluxes (Horizontal) \u2014 Spray Frame {frame}"
-    },
-    "Enthalpy Fluxes - Radial (Spray)": {
-      "type": "2d",
-      "hasOverlays": true,
-      "filters": [
-        "fluxes",
-        "radial",
-        "2d map",
-        "spray"
-      ],
-      "patterns": {
-        "base": "images/{storm}/spray/eflx_radial_min/{storm}_eflx_radial_min_{frame}.png",
-        "wind": "images/{storm}/spray/eflx_radial_winds/{storm}_eflx_radial_winds_{frame}.png",
-        "rings": "images/{storm}/spray/eflx_radial_rings/{storm}_eflx_radial_rings_{frame}.png",
-        "full": "images/{storm}/spray/eflx_radial_full/{storm}_eflx_radial_full_{frame}.png"
-      },
-      "frameStart": 20,
-      "frameEnd": 50,
-      "titlePattern": "{storm} Enthalpy Fluxes (Radial) \u2014 Spray Frame {frame}"
-    },
-    "Enthalpy Fluxes - Tangential (Spray)": {
-      "type": "2d",
-      "hasOverlays": true,
-      "filters": [
-        "fluxes",
-        "tangential",
-        "2d map",
-        "spray"
-      ],
-      "patterns": {
-        "base": "images/{storm}/spray/eflx_tan_min/{storm}_eflx_tan_min_{frame}.png",
-        "wind": "images/{storm}/spray/eflx_tan_winds/{storm}_eflx_tan_winds_{frame}.png",
-        "rings": "images/{storm}/spray/eflx_tan_rings/{storm}_eflx_tan_rings_{frame}.png",
-        "full": "images/{storm}/spray/eflx_tan_full/{storm}_eflx_tan_full_{frame}.png"
-      },
-      "frameStart": 20,
-      "frameEnd": 50,
-      "titlePattern": "{storm} Enthalpy Fluxes (Tangential) \u2014 Spray Frame {frame}"
-    },
-    "Simulated Radar - Reflectivity (Spray)": {
-      "type": "2d",
-      "hasOverlays": true,
-      "filters": [
-        "spray"
-      ],
-      "patterns": {
-        "base": "images/{storm}/spray/radar_min/{storm}_radar_min_{frame}.png",
-        "wind": "images/{storm}/spray/radar_winds/{storm}_radar_winds_{frame}.png",
-        "rings": "images/{storm}/spray/radar_rings/{storm}_radar_rings_{frame}.png",
-        "full": "images/{storm}/spray/radar_full/{storm}_radar_full_{frame}.png"
-      },
-      "frameStart": 20,
-      "frameEnd": 50,
-      "titlePattern": "{storm} Simulated Radar Reflectivity \u2014 Spray Frame {frame}"
     },
     "Wind Speed (10m) (Spray)": {
       "type": "2d",
