@@ -94,18 +94,18 @@
     },
     "Updrafts/Downdrafts with Radial and Tangent Winds": {
       "type": "2d",
-      "hasOverlays": false,
+      "hasOverlays": true,
       "filters": [
         "cross-sections",
         "radial",
         "tangential"
       ],
       "patterns": {
-        "base": "images/{storm}/uncpl/2d/updraft_downdrafts_with_rad_and_tan/vert_velocity_{storm}_{frame}.png"
+        "base": "images/{storm}/{model}/2d/updraft_downdrafts_with_rad_and_tan/vert_velocity_{storm}_{frame}.png"
       },
       "frameStart": 50,
       "frameEnd": 72,
-      "titlePattern": "{storm} Streamlines with Radial and Tangent Winds Frame {frame}"
+      "titlePattern": "{storm} Updrafts/Downdrafts with Radial and Tangent Winds Frame {frame}"
     },
     "Enthalpy Fluxes - Radial": {
       "type": "2d",
