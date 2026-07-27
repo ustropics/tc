@@ -219,7 +219,7 @@
                                 <i class="fas fa-satellite"></i>
                                 <span>TRACK ANALYSIS</span>
                             </div>
-                            <h2 class="map-title">Hurricane Ian</h2>
+                            <h2 class="map-title" id="map-title">Hurricane Ian</h2>
                             <p class="map-subtitle" id="map-subtitle">WRF Simulation &bull; Eyewall Refined Center &bull; 2022-09-28 02Z &ndash; 2022-09-29 00Z</p>
                         </div>
                         <div class="map-header-right" id="map-header-stats">
@@ -300,6 +300,21 @@
                                 <span class="overlay-check"></span>
                                 <span class="overlay-label">Radial Rings</span>
                             </label>
+                            <label class="overlay-checkbox">
+                                <input type="radio" name="model-1" id="model-cpl-1" class="overlay-input" checked>
+                                <span class="overlay-check"></span>
+                                <span class="overlay-label">CPL</span>
+                            </label>
+                            <label class="overlay-checkbox">
+                                <input type="radio" name="model-1" id="model-uncpl-1" class="overlay-input">
+                                <span class="overlay-check"></span>
+                                <span class="overlay-label">UNCPL</span>
+                            </label>
+                            <label class="overlay-checkbox">
+                                <input type="radio" name="model-1" id="model-spray-1" class="overlay-input">
+                                <span class="overlay-check"></span>
+                                <span class="overlay-label">SPRAY</span>
+                            </label>
                         </div>
                         <button id="close-player" class="close-btn" title="Close Player">
                             <i class="fas fa-times"></i>
@@ -320,6 +335,21 @@
                                 <input type="checkbox" id="radial-rings-2" class="overlay-input">
                                 <span class="overlay-check"></span>
                                 <span class="overlay-label">Radial Rings</span>
+                            </label>
+                            <label class="overlay-checkbox">
+                                <input type="radio" name="model-2" id="model-cpl-2" class="overlay-input" checked>
+                                <span class="overlay-check"></span>
+                                <span class="overlay-label">CPL</span>
+                            </label>
+                            <label class="overlay-checkbox">
+                                <input type="radio" name="model-2" id="model-uncpl-2" class="overlay-input">
+                                <span class="overlay-check"></span>
+                                <span class="overlay-label">UNCPL</span>
+                            </label>
+                            <label class="overlay-checkbox">
+                                <input type="radio" name="model-2" id="model-spray-2" class="overlay-input">
+                                <span class="overlay-check"></span>
+                                <span class="overlay-label">SPRAY</span>
                             </label>
                         </div>
                         <button id="close-player-2" class="close-btn" title="Close Player">
@@ -345,6 +375,21 @@
                                 <input type="checkbox" id="radial-rings-single" class="overlay-input">
                                 <span class="overlay-check"></span>
                                 <span class="overlay-label">Radial Rings</span>
+                            </label>
+                            <label class="overlay-checkbox">
+                                <input type="radio" name="model-single" id="model-cpl-single" class="overlay-input" checked>
+                                <span class="overlay-check"></span>
+                                <span class="overlay-label">CPL</span>
+                            </label>
+                            <label class="overlay-checkbox">
+                                <input type="radio" name="model-single" id="model-uncpl-single" class="overlay-input">
+                                <span class="overlay-check"></span>
+                                <span class="overlay-label">UNCPL</span>
+                            </label>
+                            <label class="overlay-checkbox">
+                                <input type="radio" name="model-single" id="model-spray-single" class="overlay-input">
+                                <span class="overlay-check"></span>
+                                <span class="overlay-label">SPRAY</span>
                             </label>
                         </div>
                         <button id="close-player-single" class="close-btn" title="Close Player">

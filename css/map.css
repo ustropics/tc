@@ -706,12 +706,16 @@
     visibility: visible;
 }
 
-#main-container.sidebar-open #placeholder {
+#main-container.sidebar-open #placeholder,
+#main-container.sidebar-open #dual-view,
+#main-container.sidebar-open #single-view {
     margin-right: 585px;
     transition: margin var(--transition-slow);
 }
 
-#main-container:not(.sidebar-open) #placeholder {
+#main-container:not(.sidebar-open) #placeholder,
+#main-container:not(.sidebar-open) #dual-view,
+#main-container:not(.sidebar-open) #single-view {
     margin-right: 0;
     transition: margin var(--transition-slow);
 }

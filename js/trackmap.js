@@ -8,6 +8,8 @@ let trackMap = null;
 let trackData = [];
 let trackLineSegments = [];
 let trackMarkerRefs = [];
+let trackMarkersLayer = null;
+let currentTrackStorm = 'Ian';
 let activeFilter = 'min_pressure_hpa';
 let activePoint = null;             // currently selected track point
 let sidebarProductA = 'Enthalpy Fluxes - Radial';
@@ -59,17 +61,33 @@ const FILTERS = {
 };
 
 // Derive sidebar product lists from the split catalogs loaded by app.js
-function getSidebar2DProducts() {
-    return (window.catalog2d && window.catalog2d['Ian'])
-        ? Object.keys(window.catalog2d['Ian']) : [];
+function getSidebar2DProducts(storm = currentTrackStorm) {
+    return (window.catalog2d && window.catalog2d[storm])
+        ? Object.keys(window.catalog2d[storm]) : [];
 }
-function getSidebar3DProducts() {
-    return (window.catalog3d && window.catalog3d['Ian'])
-        ? Object.keys(window.catalog3d['Ian']) : [];
+function getSidebar3DProducts(storm = currentTrackStorm) {
+    return (window.catalog3d && window.catalog3d[storm])
+        ? Object.keys(window.catalog3d[storm]) : [];
 }
-function getSidebarDiagProducts() {
-    return (window.catalogDiag && window.catalogDiag['Ian'])
-        ? Object.keys(window.catalogDiag['Ian']) : [];
+function getSidebarDiagProducts(storm = currentTrackStorm) {
+    return (window.catalogDiag && window.catalogDiag[storm])
+        ? Object.keys(window.catalogDiag[storm]) : [];
+}
+
+// Only diagnostic-derived filters require a `diagnostics` block per track point.
+// Storms without diagnostics (e.g. Harvey) fall back to offset_km only.
+function hasDiagnostics(data) {
+    return Array.isArray(data) && data.length > 0 && !!data[0].diagnostics;
+}
+function getActiveFilters() {
+    return hasDiagnostics(trackData) ? FILTERS : { offset_km: FILTERS.offset_km };
+}
+
+function defaultMapSubtitle() {
+    if (!trackData.length) return 'WRF Simulation &bull; Eyewall Refined Center';
+    const start = formatDatetime(trackData[0].datetime);
+    const end = formatDatetime(trackData[trackData.length - 1].datetime);
+    return `WRF Simulation &bull; Eyewall Refined Center &bull; ${start} &ndash; ${end}`;
 }
 
 let currentSidebarMode = '2d';
@@ -147,7 +165,7 @@ function buildImageUrl(productName, stormName, frame) {
 }
 
 function buildSidebar3DImageUrl(productName, frame) {
-    const stormName = 'Ian';
+    const stormName = currentTrackStorm;
     const config = window.catalog?.[stormName]?.[productName];
     if (config) {
         const stormLower = stormName.toLowerCase();
@@ -248,10 +266,10 @@ function updateSidebarTimestepDetails(point) {
     setText('ts-datetime', formatDatetime(point.datetime));
     setText('ts-lat', `${lat.toFixed(3)}°N`);
     setText('ts-lon', `${Math.abs(lon).toFixed(3)}°W`);
-    setText('ts-pressure', `${d.min_pressure_hpa.toFixed(1)} hPa`);
-    setText('ts-enthalpy', `${d.max_enthalpy_wm2.toFixed(0)} W/m²`);
-    setText('ts-lhf', `${d.max_lh_wm2.toFixed(0)} W/m²`);
-    setText('ts-hfx', `${d.max_hfx_wm2.toFixed(0)} W/m²`);
+    setText('ts-pressure', d ? `${d.min_pressure_hpa.toFixed(1)} hPa` : '–');
+    setText('ts-enthalpy', d ? `${d.max_enthalpy_wm2.toFixed(0)} W/m²` : '–');
+    setText('ts-lhf', d ? `${d.max_lh_wm2.toFixed(0)} W/m²` : '–');
+    setText('ts-hfx', d ? `${d.max_hfx_wm2.toFixed(0)} W/m²` : '–');
 }
 
 function updateSidebarToggleIcon(isOpen) {
@@ -294,10 +312,10 @@ function openSidebar(point) {
     if (lonEl) lonEl.textContent = `${Math.abs(point.eyewall_refined_center.lon).toFixed(3)}\u00B0W`;
 
     const d = point.diagnostics;
-    if (pressureEl) pressureEl.textContent = d.min_pressure_hpa.toFixed(1);
-    if (enthalpyEl) enthalpyEl.textContent = d.max_enthalpy_wm2.toFixed(0);
-    if (lhEl) lhEl.textContent = d.max_lh_wm2.toFixed(0);
-    if (hfxEl) hfxEl.textContent = d.max_hfx_wm2.toFixed(0);
+    if (pressureEl) pressureEl.textContent = d ? d.min_pressure_hpa.toFixed(1) : '\u2013';
+    if (enthalpyEl) enthalpyEl.textContent = d ? d.max_enthalpy_wm2.toFixed(0) : '\u2013';
+    if (lhEl) lhEl.textContent = d ? d.max_lh_wm2.toFixed(0) : '\u2013';
+    if (hfxEl) hfxEl.textContent = d ? d.max_hfx_wm2.toFixed(0) : '\u2013';
 
     // Update timestep detail card in sidebar
     updateSidebarTimestepDetails(point);
@@ -338,7 +356,7 @@ function closeSidebar() {
     // Reset map header to default
     const subtitleEl = document.getElementById('map-subtitle');
     if (subtitleEl) {
-        subtitleEl.innerHTML = 'WRF Simulation &bull; Eyewall Refined Center &bull; 2022-09-28 02Z &ndash; 2022-09-29 00Z';
+        subtitleEl.innerHTML = defaultMapSubtitle();
     }
 
     const dash = '\u2013';
@@ -366,7 +384,7 @@ function updateSidebarImages(point) {
     const label2 = document.getElementById('ts-img2-label');
 
     if (currentSidebarMode === 'diagnostics') {
-        const url = buildImageUrl(sidebarDiagnosticsProduct, 'Ian', frame);
+        const url = buildImageUrl(sidebarDiagnosticsProduct, currentTrackStorm, frame);
         console.log('Sidebar diagnostics image:', { sidebarDiagnosticsProduct, frame, url, catalogLoaded: !!window.catalog });
         if (img1) {
             img1.src = url;
@@ -399,8 +417,8 @@ function updateSidebarImages(point) {
         return;
     }
 
-    const url1 = buildImageUrl(sidebarProductA, 'Ian', frame);
-    const url2 = buildImageUrl(sidebarProductB, 'Ian', frame);
+    const url1 = buildImageUrl(sidebarProductA, currentTrackStorm, frame);
+    const url2 = buildImageUrl(sidebarProductB, currentTrackStorm, frame);
 
     console.log('Sidebar images:', { sidebarProductA, sidebarProductB, frame, url1, url2, catalogLoaded: !!window.catalog });
 
@@ -490,7 +508,7 @@ function populateSidebarSelectors() {
     const allProducts2d = getSidebar2DProducts();
     let filteredProducts = allProducts2d;
     if (window.sidebar2DFilters && window.sidebar2DFilters.size > 0) {
-        const stormCat = (window.catalog2d && window.catalog2d['Ian']) || {};
+        const stormCat = (window.catalog2d && window.catalog2d[currentTrackStorm]) || {};
         filteredProducts = allProducts2d.filter(product => {
             const cfg = stormCat[product];
             return cfg && cfg.filters && cfg.filters.some(f => window.sidebar2DFilters.has(f));
@@ -604,7 +622,7 @@ function initSidebarControls() {
                 console.log('Diagnostics image clicked, opening player:', sidebarDiagnosticsProduct, activePoint?.timestep);
                 if (activePoint && window.selectBothProductsAndJumpToFrame) {
                     // Pass null as product2 to signal single-view mode in the player
-                    window.selectBothProductsAndJumpToFrame('Ian', sidebarDiagnosticsProduct, null, activePoint.timestep);
+                    window.selectBothProductsAndJumpToFrame(currentTrackStorm, sidebarDiagnosticsProduct, null, activePoint.timestep);
                     closeSidebar();
                 }
                 return;
@@ -612,7 +630,7 @@ function initSidebarControls() {
 
             console.log('Sidebar image clicked - opening both products:', sidebarProductA, sidebarProductB, activePoint?.timestep);
             if (activePoint && window.selectBothProductsAndJumpToFrame) {
-                window.selectBothProductsAndJumpToFrame('Ian', sidebarProductA, sidebarProductB, activePoint.timestep);
+                window.selectBothProductsAndJumpToFrame(currentTrackStorm, sidebarProductA, sidebarProductB, activePoint.timestep);
                 closeSidebar();
             }
         });
@@ -626,7 +644,7 @@ function initSidebarControls() {
             }
             console.log('Sidebar image clicked - opening both products:', sidebarProductA, sidebarProductB, activePoint?.timestep);
             if (activePoint && window.selectBothProductsAndJumpToFrame) {
-                window.selectBothProductsAndJumpToFrame('Ian', sidebarProductA, sidebarProductB, activePoint.timestep);
+                window.selectBothProductsAndJumpToFrame(currentTrackStorm, sidebarProductA, sidebarProductB, activePoint.timestep);
                 closeSidebar();
             }
         });
@@ -694,8 +712,10 @@ function initSidebarControls() {
 // ===========================
 
 function applyFilter(filterKey) {
+    const activeSet = getActiveFilters();
+    if (!activeSet[filterKey]) filterKey = Object.keys(activeSet)[0];
     activeFilter = filterKey;
-    const f = FILTERS[filterKey];
+    const f = activeSet[filterKey];
     const values = trackData.map(f.extract);
     const minV = Math.min(...values);
     const maxV = Math.max(...values);
@@ -750,7 +770,7 @@ function buildFilterControls() {
     const container = document.getElementById('map-filter-bar');
     if (!container) return;
     container.innerHTML = '';
-    Object.entries(FILTERS).forEach(([key, f]) => {
+    Object.entries(getActiveFilters()).forEach(([key, f]) => {
         const btn = document.createElement('button');
         btn.className = 'filter-btn' + (key === activeFilter ? ' active' : '');
         btn.dataset.filter = key;
@@ -764,52 +784,43 @@ function buildFilterControls() {
 //  MAP INITIALIZATION
 // ===========================
 
-async function initTrackMap() {
-    console.log('initTrackMap called, L defined:', typeof L);
-    const mapContainer = document.getElementById('track-map');
-    if (!mapContainer || typeof L === 'undefined') {
-        console.log('Map container or L not found:', { mapContainer, L: typeof L });
-        return;
+// Derives the displayable timestep window for a storm from its 2D catalog
+// entries (min frameStart / max frameEnd across all products). Returns null
+// if the catalog isn't loaded yet or has no entries for this storm — callers
+// should treat null as "no restriction."
+function getStormFrameRange(storm) {
+    const products = (window.catalog2d && window.catalog2d[storm]) || {};
+    const configs = Object.values(products);
+    if (configs.length === 0) return null;
+    const start = Math.min(...configs.map(cfg => cfg.frameStart));
+    const end = Math.max(...configs.map(cfg => cfg.frameEnd));
+    return { start, end };
+}
+
+async function loadTrackDataForStorm(storm) {
+    const response = await fetch(`json/${storm.toLowerCase()}.json`);
+    if (!response.ok) throw new Error(`Failed to load track data for ${storm}`);
+    const data = await response.json();
+    const range = getStormFrameRange(storm);
+    if (!range) return data;
+    return data.filter(p => p.timestep >= range.start && p.timestep <= range.end);
+}
+
+function clearTrackLayers() {
+    trackLineSegments.forEach(seg => trackMap.removeLayer(seg));
+    trackLineSegments = [];
+    if (trackMarkersLayer) {
+        trackMap.removeLayer(trackMarkersLayer);
+        trackMarkersLayer = null;
     }
+    trackMarkerRefs = [];
+}
 
-    // Load track data
-    try {
-        const response = await fetch('json/ian.json');
-        if (!response.ok) throw new Error('Failed to load track data');
-        trackData = await response.json();
-    } catch (err) {
-        console.error('Track data load error:', err);
-        return;
-    }
-
-    // Init sidebar controls (selectors, close button)
-    initSidebarControls();
-
-    // Compute bounds from eyewall centers
-    const eyewallCoords = trackData.map(p => [p.eyewall_refined_center.lat, p.eyewall_refined_center.lon]);
-    const lats = eyewallCoords.map(c => c[0]);
-    const lons = eyewallCoords.map(c => c[1]);
-    const centerLat = (Math.min(...lats) + Math.max(...lats)) / 2;
-    const centerLon = (Math.min(...lons) + Math.max(...lons)) / 2;
-
-    // Create map
-    trackMap = L.map('track-map', {
-        center: [centerLat, centerLon],
-        zoom: 7,
-        zoomControl: false,
-        attributionControl: true
-    });
-    L.control.zoom({ position: 'bottomleft' }).addTo(trackMap);
-
-    // Dark tile layer
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
-        subdomains: 'abcd',
-        maxZoom: 14
-    }).addTo(trackMap);
-
-    // Filter ranges
-    const f = FILTERS[activeFilter];
+// Renders trackData (already loaded) onto an existing trackMap instance.
+function renderTrackLayer() {
+    const activeSet = getActiveFilters();
+    if (!activeSet[activeFilter]) activeFilter = Object.keys(activeSet)[0];
+    const f = activeSet[activeFilter];
     const values = trackData.map(f.extract);
     const minV = Math.min(...values);
     const maxV = Math.max(...values);
@@ -877,24 +888,110 @@ async function initTrackMap() {
         markersLayer.addLayer(marker);
         trackMarkerRefs.push({ marker, point });
     });
+    trackMarkersLayer = markersLayer;
 
     // Fit bounds
+    const eyewallCoords = trackData.map(p => [p.eyewall_refined_center.lat, p.eyewall_refined_center.lon]);
     const bounds = L.latLngBounds(eyewallCoords);
     trackMap.fitBounds(bounds.pad(0.15));
 
     // Legend + filters
     updateLegend(activeFilter, minV, maxV);
     buildFilterControls();
+}
 
-    // Dismiss instruction on first sidebar open
-    const origOpen = openSidebar;
-    let instructionDismissed = false;
-    // (handled inline — instruction hides after first click via CSS transition)
+async function initTrackMap() {
+    console.log('initTrackMap called, L defined:', typeof L);
+    const mapContainer = document.getElementById('track-map');
+    if (!mapContainer || typeof L === 'undefined') {
+        console.log('Map container or L not found:', { mapContainer, L: typeof L });
+        return;
+    }
+
+    // Load track data
+    try {
+        trackData = await loadTrackDataForStorm(currentTrackStorm);
+    } catch (err) {
+        console.error('Track data load error:', err);
+        return;
+    }
+
+    // Init sidebar controls (selectors, close button)
+    initSidebarControls();
+
+    // Compute bounds from eyewall centers
+    const eyewallCoords = trackData.map(p => [p.eyewall_refined_center.lat, p.eyewall_refined_center.lon]);
+    const lats = eyewallCoords.map(c => c[0]);
+    const lons = eyewallCoords.map(c => c[1]);
+    const centerLat = (Math.min(...lats) + Math.max(...lats)) / 2;
+    const centerLon = (Math.min(...lons) + Math.max(...lons)) / 2;
+
+    // Create map
+    trackMap = L.map('track-map', {
+        center: [centerLat, centerLon],
+        zoom: 7,
+        zoomControl: false,
+        attributionControl: true
+    });
+    L.control.zoom({ position: 'bottomleft' }).addTo(trackMap);
+
+    // Dark tile layer
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 14
+    }).addTo(trackMap);
+
+    renderTrackLayer();
 
     // Expose for external auto-selection
     window.openSidebar = openSidebar;
     window.trackData = trackData;
 }
+
+// Called when the storm dropdown selection changes — swaps track data/markers
+// on the already-initialized Leaflet map without rebuilding it.
+async function switchTrackMapStorm(storm) {
+    if (!trackMap || storm === currentTrackStorm) return;
+
+    let newData;
+    try {
+        newData = await loadTrackDataForStorm(storm);
+    } catch (err) {
+        console.error(`Failed to load track data for ${storm}:`, err);
+        return;
+    }
+
+    closeSidebar();
+    clearTrackLayers();
+    trackData = newData;
+    currentTrackStorm = storm;
+
+    // Reset sidebar product selections — old storm's product names may not
+    // exist under the new storm's catalog entries.
+    sidebarProductA = null;
+    sidebarProductB = null;
+    sidebar3DProduct = null;
+    sidebarDiagnosticsProduct = null;
+
+    renderTrackLayer();
+    refreshSidebarMode();
+
+    const titleEl = document.getElementById('map-title');
+    if (titleEl) titleEl.textContent = `Hurricane ${storm}`;
+
+    window.trackData = trackData;
+
+    // Jump straight to the new storm's first timestep instead of leaving
+    // the map on the fully-zoomed-out fitBounds view from renderTrackLayer().
+    if (trackData.length > 0) {
+        openSidebar(trackData[0]);
+    } else {
+        const subtitleEl = document.getElementById('map-subtitle');
+        if (subtitleEl) subtitleEl.innerHTML = defaultMapSubtitle();
+    }
+}
+window.switchTrackMapStorm = switchTrackMapStorm;
 
 // === TOOLTIP STYLES ===
 (function injectTooltipStyles() {
@@ -947,7 +1044,8 @@ function buildImageUrl(productName, stormName, frame) {
     
     const src = pattern
         .replace(/{storm}/g, stormLower)
+        .replace(/{model}/g, 'cpl')
         .replace(/{frame}/g, frame);
-    
+
     return src;
 }

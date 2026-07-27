@@ -28,9 +28,9 @@ let lightboxStorm = '';
 
 // Overlay states for each viewer
 let overlayState = {
-    primary: { wind: false, rings: false },
-    compare: { wind: false, rings: false },
-    single: { wind: false, rings: false }
+    primary: { wind: false, rings: false, model: 'cpl' },
+    compare: { wind: false, rings: false, model: 'cpl' },
+    single: { wind: false, rings: false, model: 'cpl' }
 };
 
 // === DOM ELEMENTS ===
@@ -138,7 +138,16 @@ const els = {
     windVectors2:        document.getElementById('wind-vectors-2'),
     radialRings2:        document.getElementById('radial-rings-2'),
     windVectorsSingle:   document.getElementById('wind-vectors-single'),
-    radialRingsSingle:   document.getElementById('radial-rings-single')
+    radialRingsSingle:   document.getElementById('radial-rings-single'),
+    modelCpl1:      document.getElementById('model-cpl-1'),
+    modelUncpl1:    document.getElementById('model-uncpl-1'),
+    modelSpray1:    document.getElementById('model-spray-1'),
+    modelCpl2:      document.getElementById('model-cpl-2'),
+    modelUncpl2:    document.getElementById('model-uncpl-2'),
+    modelSpray2:    document.getElementById('model-spray-2'),
+    modelCplSingle:   document.getElementById('model-cpl-single'),
+    modelUncplSingle: document.getElementById('model-uncpl-single'),
+    modelSpraySingle: document.getElementById('model-spray-single')
 };
 
 // === LOAD CATALOG ===
@@ -205,7 +214,8 @@ function getPatternKey(viewerType) {
 function generateImageArray(productConfig, stormName, viewerType = 'primary') {
     const images = [];
     const stormLower = stormName.toLowerCase();
-    
+    const model = overlayState[viewerType]?.model || 'cpl';
+
     // Determine which pattern to use
     let pattern;
     if (productConfig.hasOverlays && productConfig.patterns) {
@@ -220,12 +230,13 @@ function generateImageArray(productConfig, stormName, viewerType = 'primary') {
         console.warn('No pattern found for product');
         return images;
     }
-    
+
     for (let frame = productConfig.frameStart; frame <= productConfig.frameEnd; frame++) {
         const src = pattern
             .replace(/{storm}/g, stormLower)
+            .replace(/{model}/g, model)
             .replace(/{frame}/g, frame);
-        
+
         const title = productConfig.titlePattern
             .replace(/{storm}/g, stormName)
             .replace(/{frame}/g, frame);
@@ -408,34 +419,64 @@ window.populateProductMenus = populateProductMenus;
 
 // === SELECTION HANDLERS ===
 function selectStorm(storm) {
+    // Carry the same product selection(s) over to the new storm if they
+    // exist there, so switching storms stays in the image player on the
+    // first timestep instead of dropping back to the placeholder map view.
+    const prevProduct1 = selectedProduct1;
+    const prevProduct2 = selectedProduct2;
+    const canKeepProduct1 = !!(prevProduct1 && catalog[storm] && catalog[storm][prevProduct1]);
+    const canKeepProduct2 = !!(prevProduct2 && catalog[storm] && catalog[storm][prevProduct2]);
+
     selectedStorm = storm;
     selectedProduct1 = '';
     selectedProduct2 = '';
-    
+
     // Reset overlay states
     overlayState = {
-        primary: { wind: false, rings: false },
-        compare: { wind: false, rings: false },
-        single: { wind: false, rings: false }
+        primary: { wind: false, rings: false, model: 'cpl' },
+        compare: { wind: false, rings: false, model: 'cpl' },
+        single: { wind: false, rings: false, model: 'cpl' }
     };
     resetOverlayCheckboxes();
-    
+
     els.stormValue.textContent = storm;
     els.product1Value.textContent = 'Select';
     els.product2Value.textContent = 'None';
     els.view3dValue.textContent = 'Select';
-    
+
     // Enable product buttons
     els.product1Btn.disabled = false;
     els.product2Btn.disabled = false;
     els.view3dBtn.disabled = false;
     if (els.analysisBtn) els.analysisBtn.disabled = false;
-    
+
     populateProductMenus();
     closeAllDropdowns();
-    
+
     preservedIndex = 0;
-    resetPlayer();
+
+    if (canKeepProduct1) {
+        selectedProduct1 = prevProduct1;
+        els.product1Value.textContent = truncateText(prevProduct1, 15);
+        loadProduct(1);
+        updateOverlayControlsVisibility('primary', prevProduct1);
+        updateOverlayControlsVisibility('single', prevProduct1);
+    }
+
+    if (canKeepProduct2) {
+        selectedProduct2 = prevProduct2;
+        els.product2Value.textContent = truncateText(prevProduct2, 15);
+        loadProduct(2);
+        updateOverlayControlsVisibility('compare', prevProduct2);
+    }
+
+    if (canKeepProduct1 || canKeepProduct2) {
+        updateViewMode();
+    } else {
+        resetPlayer();
+    }
+
+    if (window.switchTrackMapStorm) window.switchTrackMapStorm(storm);
 }
 
 function selectProduct1(product) {
@@ -507,6 +548,9 @@ function resetOverlayCheckboxes() {
     if (els.radialRings2) els.radialRings2.checked = false;
     if (els.windVectorsSingle) els.windVectorsSingle.checked = false;
     if (els.radialRingsSingle) els.radialRingsSingle.checked = false;
+    if (els.modelCpl1) els.modelCpl1.checked = true;
+    if (els.modelCpl2) els.modelCpl2.checked = true;
+    if (els.modelCplSingle) els.modelCplSingle.checked = true;
 }
 
 function handleOverlayChange(viewerType, overlayType, checked) {
@@ -985,6 +1029,19 @@ if (els.radialRingsSingle) {
         handleOverlayChange('single', 'rings', e.target.checked);
     });
 }
+
+// Model radio event listeners (mutually exclusive via shared `name` per viewer)
+[
+    ['modelCpl1', 'primary', 'cpl'], ['modelUncpl1', 'primary', 'uncpl'], ['modelSpray1', 'primary', 'spray'],
+    ['modelCpl2', 'compare', 'cpl'], ['modelUncpl2', 'compare', 'uncpl'], ['modelSpray2', 'compare', 'spray'],
+    ['modelCplSingle', 'single', 'cpl'], ['modelUncplSingle', 'single', 'uncpl'], ['modelSpraySingle', 'single', 'spray'],
+].forEach(([elKey, viewerType, model]) => {
+    if (els[elKey]) {
+        els[elKey].addEventListener('change', (e) => {
+            if (e.target.checked) handleOverlayChange(viewerType, 'model', model);
+        });
+    }
+});
 
 // Keyboard shortcuts
 document.addEventListener('keydown', (e) => {
