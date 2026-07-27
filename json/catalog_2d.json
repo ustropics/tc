@@ -78,7 +78,7 @@
     },
     "Streamlines with Radial and Tangent Winds": {
       "type": "2d",
-      "hasOverlays": false,
+      "hasOverlays": true,
       "filters": [
         "cross-sections",
         "radial",
@@ -86,7 +86,7 @@
         "winds"
       ],
       "patterns": {
-        "base": "images/{storm}/uncpl/2d/streamlines_with_rad_and_tan/streamlines_{storm}_{frame}.png"
+        "base": "images/{storm}/{model}/2d/streamlines_with_rad_and_tan/streamlines_{storm}_{frame}.png"
       },
       "frameStart": 50,
       "frameEnd": 72,
