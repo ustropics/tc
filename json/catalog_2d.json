@@ -173,20 +173,6 @@
       "frameEnd": 72,
       "titlePattern": "{storm} Wind Speed (10m) Frame {frame}"
     },
-    "Quadrant Radial Enthalpy Flux": {
-      "type": "2d",
-      "hasOverlays": false,
-      "filters": [
-        "fluxes",
-        "radial"
-      ],
-      "patterns": {
-        "base": "images/{storm}/uncpl/eflx_rad_quad/{storm}_eflx_rad_quad_{frame}.png"
-      },
-      "frameStart": 50,
-      "frameEnd": 72,
-      "titlePattern": "{storm} Quadrant Radial Enthalpy Flux Frame {frame}"
-    },
     "Radial Correlation (Enthalpy Flux)": {
       "type": "2d",
       "hasOverlays": true,
@@ -342,36 +328,6 @@
       "frameEnd": 50,
       "titlePattern": "{storm} Wind Speed (10m) \u2014 Uncoupled Frame {frame}"
     },
-    "Quadrant Radial Enthalpy Flux (Coupled)": {
-      "type": "2d",
-      "hasOverlays": false,
-      "filters": [
-        "fluxes",
-        "radial",
-        "coupled"
-      ],
-      "patterns": {
-        "base": "images/{storm}/cpl/eflx_rad_quad/{storm}_eflx_rad_quad_{frame}.png"
-      },
-      "frameStart": 20,
-      "frameEnd": 50,
-      "titlePattern": "{storm} Quadrant Radial Enthalpy Flux \u2014 Coupled Frame {frame}"
-    },
-    "Quadrant Radial Enthalpy Flux (Uncoupled)": {
-      "type": "2d",
-      "hasOverlays": false,
-      "filters": [
-        "fluxes",
-        "radial",
-        "uncoupled"
-      ],
-      "patterns": {
-        "base": "images/{storm}/uncpl/eflx_rad_quad/{storm}_eflx_rad_quad_{frame}.png"
-      },
-      "frameStart": 20,
-      "frameEnd": 50,
-      "titlePattern": "{storm} Quadrant Radial Enthalpy Flux \u2014 Uncoupled Frame {frame}"
-    },
     "Quadrant Surface Enthalpy Flux (Coupled)": {
       "type": "2d",
       "hasOverlays": false,
@@ -443,21 +399,6 @@
       "frameStart": 20,
       "frameEnd": 50,
       "titlePattern": "{storm} Wind Speed (10m) \u2014 Spray Frame {frame}"
-    },
-    "Quadrant Radial Enthalpy Flux (Spray)": {
-      "type": "2d",
-      "hasOverlays": false,
-      "filters": [
-        "fluxes",
-        "radial",
-        "spray"
-      ],
-      "patterns": {
-        "base": "images/{storm}/spray/eflx_rad_quad/{storm}_eflx_rad_quad_{frame}.png"
-      },
-      "frameStart": 20,
-      "frameEnd": 50,
-      "titlePattern": "{storm} Quadrant Radial Enthalpy Flux \u2014 Spray Frame {frame}"
     },
     "Quadrant Surface Enthalpy Flux (Spray)": {
       "type": "2d",
