@@ -189,13 +189,13 @@
     },
     "Radial Correlation (Enthalpy Flux)": {
       "type": "2d",
-      "hasOverlays": false,
+      "hasOverlays": true,
       "filters": [
         "fluxes",
         "radial"
       ],
       "patterns": {
-        "base": "images/{storm}/uncpl/eflx_radial_corr/{storm}_eflx_radial_corr_{frame}.png"
+        "base": "images/{storm}/{model}/eflx_radial_corr/{storm}_eflx_radial_corr_{frame}.png"
       },
       "frameStart": 50,
       "frameEnd": 72,
