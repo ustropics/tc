@@ -8,10 +8,10 @@
         "2d map"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_sfc_min/{storm}_eflx_sfc_min_{frame}.png",
-        "wind": "images/{storm}/{model}/eflx_sfc_winds/{storm}_eflx_sfc_winds_{frame}.png",
-        "rings": "images/{storm}/{model}/eflx_sfc_rings/{storm}_eflx_sfc_rings_{frame}.png",
-        "full": "images/{storm}/{model}/eflx_sfc_full/{storm}_eflx_sfc_full_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_sfc_min/{storm}_eflx_sfc_min_{frame}.png",
+        "wind": "https://img.weathercanvas.com/{storm}/{model}/eflx_sfc_winds/{storm}_eflx_sfc_winds_{frame}.png",
+        "rings": "https://img.weathercanvas.com/{storm}/{model}/eflx_sfc_rings/{storm}_eflx_sfc_rings_{frame}.png",
+        "full": "https://img.weathercanvas.com/{storm}/{model}/eflx_sfc_full/{storm}_eflx_sfc_full_{frame}.png"
       },
       "frameStart": 39,
       "frameEnd": 72,
@@ -25,10 +25,10 @@
         "2d map"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_hor_min/{storm}_eflx_hor_min_{frame}.png",
-        "wind": "images/{storm}/{model}/eflx_hor_winds/{storm}_eflx_hor_winds_{frame}.png",
-        "rings": "images/{storm}/{model}/eflx_hor_rings/{storm}_eflx_hor_rings_{frame}.png",
-        "full": "images/{storm}/{model}/eflx_hor_full/{storm}_eflx_hor_full_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_hor_min/{storm}_eflx_hor_min_{frame}.png",
+        "wind": "https://img.weathercanvas.com/{storm}/{model}/eflx_hor_winds/{storm}_eflx_hor_winds_{frame}.png",
+        "rings": "https://img.weathercanvas.com/{storm}/{model}/eflx_hor_rings/{storm}_eflx_hor_rings_{frame}.png",
+        "full": "https://img.weathercanvas.com/{storm}/{model}/eflx_hor_full/{storm}_eflx_hor_full_{frame}.png"
       },
       "frameStart": 39,
       "frameEnd": 72,
@@ -43,10 +43,10 @@
         "2d map"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_radial_min/{storm}_eflx_radial_min_{frame}.png",
-        "wind": "images/{storm}/{model}/eflx_radial_winds/{storm}_eflx_radial_winds_{frame}.png",
-        "rings": "images/{storm}/{model}/eflx_radial_rings/{storm}_eflx_radial_rings_{frame}.png",
-        "full": "images/{storm}/{model}/eflx_radial_full/{storm}_eflx_radial_full_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_radial_min/{storm}_eflx_radial_min_{frame}.png",
+        "wind": "https://img.weathercanvas.com/{storm}/{model}/eflx_radial_winds/{storm}_eflx_radial_winds_{frame}.png",
+        "rings": "https://img.weathercanvas.com/{storm}/{model}/eflx_radial_rings/{storm}_eflx_radial_rings_{frame}.png",
+        "full": "https://img.weathercanvas.com/{storm}/{model}/eflx_radial_full/{storm}_eflx_radial_full_{frame}.png"
       },
       "frameStart": 39,
       "frameEnd": 72,
@@ -61,10 +61,10 @@
         "2d map"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_tan_min/{storm}_eflx_tan_min_{frame}.png",
-        "wind": "images/{storm}/{model}/eflx_tan_winds/{storm}_eflx_tan_winds_{frame}.png",
-        "rings": "images/{storm}/{model}/eflx_tan_rings/{storm}_eflx_tan_rings_{frame}.png",
-        "full": "images/{storm}/{model}/eflx_tan_full/{storm}_eflx_tan_full_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_tan_min/{storm}_eflx_tan_min_{frame}.png",
+        "wind": "https://img.weathercanvas.com/{storm}/{model}/eflx_tan_winds/{storm}_eflx_tan_winds_{frame}.png",
+        "rings": "https://img.weathercanvas.com/{storm}/{model}/eflx_tan_rings/{storm}_eflx_tan_rings_{frame}.png",
+        "full": "https://img.weathercanvas.com/{storm}/{model}/eflx_tan_full/{storm}_eflx_tan_full_{frame}.png"
       },
       "frameStart": 39,
       "frameEnd": 72,
@@ -75,10 +75,10 @@
       "hasOverlays": true,
       "filters": [],
       "patterns": {
-        "base": "images/{storm}/{model}/radar_min/{storm}_radar_min_{frame}.png",
-        "wind": "images/{storm}/{model}/radar_winds/{storm}_radar_winds_{frame}.png",
-        "rings": "images/{storm}/{model}/radar_rings/{storm}_radar_rings_{frame}.png",
-        "full": "images/{storm}/{model}/radar_full/{storm}_radar_full_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/radar_min/{storm}_radar_min_{frame}.png",
+        "wind": "https://img.weathercanvas.com/{storm}/{model}/radar_winds/{storm}_radar_winds_{frame}.png",
+        "rings": "https://img.weathercanvas.com/{storm}/{model}/radar_rings/{storm}_radar_rings_{frame}.png",
+        "full": "https://img.weathercanvas.com/{storm}/{model}/radar_full/{storm}_radar_full_{frame}.png"
       },
       "frameStart": 39,
       "frameEnd": 72,
@@ -91,7 +91,7 @@
         "winds"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/wind_sfc_min/{storm}_wind_sfc_min_0{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/wind_sfc_min/{storm}_wind_sfc_min_0{frame}.png"
       },
       "frameStart": 39,
       "frameEnd": 72,
@@ -104,7 +104,7 @@
         "fluxes"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_sfc_quad/{storm}_eflx_sfc_quad_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_sfc_quad/{storm}_eflx_sfc_quad_{frame}.png"
       },
       "frameStart": 39,
       "frameEnd": 72,
@@ -118,7 +118,7 @@
         "radial"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_radial_corr/{storm}_eflx_radial_corr_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_radial_corr/{storm}_eflx_radial_corr_{frame}.png"
       },
       "frameStart": 39,
       "frameEnd": 72,
@@ -131,7 +131,7 @@
         "winds"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/wind_zoomed/{storm}_wind_zoomed_0{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/wind_zoomed/{storm}_wind_zoomed_0{frame}.png"
       },
       "frameStart": 39,
       "frameEnd": 72,
@@ -144,7 +144,7 @@
         "fluxes"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_zoom/{storm}_eflx_zoom_0{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_zoom/{storm}_eflx_zoom_0{frame}.png"
       },
       "frameStart": 39,
       "frameEnd": 72,
@@ -158,7 +158,7 @@
         "cross-sections"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_xsec_lat/{storm}_eflx_xsec_lat_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_xsec_lat/{storm}_eflx_xsec_lat_{frame}.png"
       },
       "frameStart": 39,
       "frameEnd": 72,
@@ -172,7 +172,7 @@
         "cross-sections"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_xsec_lon/{storm}_eflx_xsec_lon_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_xsec_lon/{storm}_eflx_xsec_lon_{frame}.png"
       },
       "frameStart": 39,
       "frameEnd": 72,
@@ -186,7 +186,7 @@
         "cross-sections"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/inflow_profile/{storm}_inflow_profile_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/inflow_profile/{storm}_inflow_profile_{frame}.png"
       },
       "frameStart": 39,
       "frameEnd": 72,
@@ -202,7 +202,7 @@
         "winds"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/2d/streamlines_with_rad_and_tan/streamlines_{storm}_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/2d/streamlines_with_rad_and_tan/streamlines_{storm}_{frame}.png"
       },
       "frameStart": 39,
       "frameEnd": 72,
@@ -217,7 +217,7 @@
         "tangential"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/2d/updraft_downdrafts_with_rad_and_tan/vert_velocity_{storm}_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/2d/updraft_downdrafts_with_rad_and_tan/vert_velocity_{storm}_{frame}.png"
       },
       "frameStart": 39,
       "frameEnd": 72,
@@ -233,10 +233,10 @@
         "2d map"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_sfc_min/{storm}_eflx_sfc_min_{frame}.png",
-        "wind": "images/{storm}/{model}/eflx_sfc_winds/{storm}_eflx_sfc_winds_{frame}.png",
-        "rings": "images/{storm}/{model}/eflx_sfc_rings/{storm}_eflx_sfc_rings_{frame}.png",
-        "full": "images/{storm}/{model}/eflx_sfc_full/{storm}_eflx_sfc_full_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_sfc_min/{storm}_eflx_sfc_min_{frame}.png",
+        "wind": "https://img.weathercanvas.com/{storm}/{model}/eflx_sfc_winds/{storm}_eflx_sfc_winds_{frame}.png",
+        "rings": "https://img.weathercanvas.com/{storm}/{model}/eflx_sfc_rings/{storm}_eflx_sfc_rings_{frame}.png",
+        "full": "https://img.weathercanvas.com/{storm}/{model}/eflx_sfc_full/{storm}_eflx_sfc_full_{frame}.png"
       },
       "frameStart": 41,
       "frameEnd": 64,
@@ -250,10 +250,10 @@
         "2d map"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_hor_min/{storm}_eflx_hor_min_{frame}.png",
-        "wind": "images/{storm}/{model}/eflx_hor_winds/{storm}_eflx_hor_winds_{frame}.png",
-        "rings": "images/{storm}/{model}/eflx_hor_rings/{storm}_eflx_hor_rings_{frame}.png",
-        "full": "images/{storm}/{model}/eflx_hor_full/{storm}_eflx_hor_full_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_hor_min/{storm}_eflx_hor_min_{frame}.png",
+        "wind": "https://img.weathercanvas.com/{storm}/{model}/eflx_hor_winds/{storm}_eflx_hor_winds_{frame}.png",
+        "rings": "https://img.weathercanvas.com/{storm}/{model}/eflx_hor_rings/{storm}_eflx_hor_rings_{frame}.png",
+        "full": "https://img.weathercanvas.com/{storm}/{model}/eflx_hor_full/{storm}_eflx_hor_full_{frame}.png"
       },
       "frameStart": 41,
       "frameEnd": 64,
@@ -268,10 +268,10 @@
         "2d map"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_radial_min/{storm}_eflx_radial_min_{frame}.png",
-        "wind": "images/{storm}/{model}/eflx_radial_winds/{storm}_eflx_radial_winds_{frame}.png",
-        "rings": "images/{storm}/{model}/eflx_radial_rings/{storm}_eflx_radial_rings_{frame}.png",
-        "full": "images/{storm}/{model}/eflx_radial_full/{storm}_eflx_radial_full_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_radial_min/{storm}_eflx_radial_min_{frame}.png",
+        "wind": "https://img.weathercanvas.com/{storm}/{model}/eflx_radial_winds/{storm}_eflx_radial_winds_{frame}.png",
+        "rings": "https://img.weathercanvas.com/{storm}/{model}/eflx_radial_rings/{storm}_eflx_radial_rings_{frame}.png",
+        "full": "https://img.weathercanvas.com/{storm}/{model}/eflx_radial_full/{storm}_eflx_radial_full_{frame}.png"
       },
       "frameStart": 41,
       "frameEnd": 64,
@@ -286,10 +286,10 @@
         "2d map"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_tan_min/{storm}_eflx_tan_min_{frame}.png",
-        "wind": "images/{storm}/{model}/eflx_tan_winds/{storm}_eflx_tan_winds_{frame}.png",
-        "rings": "images/{storm}/{model}/eflx_tan_rings/{storm}_eflx_tan_rings_{frame}.png",
-        "full": "images/{storm}/{model}/eflx_tan_full/{storm}_eflx_tan_full_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_tan_min/{storm}_eflx_tan_min_{frame}.png",
+        "wind": "https://img.weathercanvas.com/{storm}/{model}/eflx_tan_winds/{storm}_eflx_tan_winds_{frame}.png",
+        "rings": "https://img.weathercanvas.com/{storm}/{model}/eflx_tan_rings/{storm}_eflx_tan_rings_{frame}.png",
+        "full": "https://img.weathercanvas.com/{storm}/{model}/eflx_tan_full/{storm}_eflx_tan_full_{frame}.png"
       },
       "frameStart": 41,
       "frameEnd": 64,
@@ -300,10 +300,10 @@
       "hasOverlays": true,
       "filters": [],
       "patterns": {
-        "base": "images/{storm}/{model}/radar_min/{storm}_radar_min_{frame}.png",
-        "wind": "images/{storm}/{model}/radar_winds/{storm}_radar_winds_{frame}.png",
-        "rings": "images/{storm}/{model}/radar_rings/{storm}_radar_rings_{frame}.png",
-        "full": "images/{storm}/{model}/radar_full/{storm}_radar_full_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/radar_min/{storm}_radar_min_{frame}.png",
+        "wind": "https://img.weathercanvas.com/{storm}/{model}/radar_winds/{storm}_radar_winds_{frame}.png",
+        "rings": "https://img.weathercanvas.com/{storm}/{model}/radar_rings/{storm}_radar_rings_{frame}.png",
+        "full": "https://img.weathercanvas.com/{storm}/{model}/radar_full/{storm}_radar_full_{frame}.png"
       },
       "frameStart": 41,
       "frameEnd": 64,
@@ -316,7 +316,7 @@
         "winds"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/wind_sfc_min/{storm}_wind_sfc_min_0{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/wind_sfc_min/{storm}_wind_sfc_min_0{frame}.png"
       },
       "frameStart": 41,
       "frameEnd": 64,
@@ -329,7 +329,7 @@
         "fluxes"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_sfc_quad/{storm}_eflx_sfc_quad_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_sfc_quad/{storm}_eflx_sfc_quad_{frame}.png"
       },
       "frameStart": 41,
       "frameEnd": 64,
@@ -343,7 +343,7 @@
         "radial"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_radial_corr/{storm}_eflx_radial_corr_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_radial_corr/{storm}_eflx_radial_corr_{frame}.png"
       },
       "frameStart": 41,
       "frameEnd": 64,
@@ -356,7 +356,7 @@
         "winds"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/wind_zoomed/{storm}_wind_zoomed_0{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/wind_zoomed/{storm}_wind_zoomed_0{frame}.png"
       },
       "frameStart": 41,
       "frameEnd": 64,
@@ -369,7 +369,7 @@
         "fluxes"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_zoom/{storm}_eflx_zoom_0{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_zoom/{storm}_eflx_zoom_0{frame}.png"
       },
       "frameStart": 41,
       "frameEnd": 64,
@@ -383,7 +383,7 @@
         "cross-sections"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_xsec_lat/{storm}_eflx_xsec_lat_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_xsec_lat/{storm}_eflx_xsec_lat_{frame}.png"
       },
       "frameStart": 41,
       "frameEnd": 64,
@@ -397,7 +397,7 @@
         "cross-sections"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_xsec_lon/{storm}_eflx_xsec_lon_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_xsec_lon/{storm}_eflx_xsec_lon_{frame}.png"
       },
       "frameStart": 41,
       "frameEnd": 64,
@@ -411,7 +411,7 @@
         "cross-sections"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/inflow_profile/{storm}_inflow_profile_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/inflow_profile/{storm}_inflow_profile_{frame}.png"
       },
       "frameStart": 41,
       "frameEnd": 64,
@@ -427,7 +427,7 @@
         "winds"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/2d/streamlines_with_rad_and_tan/streamlines_{storm}_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/2d/streamlines_with_rad_and_tan/streamlines_{storm}_{frame}.png"
       },
       "frameStart": 41,
       "frameEnd": 64,
@@ -442,7 +442,7 @@
         "tangential"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/2d/updraft_downdrafts_with_rad_and_tan/vert_velocity_{storm}_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/2d/updraft_downdrafts_with_rad_and_tan/vert_velocity_{storm}_{frame}.png"
       },
       "frameStart": 41,
       "frameEnd": 64,
@@ -458,10 +458,10 @@
         "2d map"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_sfc_min/{storm}_eflx_sfc_min_{frame}.png",
-        "wind": "images/{storm}/{model}/eflx_sfc_winds/{storm}_eflx_sfc_winds_{frame}.png",
-        "rings": "images/{storm}/{model}/eflx_sfc_rings/{storm}_eflx_sfc_rings_{frame}.png",
-        "full": "images/{storm}/{model}/eflx_sfc_full/{storm}_eflx_sfc_full_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_sfc_min/{storm}_eflx_sfc_min_{frame}.png",
+        "wind": "https://img.weathercanvas.com/{storm}/{model}/eflx_sfc_winds/{storm}_eflx_sfc_winds_{frame}.png",
+        "rings": "https://img.weathercanvas.com/{storm}/{model}/eflx_sfc_rings/{storm}_eflx_sfc_rings_{frame}.png",
+        "full": "https://img.weathercanvas.com/{storm}/{model}/eflx_sfc_full/{storm}_eflx_sfc_full_{frame}.png"
       },
       "frameStart": 50,
       "frameEnd": 72,
@@ -475,10 +475,10 @@
         "2d map"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_hor_min/{storm}_eflx_hor_min_{frame}.png",
-        "wind": "images/{storm}/{model}/eflx_hor_winds/{storm}_eflx_hor_winds_{frame}.png",
-        "rings": "images/{storm}/{model}/eflx_hor_rings/{storm}_eflx_hor_rings_{frame}.png",
-        "full": "images/{storm}/{model}/eflx_hor_full/{storm}_eflx_hor_full_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_hor_min/{storm}_eflx_hor_min_{frame}.png",
+        "wind": "https://img.weathercanvas.com/{storm}/{model}/eflx_hor_winds/{storm}_eflx_hor_winds_{frame}.png",
+        "rings": "https://img.weathercanvas.com/{storm}/{model}/eflx_hor_rings/{storm}_eflx_hor_rings_{frame}.png",
+        "full": "https://img.weathercanvas.com/{storm}/{model}/eflx_hor_full/{storm}_eflx_hor_full_{frame}.png"
       },
       "frameStart": 50,
       "frameEnd": 72,
@@ -492,7 +492,7 @@
         "cross-sections"
       ],
       "patterns": {
-        "base": "images/{storm}/uncpl/eflx_xsec_lat/{storm}_eflx_xsec_lat_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/uncpl/eflx_xsec_lat/{storm}_eflx_xsec_lat_{frame}.png"
       },
       "frameStart": 50,
       "frameEnd": 72,
@@ -506,7 +506,7 @@
         "cross-sections"
       ],
       "patterns": {
-        "base": "images/{storm}/uncpl/eflx_xsec_lon/{storm}_eflx_xsec_lon_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/uncpl/eflx_xsec_lon/{storm}_eflx_xsec_lon_{frame}.png"
       },
       "frameStart": 50,
       "frameEnd": 72,
@@ -520,7 +520,7 @@
         "cross-sections"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/inflow_profile/{storm}_inflow_profile_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/inflow_profile/{storm}_inflow_profile_{frame}.png"
       },
       "frameStart": 50,
       "frameEnd": 72,
@@ -536,7 +536,7 @@
         "winds"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/2d/streamlines_with_rad_and_tan/streamlines_{storm}_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/2d/streamlines_with_rad_and_tan/streamlines_{storm}_{frame}.png"
       },
       "frameStart": 50,
       "frameEnd": 72,
@@ -551,7 +551,7 @@
         "tangential"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/2d/updraft_downdrafts_with_rad_and_tan/vert_velocity_{storm}_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/2d/updraft_downdrafts_with_rad_and_tan/vert_velocity_{storm}_{frame}.png"
       },
       "frameStart": 50,
       "frameEnd": 72,
@@ -566,10 +566,10 @@
         "2d map"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_radial_min/{storm}_eflx_radial_min_{frame}.png",
-        "wind": "images/{storm}/{model}/eflx_radial_winds/{storm}_eflx_radial_winds_{frame}.png",
-        "rings": "images/{storm}/{model}/eflx_radial_rings/{storm}_eflx_radial_rings_{frame}.png",
-        "full": "images/{storm}/{model}/eflx_radial_full/{storm}_eflx_radial_full_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_radial_min/{storm}_eflx_radial_min_{frame}.png",
+        "wind": "https://img.weathercanvas.com/{storm}/{model}/eflx_radial_winds/{storm}_eflx_radial_winds_{frame}.png",
+        "rings": "https://img.weathercanvas.com/{storm}/{model}/eflx_radial_rings/{storm}_eflx_radial_rings_{frame}.png",
+        "full": "https://img.weathercanvas.com/{storm}/{model}/eflx_radial_full/{storm}_eflx_radial_full_{frame}.png"
       },
       "frameStart": 50,
       "frameEnd": 72,
@@ -584,10 +584,10 @@
         "2d map"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_tan_min/{storm}_eflx_tan_min_{frame}.png",
-        "wind": "images/{storm}/{model}/eflx_tan_winds/{storm}_eflx_tan_winds_{frame}.png",
-        "rings": "images/{storm}/{model}/eflx_tan_rings/{storm}_eflx_tan_rings_{frame}.png",
-        "full": "images/{storm}/{model}/eflx_tan_full/{storm}_eflx_tan_full_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_tan_min/{storm}_eflx_tan_min_{frame}.png",
+        "wind": "https://img.weathercanvas.com/{storm}/{model}/eflx_tan_winds/{storm}_eflx_tan_winds_{frame}.png",
+        "rings": "https://img.weathercanvas.com/{storm}/{model}/eflx_tan_rings/{storm}_eflx_tan_rings_{frame}.png",
+        "full": "https://img.weathercanvas.com/{storm}/{model}/eflx_tan_full/{storm}_eflx_tan_full_{frame}.png"
       },
       "frameStart": 50,
       "frameEnd": 72,
@@ -598,10 +598,10 @@
       "hasOverlays": true,
       "filters": [],
       "patterns": {
-        "base": "images/{storm}/{model}/radar_min/{storm}_radar_min_{frame}.png",
-        "wind": "images/{storm}/{model}/radar_winds/{storm}_radar_winds_{frame}.png",
-        "rings": "images/{storm}/{model}/radar_rings/{storm}_radar_rings_{frame}.png",
-        "full": "images/{storm}/{model}/radar_full/{storm}_radar_full_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/radar_min/{storm}_radar_min_{frame}.png",
+        "wind": "https://img.weathercanvas.com/{storm}/{model}/radar_winds/{storm}_radar_winds_{frame}.png",
+        "rings": "https://img.weathercanvas.com/{storm}/{model}/radar_rings/{storm}_radar_rings_{frame}.png",
+        "full": "https://img.weathercanvas.com/{storm}/{model}/radar_full/{storm}_radar_full_{frame}.png"
       },
       "frameStart": 50,
       "frameEnd": 72,
@@ -614,10 +614,10 @@
         "winds"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/wind_sfc_min/{storm}_wind_sfc_min_0{frame}.png",
-        "wind": "images/{storm}/{model}/wind_winds/{storm}_wind_winds_0{frame}.png",
-        "rings": "images/{storm}/{model}/wind_rings/{storm}_wind_rings_0{frame}.png",
-        "full": "images/{storm}/{model}/wind_full/{storm}_wind_full_0{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/wind_sfc_min/{storm}_wind_sfc_min_0{frame}.png",
+        "wind": "https://img.weathercanvas.com/{storm}/{model}/wind_winds/{storm}_wind_winds_0{frame}.png",
+        "rings": "https://img.weathercanvas.com/{storm}/{model}/wind_rings/{storm}_wind_rings_0{frame}.png",
+        "full": "https://img.weathercanvas.com/{storm}/{model}/wind_full/{storm}_wind_full_0{frame}.png"
       },
       "frameStart": 50,
       "frameEnd": 72,
@@ -631,7 +631,7 @@
         "radial"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_radial_corr/{storm}_eflx_radial_corr_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_radial_corr/{storm}_eflx_radial_corr_{frame}.png"
       },
       "frameStart": 50,
       "frameEnd": 72,
@@ -644,7 +644,7 @@
         "fluxes"
       ],
       "patterns": {
-        "base": "images/{storm}/uncpl/eflx_diagnostic/{storm}_eflx_diagnostic_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/uncpl/eflx_diagnostic/{storm}_eflx_diagnostic_{frame}.png"
       },
       "frameStart": 50,
       "frameEnd": 72,
@@ -657,7 +657,7 @@
         "fluxes"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_sfc_quad/{storm}_eflx_sfc_quad_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_sfc_quad/{storm}_eflx_sfc_quad_{frame}.png"
       },
       "frameStart": 50,
       "frameEnd": 72,
@@ -670,7 +670,7 @@
         "winds"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/wind_zoomed/{storm}_wind_zoomed_0{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/wind_zoomed/{storm}_wind_zoomed_0{frame}.png"
       },
       "frameStart": 50,
       "frameEnd": 72,
@@ -683,7 +683,7 @@
         "fluxes"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_zoom/{storm}_eflx_zoom_0{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_zoom/{storm}_eflx_zoom_0{frame}.png"
       },
       "frameStart": 50,
       "frameEnd": 72,
@@ -699,10 +699,10 @@
         "2d map"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_sfc_min/{storm}_eflx_sfc_min_{frame}.png",
-        "wind": "images/{storm}/{model}/eflx_sfc_winds/{storm}_eflx_sfc_winds_{frame}.png",
-        "rings": "images/{storm}/{model}/eflx_sfc_rings/{storm}_eflx_sfc_rings_{frame}.png",
-        "full": "images/{storm}/{model}/eflx_sfc_full/{storm}_eflx_sfc_full_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_sfc_min/{storm}_eflx_sfc_min_{frame}.png",
+        "wind": "https://img.weathercanvas.com/{storm}/{model}/eflx_sfc_winds/{storm}_eflx_sfc_winds_{frame}.png",
+        "rings": "https://img.weathercanvas.com/{storm}/{model}/eflx_sfc_rings/{storm}_eflx_sfc_rings_{frame}.png",
+        "full": "https://img.weathercanvas.com/{storm}/{model}/eflx_sfc_full/{storm}_eflx_sfc_full_{frame}.png"
       },
       "frameStart": 20,
       "frameEnd": 50,
@@ -716,10 +716,10 @@
         "2d map"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_hor_min/{storm}_eflx_hor_min_{frame}.png",
-        "wind": "images/{storm}/{model}/eflx_hor_winds/{storm}_eflx_hor_winds_{frame}.png",
-        "rings": "images/{storm}/{model}/eflx_hor_rings/{storm}_eflx_hor_rings_{frame}.png",
-        "full": "images/{storm}/{model}/eflx_hor_full/{storm}_eflx_hor_full_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_hor_min/{storm}_eflx_hor_min_{frame}.png",
+        "wind": "https://img.weathercanvas.com/{storm}/{model}/eflx_hor_winds/{storm}_eflx_hor_winds_{frame}.png",
+        "rings": "https://img.weathercanvas.com/{storm}/{model}/eflx_hor_rings/{storm}_eflx_hor_rings_{frame}.png",
+        "full": "https://img.weathercanvas.com/{storm}/{model}/eflx_hor_full/{storm}_eflx_hor_full_{frame}.png"
       },
       "frameStart": 20,
       "frameEnd": 50,
@@ -734,10 +734,10 @@
         "2d map"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_radial_min/{storm}_eflx_radial_min_{frame}.png",
-        "wind": "images/{storm}/{model}/eflx_radial_winds/{storm}_eflx_radial_winds_{frame}.png",
-        "rings": "images/{storm}/{model}/eflx_radial_rings/{storm}_eflx_radial_rings_{frame}.png",
-        "full": "images/{storm}/{model}/eflx_radial_full/{storm}_eflx_radial_full_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_radial_min/{storm}_eflx_radial_min_{frame}.png",
+        "wind": "https://img.weathercanvas.com/{storm}/{model}/eflx_radial_winds/{storm}_eflx_radial_winds_{frame}.png",
+        "rings": "https://img.weathercanvas.com/{storm}/{model}/eflx_radial_rings/{storm}_eflx_radial_rings_{frame}.png",
+        "full": "https://img.weathercanvas.com/{storm}/{model}/eflx_radial_full/{storm}_eflx_radial_full_{frame}.png"
       },
       "frameStart": 20,
       "frameEnd": 50,
@@ -752,10 +752,10 @@
         "2d map"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_tan_min/{storm}_eflx_tan_min_{frame}.png",
-        "wind": "images/{storm}/{model}/eflx_tan_winds/{storm}_eflx_tan_winds_{frame}.png",
-        "rings": "images/{storm}/{model}/eflx_tan_rings/{storm}_eflx_tan_rings_{frame}.png",
-        "full": "images/{storm}/{model}/eflx_tan_full/{storm}_eflx_tan_full_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_tan_min/{storm}_eflx_tan_min_{frame}.png",
+        "wind": "https://img.weathercanvas.com/{storm}/{model}/eflx_tan_winds/{storm}_eflx_tan_winds_{frame}.png",
+        "rings": "https://img.weathercanvas.com/{storm}/{model}/eflx_tan_rings/{storm}_eflx_tan_rings_{frame}.png",
+        "full": "https://img.weathercanvas.com/{storm}/{model}/eflx_tan_full/{storm}_eflx_tan_full_{frame}.png"
       },
       "frameStart": 20,
       "frameEnd": 50,
@@ -766,10 +766,10 @@
       "hasOverlays": true,
       "filters": [],
       "patterns": {
-        "base": "images/{storm}/{model}/radar_min/{storm}_radar_min_{frame}.png",
-        "wind": "images/{storm}/{model}/radar_winds/{storm}_radar_winds_{frame}.png",
-        "rings": "images/{storm}/{model}/radar_rings/{storm}_radar_rings_{frame}.png",
-        "full": "images/{storm}/{model}/radar_full/{storm}_radar_full_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/radar_min/{storm}_radar_min_{frame}.png",
+        "wind": "https://img.weathercanvas.com/{storm}/{model}/radar_winds/{storm}_radar_winds_{frame}.png",
+        "rings": "https://img.weathercanvas.com/{storm}/{model}/radar_rings/{storm}_radar_rings_{frame}.png",
+        "full": "https://img.weathercanvas.com/{storm}/{model}/radar_full/{storm}_radar_full_{frame}.png"
       },
       "frameStart": 20,
       "frameEnd": 50,
@@ -782,7 +782,7 @@
         "winds"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/wind_sfc_min/{storm}_wind_sfc_min_0{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/wind_sfc_min/{storm}_wind_sfc_min_0{frame}.png"
       },
       "frameStart": 20,
       "frameEnd": 50,
@@ -795,7 +795,7 @@
         "fluxes"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_sfc_quad/{storm}_eflx_sfc_quad_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_sfc_quad/{storm}_eflx_sfc_quad_{frame}.png"
       },
       "frameStart": 20,
       "frameEnd": 50,
@@ -809,7 +809,7 @@
         "radial"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_radial_corr/{storm}_eflx_radial_corr_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_radial_corr/{storm}_eflx_radial_corr_{frame}.png"
       },
       "frameStart": 20,
       "frameEnd": 50,
@@ -822,7 +822,7 @@
         "winds"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/wind_zoomed/{storm}_wind_zoomed_0{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/wind_zoomed/{storm}_wind_zoomed_0{frame}.png"
       },
       "frameStart": 20,
       "frameEnd": 50,
@@ -835,7 +835,7 @@
         "fluxes"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_zoom/{storm}_eflx_zoom_0{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_zoom/{storm}_eflx_zoom_0{frame}.png"
       },
       "frameStart": 20,
       "frameEnd": 50,
@@ -849,7 +849,7 @@
         "cross-sections"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_xsec_lat/{storm}_eflx_xsec_lat_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_xsec_lat/{storm}_eflx_xsec_lat_{frame}.png"
       },
       "frameStart": 20,
       "frameEnd": 50,
@@ -863,7 +863,7 @@
         "cross-sections"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/eflx_xsec_lon/{storm}_eflx_xsec_lon_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/eflx_xsec_lon/{storm}_eflx_xsec_lon_{frame}.png"
       },
       "frameStart": 20,
       "frameEnd": 50,
@@ -877,7 +877,7 @@
         "cross-sections"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/inflow_profile/{storm}_inflow_profile_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/inflow_profile/{storm}_inflow_profile_{frame}.png"
       },
       "frameStart": 20,
       "frameEnd": 50,
@@ -893,7 +893,7 @@
         "winds"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/2d/streamlines_with_rad_and_tan/streamlines_{storm}_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/2d/streamlines_with_rad_and_tan/streamlines_{storm}_{frame}.png"
       },
       "frameStart": 20,
       "frameEnd": 50,
@@ -908,7 +908,7 @@
         "tangential"
       ],
       "patterns": {
-        "base": "images/{storm}/{model}/2d/updraft_downdrafts_with_rad_and_tan/vert_velocity_{storm}_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/{model}/2d/updraft_downdrafts_with_rad_and_tan/vert_velocity_{storm}_{frame}.png"
       },
       "frameStart": 20,
       "frameEnd": 50,

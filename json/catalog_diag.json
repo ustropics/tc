@@ -5,7 +5,7 @@
       "hasOverlays": false,
       "filters": [],
       "patterns": {
-        "base": "images/{storm}/uncpl/eflx_azimuthal_profile/{storm}_eflx_azimuthal_profile_0{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/uncpl/eflx_azimuthal_profile/{storm}_eflx_azimuthal_profile_0{frame}.png"
       },
       "frameStart": 50,
       "frameEnd": 72,
@@ -16,7 +16,7 @@
       "hasOverlays": false,
       "filters": [],
       "patterns": {
-        "base": "images/{storm}/uncpl/diagnostic/eflx_dist_profile_radial/{storm}_eflx_dist_azimuthal_{frame}.png"
+        "base": "https://img.weathercanvas.com/{storm}/uncpl/diagnostic/eflx_dist_profile_radial/{storm}_eflx_dist_azimuthal_{frame}.png"
       },
       "frameStart": 50,
       "frameEnd": 72,

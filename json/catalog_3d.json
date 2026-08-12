@@ -2,8 +2,8 @@
   "Ian": {
     "3d_Enthalpy Flux Isosurface": {
       "type": "3d",
-      "pattern": "images/{storm}/uncpl/eflx_3d/{storm}_eflx_3d_isosurface_{frame}.html",
-      "thumbnailPattern": "images/{storm}/uncpl/eflx_3d/thumbs/{storm}_eflx_3d_isosurface_{frame}.png",
+      "pattern": "https://img.weathercanvas.com/{storm}/uncpl/eflx_3d/{storm}_eflx_3d_isosurface_{frame}.html",
+      "thumbnailPattern": "https://img.weathercanvas.com/{storm}/uncpl/eflx_3d/thumbs/{storm}_eflx_3d_isosurface_{frame}.png",
       "staticImage": "images/static/3d/3d_enthalpy_flux.png",
       "filters": [],
       "frameStart": 50,
@@ -11,8 +11,8 @@
     },
     "3d_Windspeed": {
       "type": "3d",
-      "pattern": "images/{storm}/uncpl/ws_3d/{storm}_windspeed_3d_{frame}.html",
-      "thumbnailPattern": "images/{storm}/uncpl/ws_3d/thumbs/{storm}_windspeed_3d_{frame}.png",
+      "pattern": "https://img.weathercanvas.com/{storm}/uncpl/ws_3d/{storm}_windspeed_3d_{frame}.html",
+      "thumbnailPattern": "https://img.weathercanvas.com/{storm}/uncpl/ws_3d/thumbs/{storm}_windspeed_3d_{frame}.png",
       "staticImage": "images/static/3d/3d_wind.png",
       "filters": [],
       "frameStart": 50,
@@ -20,8 +20,8 @@
     },
     "3d_Radar": {
       "type": "3d",
-      "pattern": "images/{storm}/uncpl/radar_3d/{storm}_radar_3d_{frame}.html",
-      "thumbnailPattern": "images/{storm}/uncpl/radar_3d/thumbs/{storm}_radar_3d_{frame}.png",
+      "pattern": "https://img.weathercanvas.com/{storm}/uncpl/radar_3d/{storm}_radar_3d_{frame}.html",
+      "thumbnailPattern": "https://img.weathercanvas.com/{storm}/uncpl/radar_3d/thumbs/{storm}_radar_3d_{frame}.png",
       "staticImage": "images/static/3d/3d_radar.png",
       "filters": [],
       "frameStart": 50,
@@ -29,8 +29,8 @@
     },
     "3d_Thetae": {
       "type": "3d",
-      "pattern": "images/{storm}/uncpl/thetae_3d/{storm}_thetae_3d_{frame}.html",
-      "thumbnailPattern": "images/{storm}/uncpl/thetae_3d/thumbs/{storm}_thetae_3d_{frame}.png",
+      "pattern": "https://img.weathercanvas.com/{storm}/uncpl/thetae_3d/{storm}_thetae_3d_{frame}.html",
+      "thumbnailPattern": "https://img.weathercanvas.com/{storm}/uncpl/thetae_3d/thumbs/{storm}_thetae_3d_{frame}.png",
       "staticImage": "images/static/3d/3d_potential_temp.png",
       "filters": [],
       "frameStart": 50,
