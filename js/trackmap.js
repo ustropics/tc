@@ -384,6 +384,13 @@ function updateSidebarImages(point) {
     const label2 = document.getElementById('ts-img2-label');
 
     if (currentSidebarMode === 'diagnostics') {
+        if (!sidebarDiagnosticsProduct) {
+            if (img1) img1.src = '';
+            if (img2) img2.src = '';
+            if (label1) label1.textContent = '';
+            if (label2) label2.textContent = '';
+            return;
+        }
         const url = buildImageUrl(sidebarDiagnosticsProduct, currentTrackStorm, frame);
         console.log('Sidebar diagnostics image:', { sidebarDiagnosticsProduct, frame, url, catalogLoaded: !!window.catalog });
         if (img1) {
@@ -401,6 +408,13 @@ function updateSidebarImages(point) {
 
     if (currentSidebarMode === '3d') {
         sidebar3DFrame = frame;
+        if (!sidebar3DProduct) {
+            if (img1) img1.src = '';
+            if (img2) img2.src = '';
+            if (label1) label1.textContent = '';
+            if (label2) label2.textContent = '';
+            return;
+        }
         const url = buildSidebar3DImageUrl(sidebar3DProduct, frame);
 
         console.log('Sidebar 3D image:', { sidebar3DProduct, frame, url, catalogLoaded: !!window.catalog });
@@ -417,8 +431,16 @@ function updateSidebarImages(point) {
         return;
     }
 
-    const url1 = buildImageUrl(sidebarProductA, currentTrackStorm, frame);
-    const url2 = buildImageUrl(sidebarProductB, currentTrackStorm, frame);
+    if (!sidebarProductA && !sidebarProductB) {
+        if (img1) img1.src = '';
+        if (img2) img2.src = '';
+        if (label1) label1.textContent = '';
+        if (label2) label2.textContent = '';
+        return;
+    }
+
+    const url1 = sidebarProductA ? buildImageUrl(sidebarProductA, currentTrackStorm, frame) : '';
+    const url2 = sidebarProductB ? buildImageUrl(sidebarProductB, currentTrackStorm, frame) : '';
 
     console.log('Sidebar images:', { sidebarProductA, sidebarProductB, frame, url1, url2, catalogLoaded: !!window.catalog });
 
@@ -432,8 +454,8 @@ function updateSidebarImages(point) {
         img2.src = url2;
         img2.onerror = () => console.error('Failed to load image 2:', url2);
     }
-    if (label1) label1.textContent = sidebarProductA.replace('Enthalpy Fluxes - ', '');
-    if (label2) label2.textContent = sidebarProductB.replace('Enthalpy Fluxes - ', '');
+    if (label1) label1.textContent = sidebarProductA ? sidebarProductA.replace('Enthalpy Fluxes - ', '') : '';
+    if (label2) label2.textContent = sidebarProductB ? sidebarProductB.replace('Enthalpy Fluxes - ', '') : '';
 }
 
 function populateSidebarSelectors() {
@@ -983,8 +1005,12 @@ async function switchTrackMapStorm(storm) {
     window.trackData = trackData;
 
     // Jump straight to the new storm's first timestep instead of leaving
-    // the map on the fully-zoomed-out fitBounds view from renderTrackLayer().
-    if (trackData.length > 0) {
+    // the map on the fully-zoomed-out fitBounds view from renderTrackLayer() —
+    // but only when the map view is actually showing. If the product
+    // comparison player is open instead, leave it alone.
+    const placeholderEl = document.getElementById('placeholder');
+    const isMapViewActive = placeholderEl && placeholderEl.style.display !== 'none';
+    if (trackData.length > 0 && isMapViewActive) {
         openSidebar(trackData[0]);
     } else {
         const subtitleEl = document.getElementById('map-subtitle');

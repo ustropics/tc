@@ -1,4 +1,454 @@
 {
+  "Ida": {
+    "Enthalpy Fluxes - Surface": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "fluxes",
+        "2d map"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/eflx_sfc_min/{storm}_eflx_sfc_min_{frame}.png",
+        "wind": "images/{storm}/{model}/eflx_sfc_winds/{storm}_eflx_sfc_winds_{frame}.png",
+        "rings": "images/{storm}/{model}/eflx_sfc_rings/{storm}_eflx_sfc_rings_{frame}.png",
+        "full": "images/{storm}/{model}/eflx_sfc_full/{storm}_eflx_sfc_full_{frame}.png"
+      },
+      "frameStart": 39,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Enthalpy Fluxes (Surface) Frame {frame}"
+    },
+    "Enthalpy Fluxes - Horizontal": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "fluxes",
+        "2d map"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/eflx_hor_min/{storm}_eflx_hor_min_{frame}.png",
+        "wind": "images/{storm}/{model}/eflx_hor_winds/{storm}_eflx_hor_winds_{frame}.png",
+        "rings": "images/{storm}/{model}/eflx_hor_rings/{storm}_eflx_hor_rings_{frame}.png",
+        "full": "images/{storm}/{model}/eflx_hor_full/{storm}_eflx_hor_full_{frame}.png"
+      },
+      "frameStart": 39,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Enthalpy Fluxes (Horizontal) Frame {frame}"
+    },
+    "Enthalpy Fluxes - Radial": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "fluxes",
+        "radial",
+        "2d map"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/eflx_radial_min/{storm}_eflx_radial_min_{frame}.png",
+        "wind": "images/{storm}/{model}/eflx_radial_winds/{storm}_eflx_radial_winds_{frame}.png",
+        "rings": "images/{storm}/{model}/eflx_radial_rings/{storm}_eflx_radial_rings_{frame}.png",
+        "full": "images/{storm}/{model}/eflx_radial_full/{storm}_eflx_radial_full_{frame}.png"
+      },
+      "frameStart": 39,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Enthalpy Fluxes (Radial) Frame {frame}"
+    },
+    "Enthalpy Fluxes - Tangential": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "fluxes",
+        "tangential",
+        "2d map"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/eflx_tan_min/{storm}_eflx_tan_min_{frame}.png",
+        "wind": "images/{storm}/{model}/eflx_tan_winds/{storm}_eflx_tan_winds_{frame}.png",
+        "rings": "images/{storm}/{model}/eflx_tan_rings/{storm}_eflx_tan_rings_{frame}.png",
+        "full": "images/{storm}/{model}/eflx_tan_full/{storm}_eflx_tan_full_{frame}.png"
+      },
+      "frameStart": 39,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Enthalpy Fluxes (Tangential) Frame {frame}"
+    },
+    "Simulated Radar - Reflectivity": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [],
+      "patterns": {
+        "base": "images/{storm}/{model}/radar_min/{storm}_radar_min_{frame}.png",
+        "wind": "images/{storm}/{model}/radar_winds/{storm}_radar_winds_{frame}.png",
+        "rings": "images/{storm}/{model}/radar_rings/{storm}_radar_rings_{frame}.png",
+        "full": "images/{storm}/{model}/radar_full/{storm}_radar_full_{frame}.png"
+      },
+      "frameStart": 39,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Simulated Radar Reflectivity Frame {frame}"
+    },
+    "Wind Speed (10m)": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "winds"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/wind_sfc_min/{storm}_wind_sfc_min_0{frame}.png"
+      },
+      "frameStart": 39,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Wind Speed (10m) Frame {frame}"
+    },
+    "Quadrant Surface Enthalpy Flux": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "fluxes"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/eflx_sfc_quad/{storm}_eflx_sfc_quad_{frame}.png"
+      },
+      "frameStart": 39,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Quadrant Surface Enthalpy Flux Frame {frame}"
+    },
+    "Radial Correlation (Enthalpy Flux)": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "fluxes",
+        "radial"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/eflx_radial_corr/{storm}_eflx_radial_corr_{frame}.png"
+      },
+      "frameStart": 39,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Radial Correlation (Enthalpy Flux) Frame {frame}"
+    },
+    "Wind Speed (10m) - Zoomed": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "winds"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/wind_zoomed/{storm}_wind_zoomed_0{frame}.png"
+      },
+      "frameStart": 39,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Wind Speed (10m) Zoomed Frame {frame}"
+    },
+    "Enthalpy Fluxes - Zoomed": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "fluxes"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/eflx_zoom/{storm}_eflx_zoom_0{frame}.png"
+      },
+      "frameStart": 39,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Enthalpy Fluxes Zoomed Frame {frame}"
+    },
+    "Enthalpy Fluxes - Lat xsec": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "fluxes",
+        "cross-sections"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/eflx_xsec_lat/{storm}_eflx_xsec_lat_{frame}.png"
+      },
+      "frameStart": 39,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Enthalpy Fluxes (Cross-section) Latitude Frame {frame}"
+    },
+    "Enthalpy Fluxes - Lon xsec": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "fluxes",
+        "cross-sections"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/eflx_xsec_lon/{storm}_eflx_xsec_lon_{frame}.png"
+      },
+      "frameStart": 39,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Enthalpy Fluxes (Cross-section) Longitude Frame {frame}"
+    },
+    "Vertical Inflow Layer Profile (Radial)": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "radial",
+        "cross-sections"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/inflow_profile/{storm}_inflow_profile_{frame}.png"
+      },
+      "frameStart": 39,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Vertical Inflow Layer Profile {frame}"
+    },
+    "Streamlines with Radial and Tangent Winds": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "cross-sections",
+        "radial",
+        "tangential",
+        "winds"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/2d/streamlines_with_rad_and_tan/streamlines_{storm}_{frame}.png"
+      },
+      "frameStart": 39,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Streamlines with Radial and Tangent Winds Frame {frame}"
+    },
+    "Updrafts/Downdrafts with Radial and Tangent Winds": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "cross-sections",
+        "radial",
+        "tangential"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/2d/updraft_downdrafts_with_rad_and_tan/vert_velocity_{storm}_{frame}.png"
+      },
+      "frameStart": 39,
+      "frameEnd": 72,
+      "titlePattern": "{storm} Updrafts/Downdrafts with Radial and Tangent Winds Frame {frame}"
+    }
+  },
+  "Michael": {
+    "Enthalpy Fluxes - Surface": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "fluxes",
+        "2d map"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/eflx_sfc_min/{storm}_eflx_sfc_min_{frame}.png",
+        "wind": "images/{storm}/{model}/eflx_sfc_winds/{storm}_eflx_sfc_winds_{frame}.png",
+        "rings": "images/{storm}/{model}/eflx_sfc_rings/{storm}_eflx_sfc_rings_{frame}.png",
+        "full": "images/{storm}/{model}/eflx_sfc_full/{storm}_eflx_sfc_full_{frame}.png"
+      },
+      "frameStart": 41,
+      "frameEnd": 64,
+      "titlePattern": "{storm} Enthalpy Fluxes (Surface) Frame {frame}"
+    },
+    "Enthalpy Fluxes - Horizontal": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "fluxes",
+        "2d map"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/eflx_hor_min/{storm}_eflx_hor_min_{frame}.png",
+        "wind": "images/{storm}/{model}/eflx_hor_winds/{storm}_eflx_hor_winds_{frame}.png",
+        "rings": "images/{storm}/{model}/eflx_hor_rings/{storm}_eflx_hor_rings_{frame}.png",
+        "full": "images/{storm}/{model}/eflx_hor_full/{storm}_eflx_hor_full_{frame}.png"
+      },
+      "frameStart": 41,
+      "frameEnd": 64,
+      "titlePattern": "{storm} Enthalpy Fluxes (Horizontal) Frame {frame}"
+    },
+    "Enthalpy Fluxes - Radial": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "fluxes",
+        "radial",
+        "2d map"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/eflx_radial_min/{storm}_eflx_radial_min_{frame}.png",
+        "wind": "images/{storm}/{model}/eflx_radial_winds/{storm}_eflx_radial_winds_{frame}.png",
+        "rings": "images/{storm}/{model}/eflx_radial_rings/{storm}_eflx_radial_rings_{frame}.png",
+        "full": "images/{storm}/{model}/eflx_radial_full/{storm}_eflx_radial_full_{frame}.png"
+      },
+      "frameStart": 41,
+      "frameEnd": 64,
+      "titlePattern": "{storm} Enthalpy Fluxes (Radial) Frame {frame}"
+    },
+    "Enthalpy Fluxes - Tangential": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "fluxes",
+        "tangential",
+        "2d map"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/eflx_tan_min/{storm}_eflx_tan_min_{frame}.png",
+        "wind": "images/{storm}/{model}/eflx_tan_winds/{storm}_eflx_tan_winds_{frame}.png",
+        "rings": "images/{storm}/{model}/eflx_tan_rings/{storm}_eflx_tan_rings_{frame}.png",
+        "full": "images/{storm}/{model}/eflx_tan_full/{storm}_eflx_tan_full_{frame}.png"
+      },
+      "frameStart": 41,
+      "frameEnd": 64,
+      "titlePattern": "{storm} Enthalpy Fluxes (Tangential) Frame {frame}"
+    },
+    "Simulated Radar - Reflectivity": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [],
+      "patterns": {
+        "base": "images/{storm}/{model}/radar_min/{storm}_radar_min_{frame}.png",
+        "wind": "images/{storm}/{model}/radar_winds/{storm}_radar_winds_{frame}.png",
+        "rings": "images/{storm}/{model}/radar_rings/{storm}_radar_rings_{frame}.png",
+        "full": "images/{storm}/{model}/radar_full/{storm}_radar_full_{frame}.png"
+      },
+      "frameStart": 41,
+      "frameEnd": 64,
+      "titlePattern": "{storm} Simulated Radar Reflectivity Frame {frame}"
+    },
+    "Wind Speed (10m)": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "winds"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/wind_sfc_min/{storm}_wind_sfc_min_0{frame}.png"
+      },
+      "frameStart": 41,
+      "frameEnd": 64,
+      "titlePattern": "{storm} Wind Speed (10m) Frame {frame}"
+    },
+    "Quadrant Surface Enthalpy Flux": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "fluxes"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/eflx_sfc_quad/{storm}_eflx_sfc_quad_{frame}.png"
+      },
+      "frameStart": 41,
+      "frameEnd": 64,
+      "titlePattern": "{storm} Quadrant Surface Enthalpy Flux Frame {frame}"
+    },
+    "Radial Correlation (Enthalpy Flux)": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "fluxes",
+        "radial"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/eflx_radial_corr/{storm}_eflx_radial_corr_{frame}.png"
+      },
+      "frameStart": 41,
+      "frameEnd": 64,
+      "titlePattern": "{storm} Radial Correlation (Enthalpy Flux) Frame {frame}"
+    },
+    "Wind Speed (10m) - Zoomed": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "winds"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/wind_zoomed/{storm}_wind_zoomed_0{frame}.png"
+      },
+      "frameStart": 41,
+      "frameEnd": 64,
+      "titlePattern": "{storm} Wind Speed (10m) Zoomed Frame {frame}"
+    },
+    "Enthalpy Fluxes - Zoomed": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "fluxes"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/eflx_zoom/{storm}_eflx_zoom_0{frame}.png"
+      },
+      "frameStart": 41,
+      "frameEnd": 64,
+      "titlePattern": "{storm} Enthalpy Fluxes Zoomed Frame {frame}"
+    },
+    "Enthalpy Fluxes - Lat xsec": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "fluxes",
+        "cross-sections"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/eflx_xsec_lat/{storm}_eflx_xsec_lat_{frame}.png"
+      },
+      "frameStart": 41,
+      "frameEnd": 64,
+      "titlePattern": "{storm} Enthalpy Fluxes (Cross-section) Latitude Frame {frame}"
+    },
+    "Enthalpy Fluxes - Lon xsec": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "fluxes",
+        "cross-sections"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/eflx_xsec_lon/{storm}_eflx_xsec_lon_{frame}.png"
+      },
+      "frameStart": 41,
+      "frameEnd": 64,
+      "titlePattern": "{storm} Enthalpy Fluxes (Cross-section) Longitude Frame {frame}"
+    },
+    "Vertical Inflow Layer Profile (Radial)": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "radial",
+        "cross-sections"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/inflow_profile/{storm}_inflow_profile_{frame}.png"
+      },
+      "frameStart": 41,
+      "frameEnd": 64,
+      "titlePattern": "{storm} Vertical Inflow Layer Profile {frame}"
+    },
+    "Streamlines with Radial and Tangent Winds": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "cross-sections",
+        "radial",
+        "tangential",
+        "winds"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/2d/streamlines_with_rad_and_tan/streamlines_{storm}_{frame}.png"
+      },
+      "frameStart": 41,
+      "frameEnd": 64,
+      "titlePattern": "{storm} Streamlines with Radial and Tangent Winds Frame {frame}"
+    },
+    "Updrafts/Downdrafts with Radial and Tangent Winds": {
+      "type": "2d",
+      "hasOverlays": true,
+      "filters": [
+        "cross-sections",
+        "radial",
+        "tangential"
+      ],
+      "patterns": {
+        "base": "images/{storm}/{model}/2d/updraft_downdrafts_with_rad_and_tan/vert_velocity_{storm}_{frame}.png"
+      },
+      "frameStart": 41,
+      "frameEnd": 64,
+      "titlePattern": "{storm} Updrafts/Downdrafts with Radial and Tangent Winds Frame {frame}"
+    }
+  },
   "Ian": {
     "Enthalpy Fluxes - Surface": {
       "type": "2d",

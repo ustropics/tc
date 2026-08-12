@@ -1,0 +1,2192 @@
+[
+  {
+    "timestep": 0,
+    "datetime": "2018-10-08T00:00:00",
+    "datetime_str": "2018-10-08_00:00:00",
+    "pressure_min_center": {
+      "lat": 25.12663459777832,
+      "lon": -89.27662658691406
+    },
+    "eyewall_refined_center": {
+      "lat": 25.114852905273438,
+      "lon": -89.39651489257812
+    },
+    "offset_km": 12.161114578462884,
+    "diagnostics": {
+      "max_lh_wm2": 0.0,
+      "max_hfx_wm2": 0.0,
+      "max_enthalpy_wm2": 0.0,
+      "min_pressure_hpa": 1010.285859375,
+      "inflow_top_height_km": 6.400596855390795,
+      "inflow_top_level": 18,
+      "max_wind_ms": 11.639283180236816,
+      "shear_u_ms": 18.974305152893066,
+      "shear_v_ms": 3.161693811416626,
+      "shear_mag_ms": 19.235918584571277,
+      "rmw_km": 23.5,
+      "motion_u_ms": 26.59407343722447,
+      "motion_v_ms": 2.790141232808431,
+      "motion_speed_ms": 26.74003795964968
+    }
+  },
+  {
+    "timestep": 1,
+    "datetime": "2018-10-08T01:00:00",
+    "datetime_str": "2018-10-08_01:00:00",
+    "pressure_min_center": {
+      "lat": 25.223159790039062,
+      "lon": -88.24652099609375
+    },
+    "eyewall_refined_center": {
+      "lat": 25.2050838470459,
+      "lon": -88.44668579101562
+    },
+    "offset_km": 20.27063456566201,
+    "diagnostics": {
+      "max_lh_wm2": 384.2269592285156,
+      "max_hfx_wm2": 81.07421875,
+      "max_enthalpy_wm2": 455.70831298828125,
+      "min_pressure_hpa": 1011.265078125,
+      "inflow_top_height_km": 0.6549373430630506,
+      "inflow_top_level": 6,
+      "max_wind_ms": 12.489473342895508,
+      "shear_u_ms": 19.30124807357788,
+      "shear_v_ms": 2.8731067180633545,
+      "shear_mag_ms": 19.51391604499657,
+      "rmw_km": 147.5,
+      "motion_u_ms": 1.257895759555938,
+      "motion_v_ms": 0.13671438429090713,
+      "motion_speed_ms": 1.2653033489171093
+    }
+  },
+  {
+    "timestep": 2,
+    "datetime": "2018-10-08T02:00:00",
+    "datetime_str": "2018-10-08_02:00:00",
+    "pressure_min_center": {
+      "lat": 25.114852905273438,
+      "lon": -89.39651489257812
+    },
+    "eyewall_refined_center": {
+      "lat": 25.123695373535156,
+      "lon": -89.30659484863281
+    },
+    "offset_km": 9.121400098233003,
+    "diagnostics": {
+      "max_lh_wm2": 404.6902160644531,
+      "max_hfx_wm2": 76.10611724853516,
+      "max_enthalpy_wm2": 461.7012023925781,
+      "min_pressure_hpa": 1010.4328125,
+      "inflow_top_height_km": 15.818341184552104,
+      "inflow_top_level": 28,
+      "max_wind_ms": 12.648395538330078,
+      "shear_u_ms": 20.366520881652832,
+      "shear_v_ms": 1.6060781478881836,
+      "shear_mag_ms": 20.429749382699846,
+      "rmw_km": 46.5,
+      "motion_u_ms": 41.14033781916723,
+      "motion_v_ms": 3.603792349497477,
+      "motion_speed_ms": 41.29787785314759
+    }
+  },
+  {
+    "timestep": 3,
+    "datetime": "2018-10-08T03:00:00",
+    "datetime_str": "2018-10-08_03:00:00",
+    "pressure_min_center": {
+      "lat": 25.424449920654297,
+      "lon": -85.70877075195312
+    },
+    "eyewall_refined_center": {
+      "lat": 25.43817138671875,
+      "lon": -85.50775146484375
+    },
+    "offset_km": 20.27854956590665,
+    "diagnostics": {
+      "max_lh_wm2": 433.92755126953125,
+      "max_hfx_wm2": 110.29542541503906,
+      "max_enthalpy_wm2": 485.2113037109375,
+      "min_pressure_hpa": 1010.99546875,
+      "inflow_top_height_km": 17.799248762248517,
+      "inflow_top_level": 30,
+      "max_wind_ms": 14.772018432617188,
+      "shear_u_ms": 19.798277378082275,
+      "shear_v_ms": -1.9870485067367554,
+      "shear_mag_ms": 19.897742306794736,
+      "rmw_km": 183.5,
+      "motion_u_ms": 45.60429402256991,
+      "motion_v_ms": 4.288868247138129,
+      "motion_speed_ms": 45.805523947863705
+    }
+  },
+  {
+    "timestep": 4,
+    "datetime": "2018-10-08T04:00:00",
+    "datetime_str": "2018-10-08_04:00:00",
+    "pressure_min_center": {
+      "lat": 25.38650131225586,
+      "lon": -86.24119567871094
+    },
+    "eyewall_refined_center": {
+      "lat": 25.401092529296875,
+      "lon": -86.04031372070312
+    },
+    "offset_km": 20.27846076704197,
+    "diagnostics": {
+      "max_lh_wm2": 468.4630126953125,
+      "max_hfx_wm2": 131.9024200439453,
+      "max_enthalpy_wm2": 521.1845703125,
+      "min_pressure_hpa": 1010.26859375,
+      "inflow_top_height_km": 17.646593747222312,
+      "inflow_top_level": 30,
+      "max_wind_ms": 15.106195449829102,
+      "shear_u_ms": 20.084402561187744,
+      "shear_v_ms": -2.6677216291427612,
+      "shear_mag_ms": 20.26079872390131,
+      "rmw_km": 185.5,
+      "motion_u_ms": -18.78903568847366,
+      "motion_v_ms": 96.47986591127184,
+      "motion_speed_ms": 98.29238214815904
+    }
+  },
+  {
+    "timestep": 5,
+    "datetime": "2018-10-08T05:00:00",
+    "datetime_str": "2018-10-08_05:00:00",
+    "pressure_min_center": {
+      "lat": 31.635135650634766,
+      "lon": -87.06396484375
+    },
+    "eyewall_refined_center": {
+      "lat": 31.678335189819336,
+      "lon": -86.8530502319336
+    },
+    "offset_km": 20.569371234442357,
+    "diagnostics": {
+      "max_lh_wm2": 467.15826416015625,
+      "max_hfx_wm2": 133.9918670654297,
+      "max_enthalpy_wm2": 528.1116943359375,
+      "min_pressure_hpa": 1000.886875,
+      "inflow_top_height_km": 12.363910724335824,
+      "inflow_top_level": 24,
+      "max_wind_ms": 15.490080833435059,
+      "shear_u_ms": 22.117277145385742,
+      "shear_v_ms": -1.8067057132720947,
+      "shear_mag_ms": 22.19094711498751,
+      "rmw_km": 11.5,
+      "motion_u_ms": -8.566485369781178,
+      "motion_v_ms": 18.898905775282117,
+      "motion_speed_ms": 20.749778579388906
+    }
+  },
+  {
+    "timestep": 6,
+    "datetime": "2018-10-08T06:00:00",
+    "datetime_str": "2018-10-08_06:00:00",
+    "pressure_min_center": {
+      "lat": 26.789451599121094,
+      "lon": -86.91227722167969
+    },
+    "eyewall_refined_center": {
+      "lat": 26.623443603515625,
+      "lon": -86.6913833618164
+    },
+    "offset_km": 28.661891551811934,
+    "diagnostics": {
+      "max_lh_wm2": 465.52215576171875,
+      "max_hfx_wm2": 150.82479858398438,
+      "max_enthalpy_wm2": 548.621337890625,
+      "min_pressure_hpa": 1010.91484375,
+      "inflow_top_height_km": 4.927473424665542,
+      "inflow_top_level": 16,
+      "max_wind_ms": 14.601180076599121,
+      "shear_u_ms": 19.662550449371338,
+      "shear_v_ms": -3.713214159011841,
+      "shear_mag_ms": 20.010093692053495,
+      "rmw_km": 197.5,
+      "motion_u_ms": 13.31614264150019,
+      "motion_v_ms": -96.88747294743855,
+      "motion_speed_ms": 97.79827232108661
+    }
+  },
+  {
+    "timestep": 7,
+    "datetime": "2018-10-08T07:00:00",
+    "datetime_str": "2018-10-08_07:00:00",
+    "pressure_min_center": {
+      "lat": 25.39748764038086,
+      "lon": -86.0905532836914
+    },
+    "eyewall_refined_center": {
+      "lat": 25.411808013916016,
+      "lon": -85.88963317871094
+    },
+    "offset_km": 20.278115744353265,
+    "diagnostics": {
+      "max_lh_wm2": 474.58404541015625,
+      "max_hfx_wm2": 154.1504364013672,
+      "max_enthalpy_wm2": 540.6716918945312,
+      "min_pressure_hpa": 1009.56609375,
+      "inflow_top_height_km": 7.095397805774451,
+      "inflow_top_level": 19,
+      "max_wind_ms": 13.609146118164062,
+      "shear_u_ms": 19.057897090911865,
+      "shear_v_ms": -4.02398020029068,
+      "shear_mag_ms": 19.478086614966017,
+      "rmw_km": 113.5,
+      "motion_u_ms": 3.903313543741551,
+      "motion_v_ms": -19.31996012793647,
+      "motion_speed_ms": 19.71032003712297
+    }
+  },
+  {
+    "timestep": 8,
+    "datetime": "2018-10-08T08:00:00",
+    "datetime_str": "2018-10-08_08:00:00",
+    "pressure_min_center": {
+      "lat": 25.35869598388672,
+      "lon": -86.61265563964844
+    },
+    "eyewall_refined_center": {
+      "lat": 25.373859405517578,
+      "lon": -86.41188049316406
+    },
+    "offset_km": 20.277463326301365,
+    "diagnostics": {
+      "max_lh_wm2": 480.4124755859375,
+      "max_hfx_wm2": 366.9997863769531,
+      "max_enthalpy_wm2": 734.9935302734375,
+      "min_pressure_hpa": 1009.30546875,
+      "inflow_top_height_km": 7.168916995503113,
+      "inflow_top_level": 19,
+      "max_wind_ms": 17.44431495666504,
+      "shear_u_ms": 18.42942762374878,
+      "shear_v_ms": -2.9182956218719482,
+      "shear_mag_ms": 18.65905281292787,
+      "rmw_km": 186.5,
+      "motion_u_ms": 28.66903974076911,
+      "motion_v_ms": 1.9791441917419434,
+      "motion_speed_ms": 28.73727285929381
+    }
+  },
+  {
+    "timestep": 9,
+    "datetime": "2018-10-08T09:00:00",
+    "datetime_str": "2018-10-08_09:00:00",
+    "pressure_min_center": {
+      "lat": 25.665050506591797,
+      "lon": -84.04815673828125
+    },
+    "eyewall_refined_center": {
+      "lat": 25.53981590270996,
+      "lon": -83.83738708496094
+    },
+    "offset_km": 25.312964521461776,
+    "diagnostics": {
+      "max_lh_wm2": 529.5853271484375,
+      "max_hfx_wm2": 397.93896484375,
+      "max_enthalpy_wm2": 898.2685546875,
+      "min_pressure_hpa": 1009.030078125,
+      "inflow_top_height_km": 15.283650321318799,
+      "inflow_top_level": 27,
+      "max_wind_ms": 19.453218460083008,
+      "shear_u_ms": 18.501548767089844,
+      "shear_v_ms": -2.5804415941238403,
+      "shear_mag_ms": 18.680631295587634,
+      "rmw_km": 23.5,
+      "motion_u_ms": 20.811417925619267,
+      "motion_v_ms": 2.715473238627116,
+      "motion_speed_ms": 20.98782768617293
+    }
+  },
+  {
+    "timestep": 10,
+    "datetime": "2018-10-08T10:00:00",
+    "datetime_str": "2018-10-08_10:00:00",
+    "pressure_min_center": {
+      "lat": 25.72989273071289,
+      "lon": -84.95426940917969
+    },
+    "eyewall_refined_center": {
+      "lat": 25.54949188232422,
+      "lon": -84.92005920410156
+    },
+    "offset_km": 20.278378903835943,
+    "diagnostics": {
+      "max_lh_wm2": 553.188720703125,
+      "max_hfx_wm2": 464.456787109375,
+      "max_enthalpy_wm2": 1017.6455078125,
+      "min_pressure_hpa": 1008.76046875,
+      "inflow_top_height_km": null,
+      "inflow_top_level": null,
+      "max_wind_ms": 20.267406463623047,
+      "shear_u_ms": 17.8108172416687,
+      "shear_v_ms": -2.3903743028640747,
+      "shear_mag_ms": 17.970506395867535,
+      "rmw_km": 85.5,
+      "motion_u_ms": -40.11283086449667,
+      "motion_v_ms": -2.9193947156270346,
+      "motion_speed_ms": 40.218926707078445
+    }
+  },
+  {
+    "timestep": 11,
+    "datetime": "2018-10-08T11:00:00",
+    "datetime_str": "2018-10-08_11:00:00",
+    "pressure_min_center": {
+      "lat": 25.426015853881836,
+      "lon": -86.92242431640625
+    },
+    "eyewall_refined_center": {
+      "lat": 25.350994110107422,
+      "lon": -86.71302032470703
+    },
+    "offset_km": 22.652046792845,
+    "diagnostics": {
+      "max_lh_wm2": 598.3648681640625,
+      "max_hfx_wm2": 575.8179321289062,
+      "max_enthalpy_wm2": 1090.58642578125,
+      "min_pressure_hpa": 1008.66640625,
+      "inflow_top_height_km": 7.366802254188545,
+      "inflow_top_level": 19,
+      "max_wind_ms": 19.43285369873047,
+      "shear_u_ms": 18.153532028198242,
+      "shear_v_ms": -0.6515467166900635,
+      "shear_mag_ms": 18.165220566314325,
+      "rmw_km": 70.5,
+      "motion_u_ms": -15.091104849648113,
+      "motion_v_ms": -2.2499483744303386,
+      "motion_speed_ms": 15.25790658218468
+    }
+  },
+  {
+    "timestep": 12,
+    "datetime": "2018-10-08T12:00:00",
+    "datetime_str": "2018-10-08_12:00:00",
+    "pressure_min_center": {
+      "lat": 25.390918731689453,
+      "lon": -86.18093872070312
+    },
+    "eyewall_refined_center": {
+      "lat": 25.403968811035156,
+      "lon": -86.00013732910156
+    },
+    "offset_km": 18.250113406007532,
+    "diagnostics": {
+      "max_lh_wm2": 555.1118774414062,
+      "max_hfx_wm2": 538.2086791992188,
+      "max_enthalpy_wm2": 1014.4521484375,
+      "min_pressure_hpa": 1008.64171875,
+      "inflow_top_height_km": 6.8372209839993765,
+      "inflow_top_level": 19,
+      "max_wind_ms": 19.162080764770508,
+      "shear_u_ms": 18.735065937042236,
+      "shear_v_ms": -0.6862001419067383,
+      "shear_mag_ms": 18.74762828466772,
+      "rmw_km": 90.5,
+      "motion_u_ms": -6.304418239048312,
+      "motion_v_ms": -0.5514579349093967,
+      "motion_speed_ms": 6.328490751104844
+    }
+  },
+  {
+    "timestep": 13,
+    "datetime": "2018-10-08T13:00:00",
+    "datetime_str": "2018-10-08_13:00:00",
+    "pressure_min_center": {
+      "lat": 25.298961639404297,
+      "lon": -87.36495971679688
+    },
+    "eyewall_refined_center": {
+      "lat": 25.315326690673828,
+      "lon": -87.1644287109375
+    },
+    "offset_km": 20.274220802639654,
+    "diagnostics": {
+      "max_lh_wm2": 582.7918090820312,
+      "max_hfx_wm2": 613.9483642578125,
+      "max_enthalpy_wm2": 1137.748046875,
+      "min_pressure_hpa": 1008.19109375,
+      "inflow_top_height_km": 7.4809396669104515,
+      "inflow_top_level": 19,
+      "max_wind_ms": 19.695589065551758,
+      "shear_u_ms": 19.687312602996826,
+      "shear_v_ms": -0.23273468017578125,
+      "shear_mag_ms": 19.6886881980358,
+      "rmw_km": 65.5,
+      "motion_u_ms": 31.618363162539556,
+      "motion_v_ms": 2.4651349279615613,
+      "motion_speed_ms": 31.714315053163205
+    }
+  },
+  {
+    "timestep": 14,
+    "datetime": "2018-10-08T14:00:00",
+    "datetime_str": "2018-10-08_14:00:00",
+    "pressure_min_center": {
+      "lat": 25.741413116455078,
+      "lon": -83.82044982910156
+    },
+    "eyewall_refined_center": {
+      "lat": 25.56340980529785,
+      "lon": -83.73786163330078
+    },
+    "offset_km": 21.39240928976693,
+    "diagnostics": {
+      "max_lh_wm2": 590.4107055664062,
+      "max_hfx_wm2": 588.4857788085938,
+      "max_enthalpy_wm2": 1101.530517578125,
+      "min_pressure_hpa": 1007.48671875,
+      "inflow_top_height_km": 17.870149522921274,
+      "inflow_top_level": 30,
+      "max_wind_ms": 20.0543212890625,
+      "shear_u_ms": 20.209773063659668,
+      "shear_v_ms": 0.7075319290161133,
+      "shear_mag_ms": 20.222154403406208,
+      "rmw_km": 51.5,
+      "motion_u_ms": 49.570301454187955,
+      "motion_v_ms": 4.785770183139377,
+      "motion_speed_ms": 49.80078696672267
+    }
+  },
+  {
+    "timestep": 15,
+    "datetime": "2018-10-08T15:00:00",
+    "datetime_str": "2018-10-08_15:00:00",
+    "pressure_min_center": {
+      "lat": 25.795955657958984,
+      "lon": -83.82408142089844
+    },
+    "eyewall_refined_center": {
+      "lat": 25.624862670898438,
+      "lon": -83.61038970947266
+    },
+    "offset_km": 28.621970794022776,
+    "diagnostics": {
+      "max_lh_wm2": 650.0240478515625,
+      "max_hfx_wm2": 547.1685180664062,
+      "max_enthalpy_wm2": 1156.188232421875,
+      "min_pressure_hpa": 1007.881796875,
+      "inflow_top_height_km": 17.31010776453712,
+      "inflow_top_level": 29,
+      "max_wind_ms": 22.86225128173828,
+      "shear_u_ms": 20.72172451019287,
+      "shear_v_ms": 1.1803836822509766,
+      "shear_mag_ms": 20.755316724002366,
+      "rmw_km": 95.5,
+      "motion_u_ms": -2.242751339711623,
+      "motion_v_ms": 2.1220809088812933,
+      "motion_speed_ms": 3.087581732621298
+    }
+  },
+  {
+    "timestep": 16,
+    "datetime": "2018-10-08T16:00:00",
+    "datetime_str": "2018-10-08_16:00:00",
+    "pressure_min_center": {
+      "lat": 25.87128448486328,
+      "lon": -84.1130599975586
+    },
+    "eyewall_refined_center": {
+      "lat": 25.70066261291504,
+      "lon": -83.89874267578125
+    },
+    "offset_km": 28.62448108263419,
+    "diagnostics": {
+      "max_lh_wm2": 606.1649169921875,
+      "max_hfx_wm2": 645.2388916015625,
+      "max_enthalpy_wm2": 994.8973388671875,
+      "min_pressure_hpa": 1007.820546875,
+      "inflow_top_height_km": 17.27031336916089,
+      "inflow_top_level": 29,
+      "max_wind_ms": 20.01927375793457,
+      "shear_u_ms": 21.016843795776367,
+      "shear_v_ms": 1.5402040481567383,
+      "shear_mag_ms": 21.073204588909157,
+      "rmw_km": 113.5,
+      "motion_u_ms": -18.868508059896325,
+      "motion_v_ms": -2.3376508288913302,
+      "motion_speed_ms": 19.01276433883797
+    }
+  },
+  {
+    "timestep": 17,
+    "datetime": "2018-10-08T17:00:00",
+    "datetime_str": "2018-10-08_17:00:00",
+    "pressure_min_center": {
+      "lat": 25.574207305908203,
+      "lon": -84.96243286132812
+    },
+    "eyewall_refined_center": {
+      "lat": 25.47366714477539,
+      "lon": -84.96475982666016
+    },
+    "offset_km": 11.14036994691088,
+    "diagnostics": {
+      "max_lh_wm2": 852.532958984375,
+      "max_hfx_wm2": 695.1516723632812,
+      "max_enthalpy_wm2": 1091.5045166015625,
+      "min_pressure_hpa": 1007.635,
+      "inflow_top_height_km": 17.495864232361583,
+      "inflow_top_level": 30,
+      "max_wind_ms": 20.587608337402344,
+      "shear_u_ms": 21.68442153930664,
+      "shear_v_ms": 1.8909173011779785,
+      "shear_mag_ms": 21.7667109535235,
+      "rmw_km": 23.5,
+      "motion_u_ms": -8.341464346657395,
+      "motion_v_ms": 0.03786481221516927,
+      "motion_speed_ms": 8.341550287000645
+    }
+  },
+  {
+    "timestep": 18,
+    "datetime": "2018-10-08T18:00:00",
+    "datetime_str": "2018-10-08_18:00:00",
+    "pressure_min_center": {
+      "lat": 25.88064956665039,
+      "lon": -84.58038330078125
+    },
+    "eyewall_refined_center": {
+      "lat": 25.70311164855957,
+      "lon": -84.49635314941406
+    },
+    "offset_km": 21.39803040783124,
+    "diagnostics": {
+      "max_lh_wm2": 1108.511962890625,
+      "max_hfx_wm2": 656.4432983398438,
+      "max_enthalpy_wm2": 1256.9486083984375,
+      "min_pressure_hpa": 1007.0471875,
+      "inflow_top_height_km": 17.46857906447936,
+      "inflow_top_level": 30,
+      "max_wind_ms": 21.385372161865234,
+      "shear_u_ms": 22.186429023742676,
+      "shear_v_ms": 2.4417200088500977,
+      "shear_mag_ms": 22.32038596053371,
+      "rmw_km": 88.5,
+      "motion_u_ms": -0.560452885013853,
+      "motion_v_ms": -0.039398278130425346,
+      "motion_speed_ms": 0.5618359730739867
+    }
+  },
+  {
+    "timestep": 19,
+    "datetime": "2018-10-08T19:00:00",
+    "datetime_str": "2018-10-08_19:00:00",
+    "pressure_min_center": {
+      "lat": 25.587249755859375,
+      "lon": -85.04440307617188
+    },
+    "eyewall_refined_center": {
+      "lat": 25.471118927001953,
+      "lon": -85.00498962402344
+    },
+    "offset_km": 13.461207966387654,
+    "diagnostics": {
+      "max_lh_wm2": 1308.333740234375,
+      "max_hfx_wm2": 661.58447265625,
+      "max_enthalpy_wm2": 1475.3822021484375,
+      "min_pressure_hpa": 1006.874296875,
+      "inflow_top_height_km": 0.6174121013659389,
+      "inflow_top_level": 6,
+      "max_wind_ms": 24.532682418823242,
+      "shear_u_ms": 23.316421508789062,
+      "shear_v_ms": 2.8227643966674805,
+      "shear_mag_ms": 23.48666666035465,
+      "rmw_km": 70.5,
+      "motion_u_ms": -8.223007246562062,
+      "motion_v_ms": -3.666310575273302,
+      "motion_speed_ms": 9.003315023444035
+    }
+  },
+  {
+    "timestep": 20,
+    "datetime": "2018-10-08T20:00:00",
+    "datetime_str": "2018-10-08_20:00:00",
+    "pressure_min_center": {
+      "lat": 25.636499404907227,
+      "lon": -85.27103424072266
+    },
+    "eyewall_refined_center": {
+      "lat": 25.465980529785156,
+      "lon": -85.08546447753906
+    },
+    "offset_km": 26.54470489642679,
+    "diagnostics": {
+      "max_lh_wm2": 1202.814697265625,
+      "max_hfx_wm2": 653.4496459960938,
+      "max_enthalpy_wm2": 1387.927001953125,
+      "min_pressure_hpa": 1006.21375,
+      "inflow_top_height_km": 0.7807477195608499,
+      "inflow_top_level": 7,
+      "max_wind_ms": 23.329256057739258,
+      "shear_u_ms": 23.97340679168701,
+      "shear_v_ms": 2.8617777824401855,
+      "shear_mag_ms": 24.143612100838872,
+      "rmw_km": 70.5,
+      "motion_u_ms": -4.351832503731806,
+      "motion_v_ms": -0.3121782726711697,
+      "motion_speed_ms": 4.363015174677324
+    }
+  },
+  {
+    "timestep": 21,
+    "datetime": "2018-10-08T21:00:00",
+    "datetime_str": "2018-10-08_21:00:00",
+    "pressure_min_center": {
+      "lat": 25.5831298828125,
+      "lon": -85.38818359375
+    },
+    "eyewall_refined_center": {
+      "lat": 25.450927734375,
+      "lon": -85.3167495727539
+    },
+    "offset_km": 16.31112344410476,
+    "diagnostics": {
+      "max_lh_wm2": 1145.9061279296875,
+      "max_hfx_wm2": 634.4105224609375,
+      "max_enthalpy_wm2": 1494.446044921875,
+      "min_pressure_hpa": 1005.144921875,
+      "inflow_top_height_km": 0.7618479099305755,
+      "inflow_top_level": 7,
+      "max_wind_ms": 23.944019317626953,
+      "shear_u_ms": 24.39191436767578,
+      "shear_v_ms": 2.6741814613342285,
+      "shear_mag_ms": 24.53806701857691,
+      "rmw_km": 68.5,
+      "motion_u_ms": -13.330332400501456,
+      "motion_v_ms": -1.0032405853271484,
+      "motion_speed_ms": 13.368031028536194
+    }
+  },
+  {
+    "timestep": 22,
+    "datetime": "2018-10-08T22:00:00",
+    "datetime_str": "2018-10-08_22:00:00",
+    "pressure_min_center": {
+      "lat": 25.495370864868164,
+      "lon": -86.25099182128906
+    },
+    "eyewall_refined_center": {
+      "lat": 25.401092529296875,
+      "lon": -86.04031372070312
+    },
+    "offset_km": 23.62419236176283,
+    "diagnostics": {
+      "max_lh_wm2": 1095.5518798828125,
+      "max_hfx_wm2": 600.0093994140625,
+      "max_enthalpy_wm2": 1359.8427734375,
+      "min_pressure_hpa": 1005.30171875,
+      "inflow_top_height_km": 0.874719052703455,
+      "inflow_top_level": 7,
+      "max_wind_ms": 25.45326042175293,
+      "shear_u_ms": 25.117783546447754,
+      "shear_v_ms": 1.9043097496032715,
+      "shear_mag_ms": 25.18986792161951,
+      "rmw_km": 55.5,
+      "motion_u_ms": -6.738888703892904,
+      "motion_v_ms": 1.3283943388197157,
+      "motion_speed_ms": 6.868569900850079
+    }
+  },
+  {
+    "timestep": 23,
+    "datetime": "2018-10-08T23:00:00",
+    "datetime_str": "2018-10-08_23:00:00",
+    "pressure_min_center": {
+      "lat": 25.72402572631836,
+      "lon": -85.73422241210938
+    },
+    "eyewall_refined_center": {
+      "lat": 25.536846160888672,
+      "lon": -85.79925537109375
+    },
+    "offset_km": 21.740425369929145,
+    "diagnostics": {
+      "max_lh_wm2": 915.90576171875,
+      "max_hfx_wm2": 667.7394409179688,
+      "max_enthalpy_wm2": 1202.492431640625,
+      "min_pressure_hpa": 1004.766484375,
+      "inflow_top_height_km": 0.8358489462855623,
+      "inflow_top_level": 7,
+      "max_wind_ms": 23.612667083740234,
+      "shear_u_ms": 25.730401039123535,
+      "shear_v_ms": 1.4992575645446777,
+      "shear_mag_ms": 25.774043355262943,
+      "rmw_km": 90.5,
+      "motion_u_ms": 0.0,
+      "motion_v_ms": 0.0,
+      "motion_speed_ms": 0.0
+    }
+  },
+  {
+    "timestep": 24,
+    "datetime": "2018-10-09T00:00:00",
+    "datetime_str": "2018-10-09_00:00:00",
+    "pressure_min_center": {
+      "lat": 25.596874237060547,
+      "lon": -85.85504150390625
+    },
+    "eyewall_refined_center": {
+      "lat": 25.401092529296875,
+      "lon": -86.04031372070312
+    },
+    "offset_km": 28.589637953197663,
+    "diagnostics": {
+      "max_lh_wm2": 934.9107055664062,
+      "max_hfx_wm2": 700.7894287109375,
+      "max_enthalpy_wm2": 1255.5140380859375,
+      "min_pressure_hpa": 1004.429296875,
+      "inflow_top_height_km": 0.762864124597442,
+      "inflow_top_level": 7,
+      "max_wind_ms": 22.324161529541016,
+      "shear_u_ms": 26.213071823120117,
+      "shear_v_ms": 1.1279411315917969,
+      "shear_mag_ms": 26.237328095680596,
+      "rmw_km": 93.5,
+      "motion_u_ms": -6.997072650409239,
+      "motion_v_ms": 0.8564112239413791,
+      "motion_speed_ms": 7.0492883229158485
+    }
+  },
+  {
+    "timestep": 25,
+    "datetime": "2018-10-09T01:00:00",
+    "datetime_str": "2018-10-09_01:00:00",
+    "pressure_min_center": {
+      "lat": 25.76702880859375,
+      "lon": -86.4074478149414
+    },
+    "eyewall_refined_center": {
+      "lat": 25.59223747253418,
+      "lon": -86.30024719238281
+    },
+    "offset_km": 22.153421531142882,
+    "diagnostics": {
+      "max_lh_wm2": 720.0857543945312,
+      "max_hfx_wm2": 804.1805419921875,
+      "max_enthalpy_wm2": 1318.8465576171875,
+      "min_pressure_hpa": 1003.666875,
+      "inflow_top_height_km": 0.7425073012398189,
+      "inflow_top_level": 7,
+      "max_wind_ms": 22.589906692504883,
+      "shear_u_ms": 26.649418830871582,
+      "shear_v_ms": 0.5297141075134277,
+      "shear_mag_ms": 26.6546829104927,
+      "rmw_km": 71.5,
+      "motion_u_ms": 4.903334981865238,
+      "motion_v_ms": 0.38254076639811196,
+      "motion_speed_ms": 4.918234579840599
+    }
+  },
+  {
+    "timestep": 26,
+    "datetime": "2018-10-09T02:00:00",
+    "datetime_str": "2018-10-09_02:00:00",
+    "pressure_min_center": {
+      "lat": 25.535451889038086,
+      "lon": -85.68782806396484
+    },
+    "eyewall_refined_center": {
+      "lat": 25.42583465576172,
+      "lon": -85.68867492675781
+    },
+    "offset_km": 12.143705910538046,
+    "diagnostics": {
+      "max_lh_wm2": 670.1644897460938,
+      "max_hfx_wm2": 774.8326416015625,
+      "max_enthalpy_wm2": 1285.28515625,
+      "min_pressure_hpa": 1002.750859375,
+      "inflow_top_height_km": null,
+      "inflow_top_level": null,
+      "max_wind_ms": 24.62384605407715,
+      "shear_u_ms": 26.87704563140869,
+      "shear_v_ms": 0.016176223754882812,
+      "shear_mag_ms": 26.87705049932079,
+      "rmw_km": 23.5,
+      "motion_u_ms": 1.692925875411022,
+      "motion_v_ms": -1.6986378881666395,
+      "motion_speed_ms": 2.398201137259216
+    }
+  },
+  {
+    "timestep": 27,
+    "datetime": "2018-10-09T03:00:00",
+    "datetime_str": "2018-10-09_03:00:00",
+    "pressure_min_center": {
+      "lat": 25.650543212890625,
+      "lon": -86.3764877319336
+    },
+    "eyewall_refined_center": {
+      "lat": 25.482372283935547,
+      "lon": -86.17900848388672
+    },
+    "offset_km": 27.218299173895925,
+    "diagnostics": {
+      "max_lh_wm2": 761.307861328125,
+      "max_hfx_wm2": 775.6161499023438,
+      "max_enthalpy_wm2": 1300.3837890625,
+      "min_pressure_hpa": 1002.571875,
+      "inflow_top_height_km": 0.4095602067592773,
+      "inflow_top_level": 5,
+      "max_wind_ms": 22.58772087097168,
+      "shear_u_ms": 27.061355590820312,
+      "shear_v_ms": -0.7352924346923828,
+      "shear_mag_ms": 27.071343176453908,
+      "rmw_km": 98.5,
+      "motion_u_ms": -9.533370320314022,
+      "motion_v_ms": -0.7572962443033854,
+      "motion_speed_ms": 9.563401448537036
+    }
+  },
+  {
+    "timestep": 28,
+    "datetime": "2018-10-09T04:00:00",
+    "datetime_str": "2018-10-09_04:00:00",
+    "pressure_min_center": {
+      "lat": 25.388710021972656,
+      "lon": -86.21107482910156
+    },
+    "eyewall_refined_center": {
+      "lat": 25.376853942871094,
+      "lon": -86.3717269897461
+    },
+    "offset_km": 16.22050422377306,
+    "diagnostics": {
+      "max_lh_wm2": 685.2476806640625,
+      "max_hfx_wm2": 668.3703002929688,
+      "max_enthalpy_wm2": 1201.7625732421875,
+      "min_pressure_hpa": 1003.194140625,
+      "inflow_top_height_km": 0.15354020668923496,
+      "inflow_top_level": 2,
+      "max_wind_ms": 22.477678298950195,
+      "shear_u_ms": 27.161849975585938,
+      "shear_v_ms": -1.1071386337280273,
+      "shear_mag_ms": 27.184404537354336,
+      "rmw_km": 75.5,
+      "motion_u_ms": 0.2536529828400038,
+      "motion_v_ms": -1.391325420803494,
+      "motion_speed_ms": 1.4142582021249341
+    }
+  },
+  {
+    "timestep": 29,
+    "datetime": "2018-10-09T05:00:00",
+    "datetime_str": "2018-10-09_05:00:00",
+    "pressure_min_center": {
+      "lat": 25.377601623535156,
+      "lon": -86.36168670654297
+    },
+    "eyewall_refined_center": {
+      "lat": 25.392383575439453,
+      "lon": -86.16085052490234
+    },
+    "offset_km": 20.277025599431486,
+    "diagnostics": {
+      "max_lh_wm2": 655.9090576171875,
+      "max_hfx_wm2": 558.28955078125,
+      "max_enthalpy_wm2": 1143.490478515625,
+      "min_pressure_hpa": 1001.16015625,
+      "inflow_top_height_km": 11.378747683626763,
+      "inflow_top_level": 23,
+      "max_wind_ms": 22.14797019958496,
+      "shear_u_ms": 26.958712577819824,
+      "shear_v_ms": -1.3337044715881348,
+      "shear_mag_ms": 26.991683005530334,
+      "rmw_km": 23.5,
+      "motion_u_ms": 3.0856433648285218,
+      "motion_v_ms": 0.2514294306437174,
+      "motion_speed_ms": 3.095870109275275
+    }
+  },
+  {
+    "timestep": 30,
+    "datetime": "2018-10-09T06:00:00",
+    "datetime_str": "2018-10-09_06:00:00",
+    "pressure_min_center": {
+      "lat": 25.37834930419922,
+      "lon": -86.35164642333984
+    },
+    "eyewall_refined_center": {
+      "lat": 25.393115997314453,
+      "lon": -86.15081024169922
+    },
+    "offset_km": 20.276766380265496,
+    "diagnostics": {
+      "max_lh_wm2": 695.6071166992188,
+      "max_hfx_wm2": 455.46746826171875,
+      "max_enthalpy_wm2": 1046.02294921875,
+      "min_pressure_hpa": 1001.092421875,
+      "inflow_top_height_km": 11.583186611056197,
+      "inflow_top_level": 23,
+      "max_wind_ms": 23.10344696044922,
+      "shear_u_ms": 26.6347074508667,
+      "shear_v_ms": -1.2653765678405762,
+      "shear_mag_ms": 26.664748617823008,
+      "rmw_km": 15.5,
+      "motion_u_ms": -2.9453883509489405,
+      "motion_v_ms": -0.24010537465413412,
+      "motion_speed_ms": 2.955158731581693
+    }
+  },
+  {
+    "timestep": 31,
+    "datetime": "2018-10-09T07:00:00",
+    "datetime_str": "2018-10-09_07:00:00",
+    "pressure_min_center": {
+      "lat": 25.36174774169922,
+      "lon": -86.57251739501953
+    },
+    "eyewall_refined_center": {
+      "lat": 25.376853942871094,
+      "lon": -86.3717269897461
+    },
+    "offset_km": 20.277968698938917,
+    "diagnostics": {
+      "max_lh_wm2": 662.2589111328125,
+      "max_hfx_wm2": 460.7295227050781,
+      "max_enthalpy_wm2": 1054.459228515625,
+      "min_pressure_hpa": 999.406328125,
+      "inflow_top_height_km": 0.42756091841338856,
+      "inflow_top_level": 5,
+      "max_wind_ms": 27.389297485351562,
+      "shear_u_ms": 26.017370223999023,
+      "shear_v_ms": -1.080946922302246,
+      "shear_mag_ms": 26.039815660281963,
+      "rmw_km": 23.5,
+      "motion_u_ms": -6.311376466723607,
+      "motion_v_ms": -0.5203757603963216,
+      "motion_speed_ms": 6.332792735967333
+    }
+  },
+  {
+    "timestep": 32,
+    "datetime": "2018-10-09T08:00:00",
+    "datetime_str": "2018-10-09_08:00:00",
+    "pressure_min_center": {
+      "lat": 25.343984603881836,
+      "lon": -86.8033218383789
+    },
+    "eyewall_refined_center": {
+      "lat": 25.359458923339844,
+      "lon": -86.60261535644531
+    },
+    "offset_km": 20.27586941090915,
+    "diagnostics": {
+      "max_lh_wm2": 692.7233276367188,
+      "max_hfx_wm2": 551.6705322265625,
+      "max_enthalpy_wm2": 1069.815185546875,
+      "min_pressure_hpa": 998.41296875,
+      "inflow_top_height_km": 0.6299391209577629,
+      "inflow_top_level": 6,
+      "max_wind_ms": 27.227031707763672,
+      "shear_u_ms": 25.409119606018066,
+      "shear_v_ms": -0.7644863128662109,
+      "shear_mag_ms": 25.420617586429554,
+      "rmw_km": 37.5,
+      "motion_u_ms": -3.3660759284707744,
+      "motion_v_ms": -0.28074222140842015,
+      "motion_speed_ms": 3.377763069120112
+    }
+  },
+  {
+    "timestep": 33,
+    "datetime": "2018-10-09T09:00:00",
+    "datetime_str": "2018-10-09_09:00:00",
+    "pressure_min_center": {
+      "lat": 25.343204498291016,
+      "lon": -86.8133544921875
+    },
+    "eyewall_refined_center": {
+      "lat": 25.35869598388672,
+      "lon": -86.61265563964844
+    },
+    "offset_km": 20.275392757472186,
+    "diagnostics": {
+      "max_lh_wm2": 712.9663696289062,
+      "max_hfx_wm2": 523.3411865234375,
+      "max_enthalpy_wm2": 1115.845703125,
+      "min_pressure_hpa": 996.067265625,
+      "inflow_top_height_km": 0.6453598141054342,
+      "inflow_top_level": 6,
+      "max_wind_ms": 30.127418518066406,
+      "shear_u_ms": 25.291407585144043,
+      "shear_v_ms": -0.21295404434204102,
+      "shear_mag_ms": 25.292304107433218,
+      "rmw_km": 51.5,
+      "motion_u_ms": 1.262166522629063,
+      "motion_v_ms": 0.1059860865275065,
+      "motion_speed_ms": 1.2666086141278832
+    }
+  },
+  {
+    "timestep": 34,
+    "datetime": "2018-10-09T10:00:00",
+    "datetime_str": "2018-10-09_10:00:00",
+    "pressure_min_center": {
+      "lat": 25.359458923339844,
+      "lon": -86.60261535644531
+    },
+    "eyewall_refined_center": {
+      "lat": 25.366313934326172,
+      "lon": -86.51227569580078
+    },
+    "offset_km": 9.124483244807802,
+    "diagnostics": {
+      "max_lh_wm2": 906.821533203125,
+      "max_hfx_wm2": 760.8114013671875,
+      "max_enthalpy_wm2": 1489.921630859375,
+      "min_pressure_hpa": 993.361640625,
+      "inflow_top_height_km": 0.5420067771893331,
+      "inflow_top_level": 6,
+      "max_wind_ms": 31.384258270263672,
+      "shear_u_ms": 25.094928741455078,
+      "shear_v_ms": 0.38155221939086914,
+      "shear_mag_ms": 25.097829201642725,
+      "rmw_km": 45.5,
+      "motion_u_ms": 0.8412847304850662,
+      "motion_v_ms": 0.07071637047661675,
+      "motion_speed_ms": 0.8442516229186158
+    }
+  },
+  {
+    "timestep": 35,
+    "datetime": "2018-10-09T11:00:00",
+    "datetime_str": "2018-10-09_11:00:00",
+    "pressure_min_center": {
+      "lat": 25.350217819213867,
+      "lon": -86.72306060791016
+    },
+    "eyewall_refined_center": {
+      "lat": 25.363269805908203,
+      "lon": -86.55243682861328
+    },
+    "offset_km": 17.235172654497998,
+    "diagnostics": {
+      "max_lh_wm2": 871.7774658203125,
+      "max_hfx_wm2": 874.6325073242188,
+      "max_enthalpy_wm2": 1645.091552734375,
+      "min_pressure_hpa": 988.795,
+      "inflow_top_height_km": 0.4549985203285799,
+      "inflow_top_level": 5,
+      "max_wind_ms": 34.76342010498047,
+      "shear_u_ms": 25.092644691467285,
+      "shear_v_ms": 0.8571681976318359,
+      "shear_mag_ms": 25.107280914731742,
+      "rmw_km": 37.5,
+      "motion_u_ms": 0.70124815083369,
+      "motion_v_ms": 0.058448643154568145,
+      "motion_speed_ms": 0.7036797658980111
+    }
+  },
+  {
+    "timestep": 36,
+    "datetime": "2018-10-09T12:00:00",
+    "datetime_str": "2018-10-09_12:00:00",
+    "pressure_min_center": {
+      "lat": 25.366313934326172,
+      "lon": -86.51227569580078
+    },
+    "eyewall_refined_center": {
+      "lat": 25.370094299316406,
+      "lon": -86.46208190917969
+    },
+    "offset_km": 5.069190349608743,
+    "diagnostics": {
+      "max_lh_wm2": 1115.0313720703125,
+      "max_hfx_wm2": 1165.8328857421875,
+      "max_enthalpy_wm2": 2208.5693359375,
+      "min_pressure_hpa": 980.94765625,
+      "inflow_top_height_km": null,
+      "inflow_top_level": null,
+      "max_wind_ms": 43.66693878173828,
+      "shear_u_ms": 25.185972213745117,
+      "shear_v_ms": 0.7900609970092773,
+      "shear_mag_ms": 25.19836091357008,
+      "rmw_km": 15.5,
+      "motion_u_ms": -2.6640382614549436,
+      "motion_v_ms": -0.22586183547973632,
+      "motion_speed_ms": 2.6735955990430105
+    }
+  },
+  {
+    "timestep": 37,
+    "datetime": "2018-10-09T13:00:00",
+    "datetime_str": "2018-10-09_13:00:00",
+    "pressure_min_center": {
+      "lat": 25.34787940979004,
+      "lon": -86.75315856933594
+    },
+    "eyewall_refined_center": {
+      "lat": 25.348661422729492,
+      "lon": -86.74313354492188
+    },
+    "offset_km": 1.01286724453765,
+    "diagnostics": {
+      "max_lh_wm2": 1360.515380859375,
+      "max_hfx_wm2": 1395.254150390625,
+      "max_enthalpy_wm2": 2538.61328125,
+      "min_pressure_hpa": 974.061015625,
+      "inflow_top_height_km": 0.6179469082256145,
+      "inflow_top_level": 6,
+      "max_wind_ms": 44.965476989746094,
+      "shear_u_ms": 25.124536514282227,
+      "shear_v_ms": 0.26628780364990234,
+      "shear_mag_ms": 25.125947628932796,
+      "rmw_km": 23.5,
+      "motion_u_ms": -3.3659501203054667,
+      "motion_v_ms": -0.28333731757269964,
+      "motion_speed_ms": 3.3778543852442304
+    }
+  },
+  {
+    "timestep": 38,
+    "datetime": "2018-10-09T14:00:00",
+    "datetime_str": "2018-10-09_14:00:00",
+    "pressure_min_center": {
+      "lat": 25.33612823486328,
+      "lon": -86.90365600585938
+    },
+    "eyewall_refined_center": {
+      "lat": 25.351768493652344,
+      "lon": -86.7029800415039
+    },
+    "offset_km": 20.27565745971059,
+    "diagnostics": {
+      "max_lh_wm2": 1308.19921875,
+      "max_hfx_wm2": 1716.94873046875,
+      "max_enthalpy_wm2": 2822.1982421875,
+      "min_pressure_hpa": 971.400390625,
+      "inflow_top_height_km": 0.5532710433347081,
+      "inflow_top_level": 6,
+      "max_wind_ms": 42.71825408935547,
+      "shear_u_ms": 24.344935417175293,
+      "shear_v_ms": 0.2438497543334961,
+      "shear_mag_ms": 24.346156640610126,
+      "rmw_km": 31.5,
+      "motion_u_ms": -0.8095128585971069,
+      "motion_v_ms": 1.2016179932488336,
+      "motion_speed_ms": 1.4488605419202407
+    }
+  },
+  {
+    "timestep": 39,
+    "datetime": "2018-10-09T15:00:00",
+    "datetime_str": "2018-10-09_15:00:00",
+    "pressure_min_center": {
+      "lat": 25.428386688232422,
+      "lon": -86.89230346679688
+    },
+    "eyewall_refined_center": {
+      "lat": 25.426380157470703,
+      "lon": -86.80107116699219
+    },
+    "offset_km": 9.180486165422197,
+    "diagnostics": {
+      "max_lh_wm2": 1150.548095703125,
+      "max_hfx_wm2": 1121.7159423828125,
+      "max_enthalpy_wm2": 2054.36181640625,
+      "min_pressure_hpa": 968.124375,
+      "inflow_top_height_km": 0.5873046102204112,
+      "inflow_top_level": 6,
+      "max_wind_ms": 44.95497131347656,
+      "shear_u_ms": 23.69427490234375,
+      "shear_v_ms": 0.21680068969726562,
+      "shear_mag_ms": 23.69526673593041,
+      "rmw_km": 43.5,
+      "motion_u_ms": -2.5826830431401615,
+      "motion_v_ms": 3.733016342586941,
+      "motion_speed_ms": 4.539346066929125
+    }
+  },
+  {
+    "timestep": 40,
+    "datetime": "2018-10-09T16:00:00",
+    "datetime_str": "2018-10-09_16:00:00",
+    "pressure_min_center": {
+      "lat": 25.7607479095459,
+      "lon": -86.7315673828125
+    },
+    "eyewall_refined_center": {
+      "lat": 25.59321403503418,
+      "lon": -86.887939453125
+    },
+    "offset_km": 24.308497625437358,
+    "diagnostics": {
+      "max_lh_wm2": 1290.6146240234375,
+      "max_hfx_wm2": 1422.9918212890625,
+      "max_enthalpy_wm2": 2439.941650390625,
+      "min_pressure_hpa": 968.676953125,
+      "inflow_top_height_km": 0.5785270921556314,
+      "inflow_top_level": 6,
+      "max_wind_ms": 47.875545501708984,
+      "shear_u_ms": 22.475308418273926,
+      "shear_v_ms": -0.0643148422241211,
+      "shear_mag_ms": 22.47540043904591,
+      "rmw_km": 47.5,
+      "motion_u_ms": -1.9263172427833146,
+      "motion_v_ms": 5.908974986606174,
+      "motion_speed_ms": 6.215036887435323
+    }
+  },
+  {
+    "timestep": 41,
+    "datetime": "2018-10-09T17:00:00",
+    "datetime_str": "2018-10-09_17:00:00",
+    "pressure_min_center": {
+      "lat": 25.683135986328125,
+      "lon": -86.90676879882812
+    },
+    "eyewall_refined_center": {
+      "lat": 25.808563232421875,
+      "lon": -86.93921661376953
+    },
+    "offset_km": 14.271625869424483,
+    "diagnostics": {
+      "max_lh_wm2": 1199.2872314453125,
+      "max_hfx_wm2": 1582.8629150390625,
+      "max_enthalpy_wm2": 2598.07568359375,
+      "min_pressure_hpa": 965.086328125,
+      "inflow_top_height_km": 0.6538566917995257,
+      "inflow_top_level": 6,
+      "max_wind_ms": 46.837257385253906,
+      "shear_u_ms": 21.20114803314209,
+      "shear_v_ms": -0.2957782745361328,
+      "shear_mag_ms": 21.20321114149676,
+      "rmw_km": 40.5,
+      "motion_u_ms": -1.711405624664902,
+      "motion_v_ms": 6.63486466937595,
+      "motion_speed_ms": 6.852031698194915
+    }
+  },
+  {
+    "timestep": 42,
+    "datetime": "2018-10-09T18:00:00",
+    "datetime_str": "2018-10-09_18:00:00",
+    "pressure_min_center": {
+      "lat": 26.19078826904297,
+      "lon": -87.07839965820312
+    },
+    "eyewall_refined_center": {
+      "lat": 26.02234649658203,
+      "lon": -87.01089477539062
+    },
+    "offset_km": 19.845634314798414,
+    "diagnostics": {
+      "max_lh_wm2": 1436.650634765625,
+      "max_hfx_wm2": 1563.3106689453125,
+      "max_enthalpy_wm2": 2875.7158203125,
+      "min_pressure_hpa": 963.32015625,
+      "inflow_top_height_km": 0.7394081133485774,
+      "inflow_top_level": 7,
+      "max_wind_ms": 49.55360794067383,
+      "shear_u_ms": 20.311253547668457,
+      "shear_v_ms": 0.13928699493408203,
+      "shear_mag_ms": 20.31173113116241,
+      "rmw_km": 41.5,
+      "motion_u_ms": -1.4627022241991467,
+      "motion_v_ms": 5.385473314921061,
+      "motion_speed_ms": 5.580575294931874
+    }
+  },
+  {
+    "timestep": 43,
+    "datetime": "2018-10-09T19:00:00",
+    "datetime_str": "2018-10-09_19:00:00",
+    "pressure_min_center": {
+      "lat": 26.287166595458984,
+      "lon": -87.01649475097656
+    },
+    "eyewall_refined_center": {
+      "lat": 26.15688705444336,
+      "lon": -87.04449462890625
+    },
+    "offset_km": 14.702546814130926,
+    "diagnostics": {
+      "max_lh_wm2": 1439.0406494140625,
+      "max_hfx_wm2": 1076.5576171875,
+      "max_enthalpy_wm2": 2309.840576171875,
+      "min_pressure_hpa": 962.34296875,
+      "inflow_top_height_km": 0.7697699774684643,
+      "inflow_top_level": 7,
+      "max_wind_ms": 46.6446533203125,
+      "shear_u_ms": 19.927987098693848,
+      "shear_v_ms": 0.24385833740234375,
+      "shear_mag_ms": 19.929479087382816,
+      "rmw_km": 41.5,
+      "motion_u_ms": -0.7765149954078301,
+      "motion_v_ms": 5.588804997338189,
+      "motion_speed_ms": 5.642492076765862
+    }
+  },
+  {
+    "timestep": 44,
+    "datetime": "2018-10-09T20:00:00",
+    "datetime_str": "2018-10-09_20:00:00",
+    "pressure_min_center": {
+      "lat": 26.28128433227539,
+      "lon": -86.97511291503906
+    },
+    "eyewall_refined_center": {
+      "lat": 26.383821487426758,
+      "lon": -87.06684875488281
+    },
+    "offset_km": 14.592279129126439,
+    "diagnostics": {
+      "max_lh_wm2": 1555.782958984375,
+      "max_hfx_wm2": 1438.9998779296875,
+      "max_enthalpy_wm2": 2462.152587890625,
+      "min_pressure_hpa": 959.916875,
+      "inflow_top_height_km": 0.8156238711210908,
+      "inflow_top_level": 7,
+      "max_wind_ms": 53.452430725097656,
+      "shear_u_ms": 18.69766855239868,
+      "shear_v_ms": 0.2341136932373047,
+      "shear_mag_ms": 18.699134164894367,
+      "rmw_km": 35.5,
+      "motion_u_ms": -0.31490254337254486,
+      "motion_v_ms": 6.762171830071344,
+      "motion_speed_ms": 6.769500090201116
+    }
+  },
+  {
+    "timestep": 45,
+    "datetime": "2018-10-09T21:00:00",
+    "datetime_str": "2018-10-09_21:00:00",
+    "pressure_min_center": {
+      "lat": 26.694332122802734,
+      "lon": -87.18983459472656
+    },
+    "eyewall_refined_center": {
+      "lat": 26.594253540039062,
+      "lon": -87.06723022460938
+    },
+    "offset_km": 16.491483053486583,
+    "diagnostics": {
+      "max_lh_wm2": 1800.393310546875,
+      "max_hfx_wm2": 1646.7596435546875,
+      "max_enthalpy_wm2": 3318.349609375,
+      "min_pressure_hpa": 957.488203125,
+      "inflow_top_height_km": 0.9042737168033089,
+      "inflow_top_level": 7,
+      "max_wind_ms": 54.412113189697266,
+      "shear_u_ms": 17.233635425567627,
+      "shear_v_ms": 0.703150749206543,
+      "shear_mag_ms": 17.247974111688862,
+      "rmw_km": 37.5,
+      "motion_u_ms": -1.3393693168673853,
+      "motion_v_ms": 7.097558519575331,
+      "motion_speed_ms": 7.2228281930115275
+    }
+  },
+  {
+    "timestep": 46,
+    "datetime": "2018-10-09T22:00:00",
+    "datetime_str": "2018-10-09_22:00:00",
+    "pressure_min_center": {
+      "lat": 26.740352630615234,
+      "lon": -87.07145690917969
+    },
+    "eyewall_refined_center": {
+      "lat": 26.842880249023438,
+      "lon": -87.16372680664062
+    },
+    "offset_km": 14.602507216972015,
+    "diagnostics": {
+      "max_lh_wm2": 1644.3477783203125,
+      "max_hfx_wm2": 1370.08984375,
+      "max_enthalpy_wm2": 2467.81494140625,
+      "min_pressure_hpa": 956.2046875,
+      "inflow_top_height_km": 0.8579500309188288,
+      "inflow_top_level": 7,
+      "max_wind_ms": 49.496124267578125,
+      "shear_u_ms": 15.89713430404663,
+      "shear_v_ms": 0.8819675445556641,
+      "shear_mag_ms": 15.921581134753724,
+      "rmw_km": 37.5,
+      "motion_u_ms": -1.0599588806444422,
+      "motion_v_ms": 5.566540251837837,
+      "motion_speed_ms": 5.666558320884721
+    }
+  },
+  {
+    "timestep": 47,
+    "datetime": "2018-10-09T23:00:00",
+    "datetime_str": "2018-10-09_23:00:00",
+    "pressure_min_center": {
+      "lat": 27.017871856689453,
+      "lon": -87.15043640136719
+    },
+    "eyewall_refined_center": {
+      "lat": 26.954288482666016,
+      "lon": -87.1440658569336
+    },
+    "offset_km": 7.073572457911575,
+    "diagnostics": {
+      "max_lh_wm2": 1533.51611328125,
+      "max_hfx_wm2": 1403.98095703125,
+      "max_enthalpy_wm2": 2712.1689453125,
+      "min_pressure_hpa": 954.975078125,
+      "inflow_top_height_km": 0.8495145117882357,
+      "inflow_top_level": 7,
+      "max_wind_ms": 52.169673919677734,
+      "shear_u_ms": 15.297581195831299,
+      "shear_v_ms": 0.5185966491699219,
+      "shear_mag_ms": 15.306369031471233,
+      "rmw_km": 36.5,
+      "motion_u_ms": -0.19641059032700964,
+      "motion_v_ms": 5.36182255215115,
+      "motion_speed_ms": 5.365418734893789
+    }
+  },
+  {
+    "timestep": 48,
+    "datetime": "2018-10-10T00:00:00",
+    "datetime_str": "2018-10-10_00:00:00",
+    "pressure_min_center": {
+      "lat": 27.268840789794922,
+      "lon": -87.10353088378906
+    },
+    "eyewall_refined_center": {
+      "lat": 27.189674377441406,
+      "lon": -87.177978515625
+    },
+    "offset_km": 11.4599767110132,
+    "diagnostics": {
+      "max_lh_wm2": 1596.7353515625,
+      "max_hfx_wm2": 1731.0052490234375,
+      "max_enthalpy_wm2": 3111.606689453125,
+      "min_pressure_hpa": 954.290546875,
+      "inflow_top_height_km": 0.9139670946148555,
+      "inflow_top_level": 7,
+      "max_wind_ms": 51.99630355834961,
+      "shear_u_ms": 13.919155597686768,
+      "shear_v_ms": -0.22112751007080078,
+      "shear_mag_ms": 13.920911964678355,
+      "rmw_km": 36.5,
+      "motion_u_ms": -1.2417791744212514,
+      "motion_v_ms": 7.534861712985569,
+      "motion_speed_ms": 7.636501591163466
+    }
+  },
+  {
+    "timestep": 49,
+    "datetime": "2018-10-10T01:00:00",
+    "datetime_str": "2018-10-10_01:00:00",
+    "pressure_min_center": {
+      "lat": 27.400367736816406,
+      "lon": -87.29208374023438
+    },
+    "eyewall_refined_center": {
+      "lat": 27.441631317138672,
+      "lon": -87.23435974121094
+    },
+    "offset_km": 7.313492525757608,
+    "diagnostics": {
+      "max_lh_wm2": 1835.2791748046875,
+      "max_hfx_wm2": 1389.727294921875,
+      "max_enthalpy_wm2": 2642.78125,
+      "min_pressure_hpa": 952.923203125,
+      "inflow_top_height_km": 0.9005961383500458,
+      "inflow_top_level": 7,
+      "max_wind_ms": 51.95601272583008,
+      "shear_u_ms": 12.083699226379395,
+      "shear_v_ms": -1.1100292205810547,
+      "shear_mag_ms": 12.134576707250474,
+      "rmw_km": 36.5,
+      "motion_u_ms": -2.140206101015619,
+      "motion_v_ms": 6.463204956054687,
+      "motion_speed_ms": 6.808340506966022
+    }
+  },
+  {
+    "timestep": 50,
+    "datetime": "2018-10-10T02:00:00",
+    "datetime_str": "2018-10-10_02:00:00",
+    "pressure_min_center": {
+      "lat": 27.6729679107666,
+      "lon": -87.31996154785156
+    },
+    "eyewall_refined_center": {
+      "lat": 27.607704162597656,
+      "lon": -87.33395385742188
+    },
+    "offset_km": 7.362761184133046,
+    "diagnostics": {
+      "max_lh_wm2": 1440.2213134765625,
+      "max_hfx_wm2": 1464.425537109375,
+      "max_enthalpy_wm2": 2692.54736328125,
+      "min_pressure_hpa": 952.862578125,
+      "inflow_top_height_km": 0.8481407583294097,
+      "inflow_top_level": 7,
+      "max_wind_ms": 54.517601013183594,
+      "shear_u_ms": 11.450592041015625,
+      "shear_v_ms": -2.1721887588500977,
+      "shear_mag_ms": 11.65480424948635,
+      "rmw_km": 36.5,
+      "motion_u_ms": -1.5179594602872546,
+      "motion_v_ms": 5.812012757195367,
+      "motion_speed_ms": 6.006970385550212
+    }
+  },
+  {
+    "timestep": 51,
+    "datetime": "2018-10-10T03:00:00",
+    "datetime_str": "2018-10-10_03:00:00",
+    "pressure_min_center": {
+      "lat": 27.899343490600586,
+      "lon": -87.35357666015625
+    },
+    "eyewall_refined_center": {
+      "lat": 27.817543029785156,
+      "lon": -87.34515380859375
+    },
+    "offset_km": 9.102775223505475,
+    "diagnostics": {
+      "max_lh_wm2": 1491.7288818359375,
+      "max_hfx_wm2": 1393.3092041015625,
+      "max_enthalpy_wm2": 2480.7177734375,
+      "min_pressure_hpa": 951.812109375,
+      "inflow_top_height_km": 0.8396889646646938,
+      "inflow_top_level": 7,
+      "max_wind_ms": 54.289424896240234,
+      "shear_u_ms": 10.358500003814697,
+      "shear_v_ms": -3.0844411849975586,
+      "shear_mag_ms": 10.807973896745784,
+      "rmw_km": 37.5,
+      "motion_u_ms": -0.1918580224430664,
+      "motion_v_ms": 6.783139027489556,
+      "motion_speed_ms": 6.785851793771194
+    }
+  },
+  {
+    "timestep": 52,
+    "datetime": "2018-10-10T04:00:00",
+    "datetime_str": "2018-10-10_04:00:00",
+    "pressure_min_center": {
+      "lat": 28.081893920898438,
+      "lon": -87.476318359375
+    },
+    "eyewall_refined_center": {
+      "lat": 28.04642677307129,
+      "lon": -87.34798431396484
+    },
+    "offset_km": 13.213795069196019,
+    "diagnostics": {
+      "max_lh_wm2": 1534.581298828125,
+      "max_hfx_wm2": 1451.950439453125,
+      "max_enthalpy_wm2": 2635.96923828125,
+      "min_pressure_hpa": 950.578515625,
+      "inflow_top_height_km": 0.8611127784022343,
+      "inflow_top_level": 7,
+      "max_wind_ms": 56.62535095214844,
+      "shear_u_ms": 9.37761402130127,
+      "shear_v_ms": -3.6974706649780273,
+      "shear_mag_ms": 10.080224900808474,
+      "rmw_km": 36.5,
+      "motion_u_ms": -0.33355765584391356,
+      "motion_v_ms": 6.771431605021159,
+      "motion_speed_ms": 6.77964207692792
+    }
+  },
+  {
+    "timestep": 53,
+    "datetime": "2018-10-10T05:00:00",
+    "datetime_str": "2018-10-10_05:00:00",
+    "pressure_min_center": {
+      "lat": 28.29269790649414,
+      "lon": -87.36302947998047
+    },
+    "eyewall_refined_center": {
+      "lat": 28.255508422851562,
+      "lon": -87.36959838867188
+    },
+    "offset_km": 4.171568900086131,
+    "diagnostics": {
+      "max_lh_wm2": 1476.73828125,
+      "max_hfx_wm2": 1605.6209716796875,
+      "max_enthalpy_wm2": 2894.626708984375,
+      "min_pressure_hpa": 950.21859375,
+      "inflow_top_height_km": 0.9154104747457342,
+      "inflow_top_level": 7,
+      "max_wind_ms": 58.28388595581055,
+      "shear_u_ms": 8.55669116973877,
+      "shear_v_ms": -4.375255584716797,
+      "shear_mag_ms": 9.610401927384773,
+      "rmw_km": 36.5,
+      "motion_u_ms": -0.05184787089274225,
+      "motion_v_ms": 6.7978838920593265,
+      "motion_speed_ms": 6.798081612604821
+    }
+  },
+  {
+    "timestep": 54,
+    "datetime": "2018-10-10T06:00:00",
+    "datetime_str": "2018-10-10_06:00:00",
+    "pressure_min_center": {
+      "lat": 28.457141876220703,
+      "lon": -87.25495910644531
+    },
+    "eyewall_refined_center": {
+      "lat": 28.486103057861328,
+      "lon": -87.35179138183594
+    },
+    "offset_km": 10.011283932086753,
+    "diagnostics": {
+      "max_lh_wm2": 1605.9339599609375,
+      "max_hfx_wm2": 1588.213623046875,
+      "max_enthalpy_wm2": 2714.669677734375,
+      "min_pressure_hpa": 948.87625,
+      "inflow_top_height_km": 0.8997038482727058,
+      "inflow_top_level": 7,
+      "max_wind_ms": 58.53293228149414,
+      "shear_u_ms": 7.573140382766724,
+      "shear_v_ms": -4.967587947845459,
+      "shear_mag_ms": 9.057007523275642,
+      "rmw_km": 36.5,
+      "motion_u_ms": -0.11746713233372089,
+      "motion_v_ms": 7.5014793395996096,
+      "motion_speed_ms": 7.502399003626674
+    }
+  },
+  {
+    "timestep": 55,
+    "datetime": "2018-10-10T07:00:00",
+    "datetime_str": "2018-10-10_07:00:00",
+    "pressure_min_center": {
+      "lat": 28.575366973876953,
+      "lon": -87.38192749023438
+    },
+    "eyewall_refined_center": {
+      "lat": 28.740692138671875,
+      "lon": -87.37824249267578
+    },
+    "offset_km": 18.32655271467845,
+    "diagnostics": {
+      "max_lh_wm2": 1519.959716796875,
+      "max_hfx_wm2": 1614.897216796875,
+      "max_enthalpy_wm2": 2835.677978515625,
+      "min_pressure_hpa": 947.48875,
+      "inflow_top_height_km": 0.9021142210592306,
+      "inflow_top_level": 7,
+      "max_wind_ms": 63.27432632446289,
+      "shear_u_ms": 6.547461152076721,
+      "shear_v_ms": -5.797496795654297,
+      "shear_mag_ms": 8.745296829357804,
+      "rmw_km": 37.5,
+      "motion_u_ms": 0.03723370341414413,
+      "motion_v_ms": 7.374585035112169,
+      "motion_speed_ms": 7.374679029542254
+    }
+  },
+  {
+    "timestep": 56,
+    "datetime": "2018-10-10T08:00:00",
+    "datetime_str": "2018-10-10_08:00:00",
+    "pressure_min_center": {
+      "lat": 28.893491744995117,
+      "lon": -87.53031921386719
+    },
+    "eyewall_refined_center": {
+      "lat": 28.96307945251465,
+      "lon": -87.34904479980469
+    },
+    "offset_km": 19.284820524163763,
+    "diagnostics": {
+      "max_lh_wm2": 1488.251708984375,
+      "max_hfx_wm2": 1615.91259765625,
+      "max_enthalpy_wm2": 2889.031494140625,
+      "min_pressure_hpa": 945.608984375,
+      "inflow_top_height_km": 0.9470346253083508,
+      "inflow_top_level": 7,
+      "max_wind_ms": 58.935951232910156,
+      "shear_u_ms": 5.322725147008896,
+      "shear_v_ms": -6.357082843780518,
+      "shear_mag_ms": 8.29119444189373,
+      "rmw_km": 37.5,
+      "motion_u_ms": 0.6382260430284707,
+      "motion_v_ms": 7.004783831702339,
+      "motion_speed_ms": 7.033799045386375
+    }
+  },
+  {
+    "timestep": 57,
+    "datetime": "2018-10-10T09:00:00",
+    "datetime_str": "2018-10-10_09:00:00",
+    "pressure_min_center": {
+      "lat": 29.188661575317383,
+      "lon": -87.50912475585938
+    },
+    "eyewall_refined_center": {
+      "lat": 29.193750381469727,
+      "lon": -87.33106231689453
+    },
+    "offset_km": 17.327363886384127,
+    "diagnostics": {
+      "max_lh_wm2": 1646.022216796875,
+      "max_hfx_wm2": 1731.9808349609375,
+      "max_enthalpy_wm2": 2944.094482421875,
+      "min_pressure_hpa": 945.020625,
+      "inflow_top_height_km": 0.986289664425494,
+      "inflow_top_level": 8,
+      "max_wind_ms": 65.32196807861328,
+      "shear_u_ms": 4.052396655082703,
+      "shear_v_ms": -6.824193477630615,
+      "shear_mag_ms": 7.93672068742889,
+      "rmw_km": 36.5,
+      "motion_u_ms": 1.191011382097345,
+      "motion_v_ms": 7.1966145197550455,
+      "motion_speed_ms": 7.294502632684052
+    }
+  },
+  {
+    "timestep": 58,
+    "datetime": "2018-10-10T10:00:00",
+    "datetime_str": "2018-10-10_10:00:00",
+    "pressure_min_center": {
+      "lat": 29.487049102783203,
+      "lon": -87.09834289550781
+    },
+    "eyewall_refined_center": {
+      "lat": 29.428544998168945,
+      "lon": -87.26080322265625
+    },
+    "offset_km": 17.04173219087521,
+    "diagnostics": {
+      "max_lh_wm2": 1594.9384765625,
+      "max_hfx_wm2": 1863.3948974609375,
+      "max_enthalpy_wm2": 3160.68115234375,
+      "min_pressure_hpa": 943.22828125,
+      "inflow_top_height_km": 1.01833648198105,
+      "inflow_top_level": 8,
+      "max_wind_ms": 62.703285217285156,
+      "shear_u_ms": 2.8644609451293945,
+      "shear_v_ms": -7.041738986968994,
+      "shear_mag_ms": 7.602053963684466,
+      "rmw_km": 36.5,
+      "motion_u_ms": 2.1535032757824033,
+      "motion_v_ms": 7.566445212894016,
+      "motion_speed_ms": 7.866935204927794
+    }
+  },
+  {
+    "timestep": 59,
+    "datetime": "2018-10-10T11:00:00",
+    "datetime_str": "2018-10-10_11:00:00",
+    "pressure_min_center": {
+      "lat": 29.582050323486328,
+      "lon": -87.05532836914062
+    },
+    "eyewall_refined_center": {
+      "lat": 29.683135986328125,
+      "lon": -87.171142578125
+    },
+    "offset_km": 15.85360478409657,
+    "diagnostics": {
+      "max_lh_wm2": 1976.317626953125,
+      "max_hfx_wm2": 2670.444580078125,
+      "max_enthalpy_wm2": 4005.686767578125,
+      "min_pressure_hpa": 942.21,
+      "inflow_top_height_km": 1.2010407708822177,
+      "inflow_top_level": 8,
+      "max_wind_ms": 69.43421936035156,
+      "shear_u_ms": 0.9240984916687012,
+      "shear_v_ms": -6.698115825653076,
+      "shear_mag_ms": 6.761561479138422,
+      "rmw_km": 36.5,
+      "motion_u_ms": 2.0543146773082115,
+      "motion_v_ms": 7.13099987241957,
+      "motion_speed_ms": 7.421008555031577
+    }
+  },
+  {
+    "timestep": 60,
+    "datetime": "2018-10-10T12:00:00",
+    "datetime_str": "2018-10-10_12:00:00",
+    "pressure_min_center": {
+      "lat": 29.924304962158203,
+      "lon": -87.01620483398438
+    },
+    "eyewall_refined_center": {
+      "lat": 29.889766693115234,
+      "lon": -87.10786437988281
+    },
+    "offset_km": 9.644593192782242,
+    "diagnostics": {
+      "max_lh_wm2": 2023.869140625,
+      "max_hfx_wm2": 3233.87109375,
+      "max_enthalpy_wm2": 4799.548828125,
+      "min_pressure_hpa": 940.866015625,
+      "inflow_top_height_km": 1.3808010681885488,
+      "inflow_top_level": 9,
+      "max_wind_ms": 68.48358154296875,
+      "shear_u_ms": -0.22146892547607422,
+      "shear_v_ms": -6.675005912780762,
+      "shear_mag_ms": 6.678678942770768,
+      "rmw_km": 37.5,
+      "motion_u_ms": 1.5843467283007113,
+      "motion_v_ms": 6.09511415693495,
+      "motion_speed_ms": 6.297663943205132
+    }
+  },
+  {
+    "timestep": 61,
+    "datetime": "2018-10-10T13:00:00",
+    "datetime_str": "2018-10-10_13:00:00",
+    "pressure_min_center": {
+      "lat": 30.24456024169922,
+      "lon": -87.14436340332031
+    },
+    "eyewall_refined_center": {
+      "lat": 30.07735824584961,
+      "lon": -87.05294799804688
+    },
+    "offset_km": 20.520731676989328,
+    "diagnostics": {
+      "max_lh_wm2": 2001.049560546875,
+      "max_hfx_wm2": 3349.02734375,
+      "max_enthalpy_wm2": 4886.51171875,
+      "min_pressure_hpa": 939.191796875,
+      "inflow_top_height_km": 1.4613198540676144,
+      "inflow_top_level": 9,
+      "max_wind_ms": 65.68830108642578,
+      "shear_u_ms": -1.281167984008789,
+      "shear_v_ms": -6.334100723266602,
+      "shear_mag_ms": 6.46236979565048,
+      "rmw_km": 37.5,
+      "motion_u_ms": 2.4762542554287825,
+      "motion_v_ms": 7.305962435404459,
+      "motion_speed_ms": 7.7142026318389
+    }
+  },
+  {
+    "timestep": 62,
+    "datetime": "2018-10-10T14:00:00",
+    "datetime_str": "2018-10-10_14:00:00",
+    "pressure_min_center": {
+      "lat": 30.312297821044922,
+      "lon": -87.09825897216797
+    },
+    "eyewall_refined_center": {
+      "lat": 30.3623046875,
+      "lon": -86.92278289794922
+    },
+    "offset_km": 17.760816898558065,
+    "diagnostics": {
+      "max_lh_wm2": 2214.661376953125,
+      "max_hfx_wm2": 5091.376953125,
+      "max_enthalpy_wm2": 7306.0380859375,
+      "min_pressure_hpa": 938.506796875,
+      "inflow_top_height_km": 1.408602656920513,
+      "inflow_top_level": 9,
+      "max_wind_ms": 62.060462951660156,
+      "shear_u_ms": -2.698577404022217,
+      "shear_v_ms": -5.058879613876343,
+      "shear_mag_ms": 5.733636102264683,
+      "rmw_km": 38.5,
+      "motion_u_ms": 2.955907166397131,
+      "motion_v_ms": 8.338427342308892,
+      "motion_speed_ms": 8.846850158068827
+    }
+  },
+  {
+    "timestep": 63,
+    "datetime": "2018-10-10T15:00:00",
+    "datetime_str": "2018-10-10_15:00:00",
+    "pressure_min_center": {
+      "lat": 30.778417587280273,
+      "lon": -86.75163269042969
+    },
+    "eyewall_refined_center": {
+      "lat": 30.616674423217773,
+      "lon": -86.83137512207031
+    },
+    "offset_km": 19.49114235559593,
+    "diagnostics": {
+      "max_lh_wm2": 2704.48681640625,
+      "max_hfx_wm2": 5132.2490234375,
+      "max_enthalpy_wm2": 7836.73583984375,
+      "min_pressure_hpa": 940.033125,
+      "inflow_top_height_km": 1.2892809217194727,
+      "inflow_top_level": 9,
+      "max_wind_ms": 57.177520751953125,
+      "shear_u_ms": -3.745490074157715,
+      "shear_v_ms": -3.8487746715545654,
+      "shear_mag_ms": 5.370452715368968,
+      "rmw_km": 41.5,
+      "motion_u_ms": 2.6277084714809607,
+      "motion_v_ms": 7.313865682813856,
+      "motion_speed_ms": 7.771581759033034
+    }
+  },
+  {
+    "timestep": 64,
+    "datetime": "2018-10-10T16:00:00",
+    "datetime_str": "2018-10-10_16:00:00",
+    "pressure_min_center": {
+      "lat": 31.018901824951172,
+      "lon": -86.72219848632812
+    },
+    "eyewall_refined_center": {
+      "lat": 30.83535385131836,
+      "lon": -86.72529602050781
+    },
+    "offset_km": 20.35178927025916,
+    "diagnostics": {
+      "max_lh_wm2": 2547.3671875,
+      "max_hfx_wm2": 4939.02001953125,
+      "max_enthalpy_wm2": 7486.38720703125,
+      "min_pressure_hpa": 942.145390625,
+      "inflow_top_height_km": 1.1659592251166686,
+      "inflow_top_level": 8,
+      "max_wind_ms": 49.818267822265625,
+      "shear_u_ms": -4.049245357513428,
+      "shear_v_ms": -2.6178293228149414,
+      "shear_mag_ms": 4.8217650636186935,
+      "rmw_km": 49.5,
+      "motion_u_ms": 2.151388105096497,
+      "motion_v_ms": 7.979124482472738,
+      "motion_speed_ms": 8.26407274202899
+    }
+  },
+  {
+    "timestep": 65,
+    "datetime": "2018-10-10T17:00:00",
+    "datetime_str": "2018-10-10_17:00:00",
+    "pressure_min_center": {
+      "lat": 31.09033966064453,
+      "lon": -86.622314453125
+    },
+    "eyewall_refined_center": {
+      "lat": 31.13275146484375,
+      "lon": -86.66931915283203
+    },
+    "offset_km": 6.497437917362132,
+    "diagnostics": {
+      "max_lh_wm2": 2389.63916015625,
+      "max_hfx_wm2": 4575.72509765625,
+      "max_enthalpy_wm2": 6965.3642578125,
+      "min_pressure_hpa": 944.96140625,
+      "inflow_top_height_km": 1.1006411579417619,
+      "inflow_top_level": 8,
+      "max_wind_ms": 44.300270080566406,
+      "shear_u_ms": -4.4030375480651855,
+      "shear_v_ms": -1.3430194854736328,
+      "shear_mag_ms": 4.603307613883059,
+      "rmw_km": 38.5,
+      "motion_u_ms": 2.7914025865493093,
+      "motion_v_ms": 8.879770300123427,
+      "motion_speed_ms": 9.308181830150735
+    }
+  },
+  {
+    "timestep": 66,
+    "datetime": "2018-10-10T18:00:00",
+    "datetime_str": "2018-10-10_18:00:00",
+    "pressure_min_center": {
+      "lat": 31.385425567626953,
+      "lon": -86.46905517578125
+    },
+    "eyewall_refined_center": {
+      "lat": 31.409683227539062,
+      "lon": -86.51437377929688
+    },
+    "offset_km": 5.080409970885202,
+    "diagnostics": {
+      "max_lh_wm2": 2202.4873046875,
+      "max_hfx_wm2": 3433.11865234375,
+      "max_enthalpy_wm2": 5635.60595703125,
+      "min_pressure_hpa": 944.225546875,
+      "inflow_top_height_km": 1.0696464432871817,
+      "inflow_top_level": 8,
+      "max_wind_ms": 42.25614929199219,
+      "shear_u_ms": -5.015127658843994,
+      "shear_v_ms": 0.2097766399383545,
+      "shear_mag_ms": 5.019513091243598,
+      "rmw_km": 44.5,
+      "motion_u_ms": 2.877551771558523,
+      "motion_v_ms": 7.892719576093886,
+      "motion_speed_ms": 8.400912242420775
+    }
+  },
+  {
+    "timestep": 67,
+    "datetime": "2018-10-10T19:00:00",
+    "datetime_str": "2018-10-10_19:00:00",
+    "pressure_min_center": {
+      "lat": 31.782625198364258,
+      "lon": -86.29241943359375
+    },
+    "eyewall_refined_center": {
+      "lat": 31.643239974975586,
+      "lon": -86.45124816894531
+    },
+    "offset_km": 21.57573815802613,
+    "diagnostics": {
+      "max_lh_wm2": 1840.458251953125,
+      "max_hfx_wm2": 2371.644775390625,
+      "max_enthalpy_wm2": 4212.10302734375,
+      "min_pressure_hpa": 946.4234375,
+      "inflow_top_height_km": 0.983666353896097,
+      "inflow_top_level": 7,
+      "max_wind_ms": 39.40140151977539,
+      "shear_u_ms": -5.249403953552246,
+      "shear_v_ms": 1.6673429012298584,
+      "shear_mag_ms": 5.507837526457326,
+      "rmw_km": 45.5,
+      "motion_u_ms": 2.8178444593647223,
+      "motion_v_ms": 7.032297748989529,
+      "motion_speed_ms": 7.575847083172657
+    }
+  },
+  {
+    "timestep": 68,
+    "datetime": "2018-10-10T20:00:00",
+    "datetime_str": "2018-10-10_20:00:00",
+    "pressure_min_center": {
+      "lat": 31.909271240234375,
+      "lon": -86.31539916992188
+    },
+    "eyewall_refined_center": {
+      "lat": 31.864521026611328,
+      "lon": -86.30029296875
+    },
+    "offset_km": 5.1638352775865775,
+    "diagnostics": {
+      "max_lh_wm2": 1549.27734375,
+      "max_hfx_wm2": 1229.4364013671875,
+      "max_enthalpy_wm2": 2778.7138671875,
+      "min_pressure_hpa": 947.132734375,
+      "inflow_top_height_km": 1.0693535773966831,
+      "inflow_top_level": 8,
+      "max_wind_ms": 36.51850891113281,
+      "shear_u_ms": -5.2601847648620605,
+      "shear_v_ms": 2.9807541966438293,
+      "shear_mag_ms": 6.04602674004149,
+      "rmw_km": 49.5,
+      "motion_u_ms": 5.128735739507275,
+      "motion_v_ms": 4.807857990264893,
+      "motion_speed_ms": 7.02989535770293
+    }
+  },
+  {
+    "timestep": 69,
+    "datetime": "2018-10-10T21:00:00",
+    "datetime_str": "2018-10-10_21:00:00",
+    "pressure_min_center": {
+      "lat": 31.964977264404297,
+      "lon": -85.8997802734375
+    },
+    "eyewall_refined_center": {
+      "lat": 31.954204559326172,
+      "lon": -86.0606689453125
+    },
+    "offset_km": 15.256375539690055,
+    "diagnostics": {
+      "max_lh_wm2": 1521.826416015625,
+      "max_hfx_wm2": 977.7276611328125,
+      "max_enthalpy_wm2": 2499.55419921875,
+      "min_pressure_hpa": 952.931640625,
+      "inflow_top_height_km": 1.1697699753356396,
+      "inflow_top_level": 8,
+      "max_wind_ms": 36.57502365112305,
+      "shear_u_ms": -5.149229526519775,
+      "shear_v_ms": 4.388956978917122,
+      "shear_mag_ms": 6.765907779416475,
+      "rmw_km": 36.5,
+      "motion_u_ms": 6.239284230450506,
+      "motion_v_ms": 1.629956309000651,
+      "motion_speed_ms": 6.4486762422685935
+    }
+  },
+  {
+    "timestep": 70,
+    "datetime": "2018-10-10T22:00:00",
+    "datetime_str": "2018-10-10_22:00:00",
+    "pressure_min_center": {
+      "lat": 31.975566864013672,
+      "lon": -85.73884582519531
+    },
+    "eyewall_refined_center": {
+      "lat": 31.96994400024414,
+      "lon": -85.82467651367188
+    },
+    "offset_km": 8.136732299194618,
+    "diagnostics": {
+      "max_lh_wm2": 1221.4442138671875,
+      "max_hfx_wm2": 556.3546142578125,
+      "max_enthalpy_wm2": 1777.798828125,
+      "min_pressure_hpa": 964.4025,
+      "inflow_top_height_km": 1.2720432012568428,
+      "inflow_top_level": 8,
+      "max_wind_ms": 29.028827667236328,
+      "shear_u_ms": -4.743511199951172,
+      "shear_v_ms": 5.669879913330078,
+      "shear_mag_ms": 7.392458098335499,
+      "rmw_km": 30.5,
+      "motion_u_ms": 4.502542175899384,
+      "motion_v_ms": 0.3518124686347114,
+      "motion_speed_ms": 4.51626594199673
+    }
+  },
+  {
+    "timestep": 71,
+    "datetime": "2018-10-10T23:00:00",
+    "datetime_str": "2018-10-10_23:00:00",
+    "pressure_min_center": {
+      "lat": 31.98664093017578,
+      "lon": -85.56714630126953
+    },
+    "eyewall_refined_center": {
+      "lat": 31.976959228515625,
+      "lon": -85.7173843383789
+    },
+    "offset_km": 14.239793592221744,
+    "diagnostics": {
+      "max_lh_wm2": 1027.70947265625,
+      "max_hfx_wm2": 380.0685729980469,
+      "max_enthalpy_wm2": 1407.778076171875,
+      "min_pressure_hpa": 973.1621875,
+      "inflow_top_height_km": 1.1519140377036365,
+      "inflow_top_level": 8,
+      "max_wind_ms": 20.91600799560547,
+      "shear_u_ms": -4.0298075675964355,
+      "shear_v_ms": 6.645018815994263,
+      "shear_mag_ms": 7.771462159515113,
+      "rmw_km": 30.5,
+      "motion_u_ms": 11.404234291905185,
+      "motion_v_ms": 0.8405752393934461,
+      "motion_speed_ms": 11.435170594169005
+    }
+  },
+  {
+    "timestep": 72,
+    "datetime": "2018-10-11T00:00:00",
+    "datetime_str": "2018-10-11_00:00:00",
+    "pressure_min_center": {
+      "lat": 32.03687286376953,
+      "lon": -84.74028015136719
+    },
+    "eyewall_refined_center": {
+      "lat": 32.02431106567383,
+      "lon": -84.95512390136719
+    },
+    "offset_km": 20.34226128207189,
+    "diagnostics": {
+      "max_lh_wm2": 780.4298095703125,
+      "max_hfx_wm2": 231.46780395507812,
+      "max_enthalpy_wm2": 1011.8975830078125,
+      "min_pressure_hpa": 977.987734375,
+      "inflow_top_height_km": 9.900353258264026,
+      "inflow_top_level": 22,
+      "max_wind_ms": 18.331283569335938,
+      "shear_u_ms": -3.4848570823669434,
+      "shear_v_ms": 7.8559064865112305,
+      "shear_mag_ms": 8.59415473501218,
+      "rmw_km": 0.5,
+      "motion_u_ms": 19.98385905340219,
+      "motion_v_ms": 1.4642240312364367,
+      "motion_speed_ms": 20.037429343104243
+    }
+  }
+]
