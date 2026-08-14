@@ -69,6 +69,23 @@ body {
 }
 #navbar::-webkit-scrollbar { display: none; }
 
+.home-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius);
+  color: var(--text-dim);
+  flex-shrink: 0;
+  transition: background var(--trans), color var(--trans);
+}
+
+.home-link:hover {
+  color: var(--cyan);
+  background: var(--surface-hi);
+}
+
 .app-title {
   font-weight: 600;
   font-size: 13px;
