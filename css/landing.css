@@ -2,14 +2,25 @@
    WEATHER CANVAS — LANDING PAGE
    ============================================ */
 
+/* core.css sets html,body { overflow: hidden } for the fixed-layout TC RI
+   app. The landing/about pages are normal scrolling documents, so undo it
+   here — this file is only ever loaded by those two pages. */
+html, body {
+  height: auto;
+  min-height: 100%;
+  overflow: auto;
+}
+
 /* === Navbar === */
 .landing-navbar {
   position: sticky;
   top: 0;
   z-index: 100;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  row-gap: var(--space-sm);
   padding: var(--space-md) var(--space-xl);
   background: rgba(10, 22, 40, 0.85); /* --bg-primary @ 85% */
   backdrop-filter: blur(8px);
@@ -202,6 +213,8 @@ a.landing-card:hover {
   }
   .landing-nav-tabs {
     gap: var(--space-sm);
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
@@ -221,6 +234,9 @@ a.landing-card:hover {
 
   .landing-nav-tabs {
     gap: var(--space-xs);
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
   }
 
   .landing-nav-tabs a {
