@@ -57,6 +57,26 @@
   text-shadow: var(--glow-primary);
 }
 
+/* Back link to landing page */
+.navbar-home-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin-right: var(--space-xs);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all var(--transition-normal);
+}
+
+.navbar-home-link:hover {
+  color: var(--accent-primary);
+  background: var(--bg-tertiary);
+}
+
 /* Navbar Right - Navigation + About */
 .navbar-right {
   display: flex;

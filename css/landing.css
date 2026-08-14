@@ -204,3 +204,27 @@ a.landing-card:hover {
     gap: var(--space-sm);
   }
 }
+
+@media (max-width: 480px) {
+  .landing-navbar {
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .landing-brand {
+    font-size: 1rem;
+    gap: var(--space-xs);
+  }
+
+  .landing-brand i {
+    font-size: 1.15rem;
+  }
+
+  .landing-nav-tabs {
+    gap: var(--space-xs);
+  }
+
+  .landing-nav-tabs a {
+    font-size: 0.8rem;
+    padding: var(--space-xs) var(--space-sm);
+  }
+}
