@@ -61,7 +61,7 @@
 /* === Hero === */
 .landing-hero {
   position: relative;
-  padding: 96px var(--space-xl) 80px;
+  padding: 46px var(--space-xl) 30px;
   text-align: center;
   background-image:
     linear-gradient(180deg, rgba(5, 12, 24, 0.75) /* near-black, no matching token */ 0%, rgba(5, 12, 24, 0.55) /* near-black, no matching token */ 40%, rgba(10, 22, 40, 1) /* --bg-primary @ 100% */ 100%),
