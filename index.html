@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Canvas</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/landing.css">
+</head>
+<body>
+    <header class="landing-navbar">
+        <a href="/" class="landing-brand">
+            <i class="fas fa-hurricane"></i>
+            <span>Weather Canvas</span>
+        </a>
+        <nav class="landing-nav-tabs">
+            <a href="/" class="active">Home</a>
+            <a href="/tc-ri/">TC RI</a>
+            <a href="/about/">About</a>
+        </nav>
+    </header>
+
+    <section class="landing-hero">
+        <h1>Welcome to Weather Canvas</h1>
+        <p>
+            Tropical cyclone research visualization tools. This site is under active
+            development — start with the TC Rapid Intensification case study explorer
+            below while more analysis and visualization tools are added.
+        </p>
+    </section>
+
+    <main class="landing-cards">
+        <a href="/tc-ri/" class="landing-card">
+            <img class="landing-card-thumb" src="tc-ri/images/static/3d.png" alt="TC RI 3D enthalpy flux visualization">
+            <div class="landing-card-body">
+                <div class="landing-card-title-row">
+                    <h3>TC RI</h3>
+                </div>
+                <p>Rapid Intensification case study explorer — interactive WRF-derived storm structure and moist enthalpy flux visualizations.</p>
+            </div>
+        </a>
+
+        <div class="landing-card disabled">
+            <div class="landing-card-placeholder"><i class="fas fa-chart-line"></i></div>
+            <div class="landing-card-body">
+                <div class="landing-card-title-row">
+                    <h3>Uncertainty</h3>
+                    <span class="landing-badge">Coming soon</span>
+                </div>
+                <p>Forecast uncertainty visualization tools.</p>
+            </div>
+        </div>
+
+        <div class="landing-card disabled">
+            <div class="landing-card-placeholder"><i class="fas fa-satellite-dish"></i></div>
+            <div class="landing-card-body">
+                <div class="landing-card-title-row">
+                    <h3>Recon</h3>
+                    <span class="landing-badge">Coming soon</span>
+                </div>
+                <p>Aircraft reconnaissance data tools.</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
