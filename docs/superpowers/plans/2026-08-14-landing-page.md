@@ -1,6 +1,6 @@
 # Weather Canvas Landing Page Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [x]`) syntax for tracking.
 
 **Goal:** Move the existing TC RI app from site root to `/tc-ri/`, then build a new landing page at root matching the PolarWx sample layout (navbar + hero + 3-card grid), plus a placeholder `/about/` page.
 
@@ -27,7 +27,7 @@
 
 This is a pure relocation — every reference inside `js/app.js`, `js/trackmap.js`, `generate_3d_thumbnails.py`, and `rewrite_image_urls.py` is a relative path (`json/...`, `images/...`, `Path(__file__).resolve().parent`) with no leading slash, so nothing inside those files needs to change. Only the `core.css` link in `tc-ri/index.html` needs a path fix since that one file now lives one directory below where `core.css` stays.
 
-- [ ] **Step 1: Create the `tc-ri/` directory and move git-tracked app files into it**
+- [x] **Step 1: Create the `tc-ri/` directory and move git-tracked app files into it**
 
 ```bash
 mkdir -p tc-ri
@@ -45,7 +45,7 @@ git mv css/mobile.css tc-ri/css/mobile.css
 git mv images/static tc-ri/images/static
 ```
 
-- [ ] **Step 2: Move the large untracked per-storm image directories (plain `mv`, not `git mv` — they're gitignored)**
+- [x] **Step 2: Move the large untracked per-storm image directories (plain `mv`, not `git mv` — they're gitignored)**
 
 ```bash
 mkdir -p tc-ri/images
@@ -58,7 +58,7 @@ rmdir images
 
 Expected: `images/` at root no longer exists; `du -sh tc-ri/images/*` shows the same directories/sizes as before the move (~6.5G ian, ~8.0G ida, ~7.3G harvey, ~6.4G michael, ~12M static).
 
-- [ ] **Step 3: Fix the `core.css` link path in the relocated app**
+- [x] **Step 3: Fix the `core.css` link path in the relocated app**
 
 Read `tc-ri/index.html` around line 19, then:
 
@@ -71,7 +71,7 @@ Read `tc-ri/index.html` around line 19, then:
 
 Leave the other four stylesheet links (`css/components.css`, `css/layout.css`, `css/map.css?v=4`, `css/mobile.css`) unchanged — they now correctly resolve to `tc-ri/css/...` since the HTML file itself moved with them.
 
-- [ ] **Step 4: Update `.gitignore` for the new image paths**
+- [x] **Step 4: Update `.gitignore` for the new image paths**
 
 Read current `.gitignore`, then replace the four `images/<storm>/` lines:
 
@@ -86,7 +86,7 @@ tc-ri/images/harvey/
 tc-ri/images/michael/
 ```
 
-- [ ] **Step 5: Verify the relocated app still works**
+- [x] **Step 5: Verify the relocated app still works**
 
 ```bash
 python3 -m http.server 8000
@@ -94,7 +94,7 @@ python3 -m http.server 8000
 
 Open `http://localhost:8000/tc-ri/` in a browser. Expected: app loads exactly as before (title "TROPICAL CYCLONE RI CASE STUDIES", storm track map, product dropdowns populated). Check the browser console (or `mcp__claude-in-chrome__read_console_messages` if using browser automation) for 404s on `css/`, `js/`, or `json/` — there should be none. Stop the server (Ctrl-C) when done.
 
-- [ ] **Step 6: Commit**
+- [x] **Step 6: Commit**
 
 ```bash
 git add -A
@@ -113,7 +113,7 @@ Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
 
 Builds on `css/core.css`'s existing variables (`--bg-deep`, `--bg-primary`, `--accent-primary`, `--text-primary`, `--text-secondary`, `--font-display`, `--font-body`, `--space-*`, `--border-subtle`, `--transition-normal`, etc. — see `css/core.css:1-49`, unchanged by Task 1). No new variables are introduced; `landing.css` only adds selectors for the navbar, hero, and card grid.
 
-- [ ] **Step 1: Write `css/landing.css`**
+- [x] **Step 1: Write `css/landing.css`**
 
 ```css
 /* ============================================
@@ -324,7 +324,7 @@ a.landing-card:hover {
 }
 ```
 
-- [ ] **Step 2: Commit**
+- [x] **Step 2: Commit**
 
 ```bash
 git add css/landing.css
@@ -342,7 +342,7 @@ Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
 
 Depends on Task 1 (assets live at `tc-ri/images/static/3d.png` and `tc-ri/images/static/winds.png`, and `tc-ri/` is the link target for the TC RI card and nav tab) and Task 2 (`css/landing.css` classes used here).
 
-- [ ] **Step 1: Write `index.html`**
+- [x] **Step 1: Write `index.html`**
 
 ```html
 <!DOCTYPE html>
@@ -422,7 +422,7 @@ Depends on Task 1 (assets live at `tc-ri/images/static/3d.png` and `tc-ri/images
 </html>
 ```
 
-- [ ] **Step 2: Verify in browser**
+- [x] **Step 2: Verify in browser**
 
 ```bash
 python3 -m http.server 8000
@@ -430,7 +430,7 @@ python3 -m http.server 8000
 
 Open `http://localhost:8000/`. Expected: dark navbar with "Weather Canvas" + Home/TC RI/About tabs, hero section showing the Ian enthalpy-transport map darkened behind the headline/subtitle text (text must be legible against the image), 3-card grid below with the TC RI card showing the 3D isosurface thumbnail and two "Coming soon" placeholder cards. Click the TC RI card — expected: navigates to `/tc-ri/` and the app loads correctly (this confirms Task 1's relocation and this task's relative image path are both correct). Click browser back, then check the layout at a narrow window width (~500px) — expected: cards stack to a single column per the `@media (max-width: 900px)` rule. Stop the server when done.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add index.html
@@ -446,7 +446,7 @@ Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
 **Files:**
 - Create: `about/index.html`
 
-- [ ] **Step 1: Write `about/index.html`**
+- [x] **Step 1: Write `about/index.html`**
 
 ```html
 <!DOCTYPE html>
@@ -495,7 +495,7 @@ Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
 </html>
 ```
 
-- [ ] **Step 2: Verify in browser**
+- [x] **Step 2: Verify in browser**
 
 ```bash
 python3 -m http.server 8000
@@ -503,7 +503,7 @@ python3 -m http.server 8000
 
 Open `http://localhost:8000/about/`. Expected: same navbar as the landing page with "About" tab highlighted active, blurb text below. Navigate via the Home and TC RI tabs — expected: both resolve correctly (`/` and `/tc-ri/`). Stop the server when done.
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add about/index.html
@@ -521,7 +521,7 @@ Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
 
 The current `CLAUDE.md` (root of the `client` repo) documents the site as if `index.html` at root is the RI app itself. Update it to describe the landing page + `/tc-ri/` + `/about/` structure.
 
-- [ ] **Step 1: Read the current file and update the relevant sections**
+- [x] **Step 1: Read the current file and update the relevant sections**
 
 Read `CLAUDE.md` in full first. Then apply these changes:
 
@@ -550,11 +550,11 @@ tc-ri/               — TC RI case-study app (moved from root)
 
 6. In **Adding a New Storm** and **Adding a New Product**, prefix the referenced paths (`json/catalog.json`, `json/<storm>.json`, `images/<storm>/`) with `tc-ri/`.
 
-- [ ] **Step 2: Verify the edits read correctly**
+- [x] **Step 2: Verify the edits read correctly**
 
 Read the full updated `CLAUDE.md` back and confirm every path mentioned matches the actual post-move file locations from Task 1 (spot check: `tc-ri/index.html`, `tc-ri/js/app.js`, `tc-ri/json/catalog.json`, `css/core.css`, `css/landing.css`).
 
-- [ ] **Step 3: Commit**
+- [x] **Step 3: Commit**
 
 ```bash
 git add CLAUDE.md
@@ -569,7 +569,7 @@ Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>"
 
 **Files:** none (verification only)
 
-- [ ] **Step 1: Full local smoke test**
+- [x] **Step 1: Full local smoke test**
 
 ```bash
 python3 -m http.server 8000
@@ -585,7 +585,7 @@ Walk through, in a browser:
 
 Expected: no broken images, no 404s in the console on any of the three pages, all nav links resolve correctly. Stop the server when done.
 
-- [ ] **Step 2: Check for stray references to the old root-level paths**
+- [x] **Step 2: Check for stray references to the old root-level paths**
 
 ```bash
 grep -rn "src=\"images/\|src=\"js/\|src=\"json/\|href=\"css/components\|href=\"css/layout\|href=\"css/map\|href=\"css/mobile" index.html about/index.html
@@ -593,7 +593,7 @@ grep -rn "src=\"images/\|src=\"js/\|src=\"json/\|href=\"css/components\|href=\"c
 
 Expected: no matches (these paths only make sense from inside `tc-ri/` now; the root landing/about pages should never reference them without the `tc-ri/` prefix, except the two intentional `tc-ri/images/static/...` thumbnail/hero references already in `index.html`).
 
-- [ ] **Step 3: Final status check**
+- [x] **Step 3: Final status check**
 
 ```bash
 git status
