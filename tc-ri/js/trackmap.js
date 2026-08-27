@@ -50,14 +50,6 @@ const FILTERS = {
         extract: p => p.diagnostics.max_hfx_wm2,
         invert: false,
         formatVal: v => v.toFixed(0)
-    },
-    offset_km: {
-        label: 'Center Offset',
-        unit: 'km',
-        icon: 'fas fa-arrows-alt-h',
-        extract: p => p.offset_km,
-        invert: false,
-        formatVal: v => v.toFixed(1)
     }
 };
 
@@ -75,13 +67,8 @@ function getSidebarDiagProducts(storm = currentTrackStorm) {
         ? Object.keys(window.catalogDiag[storm]) : [];
 }
 
-// Only diagnostic-derived filters require a `diagnostics` block per track point.
-// Storms without diagnostics (e.g. Harvey) fall back to offset_km only.
-function hasDiagnostics(data) {
-    return Array.isArray(data) && data.length > 0 && !!data[0].diagnostics;
-}
 function getActiveFilters() {
-    return hasDiagnostics(trackData) ? FILTERS : { offset_km: FILTERS.offset_km };
+    return FILTERS;
 }
 
 function defaultMapSubtitle() {

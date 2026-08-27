@@ -470,7 +470,7 @@
 /* === Filter Bar Overlay === */
 .map-filter-overlay {
     position: absolute;
-    top: var(--space-lg);
+    top: calc(var(--space-lg) - 20px);
     right: var(--space-lg);
     display: flex;
     align-items: center;
