@@ -206,6 +206,23 @@ a.landing-card:hover {
   margin-bottom: var(--space-md);
 }
 
+.landing-about h2 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-md);
+}
+
+.landing-about h3 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-xs);
+}
+
 /* === Responsive === */
 @media (max-width: 900px) {
   .landing-cards {
