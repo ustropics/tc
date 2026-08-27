@@ -5,7 +5,7 @@ const AEWMap = (function () {
     maxZoom: 10
   }).setView([12, -20], 4);
   
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png?key=cb1_29z8_1_dd56492c1a58674cb1190a74', {
     attribution: '© OpenStreetMap contributors © CARTO',
     subdomains: 'abcd'
   }).addTo(map);
