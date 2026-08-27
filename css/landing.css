@@ -76,7 +76,7 @@ html, body {
   text-align: center;
   background-image:
     linear-gradient(180deg, rgba(5, 12, 24, 0.75) /* near-black, no matching token */ 0%, rgba(5, 12, 24, 0.55) /* near-black, no matching token */ 40%, rgba(10, 22, 40, 1) /* --bg-primary @ 100% */ 100%),
-    url('../tc-ri/images/static/winds.png');
+    url('../static/img/banner.jpeg');
   background-size: cover;
   background-position: center 30%;
 }
