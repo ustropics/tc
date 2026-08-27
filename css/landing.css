@@ -150,6 +150,7 @@ a.landing-card:hover {
 .landing-card-title-row {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: var(--space-sm);
   margin-bottom: var(--space-sm);
 }
@@ -166,6 +167,7 @@ a.landing-card:hover {
   font-weight: 600;
   letter-spacing: 0.03em;
   text-transform: uppercase;
+  white-space: nowrap;
   color: var(--accent-secondary);
   background: rgba(0, 149, 255, 0.12); /* --accent-secondary @ 12% */
   border: 1px solid rgba(0, 149, 255, 0.3); /* --accent-secondary @ 30% */
@@ -221,6 +223,9 @@ a.landing-card:hover {
   color: var(--text-primary);
   margin-top: var(--space-lg);
   margin-bottom: var(--space-xs);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
 }
 
 /* === Responsive === */
