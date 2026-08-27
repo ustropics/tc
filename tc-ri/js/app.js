@@ -807,7 +807,8 @@ function resetPlayer() {
 
     // Re-open sidebar with the timestep that was being viewed
     if (restoreTimestep !== null && typeof trackData !== 'undefined' && typeof openSidebar === 'function') {
-        const matchingPoint = trackData.find(p => p.timestep === restoreTimestep);
+        // Timesteps repeat across storms now that all 4 tracks share trackData — match storm too.
+        const matchingPoint = trackData.find(p => p.timestep === restoreTimestep && p._storm === selectedStorm);
         if (matchingPoint) {
             setTimeout(() => openSidebar(matchingPoint), 150);
         }
@@ -1323,8 +1324,9 @@ window.onload = async () => {
     // Initialize track map on homepage, then auto-select first timestep
     if (typeof initTrackMap === 'function') {
         await initTrackMap();
-        if (window.trackData && window.trackData.length > 0 && window.openSidebar) {
-            window.openSidebar(window.trackData[0]);
+        const ianTrack = window.trackDataByStorm && window.trackDataByStorm['Ian'];
+        if (ianTrack && ianTrack.length > 0 && window.openSidebar) {
+            window.openSidebar(ianTrack[0]);
         }
     }
     

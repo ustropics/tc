@@ -5,7 +5,8 @@
 // ============================================
 
 let trackMap = null;
-let trackData = [];
+let trackData = [];           // flattened, all storms combined (each point tagged with _storm)
+let trackDataByStorm = {};    // storm name -> that storm's point array
 let trackLineSegments = [];
 let trackMarkerRefs = [];
 let trackMarkersLayer = null;
@@ -84,9 +85,10 @@ function getActiveFilters() {
 }
 
 function defaultMapSubtitle() {
-    if (!trackData.length) return 'WRF Simulation &bull; Eyewall Refined Center';
-    const start = formatDatetime(trackData[0].datetime);
-    const end = formatDatetime(trackData[trackData.length - 1].datetime);
+    const stormData = trackDataByStorm[currentTrackStorm] || [];
+    if (!stormData.length) return 'WRF Simulation &bull; Eyewall Refined Center';
+    const start = formatDatetime(stormData[0].datetime);
+    const end = formatDatetime(stormData[stormData.length - 1].datetime);
     return `WRF Simulation &bull; Eyewall Refined Center &bull; ${start} &ndash; ${end}`;
 }
 
@@ -205,8 +207,8 @@ function highlightActiveMarker(point) {
     // Reset previous highlight
     clearActiveMarkerHighlight();
 
-    // Find the marker for this point
-    const ref = trackMarkerRefs.find(r => r.point.timestep === point.timestep);
+    // Find the marker for this point (reference match — timesteps repeat across storms)
+    const ref = trackMarkerRefs.find(r => r.point === point);
     if (!ref) return;
 
     activeMarkerRef = ref.marker;
@@ -757,9 +759,9 @@ function applyFilter(filterKey) {
         });
     });
 
-    trackLineSegments.forEach((line, i) => {
-        const v1 = f.extract(trackData[i]);
-        const v2 = f.extract(trackData[i + 1]);
+    trackLineSegments.forEach(({ line, p1, p2 }) => {
+        const v1 = f.extract(p1);
+        const v2 = f.extract(p2);
         const avg = (v1 + v2) / 2;
         const t = normalizeValue(avg, minV, maxV, f.invert);
         line.setStyle({ color: intensityColor(t) });
@@ -824,21 +826,15 @@ async function loadTrackDataForStorm(storm) {
     if (!response.ok) throw new Error(`Failed to load track data for ${storm}`);
     const data = await response.json();
     const range = getStormFrameRange(storm);
-    if (!range) return data;
-    return data.filter(p => p.timestep >= range.start && p.timestep <= range.end);
+    const filtered = range ? data.filter(p => p.timestep >= range.start && p.timestep <= range.end) : data;
+    filtered.forEach(p => { p._storm = storm; });
+    return filtered;
 }
 
-function clearTrackLayers() {
-    trackLineSegments.forEach(seg => trackMap.removeLayer(seg));
-    trackLineSegments = [];
-    if (trackMarkersLayer) {
-        trackMap.removeLayer(trackMarkersLayer);
-        trackMarkersLayer = null;
-    }
-    trackMarkerRefs = [];
-}
-
-// Renders trackData (already loaded) onto an existing trackMap instance.
+// Renders every loaded storm's track (trackDataByStorm) onto the map at once.
+// Color scale (via activeFilter) is computed globally across all storms so
+// intensity is comparable storm-to-storm; polylines never connect across a
+// storm boundary.
 function renderTrackLayer() {
     const activeSet = getActiveFilters();
     if (!activeSet[activeFilter]) activeFilter = Object.keys(activeSet)[0];
@@ -847,32 +843,37 @@ function renderTrackLayer() {
     const minV = Math.min(...values);
     const maxV = Math.max(...values);
 
-    // === Track line segments ===
+    const storms = Object.keys(trackDataByStorm);
+
+    // === Track line segments (per-storm, never bridging storms) ===
     trackLineSegments = [];
-    for (let i = 0; i < trackData.length - 1; i++) {
-        const p1 = trackData[i];
-        const p2 = trackData[i + 1];
-        const avg = (f.extract(p1) + f.extract(p2)) / 2;
-        const t = normalizeValue(avg, minV, maxV, f.invert);
+    storms.forEach(storm => {
+        const stormData = trackDataByStorm[storm];
+        for (let i = 0; i < stormData.length - 1; i++) {
+            const p1 = stormData[i];
+            const p2 = stormData[i + 1];
+            const avg = (f.extract(p1) + f.extract(p2)) / 2;
+            const t = normalizeValue(avg, minV, maxV, f.invert);
 
-        const seg = L.polyline(
-            [
-                [p1.eyewall_refined_center.lat, p1.eyewall_refined_center.lon],
-                [p2.eyewall_refined_center.lat, p2.eyewall_refined_center.lon]
-            ],
-            {
-                color: intensityColor(t),
-                weight: 3.5,
-                opacity: 0.9,
-                lineCap: 'round',
-                lineJoin: 'round',
-                interactive: false
-            }
-        ).addTo(trackMap);
-        trackLineSegments.push(seg);
-    }
+            const seg = L.polyline(
+                [
+                    [p1.eyewall_refined_center.lat, p1.eyewall_refined_center.lon],
+                    [p2.eyewall_refined_center.lat, p2.eyewall_refined_center.lon]
+                ],
+                {
+                    color: intensityColor(t),
+                    weight: 3.5,
+                    opacity: 0.9,
+                    lineCap: 'round',
+                    lineJoin: 'round',
+                    interactive: false
+                }
+            ).addTo(trackMap);
+            trackLineSegments.push({ line: seg, p1, p2 });
+        }
+    });
 
-    // === Eyewall markers ===
+    // === Eyewall markers (all storms) ===
     const markersLayer = L.layerGroup().addTo(trackMap);
     trackMarkerRefs = [];
 
@@ -894,13 +895,16 @@ function renderTrackLayer() {
             }
         );
 
-        // Click → open sidebar (not popup)
+        // Click → switch active storm (if needed) and open sidebar
         marker.on('click', () => {
             console.log('Marker clicked for point:', point);
+            if (point._storm && point._storm !== currentTrackStorm) {
+                setActiveTrackStorm(point._storm, { skipAutoOpen: true });
+            }
             openSidebar(point);
         });
 
-        marker.bindTooltip(`T${point.timestep}`, {
+        marker.bindTooltip(`${point._storm ? point._storm + ' ' : ''}T${point.timestep}`, {
             permanent: false,
             direction: 'top',
             offset: [0, -radius - 4],
@@ -912,7 +916,7 @@ function renderTrackLayer() {
     });
     trackMarkersLayer = markersLayer;
 
-    // Fit bounds
+    // Fit bounds across all storms
     const eyewallCoords = trackData.map(p => [p.eyewall_refined_center.lat, p.eyewall_refined_center.lon]);
     const bounds = L.latLngBounds(eyewallCoords);
     trackMap.fitBounds(bounds.pad(0.15));
@@ -930,9 +934,15 @@ async function initTrackMap() {
         return;
     }
 
-    // Load track data
+    // Load every storm's track data up front so all tracks render at once.
+    const storms = Object.keys(window.catalog2d || {});
+    if (storms.length === 0) storms.push(currentTrackStorm);
+
     try {
-        trackData = await loadTrackDataForStorm(currentTrackStorm);
+        const results = await Promise.all(storms.map(loadTrackDataForStorm));
+        trackDataByStorm = {};
+        storms.forEach((storm, i) => { trackDataByStorm[storm] = results[i]; });
+        trackData = storms.flatMap(storm => trackDataByStorm[storm]);
     } catch (err) {
         console.error('Track data load error:', err);
         return;
@@ -969,24 +979,17 @@ async function initTrackMap() {
     // Expose for external auto-selection
     window.openSidebar = openSidebar;
     window.trackData = trackData;
+    window.trackDataByStorm = trackDataByStorm;
 }
 
-// Called when the storm dropdown selection changes — swaps track data/markers
-// on the already-initialized Leaflet map without rebuilding it.
-async function switchTrackMapStorm(storm) {
-    if (!trackMap || storm === currentTrackStorm) return;
-
-    let newData;
-    try {
-        newData = await loadTrackDataForStorm(storm);
-    } catch (err) {
-        console.error(`Failed to load track data for ${storm}:`, err);
-        return;
-    }
+// All storms' tracks stay drawn on the map permanently — "switching storm"
+// now only changes which storm the sidebar/product-viewer is focused on.
+// Called both from the storm dropdown (via app.js selectStorm) and from
+// clicking a track marker belonging to a different storm.
+function setActiveTrackStorm(storm, { skipAutoOpen = false } = {}) {
+    if (!trackMap || storm === currentTrackStorm || !trackDataByStorm[storm]) return;
 
     closeSidebar();
-    clearTrackLayers();
-    trackData = newData;
     currentTrackStorm = storm;
 
     // Reset sidebar product selections — old storm's product names may not
@@ -996,28 +999,30 @@ async function switchTrackMapStorm(storm) {
     sidebar3DProduct = null;
     sidebarDiagnosticsProduct = null;
 
-    renderTrackLayer();
     refreshSidebarMode();
 
     const titleEl = document.getElementById('map-title');
     if (titleEl) titleEl.textContent = `Hurricane ${storm}`;
 
-    window.trackData = trackData;
+    // Callers that are about to open a specific point themselves (e.g. a
+    // marker click) skip this — no point opening the first timestep just
+    // to immediately replace it.
+    if (skipAutoOpen) return;
 
-    // Jump straight to the new storm's first timestep instead of leaving
-    // the map on the fully-zoomed-out fitBounds view from renderTrackLayer() —
-    // but only when the map view is actually showing. If the product
-    // comparison player is open instead, leave it alone.
+    // Jump straight to the new storm's first timestep — but only when the
+    // map view is actually showing. If the product comparison player is
+    // open instead, leave it alone.
     const placeholderEl = document.getElementById('placeholder');
     const isMapViewActive = placeholderEl && placeholderEl.style.display !== 'none';
-    if (trackData.length > 0 && isMapViewActive) {
-        openSidebar(trackData[0]);
+    const stormData = trackDataByStorm[storm];
+    if (stormData.length > 0 && isMapViewActive) {
+        openSidebar(stormData[0]);
     } else {
         const subtitleEl = document.getElementById('map-subtitle');
         if (subtitleEl) subtitleEl.innerHTML = defaultMapSubtitle();
     }
 }
-window.switchTrackMapStorm = switchTrackMapStorm;
+window.switchTrackMapStorm = setActiveTrackStorm;
 
 // === TOOLTIP STYLES ===
 (function injectTooltipStyles() {
