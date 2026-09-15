@@ -1319,6 +1319,11 @@ input[type="range"]::-webkit-slider-thumb:hover {
     flex-shrink: 0;
 }
 
+.analysis-header-title #analysis-storm-menu {
+    left: 0;
+    right: auto;
+}
+
 .analysis-header-title {
     display: flex;
     align-items: center;

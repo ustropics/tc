@@ -567,7 +567,23 @@
         <div class="analysis-header">
             <div class="analysis-header-title">
                 <i class="fas fa-chart-bar"></i>
-                <span id="analysis-title">Analysis</span>
+                <div class="nav-btn-wrapper">
+                    <button class="nav-btn" id="analysis-storm-btn">
+                        <i class="fas fa-hurricane"></i>
+                        <span class="nav-btn-value" id="analysis-storm-value">Storm</span>
+                        <span class="nav-btn-text">Analysis</span>
+                        <i class="fas fa-chevron-down nav-btn-arrow"></i>
+                    </button>
+                    <div class="nav-dropdown" id="analysis-storm-menu">
+                        <div class="dropdown-header">
+                            <i class="fas fa-hurricane"></i>
+                            <span>Select Storm</span>
+                        </div>
+                        <div class="dropdown-content" id="analysis-storm-options">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
             </div>
             <button id="close-analysis" class="close-btn">
                 <i class="fas fa-times"></i>

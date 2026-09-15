@@ -25,6 +25,7 @@ window.catalog = catalog;
 let lightboxProduct = null;
 let lightboxIndex = 0;
 let lightboxStorm = '';
+let selectedAnalysisStorm = '';
 
 // Overlay states for each viewer
 let overlayState = {
@@ -108,10 +109,13 @@ const els = {
     closeAbout:   document.getElementById('close-about'),
 
     // Analysis overlay
-    analysisOverlay:   document.getElementById('analysis-overlay'),
-    analysisGrid:      document.getElementById('analysis-grid'),
-    analysisTitle:     document.getElementById('analysis-title'),
-    closeAnalysis:     document.getElementById('close-analysis'),
+    analysisOverlay:      document.getElementById('analysis-overlay'),
+    analysisGrid:         document.getElementById('analysis-grid'),
+    closeAnalysis:        document.getElementById('close-analysis'),
+    analysisStormBtn:     document.getElementById('analysis-storm-btn'),
+    analysisStormValue:   document.getElementById('analysis-storm-value'),
+    analysisStormMenu:    document.getElementById('analysis-storm-menu'),
+    analysisStormOptions: document.getElementById('analysis-storm-options'),
 
     // Lightbox
     lightboxOverlay:   document.getElementById('lightbox-overlay'),
@@ -918,6 +922,7 @@ function updateSliderMax() {
 els.stormBtn.onclick = () => toggleDropdown(els.stormBtn, els.stormMenu);
 els.product1Btn.onclick = () => toggleDropdown(els.product1Btn, els.product1Menu);
 els.product2Btn.onclick = () => toggleDropdown(els.product2Btn, els.product2Menu);
+if (els.analysisStormBtn) els.analysisStormBtn.onclick = () => toggleDropdown(els.analysisStormBtn, els.analysisStormMenu);
 els.view3dBtn.onclick = () => toggleDropdown(els.view3dBtn, els.view3dMenu);
 
 // Close dropdowns when clicking outside
@@ -1194,9 +1199,31 @@ window.selectBothProductsAndJumpToFrame = async function(stormName, productA, pr
 
 // === ANALYSIS SECTION ===
 
+function populateAnalysisStormMenu() {
+    if (!els.analysisStormOptions || !window.catalogAnalysis) return;
+    els.analysisStormOptions.innerHTML = '';
+
+    Object.keys(window.catalogAnalysis).sort().reverse().forEach(storm => {
+        const item = createDropdownItem(storm, storm, 'fas fa-hurricane');
+        item.onclick = () => {
+            closeAllDropdowns();
+            renderAnalysisGrid(storm);
+        };
+        els.analysisStormOptions.appendChild(item);
+    });
+}
+
 function openAnalysisOverlay() {
-    if (!selectedStorm || !window.catalogAnalysis || !window.catalogAnalysis[selectedStorm]) return;
-    renderAnalysisGrid(selectedStorm);
+    if (!window.catalogAnalysis) return;
+    const availableStorms = Object.keys(window.catalogAnalysis);
+    if (!availableStorms.length) return;
+
+    const storm = (selectedStorm && window.catalogAnalysis[selectedStorm])
+        ? selectedStorm
+        : availableStorms.sort()[0];
+
+    populateAnalysisStormMenu();
+    renderAnalysisGrid(storm);
     els.analysisOverlay.classList.add('open');
 }
 
@@ -1220,8 +1247,9 @@ function renderAnalysisGrid(stormName) {
     const products = window.catalogAnalysis[stormName];
     if (!products) return;
 
-    if (els.analysisTitle) {
-        els.analysisTitle.textContent = stormName + ' — Analysis';
+    selectedAnalysisStorm = stormName;
+    if (els.analysisStormValue) {
+        els.analysisStormValue.textContent = stormName;
     }
 
     els.analysisGrid.innerHTML = '';
