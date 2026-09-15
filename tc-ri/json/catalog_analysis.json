@@ -218,7 +218,7 @@
       "titlePattern": "{storm} Enthalpy Flux (Surface)",
       "images": [
         {
-          "src": "images/{storm}/diag/pres_eflx_sfc.png",
+          "src": "https://img.weathercanvas.com/{storm}/diag/pres_eflx_sfc.png",
           "label": "Enthalpy Flux (Surface)"
         }
       ]
@@ -229,7 +229,7 @@
       "titlePattern": "{storm} Primary Circulation (WRF)",
       "images": [
         {
-          "src": "images/{storm}/diag/pres_primary_circ_wrf.png",
+          "src": "https://img.weathercanvas.com/{storm}/diag/pres_primary_circ_wrf.png",
           "label": "Primary Circulation"
         }
       ]
@@ -240,15 +240,15 @@
       "titlePattern": "{storm} Secondary Circulation (WRF)",
       "images": [
         {
-          "src": "images/{storm}/diag/pres_secondary_circ_wrf_cpl.png",
+          "src": "https://img.weathercanvas.com/{storm}/diag/pres_secondary_circ_wrf_cpl.png",
           "label": "Coupled"
         },
         {
-          "src": "images/{storm}/diag/pres_secondary_circ_wrf_uncpl.png",
+          "src": "https://img.weathercanvas.com/{storm}/diag/pres_secondary_circ_wrf_uncpl.png",
           "label": "Uncoupled"
         },
         {
-          "src": "images/{storm}/diag/pres_secondary_circ_wrf_spray.png",
+          "src": "https://img.weathercanvas.com/{storm}/diag/pres_secondary_circ_wrf_spray.png",
           "label": "Spray"
         }
       ]
@@ -259,7 +259,7 @@
       "titlePattern": "{storm} SST Track",
       "images": [
         {
-          "src": "images/{storm}/diag/pres_sst_track.png",
+          "src": "https://img.weathercanvas.com/{storm}/diag/pres_sst_track.png",
           "label": "SST Track"
         }
       ]
@@ -270,7 +270,7 @@
       "titlePattern": "{storm} Timeseries",
       "images": [
         {
-          "src": "images/{storm}/diag/pres_timeseries.png",
+          "src": "https://img.weathercanvas.com/{storm}/diag/pres_timeseries.png",
           "label": "Timeseries"
         }
       ]
@@ -285,7 +285,7 @@
       "titlePattern": "{storm} Enthalpy Flux (Surface)",
       "images": [
         {
-          "src": "images/{storm}/diag/pres_eflx_sfc.png",
+          "src": "https://img.weathercanvas.com/{storm}/diag/pres_eflx_sfc.png",
           "label": "Enthalpy Flux (Surface)"
         }
       ]
@@ -296,7 +296,7 @@
       "titlePattern": "{storm} Primary Circulation (WRF)",
       "images": [
         {
-          "src": "images/{storm}/diag/pres_primary_circ_wrf.png",
+          "src": "https://img.weathercanvas.com/{storm}/diag/pres_primary_circ_wrf.png",
           "label": "Primary Circulation"
         }
       ]
@@ -307,15 +307,15 @@
       "titlePattern": "{storm} Secondary Circulation (WRF)",
       "images": [
         {
-          "src": "images/{storm}/diag/pres_secondary_circ_wrf_cpl.png",
+          "src": "https://img.weathercanvas.com/{storm}/diag/pres_secondary_circ_wrf_cpl.png",
           "label": "Coupled"
         },
         {
-          "src": "images/{storm}/diag/pres_secondary_circ_wrf_uncpl.png",
+          "src": "https://img.weathercanvas.com/{storm}/diag/pres_secondary_circ_wrf_uncpl.png",
           "label": "Uncoupled"
         },
         {
-          "src": "images/{storm}/diag/pres_secondary_circ_wrf_spray.png",
+          "src": "https://img.weathercanvas.com/{storm}/diag/pres_secondary_circ_wrf_spray.png",
           "label": "Spray"
         }
       ]
@@ -326,7 +326,7 @@
       "titlePattern": "{storm} SST Track",
       "images": [
         {
-          "src": "images/{storm}/diag/pres_sst_track.png",
+          "src": "https://img.weathercanvas.com/{storm}/diag/pres_sst_track.png",
           "label": "SST Track"
         }
       ]
@@ -337,7 +337,7 @@
       "titlePattern": "{storm} Timeseries",
       "images": [
         {
-          "src": "images/{storm}/diag/pres_timeseries.png",
+          "src": "https://img.weathercanvas.com/{storm}/diag/pres_timeseries.png",
           "label": "Timeseries"
         }
       ]
@@ -352,7 +352,7 @@
       "titlePattern": "{storm} Enthalpy Flux (Surface)",
       "images": [
         {
-          "src": "images/{storm}/diag/pres_eflx_sfc.png",
+          "src": "https://img.weathercanvas.com/{storm}/diag/pres_eflx_sfc.png",
           "label": "Enthalpy Flux (Surface)"
         }
       ]
@@ -363,7 +363,7 @@
       "titlePattern": "{storm} Primary Circulation (WRF)",
       "images": [
         {
-          "src": "images/{storm}/diag/pres_primary_circ_wrf.png",
+          "src": "https://img.weathercanvas.com/{storm}/diag/pres_primary_circ_wrf.png",
           "label": "Primary Circulation"
         }
       ]
@@ -374,15 +374,15 @@
       "titlePattern": "{storm} Secondary Circulation (WRF)",
       "images": [
         {
-          "src": "images/{storm}/diag/pres_secondary_circ_wrf_cpl.png",
+          "src": "https://img.weathercanvas.com/{storm}/diag/pres_secondary_circ_wrf_cpl.png",
           "label": "Coupled"
         },
         {
-          "src": "images/{storm}/diag/pres_secondary_circ_wrf_uncpl.png",
+          "src": "https://img.weathercanvas.com/{storm}/diag/pres_secondary_circ_wrf_uncpl.png",
           "label": "Uncoupled"
         },
         {
-          "src": "images/{storm}/diag/pres_secondary_circ_wrf_spray.png",
+          "src": "https://img.weathercanvas.com/{storm}/diag/pres_secondary_circ_wrf_spray.png",
           "label": "Spray"
         }
       ]
@@ -393,7 +393,7 @@
       "titlePattern": "{storm} SST Track",
       "images": [
         {
-          "src": "images/{storm}/diag/pres_sst_track.png",
+          "src": "https://img.weathercanvas.com/{storm}/diag/pres_sst_track.png",
           "label": "SST Track"
         }
       ]
@@ -404,7 +404,7 @@
       "titlePattern": "{storm} Timeseries",
       "images": [
         {
-          "src": "images/{storm}/diag/pres_timeseries.png",
+          "src": "https://img.weathercanvas.com/{storm}/diag/pres_timeseries.png",
           "label": "Timeseries"
         }
       ]
@@ -419,7 +419,7 @@
       "titlePattern": "{storm} Enthalpy Flux (Surface)",
       "images": [
         {
-          "src": "images/{storm}/diag/pres_eflx_sfc.png",
+          "src": "https://img.weathercanvas.com/{storm}/diag/pres_eflx_sfc.png",
           "label": "Enthalpy Flux (Surface)"
         }
       ]
@@ -430,7 +430,7 @@
       "titlePattern": "{storm} Primary Circulation (WRF)",
       "images": [
         {
-          "src": "images/{storm}/diag/pres_primary_circ_wrf.png",
+          "src": "https://img.weathercanvas.com/{storm}/diag/pres_primary_circ_wrf.png",
           "label": "Primary Circulation"
         }
       ]
@@ -441,15 +441,15 @@
       "titlePattern": "{storm} Secondary Circulation (WRF)",
       "images": [
         {
-          "src": "images/{storm}/diag/pres_secondary_circ_wrf_cpl.png",
+          "src": "https://img.weathercanvas.com/{storm}/diag/pres_secondary_circ_wrf_cpl.png",
           "label": "Coupled"
         },
         {
-          "src": "images/{storm}/diag/pres_secondary_circ_wrf_uncpl.png",
+          "src": "https://img.weathercanvas.com/{storm}/diag/pres_secondary_circ_wrf_uncpl.png",
           "label": "Uncoupled"
         },
         {
-          "src": "images/{storm}/diag/pres_secondary_circ_wrf_spray.png",
+          "src": "https://img.weathercanvas.com/{storm}/diag/pres_secondary_circ_wrf_spray.png",
           "label": "Spray"
         }
       ]
@@ -460,7 +460,7 @@
       "titlePattern": "{storm} SST Track",
       "images": [
         {
-          "src": "images/{storm}/diag/pres_sst_track.png",
+          "src": "https://img.weathercanvas.com/{storm}/diag/pres_sst_track.png",
           "label": "SST Track"
         }
       ]
@@ -471,7 +471,7 @@
       "titlePattern": "{storm} Timeseries",
       "images": [
         {
-          "src": "images/{storm}/diag/pres_timeseries.png",
+          "src": "https://img.weathercanvas.com/{storm}/diag/pres_timeseries.png",
           "label": "Timeseries"
         }
       ]
