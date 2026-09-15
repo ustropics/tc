@@ -22,9 +22,8 @@ let mobileShowingPlayer = false;
 window.catalog = catalog;
 
 // Analysis lightbox state
-let lightboxProduct = null;
+let lightboxImages = [];
 let lightboxIndex = 0;
-let lightboxStorm = '';
 let selectedAnalysisStorm = '';
 
 // Overlay states for each viewer
@@ -1299,16 +1298,27 @@ function renderAnalysisGrid(stormName) {
     });
 }
 
-function openLightbox(productName, productConfig, stormName, startIndex) {
-    lightboxProduct = productConfig;
-    lightboxIndex = startIndex;
-    lightboxStorm = stormName;
+function getAnalysisLightboxImages(stormName) {
+    const products = window.catalogAnalysis[stormName] || {};
+    const flat = [];
+    Object.entries(products).forEach(([productName, config]) => {
+        if (config.type !== 'static') return;
+        resolveStaticPaths(config, stormName).forEach(img => {
+            flat.push({ src: img.src, label: img.label, productName });
+        });
+    });
+    return flat;
+}
 
-    const images = resolveStaticPaths(productConfig, stormName);
+function openLightbox(productName, productConfig, stormName, startIndex) {
+    const images = getAnalysisLightboxImages(stormName);
     if (!images.length) return;
 
-    els.lightboxOverlay.dataset.productName = productName;
-    showLightboxFrame(images, lightboxIndex);
+    const startSrc = resolveStaticPaths(productConfig, stormName)[startIndex]?.src;
+    const globalIndex = images.findIndex(img => img.src === startSrc);
+
+    lightboxImages = images;
+    showLightboxFrame(images, globalIndex >= 0 ? globalIndex : 0);
     els.lightboxOverlay.classList.add('open');
 }
 
@@ -1318,26 +1328,25 @@ function showLightboxFrame(images, idx) {
     lightboxIndex = idx;
 
     els.lightboxImage.src = images[idx].src;
-    els.lightboxLabel.textContent = images[idx].label;
+    els.lightboxLabel.textContent = `${images[idx].productName} — ${images[idx].label}`;
+    els.lightboxOverlay.dataset.productName = images[idx].productName;
 
     els.lightboxPrevBtn.style.display = images.length > 1 ? '' : 'none';
     els.lightboxNextBtn.style.display = images.length > 1 ? '' : 'none';
 }
 
 function lightboxNext() {
-    const images = resolveStaticPaths(lightboxProduct, lightboxStorm);
-    showLightboxFrame(images, lightboxIndex + 1);
+    showLightboxFrame(lightboxImages, lightboxIndex + 1);
 }
 
 function lightboxPrev() {
-    const images = resolveStaticPaths(lightboxProduct, lightboxStorm);
-    showLightboxFrame(images, lightboxIndex - 1);
+    showLightboxFrame(lightboxImages, lightboxIndex - 1);
 }
 
 function closeLightboxOverlay() {
     els.lightboxOverlay.classList.remove('open');
     els.lightboxImage.src = '';
-    lightboxProduct = null;
+    lightboxImages = [];
 }
 
 // === INITIALIZATION ===
